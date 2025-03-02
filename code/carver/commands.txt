@@ -1,0 +1,130 @@
+## Current path: ~/test_kepler/kepler
+## step 0 (ONLY once): generate training metadata
+# imdb_parametric_query_dataset/generate_training_metadata.py
+# generate training_metadata/ files including distinct_values, most_common_values, most_common_frequency
+python -m pip install kepler
+python -m imdb_data.generate_training_metadata
+
+## step 0: generate parameters
+# cardinality (haibo's)
+python -m kepler.training_data_collection_pipeline.param_gen_new
+
+# sampling (built-in)
+python -m kepler.training_data_collection_pipeline.parameter_generator_main \
+  --database=imdbloadbase \
+  --user=kepler \
+  --password=kepler \
+  --host=localhost \
+  --template_file=imdb_test_dataset/templates/1a.json \
+  --counts_output_file=imdb_test_dataset/metadata/uniform_sampling/1a/output_counts.json \
+  --parameters_output_dir=imdb_test_dataset/metadata/uniform_sampling/1a/ \
+  --count=500
+
+## step 1: generate plan candidates
+python -m kepler.training_data_collection_pipeline.pg_generate_plan_candidates_main \
+    --database imdbloadbase \
+    --user kepler \
+    --password kepler \
+    --host localhost \
+    --query_params_file imdb_data/pipeline_combination_input/2a/model_testing/q2a_t1.json \
+    --output_dir imdb_data_output/execution_data/hints/ \
+    --plans_output_file imdb_plans.json \
+    --generation_function row_num_evolution
+
+## step 2: collect execution result
+python -m kepler.training_data_collection_pipeline.pg_execute_training_data_queries_main \
+    --database imdbloadbase \
+    --user kepler \
+    --password kepler \
+    --query_templates_file imdb_data/pipeline_combination_input/2a/model_testing/q2a_t1.json \
+    --parameter_values_file imdb_data_output/execution_data/hints/imdbloadbase/imdb_plans_plan_index.json \
+    --plan_hints_file imdb_data_output/execution_data/hints/imdbloadbase/imdb_plans.json \
+    --execution_method regular \
+    --output_dir imdb_data_output/execution_data/results/q2a_t1 \
+    --near_optimal_threshold 1.01 \
+    --num_params_threshold 0.99 \
+    --plan_cover_num_params 99 (use all (# - 1) params to get the exact same) param_idx
+
+## step 3: use active learning model to reduce overhead
+python -m kepler.examples.active_learning_for_training_data_collection_main \
+    --query_metadata imdb_data/pipeline_combination_input/7a/model_testing/q7a_t1.json \
+    --vocab_data_dir imdb_data/training_metadata \
+    --execution_metadata imdb_data_output/combination/execution_data/7a/results/q7a_t1/execution_output/imdbloadbase_q7a_t1_metadata.json \
+    --execution_data imdb_data_output/combination/execution_data/7a/results/q7a_t1/execution_output/imdbloadbase_q7a_t1.json \
+    --query_id q7a_t1 \
+    --testing_parameter_values imdb_data/pipeline_combination_input/7a/model_testing/q7a_t1.json \
+    --plan_hints_file imdb_data_output/combination/execution_data/7a/hints/7a_t1/imdbloadbase/imdb_plans.json \
+    --num_initial_query_instances 127 \
+    --num_next_query_instances_per_iteration 50
+
+
+    "--num_initial_query_instances {num_initial} "
+    "--num_next_query_instances_per_iteration {num_per_iteration}"
+
+######################################
+## Current path: ~/test_kepler/kepler
+# kepler/examples/active_learning_for_training_data_collection_main.py 
+# test model performance
+python -m kepler.examples.active_learning_for_training_data_collection_main \
+    --query_metadata ../stack_parametric_query_dataset/stack_query_templates_with_metadata.json \
+    --vocab_data_dir ../stack_parametric_query_dataset/training_metadata \
+    --execution_metadata ../stack_parametric_query_dataset/execution_data/results/q11_0/execution_output/stack_q11_0_metadata.json \
+    --execution_data ../stack_parametric_query_dataset/execution_data/results/q11_0/execution_output/stack_q11_0.json \
+    --query_id q11_0
+
+################################
+# imdb_parametric_query_dataset/generate_training_metadata.py
+# generate training_metadata/ files including distinct_values, most_common_values, most_common_frequency
+python -m pip install kepler
+python -m imdb_data.generate_training_metadata
+
+
+# kepler/training_data_collection_pipeline/pg_generate_plan_candidates_main.py
+# get hint/ files including candidate plans, plan_index, hints, etc
+# USE COLLECTION
+python -m kepler.training_data_collection_pipeline.pg_generate_plan_candidates_main \
+    --database imdbloadbase \
+    --user kepler \
+    --password kepler \
+    --host localhost \
+    --query_params_file imdb_data/pipeline_input/collection/1a_distinct.json \
+    --output_dir imdb_data_output/execution_data/hints/1a \
+    --plans_output_file imdb_plans.json \
+    --generation_function row_num_evolution
+
+
+# kepler/training_data_collection_pipeline/pg_execute_training_data_queries_main.py
+# get execution_output/ files including imdbload_q1a_0_metadata.json
+# psql imdbload;
+# SHOW shared_preload_libraries;
+# CREATE EXTENSION pg_stat_statements;
+# USE COLLECTION
+python -m kepler.training_data_collection_pipeline.pg_execute_training_data_queries_main \
+    --database imdbloadbase \
+    --user kepler \
+    --password kepler \
+    --query_templates_file imdb_data/pipeline_input/collection/1a_distinct.json \
+    --parameter_values_file imdb_data_output/execution_data/hints/1a/imdbloadbase/imdb_plans_plan_index.json \
+    --plan_hints_file imdb_data_output/execution_data/hints/1a/imdbloadbase/imdb_plans.json \
+    --execution_method regular \
+    --output_dir imdb_data_output/execution_data/results/1a \
+    --near_optimal_threshold 1.1 \
+    --num_params_threshold 0.9 \
+    --plan_cover_num_params 53 (use all (# - 1) hints to get the exact same) param_idx
+
+
+# kepler/examples/active_learning_for_training_data_collection_main.py 
+# test model performance
+# USE MODEL_TESTING
+python -m kepler.examples.active_learning_for_training_data_collection_main \
+    --query_metadata imdb_data/pipeline_input/model_testing/7a.json \
+    --vocab_data_dir imdb_data/training_metadata \
+    --execution_metadata imdb_data_output/execution_data/results/7a/execution_output/imdbloadbase_q7a_0_metadata.json \
+    --execution_data imdb_data_output/execution_data/results/7a/execution_output/imdbloadbase_q7a_0.json \
+    --query_id q7a_0 \
+    --testing_parameter_values imdb_data/pipeline_input/model_testing/7a.json \
+    --plan_hints_file imdb_data_output/execution_data/hints/7a/imdbloadbase/imdb_plans.json \
+    --num_initial_query_instances 8 \
+    --num_next_query_instances_per_iteration 10
+
+SET shared_preload_libraries="pg_stat_statements"

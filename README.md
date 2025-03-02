@@ -1,5 +1,7 @@
-# PAR2QO: Parametric Penalty-Aware Robust Query Optimization
 
+# Full version paper is: [par2qo.pdf](https://github.com/Hap-Hugh/PAR2QO/blob/main/par2qo.pdf)
+
+## PAR2QO: Parametric Penalty-Aware Robust Query Optimization
 
 
 This is the GitHub repository for PAR2QO's submission. The full version paper is: [par2qo.pdf](https://github.com/Hap-Hugh/PAR2QO/blob/main/par2qo.pdf)

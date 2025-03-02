@@ -1,0 +1,603 @@
+{
+  "099": {
+    "query": "SELECT min(w_warehouse_name)\n  ,min(sm_type)\n  ,min(cc_name)\n  ,min(cs_order_number)\n  ,min(cs_item_sk)\nfrom\n   catalog_sales\n  ,warehouse\n  ,ship_mode\n  ,call_center\n  ,date_dim\nwhere\n    d_month_seq between @param0 and @param0 + 23\nand cs_ship_date_sk   = d_date_sk\nand cs_warehouse_sk   = w_warehouse_sk\nand cs_ship_mode_sk   = sm_ship_mode_sk\nand cs_call_center_sk = cc_call_center_sk\nand cs_list_price between @param1 and @param2\nand sm_type = '@param3'\nand cc_class = '@param4'\nand w_gmt_offset = @param5\n;",
+    "predicates": [
+      {
+        "alias": "",
+        "column": "d_month_seq",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "date_dim",
+        "min": 0,
+        "max": 2400,
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_ship_date_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_ship_date_sk   = d_date_sk"
+        ],
+        "left_or_right": [
+          "l"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cs_list_price",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "catalog_sales",
+        "min": 1,
+        "max": 300,
+        "join_tables": [
+          "date_dim",
+          "warehouse",
+          "ship_mode",
+          "call_center"
+        ],
+        "join_tables_alias": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "d_date_sk"
+          ],
+          [
+            "w_warehouse_sk"
+          ],
+          [
+            "sm_ship_mode_sk"
+          ],
+          [
+            "cc_call_center_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_ship_date_sk   = d_date_sk",
+          "cs_warehouse_sk   = w_warehouse_sk",
+          "cs_ship_mode_sk   = sm_ship_mode_sk",
+          "cs_call_center_sk = cc_call_center_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cs_list_price",
+        "operator": "<=",
+        "data_type": "int",
+        "table": "catalog_sales",
+        "min": 1,
+        "max": 300,
+        "join_tables": [
+          "date_dim",
+          "warehouse",
+          "ship_mode",
+          "call_center"
+        ],
+        "join_tables_alias": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "d_date_sk"
+          ],
+          [
+            "w_warehouse_sk"
+          ],
+          [
+            "sm_ship_mode_sk"
+          ],
+          [
+            "cc_call_center_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_ship_date_sk   = d_date_sk",
+          "cs_warehouse_sk   = w_warehouse_sk",
+          "cs_ship_mode_sk   = sm_ship_mode_sk",
+          "cs_call_center_sk = cc_call_center_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "sm_type",
+        "operator": "=",
+        "data_type": "text",
+        "table": "ship_mode",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_ship_mode_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_ship_mode_sk   = sm_ship_mode_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cc_class",
+        "operator": "=",
+        "data_type": "text",
+        "table": "call_center",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_call_center_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_call_center_sk = cc_call_center_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "w_gmt_offset",
+        "operator": "=",
+        "data_type": "int",
+        "table": "warehouse",
+        "min": -6,
+        "max": -5,
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_warehouse_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_warehouse_sk   = w_warehouse_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      }
+    ],
+    "params": [
+      [
+        "1207",
+        "43",
+        "72",
+        "LIBRARY",
+        "small",
+        "-5"
+      ],
+      [
+        "1177",
+        "62",
+        "91",
+        "NEXT DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1176",
+        "195",
+        "224",
+        "OVERNIGHT",
+        "medium",
+        "-5"
+      ],
+      [
+        "1198",
+        "234",
+        "263",
+        "LIBRARY",
+        "small",
+        "-5"
+      ],
+      [
+        "1186",
+        "131",
+        "160",
+        "NEXT DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1210",
+        "45",
+        "74",
+        "LIBRARY",
+        "small",
+        "-5"
+      ],
+      [
+        "1195",
+        "162",
+        "191",
+        "TWO DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1200",
+        "204",
+        "233",
+        "TWO DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1191",
+        "269",
+        "298",
+        "TWO DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1182",
+        "135",
+        "164",
+        "NEXT DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1185",
+        "190",
+        "219",
+        "TWO DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1191",
+        "209",
+        "238",
+        "NEXT DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1189",
+        "39",
+        "68",
+        "OVERNIGHT",
+        "small",
+        "-5"
+      ],
+      [
+        "1184",
+        "116",
+        "145",
+        "LIBRARY",
+        "small",
+        "-5"
+      ],
+      [
+        "1198",
+        "264",
+        "293",
+        "TWO DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1204",
+        "6",
+        "35",
+        "LIBRARY",
+        "small",
+        "-5"
+      ],
+      [
+        "1196",
+        "271",
+        "300",
+        "OVERNIGHT",
+        "small",
+        "-5"
+      ],
+      [
+        "1190",
+        "75",
+        "104",
+        "LIBRARY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1205",
+        "239",
+        "268",
+        "EXPRESS",
+        "medium",
+        "-5"
+      ],
+      [
+        "1188",
+        "65",
+        "94",
+        "TWO DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1185",
+        "71",
+        "100",
+        "LIBRARY",
+        "small",
+        "-5"
+      ],
+      [
+        "1212",
+        "91",
+        "120",
+        "TWO DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1203",
+        "106",
+        "135",
+        "LIBRARY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1182",
+        "241",
+        "270",
+        "NEXT DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1194",
+        "8",
+        "37",
+        "NEXT DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1197",
+        "67",
+        "96",
+        "LIBRARY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1198",
+        "48",
+        "77",
+        "LIBRARY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1178",
+        "271",
+        "300",
+        "LIBRARY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1198",
+        "221",
+        "250",
+        "TWO DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1202",
+        "240",
+        "269",
+        "TWO DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1182",
+        "62",
+        "91",
+        "TWO DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1188",
+        "271",
+        "300",
+        "NEXT DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1210",
+        "111",
+        "140",
+        "LIBRARY",
+        "small",
+        "-5"
+      ],
+      [
+        "1200",
+        "228",
+        "257",
+        "TWO DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1185",
+        "271",
+        "300",
+        "NEXT DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1212",
+        "143",
+        "172",
+        "TWO DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1179",
+        "271",
+        "300",
+        "LIBRARY",
+        "small",
+        "-5"
+      ],
+      [
+        "1206",
+        "258",
+        "287",
+        "NEXT DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1178",
+        "95",
+        "124",
+        "NEXT DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1206",
+        "68",
+        "97",
+        "NEXT DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1200",
+        "213",
+        "242",
+        "TWO DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1177",
+        "300",
+        "329",
+        "TWO DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1198",
+        "242",
+        "271",
+        "TWO DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1188",
+        "134",
+        "163",
+        "TWO DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1189",
+        "271",
+        "300",
+        "NEXT DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1207",
+        "41",
+        "70",
+        "TWO DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1193",
+        "53",
+        "82",
+        "NEXT DAY",
+        "small",
+        "-5"
+      ],
+      [
+        "1187",
+        "75",
+        "104",
+        "TWO DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1205",
+        "190",
+        "219",
+        "TWO DAY",
+        "medium",
+        "-5"
+      ],
+      [
+        "1193",
+        "271",
+        "300",
+        "NEXT DAY",
+        "small",
+        "-5"
+      ]
+    ]
+  }
+}

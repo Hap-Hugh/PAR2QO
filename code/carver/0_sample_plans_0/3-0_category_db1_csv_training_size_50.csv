@@ -1,0 +1,2401 @@
+query,plan_id,plan_content
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2009;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 1950;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 1950;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2014;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror', 'Western', 'Family')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 1950;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German', 'USA', 'American')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror', 'Western', 'Family')
+ AND t.production_year > 2009;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 1950;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('USA', 'America')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German', 'USA', 'American')
+ AND t.production_year > 2009;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror', 'Western', 'Family')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2008;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 2014;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German', 'USA', 'American')
+ AND t.production_year > 2009;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Bulgaria')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German', 'USA', 'American')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Bulgaria')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Bulgaria')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2008;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2008;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German', 'USA', 'American')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('USA', 'America')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 1950;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German', 'USA', 'American')
+ AND t.production_year > 2014;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror', 'Western', 'Family')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror', 'Western', 'Family')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 1950;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German', 'USA', 'American')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('USA', 'America')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror')
+ AND t.production_year > 1950;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2009;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 1950;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German', 'USA', 'American')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 1950;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2008;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2014;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German', 'USA', 'American')
+ AND t.production_year > 2008;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2009;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Bulgaria')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2014;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2014;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Drama', 'Horror', 'Western', 'Family')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Bulgaria')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German', 'USA', 'American')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Bulgaria')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English')
+ AND t.production_year > 1950;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2005;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German')
+ AND t.production_year > 2000;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Sweden', 'Germany', 'Swedish', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Thriller')
+ AND t.production_year > 1990;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Germany', 'German')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_1 AS k,
+ cat_movie_info_1 AS mi,
+ cat_movie_keyword_1 AS mk,
+ cat_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sequel%'
+ AND mi.info IN ('Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War')
+ AND t.production_year > 2010;",3,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_cat_1) IndexScan(t cat_title_1_pkey) IndexScan(mi movie_id_movie_info_cat_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */

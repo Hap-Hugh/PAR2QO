@@ -1,0 +1,9 @@
+cd_marital_status = '@param0'
+cd_education_status = '@param1'
+cd_marital_status = '@param2'
+cd_education_status = '@param3'
+cd_marital_status = '@param4'
+cd_education_status = '@param5'
+ca_state in ('@param6')
+ca_state in ('@param7')
+ca_state in ('@param8')

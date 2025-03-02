@@ -1,0 +1,4601 @@
+query,plan_id,plan_content
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(production executive: Infinity)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(%'
+AND mc.note NOT LIKE '%9%'
+AND n.name LIKE '%o%'
+AND n.name NOT LIKE '%R%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(2007)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%M%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[ca]'
+AND mc.note LIKE '%c%'
+AND mc.note NOT LIKE '%t%'
+AND n.name LIKE '%a%'
+AND n.name NOT LIKE '%t%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(VHS)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%J%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%2006%'
+AND mc.note NOT LIKE '%co%'
+AND n.name LIKE '%D%'
+AND n.name NOT LIKE '%Joey%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%with%'
+AND n.name LIKE '%Kevin%'
+AND n.name NOT LIKE '%Albert%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(screenplay and adaptation)'
+AND cn.country_code = '[fr]'
+AND mc.note LIKE '%t%'
+AND mc.note NOT LIKE '%m%'
+AND n.name LIKE '%e%'
+AND n.name NOT LIKE '%F%'
+AND rt.role = 'writer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%with%'
+AND mc.note NOT LIKE '%1995%'
+AND n.name LIKE '%Rob%'
+AND n.name NOT LIKE '%William%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(executive producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%TV%'
+AND mc.note NOT LIKE '%2006%'
+AND n.name LIKE '%Harry%'
+AND n.name NOT LIKE '%Moore%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(executive producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%p%'
+AND mc.note NOT LIKE '%i%'
+AND n.name LIKE '%Sr%'
+AND n.name NOT LIKE '%n%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%c%'
+AND mc.note NOT LIKE '%Golden%'
+AND n.name LIKE '%Godfrey%'
+AND n.name NOT LIKE '%Greenhough%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(continuity)'
+AND cn.country_code = '[gb]'
+AND mc.note LIKE '%)%'
+AND mc.note NOT LIKE '%a%'
+AND n.name LIKE '%i%'
+AND n.name NOT LIKE '%a%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%TV%'
+AND n.name LIKE '%Frank%'
+AND n.name NOT LIKE '%Ko%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(200%)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%J%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(executive producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%worldwide%'
+AND mc.note NOT LIKE '%DVD%'
+AND n.name LIKE '%Wolf%'
+AND n.name NOT LIKE '%D%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(executive producer)'
+AND cn.country_code = '[jp]'
+AND mc.note LIKE '%(%'
+AND mc.note NOT LIKE '%a%'
+AND n.name LIKE '%c%'
+AND n.name NOT LIKE '%n%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[nl]'
+AND mc.note LIKE '%(2007)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%Yo%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%c%'
+AND mc.note NOT LIKE '%2010%'
+AND n.name LIKE '%Quinn%'
+AND n.name NOT LIKE '%Kimberly%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%media%'
+AND n.name LIKE '%h%'
+AND n.name NOT LIKE '%Roger%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(writer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%2006%'
+AND n.name LIKE '%Frank%'
+AND n.name NOT LIKE '%Dever%'
+AND rt.role = 'miscellaneous crew';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(production assistant)'
+AND cn.country_code = '[br]'
+AND mc.note LIKE '%l%'
+AND mc.note NOT LIKE '%2%'
+AND n.name LIKE '%t%'
+AND n.name NOT LIKE '%K%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%TV%'
+AND mc.note NOT LIKE '%worldwide%'
+AND n.name LIKE '%Michaels%'
+AND n.name NOT LIKE '%Reems%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(worldwide)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'A%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(archive footage)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%association%'
+AND mc.note NOT LIKE '%TV%'
+AND n.name LIKE '%Ho%'
+AND n.name NOT LIKE '%Cassie%'
+AND rt.role = 'actress';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%r%'
+AND n.name LIKE '%Roger%'
+AND n.name NOT LIKE '%Havlan%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(theatrical)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%G%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(Blu-ray)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%G%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%co%'
+AND mc.note NOT LIKE '%theatrical%'
+AND n.name LIKE '%Ho%'
+AND n.name NOT LIKE '%Jana%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%Hungary%'
+AND n.name LIKE '%JesÃºs%'
+AND n.name NOT LIKE '%Robert%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice) (uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(%'
+AND mc.note NOT LIKE '%0%'
+AND n.name LIKE '%r%'
+AND n.name NOT LIKE '%s%'
+AND rt.role = 'actor';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(script supervisor)'
+AND cn.country_code = '[nl]'
+AND mc.note LIKE '%(%'
+AND mc.note NOT LIKE '%i%'
+AND n.name LIKE '%p%'
+AND n.name NOT LIKE '%r%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%association%'
+AND mc.note NOT LIKE '%USA%'
+AND n.name LIKE '%Michael%'
+AND n.name NOT LIKE '%Frank%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(costumes: women)'
+AND cn.country_code = '[fr]'
+AND mc.note LIKE '%(%'
+AND mc.note NOT LIKE '%0%'
+AND n.name LIKE '%e%'
+AND n.name NOT LIKE '%r%'
+AND rt.role = 'costume designer';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[jp]'
+AND mc.note LIKE '%(200%)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%S%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(theatrical)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%An%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(Japan)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%W%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(production assistant)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%)%'
+AND mc.note NOT LIKE '%D%'
+AND n.name LIKE '%P%'
+AND n.name NOT LIKE '%A%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(production assistant)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%2007%'
+AND mc.note NOT LIKE '%2011%'
+AND n.name LIKE '%Roger%'
+AND n.name NOT LIKE '%Merv%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%2007%'
+AND mc.note NOT LIKE '%in%'
+AND n.name LIKE '%Dan%'
+AND n.name NOT LIKE '%Jammot%'
+AND rt.role = 'writer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(executive producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%in%'
+AND mc.note NOT LIKE '%DVD%'
+AND n.name LIKE '%Armand%'
+AND n.name NOT LIKE '%Dobkowitz%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%A%'
+AND mc.note NOT LIKE '%DVD%'
+AND n.name LIKE '%Joe%'
+AND n.name NOT LIKE '%Sal%'
+AND rt.role = 'writer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[de]'
+AND mc.note LIKE '%)%'
+AND mc.note NOT LIKE '%1%'
+AND n.name LIKE '%M%'
+AND n.name NOT LIKE '%r%'
+AND rt.role = 'actor';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(screenplay)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%)%'
+AND mc.note NOT LIKE '%?%'
+AND n.name LIKE '%r%'
+AND n.name NOT LIKE '%,%'
+AND rt.role = 'writer';",31,/*+  SeqScan(mc) SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(an person_id_aka_name) IndexScan(n name_pkey) IndexScan(t title_pkey) HashJoin(mc cn) NestLoop(rt ci) HashJoin(mc cn rt ci) NestLoop(mc cn rt ci an) NestLoop(mc cn rt ci an n) NestLoop(mc cn rt ci an n t) Leading((((((mc cn) (rt ci)) an) n) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(2006)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'C%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(production assistant)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%with%'
+AND n.name LIKE '%E%'
+AND n.name NOT LIKE '%Riccardo%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(USA)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%Q%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[de]'
+AND mc.note LIKE '%(2007)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%S%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(presents)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'J%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(Japan)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%H%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(double) (uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%s%'
+AND mc.note NOT LIKE '%V%'
+AND n.name LIKE '%y%'
+AND n.name NOT LIKE '%l%'
+AND rt.role = 'miscellaneous crew';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(executive producer)'
+AND cn.country_code = '[fr]'
+AND mc.note LIKE '%t%'
+AND mc.note NOT LIKE '%association%'
+AND n.name LIKE '%Ho%'
+AND n.name NOT LIKE '%Dobkowitz%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(worldwide)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%R%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%2004%'
+AND mc.note NOT LIKE '%as%'
+AND n.name LIKE '%Brian%'
+AND n.name NOT LIKE '%Armand%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[fr]'
+AND mc.note LIKE '%F%'
+AND mc.note NOT LIKE '%c%'
+AND n.name LIKE '%i%'
+AND n.name NOT LIKE '%C%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(worldwide)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE 'B%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(associate producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%Four%'
+AND mc.note NOT LIKE '%TV%'
+AND n.name LIKE '%Michael%'
+AND n.name NOT LIKE '%Kane%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(craft service)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%a%'
+AND mc.note NOT LIKE '%1%'
+AND n.name LIKE '%,%'
+AND n.name NOT LIKE '%n%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(writer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%TV%'
+AND mc.note NOT LIKE '%DVD%'
+AND n.name LIKE '%Jackie%'
+AND n.name NOT LIKE '%Ho%'
+AND rt.role = 'writer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%DVD%'
+AND mc.note NOT LIKE '%co%'
+AND n.name LIKE '%Jonathan%'
+AND n.name NOT LIKE '%Buttars%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(co-producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%in%'
+AND mc.note NOT LIKE '%association%'
+AND n.name LIKE '%Bob%'
+AND n.name NOT LIKE '%Wallice%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[es]'
+AND mc.note LIKE '%(%'
+AND mc.note NOT LIKE '%i%'
+AND n.name LIKE '%m%'
+AND n.name NOT LIKE '%o%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%worldwide%'
+AND mc.note NOT LIKE '%Hungary%'
+AND n.name LIKE '%Frank%'
+AND n.name NOT LIKE '%Amato%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(associate producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%DVD%'
+AND mc.note NOT LIKE '%2005%'
+AND n.name LIKE '%Danny%'
+AND n.name NOT LIKE '%Silvera%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(executive producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%7%'
+AND n.name LIKE '%Silvera%'
+AND n.name NOT LIKE '%Uschi%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%9%'
+AND mc.note NOT LIKE '%8%'
+AND n.name LIKE '%i%'
+AND n.name NOT LIKE '%t%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%w%'
+AND mc.note NOT LIKE '%V%'
+AND n.name LIKE '%D%'
+AND n.name NOT LIKE '%C%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(USA)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%V%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(associate producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%DVD%'
+AND mc.note NOT LIKE '%association%'
+AND n.name LIKE '%Santoro%'
+AND n.name NOT LIKE '%Cummings%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(presents)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%W%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%A%'
+AND mc.note NOT LIKE '%V%'
+AND n.name LIKE '%e%'
+AND n.name NOT LIKE '%,%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(associate producer)'
+AND cn.country_code = '[be]'
+AND mc.note LIKE '%i%'
+AND mc.note NOT LIKE '%2005%'
+AND n.name LIKE '%D%'
+AND n.name NOT LIKE '%Kiley%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(co-production)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%M%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(presents)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE 'B%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(VHS)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'L%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(production accountant)'
+AND cn.country_code = '[au]'
+AND mc.note LIKE '%s%'
+AND mc.note NOT LIKE '%9%'
+AND n.name LIKE '%t%'
+AND n.name NOT LIKE '%L%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[de]'
+AND mc.note LIKE '%(worldwide)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%L%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(production assistant)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%r%'
+AND n.name LIKE '%Bob%'
+AND n.name NOT LIKE '%JesÃºs%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(worldwide)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'B%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(USA)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%P%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[de]'
+AND mc.note LIKE '%(co-production)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'H%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%A%'
+AND mc.note NOT LIKE '%S%'
+AND n.name LIKE '%u%'
+AND n.name NOT LIKE '%K%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(assistant producer)'
+AND cn.country_code = '[fr]'
+AND mc.note LIKE '%)%'
+AND mc.note NOT LIKE '%a%'
+AND n.name LIKE '%,%'
+AND n.name NOT LIKE '%h%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(location manager)'
+AND cn.country_code = '[ar]'
+AND mc.note LIKE '%D%'
+AND mc.note NOT LIKE '%2%'
+AND n.name LIKE '%a%'
+AND n.name NOT LIKE '%P%'
+AND rt.role = 'miscellaneous crew';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[fr]'
+AND mc.note LIKE '%)%'
+AND mc.note NOT LIKE '%u%'
+AND n.name LIKE '%e%'
+AND n.name NOT LIKE '%i%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[de]'
+AND mc.note LIKE '%V%'
+AND mc.note NOT LIKE '%e%'
+AND n.name LIKE '%H%'
+AND n.name NOT LIKE '%h%'
+AND rt.role = 'actor';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(co-producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%p%'
+AND n.name LIKE '%Charles%'
+AND n.name NOT LIKE '%W%'
+AND rt.role = 'producer';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(production assistant) (uncredited)'
+AND cn.country_code = '[de]'
+AND mc.note LIKE '%c%'
+AND mc.note NOT LIKE '%1%'
+AND n.name LIKE '%y%'
+AND n.name NOT LIKE '%B%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[nl]'
+AND mc.note LIKE '%(theatrical)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'B%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(associate producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%DVD%'
+AND mc.note NOT LIKE '%a%'
+AND n.name LIKE '%Amato%'
+AND n.name NOT LIKE '%Franco%'
+AND rt.role = 'producer';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(associate producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%worldwide%'
+AND mc.note NOT LIKE '%DVD%'
+AND n.name LIKE '%Armand%'
+AND n.name NOT LIKE '%Vickers%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(co-production)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%G%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(200%)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%B%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(assistant accountant)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%s%'
+AND mc.note NOT LIKE '%c%'
+AND n.name LIKE '%c%'
+AND n.name NOT LIKE '%u%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(VHS)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'A%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%2010%'
+AND n.name LIKE '%King%'
+AND n.name NOT LIKE '%Dominique%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[nl]'
+AND mc.note LIKE '%(200%)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'B%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[ru]'
+AND mc.note LIKE '%(theatrical)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%R%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%e%'
+AND mc.note NOT LIKE '%r%'
+AND n.name LIKE '%l%'
+AND n.name NOT LIKE '%h%'
+AND rt.role = 'composer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(first assistant accountant)'
+AND cn.country_code = '[de]'
+AND mc.note LIKE '%y%'
+AND mc.note NOT LIKE '%-%'
+AND n.name LIKE '%p%'
+AND n.name NOT LIKE '%u%'
+AND rt.role = 'miscellaneous crew';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[jp]'
+AND mc.note LIKE '%D%'
+AND mc.note NOT LIKE '%r%'
+AND n.name LIKE '%,%'
+AND n.name NOT LIKE '%r%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(USA)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%L%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[de]'
+AND mc.note LIKE '%DVD%'
+AND mc.note NOT LIKE '%association%'
+AND n.name LIKE '%Savage%'
+AND n.name NOT LIKE '%Esther%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[se]'
+AND mc.note LIKE '%in%'
+AND mc.note NOT LIKE '%USA%'
+AND n.name LIKE '%o%'
+AND n.name NOT LIKE '%Uschi%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(200%)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'M%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[es]'
+AND mc.note LIKE '%2001%'
+AND mc.note NOT LIKE '%2003%'
+AND n.name LIKE '%Michael%'
+AND n.name NOT LIKE '%Albert%'
+AND rt.role = 'producer';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[ru]'
+AND mc.note LIKE '%(%'
+AND mc.note NOT LIKE '%w%'
+AND n.name LIKE '%s%'
+AND n.name NOT LIKE '%o%'
+AND rt.role = 'producer';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(assistant production coordinator)'
+AND cn.country_code = '[nl]'
+AND mc.note LIKE '%(%'
+AND mc.note NOT LIKE '%u%'
+AND n.name LIKE '%L%'
+AND n.name NOT LIKE '%e%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(production assistant)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%2012%'
+AND n.name LIKE '%Kenny%'
+AND n.name NOT LIKE '%Hagai%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(theatrical)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'Z%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(200%)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%T%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(2006)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%I%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%2005%'
+AND n.name LIKE '%de%'
+AND n.name NOT LIKE '%Gage%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[dk]'
+AND mc.note LIKE '%D%'
+AND mc.note NOT LIKE '%V%'
+AND n.name LIKE '%n%'
+AND n.name NOT LIKE '%g%'
+AND rt.role = 'actor';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%Hungary%'
+AND n.name LIKE '%Donald%'
+AND n.name NOT LIKE '%Tara%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(location scout) (uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%h%'
+AND mc.note NOT LIKE '%i%'
+AND n.name LIKE '%,%'
+AND n.name NOT LIKE '%P%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(theatrical)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'K%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(VHS)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'M%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(story)'
+AND cn.country_code = '[ph]'
+AND mc.note LIKE '%)%'
+AND mc.note NOT LIKE '%1%'
+AND n.name LIKE '%p%'
+AND n.name NOT LIKE '%e%'
+AND rt.role = 'writer';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(co-producer)'
+AND cn.country_code = '[gb]'
+AND mc.note LIKE '%V%'
+AND mc.note NOT LIKE '%s%'
+AND n.name LIKE '%l%'
+AND n.name NOT LIKE '%S%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%with%'
+AND mc.note NOT LIKE '%2005%'
+AND n.name LIKE '%Wayne%'
+AND n.name NOT LIKE '%Paula%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[de]'
+AND mc.note LIKE '%)%'
+AND mc.note NOT LIKE '%e%'
+AND n.name LIKE '%s%'
+AND n.name NOT LIKE '%Y%'
+AND rt.role = 'producer';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%)%'
+AND mc.note NOT LIKE '%H%'
+AND n.name LIKE '%l%'
+AND n.name NOT LIKE '%e%'
+AND rt.role = 'actor';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%with%'
+AND mc.note NOT LIKE '%2011%'
+AND n.name LIKE '%Herb%'
+AND n.name NOT LIKE '%Jon%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[fi]'
+AND mc.note LIKE '%t%'
+AND mc.note NOT LIKE '%9%'
+AND n.name LIKE '%B%'
+AND n.name NOT LIKE '%D%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%by%'
+AND mc.note NOT LIKE '%in%'
+AND n.name LIKE '%Claudia%'
+AND n.name NOT LIKE '%Donald%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(co-producer)'
+AND cn.country_code = '[hu]'
+AND mc.note LIKE '%n%'
+AND mc.note NOT LIKE '%l%'
+AND n.name LIKE '%,%'
+AND n.name NOT LIKE '%a%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(archive footage)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%S%'
+AND mc.note NOT LIKE '%in%'
+AND n.name LIKE '%Holland%'
+AND n.name NOT LIKE '%Defrancesca%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(2006)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%A%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(executive producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%r%'
+AND mc.note NOT LIKE '%in%'
+AND n.name LIKE '%Aaron%'
+AND n.name NOT LIKE '%Roger%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%o%'
+AND mc.note NOT LIKE '%USA%'
+AND n.name LIKE '%Frank%'
+AND n.name NOT LIKE '%Aime%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(2007)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%G%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(theatrical)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE 'R%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(2006)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE 'N%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(associate producer)'
+AND cn.country_code = '[de]'
+AND mc.note LIKE '%2009%'
+AND mc.note NOT LIKE '%2008%'
+AND n.name LIKE '%o%'
+AND n.name NOT LIKE '%Albert%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(2006)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%E%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%DVD%'
+AND mc.note NOT LIKE '%Hungary%'
+AND n.name LIKE '%Albert%'
+AND n.name NOT LIKE '%Fawn%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(production assistant) (uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%o%'
+AND mc.note NOT LIKE '%-%'
+AND n.name LIKE '%t%'
+AND n.name NOT LIKE '%a%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(co-production)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'B%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(VHS)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%F%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(Japan)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE 'A%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(200%)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%S%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%2004%'
+AND mc.note NOT LIKE '%n%'
+AND n.name LIKE '%R%'
+AND n.name NOT LIKE '%Kimson%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(writer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%1989%'
+AND mc.note NOT LIKE '%2005%'
+AND n.name LIKE '%Dough%'
+AND n.name NOT LIKE '%Rose%'
+AND rt.role = 'writer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(co-production)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%K%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[nl]'
+AND mc.note LIKE '%(2007)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE 'G%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%Philippines%'
+AND mc.note NOT LIKE '%USA%'
+AND n.name LIKE '%Robert%'
+AND n.name NOT LIKE '%Azaria%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%TV%'
+AND n.name LIKE '%Armand%'
+AND n.name NOT LIKE '%D%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(worldwide)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE 'B%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[jp]'
+AND mc.note LIKE '%(VHS)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%G%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(USA)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%C%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%i%'
+AND mc.note NOT LIKE '%o%'
+AND n.name LIKE '%l%'
+AND n.name NOT LIKE '%e%'
+AND rt.role = 'actor';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(executive producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%TV%'
+AND mc.note NOT LIKE '%with%'
+AND n.name LIKE '%Franco%'
+AND n.name NOT LIKE '%Sal%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(presents)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%A%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(200%)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%Y%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(200%)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%A%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[es]'
+AND mc.note LIKE '%V%'
+AND mc.note NOT LIKE '%S%'
+AND n.name LIKE '%,%'
+AND n.name NOT LIKE '%e%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(USA)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'L%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(also archive footage)'
+AND cn.country_code = '[de]'
+AND mc.note LIKE '%9%'
+AND mc.note NOT LIKE '%t%'
+AND n.name LIKE '%n%'
+AND n.name NOT LIKE '%,%'
+AND rt.role = 'actress';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(adr loop group)'
+AND cn.country_code = '[br]'
+AND mc.note LIKE '%)%'
+AND mc.note NOT LIKE '%t%'
+AND n.name LIKE '%o%'
+AND n.name NOT LIKE '%s%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%in%'
+AND mc.note NOT LIKE '%DVD%'
+AND n.name LIKE '%Frank%'
+AND n.name NOT LIKE '%Meer%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(associate producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%d%'
+AND mc.note NOT LIKE '%2%'
+AND n.name LIKE '%s%'
+AND n.name NOT LIKE '%i%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(archive footage)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%9%'
+AND mc.note NOT LIKE '%d%'
+AND n.name LIKE '%,%'
+AND n.name NOT LIKE '%r%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(story)'
+AND cn.country_code = '[ph]'
+AND mc.note LIKE '%s%'
+AND mc.note NOT LIKE '%0%'
+AND n.name LIKE '%t%'
+AND n.name NOT LIKE '%J%'
+AND rt.role = 'writer';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%2011%'
+AND n.name LIKE '%Albert%'
+AND n.name NOT LIKE '%Paulsen%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(theatrical)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE '%E%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(associate producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%Hungary%'
+AND n.name LIKE '%Friedman%'
+AND n.name NOT LIKE '%Barker%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(theatrical)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%I%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%VHS%'
+AND mc.note NOT LIKE '%TV%'
+AND n.name LIKE '%Parker%'
+AND n.name NOT LIKE '%Tony%'
+AND rt.role = 'writer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(archive footage)'
+AND cn.country_code = '[nl]'
+AND mc.note LIKE '%2%'
+AND mc.note NOT LIKE '%6%'
+AND n.name LIKE '%e%'
+AND n.name NOT LIKE '%W%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(worldwide)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'E%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(production assistant) (uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%s%'
+AND mc.note NOT LIKE '%w%'
+AND n.name LIKE '%a%'
+AND n.name NOT LIKE '%n%'
+AND rt.role = 'miscellaneous crew';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(VHS)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'J%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(executive producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%t%'
+AND mc.note NOT LIKE '%2002%'
+AND n.name LIKE '%Lee%'
+AND n.name NOT LIKE '%S%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%5%'
+AND mc.note NOT LIKE '%e%'
+AND n.name LIKE '%,%'
+AND n.name NOT LIKE '%l%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(200%)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE 'M%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(Blu-ray)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%S%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(production secretary)'
+AND cn.country_code = '[gb]'
+AND mc.note LIKE '%t%'
+AND mc.note NOT LIKE '%s%'
+AND n.name LIKE '%y%'
+AND n.name NOT LIKE '%a%'
+AND rt.role = 'miscellaneous crew';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%VHS%'
+AND mc.note NOT LIKE '%the%'
+AND n.name LIKE '%Brooks%'
+AND n.name NOT LIKE '%Armand%'
+AND rt.role = 'writer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(screenplay)'
+AND cn.country_code = '[cz]'
+AND mc.note LIKE '%i%'
+AND mc.note NOT LIKE '%u%'
+AND n.name LIKE '%k%'
+AND n.name NOT LIKE '%o%'
+AND rt.role = 'writer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(co-production)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE 'G%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(production assistant)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%2009%'
+AND mc.note NOT LIKE '%1912%'
+AND n.name LIKE '%Godfrey%'
+AND n.name NOT LIKE '%Albert%'
+AND rt.role = 'miscellaneous crew';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(associate producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%TV%'
+AND mc.note NOT LIKE '%association%'
+AND n.name LIKE '%D%'
+AND n.name NOT LIKE '%LeÃ³n%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(writer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%media%'
+AND mc.note NOT LIKE '%2004%'
+AND n.name LIKE '%Holland%'
+AND n.name NOT LIKE '%Frank%'
+AND rt.role = 'writer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[hu]'
+AND mc.note LIKE '%o%'
+AND mc.note NOT LIKE '%2004%'
+AND n.name LIKE '%Lee%'
+AND n.name NOT LIKE '%Silvera%'
+AND rt.role = 'actor';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(executive producer)'
+AND cn.country_code = '[be]'
+AND mc.note LIKE '%a%'
+AND mc.note NOT LIKE '%e%'
+AND n.name LIKE '%e%'
+AND n.name NOT LIKE '%s%'
+AND rt.role = 'producer';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(screenplay)'
+AND cn.country_code = '[de]'
+AND mc.note LIKE '%e%'
+AND mc.note NOT LIKE '%a%'
+AND n.name LIKE '%r%'
+AND n.name NOT LIKE '%s%'
+AND rt.role = 'writer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(writer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%TV%'
+AND n.name LIKE '%JesÃºs%'
+AND n.name NOT LIKE '%Jammot%'
+AND rt.role = 'writer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(writer)'
+AND cn.country_code = '[br]'
+AND mc.note LIKE '%DVD%'
+AND mc.note NOT LIKE '%USA%'
+AND n.name LIKE '%t%'
+AND n.name NOT LIKE '%Dobkowitz%'
+AND rt.role = 'writer';",0,/*+  SeqScan(cn) IndexScan(mc company_id_movie_companies) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) SeqScan(rt) IndexScan(n name_pkey) IndexScan(an person_id_aka_name) NestLoop(cn mc) NestLoop(cn mc t) NestLoop(cn mc t ci) HashJoin(cn mc t ci rt) NestLoop(cn mc t ci rt n) NestLoop(cn mc t ci rt n an) Leading(((((((cn mc) t) ci) rt) n) an)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(USA)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'A%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(Japan)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE '%U%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(executive producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%special%'
+AND n.name LIKE '%Tom%'
+AND n.name NOT LIKE '%Serbes%'
+AND rt.role = 'producer';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%)%'
+AND mc.note NOT LIKE '%v%'
+AND n.name LIKE '%o%'
+AND n.name NOT LIKE '%H%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(worldwide)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'C%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%USA%'
+AND mc.note NOT LIKE '%1995%'
+AND n.name LIKE '%Frank%'
+AND n.name NOT LIKE '%Armand%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(archive footage)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%DVD%'
+AND mc.note NOT LIKE '%ray%'
+AND n.name LIKE '%Franco%'
+AND n.name NOT LIKE '%Mary%'
+AND rt.role = 'actor';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(producer)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%s%'
+AND mc.note NOT LIKE '%2009%'
+AND n.name LIKE '%J%'
+AND n.name NOT LIKE '%JesÃºs%'
+AND rt.role = 'producer';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(uncredited)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%H%'
+AND mc.note NOT LIKE '%?%'
+AND n.name LIKE '%L%'
+AND n.name NOT LIKE '%d%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(2006)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'K%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(worldwide)%'
+AND mc.note NOT LIKE '%(USA)%'
+AND n.name LIKE 'D%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",11,/*+  SeqScan(mc) SeqScan(cn) IndexScan(ci movie_id_cast_info) IndexScan(an person_id_aka_name) SeqScan(rt) IndexScan(t title_pkey) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(mc cn ci) NestLoop(mc cn ci an) HashJoin(mc cn ci an rt) NestLoop(mc cn ci an rt t) NestLoop(mc cn ci an rt t n) Leading(((((((mc cn) ci) an) rt) t) n)) */
+"SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed
+FROM aka_name AS an,
+ cast_info AS ci,
+ company_name AS cn,
+ movie_companies AS mc,
+ name AS n,
+ role_type AS rt,
+ title AS t
+WHERE an.person_id = n.id
+ AND n.id = ci.person_id
+ AND ci.movie_id = t.id
+ AND t.id = mc.movie_id
+ AND mc.company_id = cn.id
+ AND ci.role_id = rt.id
+ AND an.person_id = ci.person_id
+ AND ci.movie_id = mc.movie_id
+AND ci.note = '(voice: English version)'
+AND cn.country_code = '[us]'
+AND mc.note LIKE '%(co-production)%'
+AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+AND n.name LIKE 'R%'
+AND n.name NOT LIKE '%Yu%'
+AND rt.role = 'actress';",4,/*+  SeqScan(cn) SeqScan(rt) IndexScan(ci role_id_cast_info) IndexScan(n name_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(an person_id_aka_name) IndexScan(t title_pkey) NestLoop(rt ci) NestLoop(rt ci n) NestLoop(rt ci n mc) NestLoop(rt ci n mc an) MergeJoin(cn rt ci n mc an) NestLoop(cn rt ci n mc an t) Leading(((cn ((((rt ci) n) mc) an)) t)) */

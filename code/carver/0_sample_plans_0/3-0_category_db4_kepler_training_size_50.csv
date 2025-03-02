@@ -1,0 +1,2401 @@
+query,plan_id,plan_content
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%t%'
+ AND mi.info IN ('Australia', 'USA:1 July 2007', '$15,500', 'Japan:28 May 2004', 'USA:14 March 2011')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Japan:180', 'USA:10 January 2011', 'USA:2 May 2002', 'USA:25 August 2002', 'Radio Werewolf')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('That Jewish Guy: I believe in... wait, you want me to say what?', 'USA:15 October 1996', 'CLV/CAV', 'Japan:11', 'Canada:85')
+ AND t.production_year > 2009;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('Japan:60', 'CAM:Sony DSR-450', 'Sweden:2008', 'Germany:46', 'UK:15 March 2004')
+ AND t.production_year > 1999;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%k%'
+ AND mi.info IN ('GEOG: In several scenes palm trees can be seen growing wild. There are no outdoor palm trees in the Des Plaines area.', 'Germany:9', 'USA:9 May 2001', 'Sudan', '16 December 2008 -')
+ AND t.production_year > 2002;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('Tunisia', 'UK:7 November 2005', 'Moldova', 'UK:7 July 2009', 'USA:10 October 2009')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('PFM:Video', '$23,000', '- 28 April 1999', 'Croatia:August 2006', 'France:10 May 2005')
+ AND t.production_year > 2001;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('RAT:1.85 : 1', 'USA:31 October 2008', 'Sweden:October 2003', 'USA:9 March 2010', 'Sweden:(Banned)')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%f%'
+ AND mi.info IN ('USA:X', 'UK:20 October 2010', 'UK:23 October 2008', 'PCS:(anamorphic)', 'USA:April 1986')
+ AND t.production_year > 1996;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Spain:1985', 'ID 8417 IV', 'USA:22 June 1997', 'Tuscany, Italy', '(None):20')
+ AND t.production_year > 1984;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%f%'
+ AND mi.info IN ('72', 'France:40', 'Padang, Indonesia', 'UK:July 1993', 'AUD 1,300,000')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%p%'
+ AND mi.info IN ('A modern day re-telling of the urban legend La Llorona. A beautiful woman who before committing suicide drowned her children because of her cheating husband. Now her curse is spreading and has possessed young mothers in a small suburban community. Now it is up to an investigator with psychic abilities to exorcise the spirit.', 'Get Baconized!', 'Czech Republic:2002', 'Michael C. Hartman', 'Nigeria:2010')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%h%'
+ AND mi.info IN ('Documentary', 'Japan:21 April 2011', 'Â©1996 JDC', 'USA:25 April 2008', 'West Germany:o.Al.')
+ AND t.production_year > 1994;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%h%'
+ AND mi.info IN ('""Tianna''s Hungarian Connection (pictorial)"". In: ""Cinema Sex-sations"" (USA), International Media Group, Inc., Vol. 1, Iss. 7, August 1993, Pg. 60-63+66, (MG)', '12 October 2006 -', 'UK:2 April 2004', '- December 2004', 'Jonesy: Shit Ghost!')
+ AND t.production_year > 1991;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%h%'
+ AND mi.info IN ('[last lines in ""Hulk vs. Thor""]::Wolverine: All right, bub... where were we? [draws his claws and leaps at the Hulk]', 'Greece:1989', 'USA:27 January 2006', 'Finland:7 July 2012', 'Iran')
+ AND t.production_year > 2008;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('Many of the events captured in the documentary happened by pure coincidence. The hunger strike by Ramon Sanchez, featured in the documentary occurred while the director was in Florida for an interview in Orlando. The director re-routed and recorded the interview in Miami, before driving to Orlando.', 'Denmark:7', 'USA:October 1993', '- December 1999', '8 November 2004 - ?')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('Color', 'Victor, Idaho, USA', 'Canada:20 July 2008', 'Pioneer Artists', 'Spain:13')
+ AND t.production_year > 1994;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%w%'
+ AND mi.info IN ('FAKE: When the Katie and Nick are going out of the tunnel of New Jersey, the camera that simulates ""their going out"" is inside a car with snow over the glass.', '8198', 'UK:12 June 2004', 'CAM:Sony Z1', 'USA:6 November 2002')
+ AND t.production_year > 2010;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%d%'
+ AND mi.info IN ('UK', 'UK:19 December 2007', '$18,000,000', 'USA:14 March 2007', 'Canada:32')
+ AND t.production_year > 1980;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%-%'
+ AND mi.info IN ('English', '28 July 2012 - ?', 'UK:7 September 2002', 'Germany:1996', '$750,000')
+ AND t.production_year > 1993;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Wonder Woman: I''m sorry, but it has to be this way.::Batman: She''s right.::Superman: I don''t understand.::Wonder Woman: Look around. What if this had been the middle of the day? The park crowded with people, children. She needs more specialized training. I''m taking her with me.::Superman: And what if I say no?::Batman: There''s another reason she can''t stay. I''ll explain later. For now, I''m asking you to trust me.', 'USA:13 October 2011', 'Spain:30 March 2004', 'Argentina:2004', 'USA:April 2000')
+ AND t.production_year > 2009;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%f%'
+ AND mi.info IN ('Sci-Fi', 'Dainamikku kikaku', 'USA:22 January 2006', 'UK:13 December 2005', 'USA:24 July 2011')
+ AND t.production_year > 2009;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('Cala di Volpe Bay, Costa Smeralda, Sassari, Sardinia, Italy', 'CAM:SONY DSR-390', 'Spain:January 2001', 'Seeing is Believing', 'UK:2 February 2008')
+ AND t.production_year > 2005;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('RAT:1.66 : 1', 'USA:1 May 2002', 'December 2005 -', 'USA:12 October 1989', 'Germany:178')
+ AND t.production_year > 1999;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('Newton, Massachusetts, USA', '- 31 July 2002', 'USA:18 March 2002', 'Germany:May 2003', 'India:22 July 2011')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%p%'
+ AND mi.info IN ('The Royal World Premiere of _Live and Let Die (1973)_ (qv) was held on 6th July 1973 at the Odeon Theatre, Leicester Square, London in the presence of ''Princess Anne'' (qv). The movie for the first time however was actually released in the USA a week prior to the official launch on 27th June 1973.', 'Italy:March 2009', '4 January 2008 -', 'UK:19 February 2001', 'Japan:2 June 2012')
+ AND t.production_year > 2005;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%t%'
+ AND mi.info IN ('Netherlands:16', '4748', 'USA:18 October 2007', 'Quebec, Canada', 'The final rubdown')
+ AND t.production_year > 1988;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('English', 'Carribbean Special', 'UK:27 July 2006', 'Watch + Play', 'USA:239')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('FAKE: In the newspaper ad for Camp Arawak in the opening credits, the word volleyball is misspelled ""vollyball"".', 'USA:24 May 2004', 'MET:3840 m', 'CAM:Moviecam Camera', 'USA:11 June 2009')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%m%'
+ AND mi.info IN ('Sport', 'USA:December 2001', 'USA:363', 'USA:11 June 2006', 'USA:23 May 2011')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('The movie is sometimes split up into syndication to be shown in half hour installments with the inclusion of live action introduction and conclusion scene with Sgt. Slaughter in front of an American flag.', 'France:151', 'USA:2 April 2013', 'UK:3 February 1997', 'UK:14 March 1994')
+ AND t.production_year > 1986;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%m%'
+ AND mi.info IN ('USA', 'Spain:December 1999', '265', 'AUD 23,000', 'USA:3 January 2013')
+ AND t.production_year > 2008;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Black and White', 'Germany:111', 'USA:6 April 2009', 'Denmark:70', 'What is The Meatrix')
+ AND t.production_year > 2010;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%c%'
+ AND mi.info IN ('The film itself has no credits as the director didn''t get time to complete it all in full and Lucasfilm archived it. However Internet versions have had credits added to it unofficially by a Star Wars fan.', 'BRL 2,000', 'USA:17 May 2009', 'UK:3 September 2007', 'Ultimate Edition')
+ AND t.production_year > 1981;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%u%'
+ AND mi.info IN ('Action', 'Spain:24', 'USA:July 1993', 'Red Light District', 'Brazil:77')
+ AND t.production_year > 1997;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%k%'
+ AND mi.info IN ('Canada:24 April 2001', 'January 2008 - ?', 'USA:22 July 2010', 'Martinique', 'â¬ 250,000')
+ AND t.production_year > 2000;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%b%'
+ AND mi.info IN ('Hungary:24 February 2013', 'USA:3 February 2002', 'UK:7 April 2008', 'USA:5 February 2004', 'USA:14 June 1999')
+ AND t.production_year > 2011;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('SPOILER: Frida is killed off in typical Waterfall fashion, by some horrible method, as is the family''s curse when dealing with the Planet Express crew, as well as her brother, Hutch, by the end.', 'USA:11 June 2012', 'USA:2 March 2008', 'USA:24 January 1986', 'â¬ 2,200')
+ AND t.production_year > 2008;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('USA:27 March 2012', 'UK:26 April 1997', 'USA:11 August 2007', 'USA:7 April 2007', 'USA:8 November 2010')
+ AND t.production_year > 2011;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('English', 'Italy:75', 'USA:14 January 2002', 'Yiddish', 'Germany:May 2010')
+ AND t.production_year > 1994;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%u%'
+ AND mi.info IN ('Cera: Do you have any idea where you''re going?::Littlefoot: Sort of... see, I''ve never heard of Berry Valley before, so it''s gonna be some place I''ve never been, right?::Cera: Yeah...::Littlefoot: So I''m going directions I''ve never gone before. I''m bound to hit it sooner or later. Make sense?::Cera: Maybe to some folk.::Loofah: Makes sense to me!::Littlefoot: Is that good or bad?::Cera: Do you have to ask?', 'UK:9 September 2007', 'USA:21 January 1990', 'USA:17 June 2012', 'Japan:18 April 2001')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%-%'
+ AND mi.info IN ('PFM:Video', 'USA:26 August 1991', 'May 2004 - May 2004', 'USA:March 2004', 'USA:15 March 2010')
+ AND t.production_year > 1992;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%m%'
+ AND mi.info IN ('Joe Kline: Dr. Frost said that you were a killer. Would you like to respond?::The Flash: Get that mic out of my face!::Joe Kline: Then how about sharing the real you with our audience?::Nightshade: [shoots knock-out dart in Kline''s neck] Ask his agent.', 'Want to play?', 'Japan:1 March 2001', 'Hungary:14 May 2005', 'Hungary:28 May 1993')
+ AND t.production_year > 1991;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('USA', 'Portuguese', 'USA:23 June 2005', '28 September 2011 -', 'Italy:21 March 2005')
+ AND t.production_year > 2009;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('USA:10 January 2008', 'Tim Ritter', 'Sweden:2 March 2011', 'Argentina:70', 'USA:17 October 2001')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%w%'
+ AND mi.info IN ('Comedy', 'Slovenia:1 May 2008', 'UK:April 1987', '27 June 2006 - ?', 'Austria:220')
+ AND t.production_year > 2005;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%f%'
+ AND mi.info IN ('CONT: The height of Aleu''s elbow-high (on her front legs) and hock-high (on her back legs) ""socks"" changes throughout the movie.', 'Behind the mask.', 'These Wenches Suck!', 'USA:15 April 1998', 'Belgium:12 May 2005')
+ AND t.production_year > 2001;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('USA:1 November 2003', 'USA:30 April 2008', 'Disco Sucks.', 'Universal Studios', 'Guilherme Greca')
+ AND t.production_year > 2002;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Portugal:25 January 2008', 'Canada:5 March 2000', 'Japan:11 March 2009', 'Slovenia:March 2011', 'Brazil:11')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('USA:1998', 'France:10', 'Australia:1996', 'UK:December 2004', '- 5 January 2003')
+ AND t.production_year > 1997;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('In the group therapy scene at the robot asylum, when Roberto is talking about his childhood (and how he was designed to be an insane robot), there''s a rounded radio-like device to his left. The radio is a minor tribute to Valve''s Portal game, in which an insane robot is the main antagonist - the rounded radio features at several points in the game.', '14 October 2002 - ?', 'UK:December 2001', 'Netherlands:83', '- 20 January 2004')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('RAT:1.78 : 1', 'USA:8 October 2012', 'Exercise Program', 'Spain:22 April 1996', 'USA:3 March 1978')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%u%'
+ AND mi.info IN ('MET:91 m', 'Canada:January 2005', 'Â£45,000', '7046', 'Japan:26 May 1998')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('French', 'Italy:21 June 2010', 'UK:15 October 2002', 'Cross Over ...', 'Italy:1 April 2005')
+ AND t.production_year > 1998;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%c%'
+ AND mi.info IN ('Penguin: Batman, Batgirl, Batwoman. What is it about this city? The water?', 'USA:3 May 2009', '$15', 'Denmark:3', 'Mexico:78:47')
+ AND t.production_year > 2002;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('Netherlands:20 December 2005', 'USA:1 October 1992', '(USA)', 'LAB:TruVideo, USA', 'UK:25 August 2007')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('PFM:Video', 'USA:2 December 2004', 'USA:8 October 2002', 'Europe', 'UK:28 January 2002')
+ AND t.production_year > 1998;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('USA:X', 'Germany:140', 'USA:3 March 1994', '47', '1 February 2005 -')
+ AND t.production_year > 2000;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%f%'
+ AND mi.info IN ('USA', 'USA:25 August 2011', 'USA:21 January 2005', 'Japan:25 April 1997', 'Japan:18 June 2010')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('USA:May 1988', 'Iceland:18', 'MET:3565 m', 'UK:194', 'Habana, Cuba')
+ AND t.production_year > 1987;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%d%'
+ AND mi.info IN ('Drama', 'USA:124', 'Wise, Virginia, USA', 'Mexico:October 2010', 'MET:101 m')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('France:9 September 2009', 'Japan:91', 'Belize', 'December 2000 -', 'Philippines:R-18')
+ AND t.production_year > 2008;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%u%'
+ AND mi.info IN ('Color', 'USA:23 October 2002', 'USA:10 July 2001', 'It''s Harvest Time!', 'UK:16 June 2003')
+ AND t.production_year > 2008;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('CONT: During the chase between the car and the helicopter as they flee the safe house, the helicopter wrecks the lid of the trunk and riddles the rear window with bullets. In the next scene all the bullet holes are gone and the rear window is whole again.', 'UK:29', '19 June 1993 -', 'ARS 500', 'Robert Broberg')
+ AND t.production_year > 2005;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%t%'
+ AND mi.info IN ('120', 'Stop the madness!!', 'USA:2 February 2012', 'USA:13 January 2007', 'Turkey:6 July 2003')
+ AND t.production_year > 2000;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%g%'
+ AND mi.info IN ('Rated R for language, violence and brief drug use', 'USA:14 October 1995', 'UK:March 2008', 'Germany:3 June 2006', 'USA:7 July 2009')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%v%'
+ AND mi.info IN ('Portugal:M/16', 'Dolby', 'USA:4 February 2010', 'USA:1 June 2013', 'Jon M Edwards')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('Loopz: Why not keep fuel with the burner? Goddamn fool man!::Harmony: [playing Connect Four by herself] Don''t you think you''re overreacting?::Loopz: Oh hell woman! Its time you open yo eyes! We''re a million miles from dick, Cashie''s trippin'' and we got some kinda freak stalkin'' us!... and you''re tellin'' me... that I''M overeacting?::Harmony: mmmm-hmmm::Loopz: [fighting to regain his composure] It''ll be dark soon. Lets see how you feel then. [walks away]', 'Greece:61', 'France:5 March 2001', 'Italy:1984', 'UK:October 1983')
+ AND t.production_year > 2002;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('The Q (Major Boothroyd) character appears in every James Bond movie (EON and non-EON productions) except three: _""Climax!"" (1954) {Casino Royale (#1.3)}_ (qv); _Live and Let Die (1973)_ (qv) and _Casino Royale (2006)_ (qv).', 'USA:5 December 2001', 'Topeka, Kansas, USA', '""Gimme An F!""', '- July 1996')
+ AND t.production_year > 1999;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('''Alex Mann (I)'' (qv)''s last film.', 'Hawi, Hawaii, USA', 'Poland:22 June 2006', 'Winner Takes All!', 'Japan:31 May 1996')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('English', 'India:22 June 2011', 'USA:21 May 2005', 'USA:1 July 1999', 'Ehebrush')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('A male baby is born in a palace, with a distinctive dark mark near his right nipple. But he was born in an Amazonian state so, the Queen takes him from his mother, and dispatches the baby on a raft down the river rapids, as is the local custom - expecting him to die or be saved by the gods. A curious chimpanzee saves the baby from the river, a lioness with milk to spare raises him as her own. A baby elephant teaches him how to walk on his fours, and later how to fight with a tree branch, a lion protects him from third party attacks. The baby grows into a teenager, than a handsome man with a large mane of black hair. A man wants to get the Amazons gold treasure, and his search for it will break the jungle man''s quiet, but also put him in contact with beautiful girls, and ultimately with his mother.', 'USA:27 May 2012', 'USA:29 June 2006', 'USA:February 1999', 'USA:14 April 2000')
+ AND t.production_year > 1989;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('26 January 2006 -', 'Blake Eckard', 'Japan:3 August 1985', 'UK:3 November 1997', 'USA:3 December 2002')
+ AND t.production_year > 2005;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('1987 Bert Haanstra Films', 'Welcome to hell', 'France', 'USA:13 October 2006', 'USA:11 June 2004')
+ AND t.production_year > 1986;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('Singapore:PG', 'MET:2496 m', 'India:January 2010', 'USA:10 October 1985', 'UK:1 November 2009')
+ AND t.production_year > 1997;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('UK:April 2000', '$10,000', 'Japan:23 May 1990', 'USA:March 2002', 'USA:8 February 2004')
+ AND t.production_year > 1998;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('7', 'JASNAC', 'PCS:ProRes 4:4:4', 'USA:8 January 2004', '19 May 2007 - ?')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%m%'
+ AND mi.info IN ('Color', 'UK:21 May 2007', 'MET:2676 m', 'Japan:25 June 1995', 'Germany:87')
+ AND t.production_year > 1999;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('Hobo: You got the devil inside you son. The devil himself.::Richard Speck: Oh yeah, he''s up in there somewhere doin'' a waltz.', '58', 'UK:28 June 2010', 'Spain:3 March 2002', 'Sweden:102')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%b%'
+ AND mi.info IN ('USA', '? - 2006', 'South Korea:All', 'Ireland:June 2010', 'Japan:17 March 1973')
+ AND t.production_year > 1991;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('English', 'Italy:122', 'Â£500,000', '12', 'Brazil:20 May 2009')
+ AND t.production_year > 2009;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Rachael: [voiceover] My heart rate nearly triples when I get to the party and see that the vultures have already descended upon Starkman.::Starkman: He broke the mould because he only murdered two people in his entire career.::[the group of students around him laugh]::Rachael: [voiceover] I must have lost track of time running. I had planned to get here early to get as much face time with Starkman as possible and now I''m late.::[Barbara pushes her to the side]::Rachael: [voiceover] This is a disaster.::Barbara: Bitch.', '2007 - 2007', 'Japan:10 April 2010', 'USA:17 July 1995', 'Pharr, Texas, USA')
+ AND t.production_year > 2001;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%f%'
+ AND mi.info IN ('Deadpool: What do you say after the mission, we kill all of those floating babies?::Omega Red: Do you ever shut up, Wilson?::Deadpool: What? Babies creep me out.::[cradles his rife]::Deadpool: [singalong] Rock-a-bye-BANG! [chortles]', 'USA:28 May 2011', 'CAM:Sony DSR-VX2100', '$25,000', 'Japan:8 August 2004')
+ AND t.production_year > 2008;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%t%'
+ AND mi.info IN ('Ireland:15', 'Â© Wurstfilm 2008', 'July 2009 -', 'USA:19 April 2012', 'UK:9 September 2002')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('The Joker: Joker''s back from the grave!::The Penguin: Yeah, a lot of that going around.', '1994 - 1998', '7', '- 12 July 2000', '$8,700')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('139', 'Digicosm', 'USA:10 July 2009', 'Germany:95', 'The Moon, Space')
+ AND t.production_year > 1997;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%-%'
+ AND mi.info IN ('Music', 'USA:24''10""', 'Can I trust myself?', 'Japan:18 March 2011', 'USA:4 October 2010')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('USA:14 January 2005', '- 5 September 2003', 'UK:1 June 2009', 'USA:18 August 2009', 'Greece:1 June 1986')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Color', 'USA:11 August 2000', '- 28 March 2005', 'UK:30 April 2006', 'Sweden:163')
+ AND t.production_year > 2009;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%g%'
+ AND mi.info IN ('Horror', 'West Germany:16', 'UK:2012', 'Germany:160', 'USA:17 August 2011')
+ AND t.production_year > 2005;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%m%'
+ AND mi.info IN ('Jade Dragon Member: Li Mei, look at it. It is undeniable. The prophecy continues to unfold. He is the Iron Knight. He is destined to battle the risen Mandarin.::Li Mei: It cannot be him!::Jade Dragon Member: What is the matter? It is a good thing. The Mandarin can now be defeated.::Li Mei: We do not know who will be victorious, only that one will die.', 'Canada:126', 'France:May 2002', 'USA:9 April 2002', 'Italy:VM18')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('Strong Bad: [singing] Oh, I''m an email gambler. That means I play cards with emails. Full house.', 'November 2002 - ?', 'ITL 20,000,000', 'USA:31 August 1999', 'Canada:August 2011')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%h%'
+ AND mi.info IN ('New York City, New York, USA', 'Hungary:August 2006', '28 September 2011 -', 'Spain:19 April 2002', 'France:29 June 2012')
+ AND t.production_year > 2002;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('Spain:26 January 2005', 'Netherlands:1998', '1962 - 2006', 'Cairo, Egypt', 'USA:18 July 2006')
+ AND t.production_year > 2002;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('CONT: Night changes to broad daylight, then back to nighttime again in the opening scenes.', '11 January 2010 -', 'Fyn, Denmark', 'Elantra Films, LLC', 'USA:AO')
+ AND t.production_year > 2005;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Germany:100', 'USA:12 August 2011', 'USA:29 April 2011', 'Germany:May 2008', '97')
+ AND t.production_year > 2005;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%h%'
+ AND mi.info IN ('Short', 'Italy:4 May 2004', 'USA:8 July 1997', 'UK:124', 'USA:9 June 2012')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Thriller', 'Australia:May 2012', 'Vienna, Ohio, USA', 'Hungary:5 June 2005', 'Spain:3 July 1996')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('Ron Buffone: ECW was counterculture, it was... cutting-edge, it was fan-oriented, we wanted it to look more like a reality-based product where, you know, all of a sudden, the spot happens, you run around the corner, and you catch it at, you know, more excitement.::Paul Heyman: There was no way to compete with the production values that Ted Turner or Vince McMahon could afford. They had million dollar, multi-million dollar budgets! We didn''t! We had a very simple philosophy when it came to our wrestlers: accentuate the positives, hide the negatives. Well, the negative is that we don''t have the budget to compete with WWE and-and WCW on lighting and pyro... why go there? Hide it! Accentuate the positives: best interviews, most action, wildest brawls, best wrestling, highest-flying cruiserweights, all these different things that we could do better than everybody else, we''re going to accentuate that. Why be second best at anything? Why not say ""Screw the lights, screw the pyro, here it is, down and dirty, it''s all about the presentation. It''s all about the audience''s participation in the show.""', '25 October 1997 -', 'Canada:22 May 1986', 'Spain:T', 'Japan:12 April 2007')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('Washington, District of Columbia, USA', 'USA:3 May 2012', 'Hungary:9 June 2012', 'USA:9 December 2005', 'UK:2 December 2006')
+ AND t.production_year > 2008;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('USA:79', 'USA:11 April 2008', '26 July 2001 -', 'Look Mean Pictures', 'The Witch is Back')
+ AND t.production_year > 2001;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('Singapore:M18', 'Spain:83', 'USA:11 June 1992', 'France:75', 'Spain:58')
+ AND t.production_year > 2011;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%1%'
+ AND mi.info IN ('Hungary:5 June 2005', '- 16 May 2005', 'USA:95', '$2,100', 'SEK 8,000')
+ AND t.production_year > 2001;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('USA:22 June 1999', 'USA:October 2000', '7211', 'USA:29 May 2007', 'Germany:August 2009')
+ AND t.production_year > 1998;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%c%'
+ AND mi.info IN ('110', 'USA:8 November 2007', 'CAM:Spy Cam', 'France:26 May 2003', 'None')
+ AND t.production_year > 1995;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('Simmons, William P.. In: ""Ultra Violent"", Vol. 9, 2007, Pg. 96, (MG)', 'Ely, Nevada, USA', 'UK:4 October 1993', 'USA:7 April 1999', 'Norway:15 July 2009')
+ AND t.production_year > 2005;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%p%'
+ AND mi.info IN ('A multitude of familiar spies, secret agents and detectives are gathered together in a remote country mansion for mysterious reasons. The going gets rough when they begin dying one by one...', 'Vorlander, Marc', 'USA:8 April 2002', 'Canada:June 2011', 'Germany:May 2009')
+ AND t.production_year > 1987;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('Los Angeles, California, USA', 'Germany:5', 'Hot stuff', 'Japan:22 July 2000', 'Japan:R-15')
+ AND t.production_year > 2009;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Japan:16 November 2011', 'Finland:19 May 2004', '20 May 1984 -', 'Hokkaido, Japan', 'Maori')
+ AND t.production_year > 2010;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Thriller', 'Alexandia', 'UK:4 September 1995', 'Egypt:2011', 'USA:6 February 1999')
+ AND t.production_year > 1992;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%k%'
+ AND mi.info IN ('In the Deep Blue Sea there Lives a Dark Secret', 'USA:6 March 2001', 'CAM:Canon XL-H1', 'Sweden:22 June 2011', 'USA:8 June 1996')
+ AND t.production_year > 1999;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%g%'
+ AND mi.info IN ('USA', 'Poland:2009', 'Greece:17 May 1986', 'Italy:2 August 2002', 'USA:23 May 1994')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('SYNC: In ""Cheat Commandos...O''s"", Silent Rip and Fightgar''s mouths do not move when they shout with the rest of the Commandos, ""We''re saved!""', 'Netherlands:177', 'USA:27 August 2012', 'Â£1,200', 'USA:1 May 2002')
+ AND t.production_year > 2005;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%u%'
+ AND mi.info IN ('$100,000', 'USA:23 May 1995', 'USA:14 May 2001', '- 15 August 2005', 'Italy:15 June 2005')
+ AND t.production_year > 2008;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('Still in the police force, Inspector Gadget is reduced to sitting around. After capturing Claw, all the criminals have gone into hiding until, Claw escapes! Gadget thinks he will get the case, but everyone else has other planes. A new version of the Gadget project is unveiled in the form of G2. Strict orders are given for Gadget to stay away from G2 and every crime scene, but Gadget feels he is needed more than anyone.', 'Funk it!', 'USA:13 July 2000', 'USA:30 May 2000', '$100,000 (USA)')
+ AND t.production_year > 2002;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('JPY 5,340,423 (Japan) (28 September 2008)', 'â¬ 45,000', 'OFM:AVCHD', 'Germany:94', 'Germany:206')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%m%'
+ AND mi.info IN ('Fantasy', '- 25 August 1999', 'Japan:6 August 2004', 'Move beyond fear', 'USA:April 1988')
+ AND t.production_year > 2009;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%c%'
+ AND mi.info IN ('In the third volume of the .hack//Liminality series, Junichiro Tokuoka travels to Tokyo, Japan to talk with a girl named Kyoko Tohno about the mysteries of ""The World"", an online computer game that put some people in a comatose state. At the same time, Kyoko has received a strange cell phone e-mail from Helba. They continue to discuss and are trying to get clues about everything related to ""The World"". They later meet a mysterious man named Sato Ichiro and speak with him to get answers. Will Tokuoka and the three girls Mai, Yuki, and Kyoko that he cooperates with be able to find the mysteries and clues of ""The World"" and save the comatose victims?', 'Germany:244', 'JPY 10,000,000', 'UK:130', 'Brazil:6 April 2007')
+ AND t.production_year > 2001;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Loki exclaims that ""The creature''s power is incredible!"" This is a homage to two titles that the Hulk is known by: the creature, popularized from _""The Incredible Hulk"" (1978)_ (qv), and of course the Incredible Hulk line of comics.', 'UK:10 January 1998', 'Prepare For War!!', 'Spain:May 2010', 'Japan:7 July 2012')
+ AND t.production_year > 2008;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('English', 'PCS:Super 16', 'USA:29 August 2009', 'UK:1 December 2004', '23 July 1990 -')
+ AND t.production_year > 2011;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('John Brahm was born in Hamburg, Germany in 1893. He grew up to become a light comedian on stage. The rise of Hitler forced him to leave Germany and move to England, where he got the chance to direct a remake of D.W. Griffith''s ""Broken Blossoms"" (1919). The success of the film lead him to Hollywood, where he eventually directed the three 20th Century Fox horror films that are the primary subjects of this short documentary. Various film experts discuss Brahm''s film career, which died as the studio system died, and lead to Brahm becoming a prolific director of TV episodes. Generous clips of the three horror films are shown.', 'Djerma', 'USA:163', '22 April 1998', 'UK:23 April 2012')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('USA:Unrated', 'USA:18 March 2002', 'Mexico:34', 'USA:28 August 2010', 'USA:18 March 1994')
+ AND t.production_year > 1999;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('USA:15 February 2010', 'Patmos, Greece', 'UK:7 September 1992', 'Canada:214', 'Carolco [us]')
+ AND t.production_year > 2009;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%t%'
+ AND mi.info IN ('A psychotic janitor who believes the school''s faculty and students hold him n contempt bursts into a classroom and seizes a pretty art history teacher and her student. While the madman sends the perky student to the police with his demands, he strips, binds and gags the instructor and when the student returns, places the poor girl in a similar predicament. Hogtied on the floor, the two women struggle furiously to escape while the crazed man plots his next move against the authorities.', 'Japan:24 June 2002', 'Netherlands:170', 'Love is in the Air', 'Netherlands:330')
+ AND t.production_year > 2009;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Denmark:21 October 1990', 'UK:1 October 2006', 'Norway:2004', 'USA:8 October 2012', 'The end is here...')
+ AND t.production_year > 1989;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('If the camera starts filming, you are dead', 'USA:7 December 2009', 'USA:10 May 2008', 'Mexico:2010', 'USA:2 April 1988')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%g%'
+ AND mi.info IN ('Italy:4 June 2008', 'UK:72', 'UK:20 July 2009', 'USA:10 October 2003', 'Japan:23 July 1999')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%c%'
+ AND mi.info IN ('USA:15 April 2008', 'Â£1,300', 'Russia:October 2005', 'UK:August 1997', 'This End Up.')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('His life is in her hands... but who''s telling the truth?', 'USA:15 March 2010', 'UK:November 1993', 'Spain:8 June 2001', 'UK:22 April 2002')
+ AND t.production_year > 1999;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('A collection of film loops from the mid-1970s to early 1980s.', 'France:January 2008', 'Cuba:18 May 2008', 'UK:2 March 2003', 'Mexico:April 2009')
+ AND t.production_year > 1983;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Japan', 'France:3 March 2006', 'USA:19 May 2005', 'USA:6 January 2010', '114')
+ AND t.production_year > 1992;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Short', 'UK:16 October 2005', 'USA:20 June 2005', 'USA:10 April 2004', 'Welcome to hell')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('DIRTRADE(James Kerwin): [black cloak]: One of the thugs wears the black cloak.', '? - 5 November 1995', 'Japan:21 March 1998', 'Argentina:1989', 'Italy:7 June 2007')
+ AND t.production_year > 1994;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Color', 'Thailand:(Banned)', 'Taiwan:PG-12', 'Denmark:1987', '101')
+ AND t.production_year > 2008;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('PFM:35 mm', 'USA:10 January 2003', '$ 34.95', 'USA:8 October 2002', 'USA:15 May 2001')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('112', 'Malaysia:PG-13', 'Â£100,000', 'BigBellyFilm', 'Spain:8 March 1995')
+ AND t.production_year > 2005;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%m%'
+ AND mi.info IN ('Poland:21 May 2011', 'USA:2 February 2003', 'Japan:5 March 2010', 'Raw Films Ltd. 2007', 'USA:100')
+ AND t.production_year > 2008;",2,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(t cat_title_4_pkey) IndexScan(k cat_keyword_4_pkey) NestLoop(mi mk) NestLoop(mi mk t) NestLoop(mi mk t k) Leading((((mi mk) t) k)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('USA', 'USA:24 April 2003', '650', 'USA:4 November 2006', 'USA:8 June 2013')
+ AND t.production_year > 2008;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Iceland:27 September 2004', 'Brazil:May 2010', 'Canada:102', 'Denmark:40', '268')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Rated R for strong sexual content, nudity, language and drug use', 'Red, white & blew', 'France:13', '29 March 2007 - ?', 'Addie Richardson')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%t%'
+ AND mi.info IN ('USA:24 April 2007', 'Monaco:1996', 'Bolivia:5 May 2003', 'Kiserian, Kenya', 'USA:10 January 2004')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('USA:4 April 2008', 'France:October 2008', 'USA:4 April 2006', 'Austria:31 May 2009', 'IRR 6,700,000')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('Cinema Snob: Look, I''ll have a talk with the Critic, see if any of this is true.::Paw: What if he suspects us going behind his back?::Cinema Snob: He won''t suspect us. I''ll put it very delicately.::[scene cuts to Snob talking to Critic]::Cinema Snob: Everybody thinks you''re nuts.', 'UK:10 October 1994', 'USA:29 January 2004', '- 1 February 2007', 'USA:4 April 1991')
+ AND t.production_year > 2009;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('Carlito Brigante: Walk away, Nacho! Just walk the fuck away!', 'USA:15 October 2010', '$947,000', 'Syria', 'USA:9 April 2009')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Comedy', 'Digicosm', 'Australia:49', 'Denmark:97', 'Japan:18 June 1988')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('Lincoln Memorial, National Mall, Washington, District of Columbia, USA', 'Belgium:1', 'USA:29 July 1992', 'Coimbra, Portugal', 'Grinnell, Iowa, USA')
+ AND t.production_year > 1998;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('The farmhouse set was actually leftover from a previous movie.', 'Denmark:4 June 2009', 'UK:2 November 2007', 'USA:10 June 1986', 'UK:28 October 2002')
+ AND t.production_year > 2008;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%-%'
+ AND mi.info IN ('It is the year 3113. Thirty centuries have passed since the Earth was consumed by toxic pollutants, forcing mankind to flee into the galaxy in search of life-sustaining habitats. Enter Advancers - brave explorers who risk their life exploring new uncharted worlds for humans to live on. To unite these new worlds, a new interplanetary government was formed, with all new planets and space colonies falling under it''s jurisdiction: The Allied Earth Government, the Domestic Union of Arms (DUA). When the DUA sends out Advancers to explore a mysterious planet called Omega 13, one by one, Advancers pay the price with their lives-never to return from their mission. Mugal, a top DUA officer proposes the job to an unlikely candidate: Tina Owens, a renegade Advancer serving a 2,000 year sentence for blowing up an entire planet. The mission is simple: locate habitable land on Omega 13, If Tina doesn''t accept the job, she''ll will rot in prison. If Tina accepts, her sentence will be slightly reduced, with the risk of death. While there''s no doubt the trip to Omega 13 is filled with peril, nothing can compare to what awaits the crew once they arrive on the deadly planet.', 'USA:7 October 1998', 'France:14 May 1989', 'Romance', 'USA:5 January 1995')
+ AND t.production_year > 1995;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%t%'
+ AND mi.info IN ('Color', 'USA:January 2002', 'Brain Damage Films', 'Anal Special!', 'USA:20 August 2012')
+ AND t.production_year > 1988;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('CONT: When Andrea pulls the doorknob off, black slime pours out over her hand. In the next shot, her hand is completely clean.', 'UK:18 December 2012', 'Austria:April 2004', 'Japan:August 2010', 'USA:January 2006')
+ AND t.production_year > 1991;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('Czech', 'Japan:25 May 2002', 'Tirana, Albania', 'Sintra, Portugal', 'USA:3 October 2012')
+ AND t.production_year > 2002;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('OFM:HDCAM', 'USA:20 March 2011', '73 Pop Shots!', 'God help us!', 'USA:21 January 2011')
+ AND t.production_year > 2008;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Japan', 'Hungary:July 2010', 'USA:27', 'Burning With Evil.', 'Greece:45')
+ AND t.production_year > 1988;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('''Macho Man'' Randy Savage: [Looking at Hulk Hogan''s Black eye] Look at the Hulkster.', 'USA:17 October 2001', 'UK:1 September 2004', 'James Boyd', 'Mexico:1989')
+ AND t.production_year > 1992;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%g%'
+ AND mi.info IN ('USA', 'USA:7 November 2011', 'USA:22 March 2007', 'USA:24 October 2011', 'Novi Sad, Serbia')
+ AND t.production_year > 1999;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('FAKE: As Farnsworth enters his account information, the numbers he reads are already visible (albeit faintly).', 'Valhalla as Himself', 'UK:28 February 2013', 'Austria:220', 'USA:95')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('USA:26 November 2002', 'BRL 40,000', 'Netherlands:78', 'USA:18 May 1994', 'Corfu, Greece')
+ AND t.production_year > 2000;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Thriller', '8 March 2007 -', 'LAB:CustomFlix, USA', 'Cazzo 2009', 'Japan:15 May 2004')
+ AND t.production_year > 1999;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('RAT:1.78 : 1', 'Emergency!', 'RAT:4:3 (cropped)', '$17,544', 'Australia:3')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('USA:74', 'Australia:1998', 'UK:13 April 2012', 'USA:February 2012', 'USA:10 April 1996')
+ AND t.production_year > 2005;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('Rated R for violence and some nudity', 'GiGi Erneta', 'Argentina:102', 'Greece:26', 'UK:April 2005')
+ AND t.production_year > 2001;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Spain:1997', 'France:March 2011', 'USA:22 June 2001', 'Russia:2006', '1991 -')
+ AND t.production_year > 1996;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%c%'
+ AND mi.info IN ('Color', 'Iceland:10 May 2006', 'USA:15 June 1988', 'Japan:1 August 1987', 'Japan:1')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('Our fate lies in the hands of one.', 'UK:January 2009', 'Australia:98', 'LAB:RCM Filmlab', 'USA:19 January 2000')
+ AND t.production_year > 2008;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('[after Iago has knocked the lamp into the molten magma]::Jafar: My lamp! NOOOOOOOOOO!', 'PIPS Premiere Inc', '1.85 : 1', 'UK:22 August 2005', 'India:August 2007')
+ AND t.production_year > 1993;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('RAT:1.78 : 1', 'Hutchison, Blake', 'Spain:8 May 2002', 'SC058-6068', 'Japan:2 March 2007')
+ AND t.production_year > 2002;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('USA:19', '55:00', 'UK:720', 'Canada:2003', 'Mexico:October 2010')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%t%'
+ AND mi.info IN ('12 February 1990 - 10 March 1990', 'UK:10 November 2012', 'CAM:Canon L-1', 'Japan:3 June 1994', 'Japan:16')
+ AND t.production_year > 1989;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%-%'
+ AND mi.info IN ('USA', 'Canada:August 2006', 'France:5 June 2002', 'UK:22 April 2008', 'Japan:3 March 1994')
+ AND t.production_year > 1999;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%-%'
+ AND mi.info IN ('Sci-Fi', 'Denmark:23', 'USA:21 May 2008', 'Norway:15 May 2009', 'USA:23 August 2010')
+ AND t.production_year > 2011;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('Animation', 'Sumgait, Azerbaijan', 'Australia:1982', 'USA:5 June 2005', 'USA:171')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('Action', '- 2 July 1997', '$255,000', 'Finland:1994', 'USA:14 July 2006')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('English', 'Love Is Forever.', 'Japan:1 July 2004', 'UK:January 2006', 'USA:15 October 2006')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('USA:27 June 2006', 'Martin Buzora', 'USA:19 March 2010', '289', 'Armenia:July 1998')
+ AND t.production_year > 2005;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%u%'
+ AND mi.info IN ('USA:X', 'PCS:TruVideo', 'USA:July 2009', 'Sierra Leone', 'Japan:29 June 2005')
+ AND t.production_year > 2008;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%p%'
+ AND mi.info IN ('Brazil:18', 'USA:2 April 2004', 'CAD 475,000', 'France:85', 'Canada:9 July 2010')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('Color', 'Portugal:90', 'Italy:45', 'It''s on, bitch!', '31 July 2008 -')
+ AND t.production_year > 2008;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('Czech Republic', 'â¬ 16,000', 'Take a visual trip!', 'UK:1 November 1992', '? - 19 April 2002')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Spain:2004', '28 September 2006 -', 'USA:1 June 2013', 'UK:132', 'USA:25 January 2004')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%p%'
+ AND mi.info IN ('RAT:1.33 : 1', 'Italy:February 2003', 'USA:15 January 2012', 'India:March 2007', 'lose weight fast')
+ AND t.production_year > 1985;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%m%'
+ AND mi.info IN ('USA:Not Rated', 'USA:16 March 2010', '- 4 February 2000', 'France:29 June 2009', 'Boise, Idaho, USA')
+ AND t.production_year > 2007;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%t%'
+ AND mi.info IN ('USA:11 October 2005', 'Japan:5 June 1988', 'I Love My ETV!', 'Spain:July 2005', 'USA:22 January 2002')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Stereo', 'December 1992', 'UK:152', 'Hungary:2003', 'USA:November 2000')
+ AND t.production_year > 1999;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('English', 'USA:16 April 2004', '8 February 1998 - ?', 'USA:10 May 2002', 'USA:21 July 2008')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Poland:4 December 2006', 'USA:6 April 1993', 'USA:21 March 2012', '344', 'UK:16 June 2003')
+ AND t.production_year > 2005;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%c%'
+ AND mi.info IN ('Sweden:24 September 2008', 'UK:1 January 1991', 'Italy:1990', 'USA:2 December 2000', 'Educational')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('American Male Studios', 'USA:10 June 1999', '- 20 November 1996', 'MET:3291 m', 'UK:4 May 1990')
+ AND t.production_year > 2003;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('Poland:19 October 2010', 'Drama Times 3', 'USA:16 March 2010', 'USA:2 July 1996', 'Sinfully delicious!')
+ AND t.production_year > 2009;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%u%'
+ AND mi.info IN ('USA:R', 'USA:9 December 2006', 'Seed Productions', 'Spain:16 July 2003', 'Â£500,000')
+ AND t.production_year > 1991;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('Germany:18', 'UK:9 September 2006', 'Japan:5 May 2005', 'UK:13 February 1995', 'Austria:1984')
+ AND t.production_year > 2001;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('The UK Video release had many cuts, removing about.  5 minutes of footage. This is most noticeable in the early scene with the teacher becoming a demon and raping Akemi.', 'Death becomes her.', 'USA:3 February 2001', 'Mexico:June 2009', 'USA:3 April 2009')
+ AND t.production_year > 1988;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Czech', 'Pattaya, Thailand', 'Only DPs.', 'USA:January 1976', 'MET:2304 m')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Dolby Digital', 'Birkenfeld, Oregon', '202', 'Brazil:30 June 2012', 'Japan:18')
+ AND t.production_year > 1996;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%k%'
+ AND mi.info IN ('USA', 'USA:3 November 1993', 'USA:186', 'Hebrew', 'May 2008 -')
+ AND t.production_year > 1998;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('USA:26 December 2005', 'Australia:12', 'USA:22 June 1999', 'Portugal:March 2007', 'Sweden:29 July 2005')
+ AND t.production_year > 2004;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%u%'
+ AND mi.info IN ('RAT:1.78 : 1', 'USA:21 August 2011', 'Woman: Sangria?', 'USA:2 June 2004', 'UK:1 August 2003')
+ AND t.production_year > 2011;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Germany:18', 'Uruguay:March 2010', 'CUP 50,000', 'UK:22 October 2012', '$82,000')
+ AND t.production_year > 1999;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Waxahachie, Texas, USA', 'Greece:24 May 2007', 'USA:28 April 1998', 'Poland:18 July 2012', 'Cupsogue Pictures')
+ AND t.production_year > 2006;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('Â©Channel 1 Releasing 2011', 'UK:22 July 2002', '$4,600,000', 'Germany:5 May 2011', '- 12 February 2005')
+ AND t.production_year > 2011;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM cat_keyword_4 AS k,
+ cat_movie_info_4 AS mi,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%b%'
+ AND mi.info IN ('Sa''luk: [after seeing that Cassim is not in prison with the other thieves] He''s not in there! You didn''t capture the King of Thieves?::Razoul the Chief Guard: Because he was not at the hideout!::Sa''luk: He had to be there. Where else would he be?::Guard: [enterting cautiously] Apologies, Captain Razoul.::Razoul the Chief Guard: [with Sa''luk] What?::Guard: Well, the Sultan said he won''t be able to sentence your prisoners until tomorrow.::Razoul the Chief Guard: What''s more important than sentencing my prisoners?::Guard: Why, the wedding. Princess Jasmine and Aladdin are finally getting married.::Sa''luk: Aladdin! You didn''t capture Aladdin with the others?::Razoul the Chief Guard: Why would he be with the forty thieves?::Sa''luk: Because his father is the KING of Thieves!', 'DTS-Stereo', 'Eon Productions', 'Netherlands:81', 'BRL 60,000')
+ AND t.production_year > 1995;",0,/*+  SeqScan(mi) IndexScan(mk movie_id_movie_keyword_cat_4) IndexScan(k cat_keyword_4_pkey) IndexScan(t cat_title_4_pkey) NestLoop(mi mk) NestLoop(mi mk k) NestLoop(mi mk k t) Leading((((mi mk) k) t)) */

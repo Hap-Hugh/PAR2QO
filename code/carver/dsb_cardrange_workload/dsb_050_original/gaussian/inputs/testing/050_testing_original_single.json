@@ -1,0 +1,97 @@
+{
+    "050": {
+        "query": "SELECT min(s_store_name) ,\n       min(s_company_id) ,\n       min(s_street_number) ,\n       min(s_street_name) ,\n       min(s_suite_number) ,\n       min(s_city) ,\n       min(s_zip) ,\n       min(ss_ticket_number) ,\n       min(ss_sold_date_sk) ,\n       min(sr_returned_date_sk) ,\n       min(ss_item_sk) ,\n       min(d1.d_date_sk)\nFROM store_sales ,\n     store_returns ,\n     store ,\n     date_dim d1 ,\n     date_dim d2\nWHERE d2.d_moy = @param0\n  AND ss_ticket_number = sr_ticket_number\n  AND ss_item_sk = sr_item_sk\n  AND ss_sold_date_sk = d1.d_date_sk\n  AND sr_returned_date_sk = d2.d_date_sk\n  AND ss_customer_sk = sr_customer_sk\n  AND ss_store_sk = s_store_sk\n  AND sr_store_sk = s_store_sk\n  AND d1.d_date BETWEEN (d2.d_date - interval '120 day') AND d2.d_date\n  AND d1.d_dow = @param1\n  AND s_state in ('@param2') ;",
+        "predicates": [
+            {
+                "alias": "d2",
+                "column": "d_moy",
+                "operator": "=",
+                "data_type": "int",
+                "table": "date_dim",
+                "min": 1,
+                "max": 12,
+                "join_tables": [
+                    "store_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "sr_returned_date_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "sr_returned_date_sk = d2.d_date_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "d1",
+                "column": "d_dow",
+                "operator": "=",
+                "data_type": "int",
+                "table": "date_dim",
+                "min": 0,
+                "max": 6,
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_sold_date_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_sold_date_sk = d1.d_date_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "s_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "store",
+                "join_tables": [
+                    "store_sales",
+                    "store_returns"
+                ],
+                "join_tables_alias": [
+                    "",
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_store_sk"
+                    ],
+                    [
+                        "sr_store_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_store_sk = s_store_sk",
+                    "sr_store_sk = s_store_sk"
+                ],
+                "left_or_right": [
+                    "l",
+                    "l"
+                ]
+            }
+        ],
+        "params": [
+            [
+                "1",
+                "6",
+                "MI', 'MN', 'NE"
+            ]
+        ]
+    }
+}

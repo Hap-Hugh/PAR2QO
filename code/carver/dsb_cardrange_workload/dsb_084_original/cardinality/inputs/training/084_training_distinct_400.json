@@ -1,0 +1,253 @@
+{
+    "084": {
+        "query": "SELECT min(c_customer_id),\n       min(sr_ticket_number),\n       min(sr_item_sk)\nFROM customer ,\n     customer_address ,\n     customer_demographics ,\n     household_demographics ,\n     income_band ,\n     store_returns\nWHERE ca_city = '@param0'\n  AND c_current_addr_sk = ca_address_sk\n  AND ib_lower_bound >= @param1\n  AND ib_upper_bound <= @param1 + 50000\n  AND ib_income_band_sk = hd_income_band_sk\n  AND cd_demo_sk = c_current_cdemo_sk\n  AND hd_demo_sk = c_current_hdemo_sk\n  AND sr_cdemo_sk = cd_demo_sk ;",
+        "predicates": [
+            {
+                "alias": "",
+                "column": "ca_city",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "customer"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "c_current_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "c_current_addr_sk = ca_address_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ib_lower_bound",
+                "operator": ">=",
+                "data_type": "int",
+                "table": "income_band",
+                "join_tables": [
+                    "household_demographics"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "hd_income_band_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ib_income_band_sk = hd_income_band_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            }
+        ],
+        "params": [
+            [
+                "Northwood",
+                180001
+            ],
+            [
+                "Crystal Springs",
+                140001
+            ],
+            [
+                "Sherwood Forest",
+                190001
+            ],
+            [
+                "Bennett",
+                70001
+            ],
+            [
+                "Elkton",
+                80001
+            ],
+            [
+                "Sherwood Forest",
+                0
+            ],
+            [
+                "Shelby",
+                130001
+            ],
+            [
+                "McDonald",
+                10001
+            ],
+            [
+                "Pomona",
+                130001
+            ],
+            [
+                "Forestville",
+                130001
+            ],
+            [
+                "Tabor",
+                120001
+            ],
+            [
+                "Helena",
+                70001
+            ],
+            [
+                "Quincy",
+                40001
+            ],
+            [
+                "Forest Park",
+                170001
+            ],
+            [
+                "Saint Clair",
+                110001
+            ],
+            [
+                "Cherokee",
+                70001
+            ],
+            [
+                "Forestville",
+                20001
+            ],
+            [
+                "Oak Park",
+                30001
+            ],
+            [
+                "Glasgow",
+                90001
+            ],
+            [
+                "Wilton",
+                50001
+            ],
+            [
+                "Cherry Grove",
+                0
+            ],
+            [
+                "Northwood",
+                50001
+            ],
+            [
+                "Northwood",
+                0
+            ],
+            [
+                "Allen",
+                110001
+            ],
+            [
+                "Pittsburg",
+                40001
+            ],
+            [
+                "Hilltop",
+                140001
+            ],
+            [
+                "Richland",
+                40001
+            ],
+            [
+                "Watson",
+                100001
+            ],
+            [
+                "Northwood",
+                190001
+            ],
+            [
+                "Hebron",
+                10001
+            ],
+            [
+                "Calhoun",
+                170001
+            ],
+            [
+                "Doyle",
+                110001
+            ],
+            [
+                "Five Points",
+                30001
+            ],
+            [
+                "Norwood",
+                80001
+            ],
+            [
+                "Gray",
+                40001
+            ],
+            [
+                "Northwood",
+                10001
+            ],
+            [
+                "New Hope",
+                40001
+            ],
+            [
+                "Rankin",
+                30001
+            ],
+            [
+                "Tyler",
+                140001
+            ],
+            [
+                "Eden",
+                100001
+            ],
+            [
+                "Redland",
+                100001
+            ],
+            [
+                "Sherwood Forest",
+                120001
+            ],
+            [
+                "Austin",
+                160001
+            ],
+            [
+                "Sherwood Forest",
+                40001
+            ],
+            [
+                "Sherwood Forest",
+                80001
+            ],
+            [
+                "Piney Grove",
+                80001
+            ],
+            [
+                "Long Branch",
+                0
+            ],
+            [
+                "Fruitland",
+                30001
+            ],
+            [
+                "Leesburg",
+                180001
+            ]
+        ]
+    }
+}

@@ -1,0 +1,1088 @@
+{
+    "050": {
+        "query": "SELECT min(s_store_name) ,\n       min(s_company_id) ,\n       min(s_street_number) ,\n       min(s_street_name) ,\n       min(s_suite_number) ,\n       min(s_city) ,\n       min(s_zip) ,\n       min(ss_ticket_number) ,\n       min(ss_sold_date_sk) ,\n       min(sr_returned_date_sk) ,\n       min(ss_item_sk) ,\n       min(d1.d_date_sk)\nFROM store_sales ,\n     store_returns ,\n     store ,\n     date_dim d1 ,\n     date_dim d2\nWHERE d2.d_moy = @param0\n  AND ss_ticket_number = sr_ticket_number\n  AND ss_item_sk = sr_item_sk\n  AND ss_sold_date_sk = d1.d_date_sk\n  AND sr_returned_date_sk = d2.d_date_sk\n  AND ss_customer_sk = sr_customer_sk\n  AND ss_store_sk = s_store_sk\n  AND sr_store_sk = s_store_sk\n  AND d1.d_date BETWEEN (d2.d_date - interval '120 day') AND d2.d_date\n  AND d1.d_dow = @param1\n  AND s_state in ('@param2') ;",
+        "predicates": [
+            {
+                "alias": "d2",
+                "column": "d_moy",
+                "operator": "=",
+                "data_type": "int",
+                "table": "date_dim",
+                "join_tables": [
+                    "store_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "sr_returned_date_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "sr_returned_date_sk = d2.d_date_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "d1",
+                "column": "d_dow",
+                "operator": "=",
+                "data_type": "int",
+                "table": "date_dim",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_sold_date_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_sold_date_sk = d1.d_date_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "s_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "store",
+                "join_tables": [
+                    "store_sales",
+                    "store_returns"
+                ],
+                "join_tables_alias": [
+                    "",
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_store_sk"
+                    ],
+                    [
+                        "sr_store_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_store_sk = s_store_sk",
+                    "sr_store_sk = s_store_sk"
+                ],
+                "left_or_right": [
+                    "l",
+                    "l"
+                ]
+            }
+        ],
+        "params": [
+            [
+                12,
+                1,
+                "WV', 'WV', 'TN"
+            ],
+            [
+                10,
+                4,
+                "MN', 'MN', 'SC"
+            ],
+            [
+                11,
+                5,
+                "SC', 'MN', 'SC"
+            ],
+            [
+                10,
+                3,
+                "TN', 'WV', 'WV"
+            ],
+            [
+                8,
+                6,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                5,
+                3,
+                "MN', 'SC', 'MN"
+            ],
+            [
+                4,
+                5,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                12,
+                4,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                12,
+                6,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                2,
+                2,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                6,
+                3,
+                "MN', 'SC', 'MN"
+            ],
+            [
+                4,
+                1,
+                "TN', 'WV', 'WV"
+            ],
+            [
+                3,
+                0,
+                "WV', 'WV', 'TN"
+            ],
+            [
+                6,
+                5,
+                "MN', 'MN', 'SC"
+            ],
+            [
+                2,
+                0,
+                "SC', 'SC', 'MN"
+            ],
+            [
+                3,
+                0,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                2,
+                1,
+                "TN', 'WV', 'WV"
+            ],
+            [
+                9,
+                3,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                11,
+                1,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                7,
+                0,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                4,
+                4,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                2,
+                5,
+                "SC', 'SC', 'LA"
+            ],
+            [
+                11,
+                2,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                3,
+                3,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                1,
+                6,
+                "SC', 'SC', 'SC"
+            ],
+            [
+                6,
+                4,
+                "LA', 'SC', 'SC"
+            ],
+            [
+                12,
+                6,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                3,
+                3,
+                "WV', 'WV', 'TN"
+            ],
+            [
+                5,
+                4,
+                "SC', 'SC', 'SC"
+            ],
+            [
+                11,
+                5,
+                "SC', 'SC', 'SC"
+            ],
+            [
+                5,
+                0,
+                "SC', 'MN', 'SC"
+            ],
+            [
+                2,
+                5,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                1,
+                4,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                12,
+                4,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                5,
+                4,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                2,
+                3,
+                "TN', 'WV', 'TN"
+            ],
+            [
+                4,
+                5,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                4,
+                3,
+                "SC', 'LA', 'LA"
+            ],
+            [
+                1,
+                5,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                10,
+                0,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                3,
+                1,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                12,
+                0,
+                "TN', 'WV', 'WV"
+            ],
+            [
+                11,
+                5,
+                "WV', 'TN', 'TN"
+            ],
+            [
+                6,
+                3,
+                "SC', 'MN', 'MN"
+            ],
+            [
+                12,
+                0,
+                "WV', 'TN', 'TN"
+            ],
+            [
+                5,
+                1,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                3,
+                1,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                12,
+                0,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                2,
+                0,
+                "SC', 'MN', 'MN"
+            ],
+            [
+                6,
+                3,
+                "SC', 'LA', 'GA"
+            ],
+            [
+                4,
+                3,
+                "MN', 'MN', 'SC"
+            ],
+            [
+                4,
+                2,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                8,
+                1,
+                "SC', 'SC', 'SC"
+            ],
+            [
+                10,
+                3,
+                "SC', 'GA', 'LA"
+            ],
+            [
+                6,
+                0,
+                "SC', 'MN', 'MN"
+            ],
+            [
+                2,
+                0,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                10,
+                3,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                3,
+                3,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                6,
+                5,
+                "GA', 'GA', 'SC"
+            ],
+            [
+                8,
+                5,
+                "WV', 'TN', 'TN"
+            ],
+            [
+                3,
+                1,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                5,
+                0,
+                "TN', 'WV', 'WV"
+            ],
+            [
+                6,
+                1,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                2,
+                6,
+                "MN', 'MN', 'SC"
+            ],
+            [
+                2,
+                3,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                3,
+                0,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                8,
+                3,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                6,
+                4,
+                "WV', 'TN', 'TN"
+            ],
+            [
+                7,
+                6,
+                "SC', 'SC', 'MN"
+            ],
+            [
+                8,
+                3,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                5,
+                0,
+                "MN', 'SC', 'MN"
+            ],
+            [
+                4,
+                1,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                2,
+                6,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                2,
+                0,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                6,
+                0,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                3,
+                3,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                9,
+                4,
+                "LA', 'SC', 'LA"
+            ],
+            [
+                11,
+                5,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                2,
+                3,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                6,
+                5,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                7,
+                2,
+                "SC', 'MN', 'SC"
+            ],
+            [
+                7,
+                3,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                3,
+                5,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                10,
+                4,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                3,
+                5,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                6,
+                0,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                7,
+                0,
+                "SC', 'MN', 'SC"
+            ],
+            [
+                6,
+                4,
+                "SC', 'SC', 'SC"
+            ],
+            [
+                6,
+                3,
+                "SC', 'GA', 'LA"
+            ],
+            [
+                4,
+                3,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                5,
+                5,
+                "TN', 'WV', 'WV"
+            ],
+            [
+                3,
+                0,
+                "SC', 'SC', 'LA"
+            ],
+            [
+                3,
+                6,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                3,
+                1,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                8,
+                5,
+                "LA', 'SC', 'GA"
+            ],
+            [
+                1,
+                6,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                5,
+                4,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                1,
+                4,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                8,
+                1,
+                "SC', 'LA', 'LA"
+            ],
+            [
+                3,
+                4,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                7,
+                0,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                10,
+                4,
+                "WV', 'TN', 'WV"
+            ],
+            [
+                2,
+                5,
+                "SC', 'SC', 'MN"
+            ],
+            [
+                2,
+                2,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                8,
+                4,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                3,
+                4,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                9,
+                4,
+                "WV', 'TN', 'TN"
+            ],
+            [
+                6,
+                4,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                7,
+                3,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                7,
+                1,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                11,
+                5,
+                "WV', 'TN', 'WV"
+            ],
+            [
+                4,
+                3,
+                "SC', 'SC', 'MN"
+            ],
+            [
+                4,
+                5,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                1,
+                4,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                1,
+                3,
+                "TN', 'WV', 'WV"
+            ],
+            [
+                3,
+                5,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                6,
+                3,
+                "MN', 'SC', 'MN"
+            ],
+            [
+                7,
+                1,
+                "SC', 'SC', 'LA"
+            ],
+            [
+                9,
+                5,
+                "SC', 'SC', 'SC"
+            ],
+            [
+                11,
+                5,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                2,
+                1,
+                "WV', 'WV', 'TN"
+            ],
+            [
+                10,
+                0,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                4,
+                0,
+                "MN', 'SC', 'MN"
+            ],
+            [
+                4,
+                6,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                4,
+                3,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                3,
+                0,
+                "WV', 'WV', 'TN"
+            ],
+            [
+                2,
+                2,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                10,
+                0,
+                "WV', 'TN', 'TN"
+            ],
+            [
+                6,
+                6,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                11,
+                6,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                2,
+                4,
+                "GA', 'GA', 'LA"
+            ],
+            [
+                2,
+                5,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                12,
+                4,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                12,
+                6,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                10,
+                4,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                6,
+                2,
+                "SC', 'SC', 'SC"
+            ],
+            [
+                3,
+                4,
+                "MN', 'MN', 'SC"
+            ],
+            [
+                3,
+                1,
+                "WV', 'TN', 'TN"
+            ],
+            [
+                4,
+                4,
+                "GA', 'SC', 'GA"
+            ],
+            [
+                3,
+                2,
+                "GA', 'GA', 'SC"
+            ],
+            [
+                3,
+                5,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                6,
+                5,
+                "TN', 'WV', 'WV"
+            ],
+            [
+                4,
+                3,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                2,
+                1,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                10,
+                4,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                9,
+                5,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                4,
+                2,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                12,
+                4,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                8,
+                3,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                11,
+                0,
+                "LA', 'GA', 'LA"
+            ],
+            [
+                2,
+                2,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                1,
+                1,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                7,
+                4,
+                "GA', 'SC', 'LA"
+            ],
+            [
+                12,
+                0,
+                "SC', 'SC', 'SC"
+            ],
+            [
+                11,
+                1,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                2,
+                3,
+                "TN', 'WV', 'TN"
+            ],
+            [
+                7,
+                2,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                4,
+                5,
+                "SC', 'MN', 'MN"
+            ],
+            [
+                4,
+                0,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                6,
+                3,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                6,
+                4,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                8,
+                1,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                4,
+                1,
+                "MN', 'MN', 'SC"
+            ],
+            [
+                2,
+                6,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                2,
+                0,
+                "TN', 'TN', 'WV"
+            ],
+            [
+                5,
+                1,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                3,
+                2,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                3,
+                3,
+                "GA', 'SC', 'LA"
+            ],
+            [
+                5,
+                4,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                4,
+                5,
+                "MN', 'SC', 'MN"
+            ],
+            [
+                2,
+                5,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                3,
+                3,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                3,
+                1,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                7,
+                0,
+                "LA', 'SC', 'GA"
+            ],
+            [
+                6,
+                6,
+                "WV', 'TN', 'TN"
+            ],
+            [
+                2,
+                4,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                11,
+                1,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                7,
+                0,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                8,
+                0,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                5,
+                5,
+                "SC', 'SC', 'MN"
+            ],
+            [
+                2,
+                1,
+                "SC', 'SC', 'SC"
+            ],
+            [
+                4,
+                3,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                10,
+                0,
+                "SC', 'SC', 'SC"
+            ],
+            [
+                1,
+                2,
+                "SC', 'SC', 'MN"
+            ],
+            [
+                3,
+                4,
+                "WV', 'WV', 'TN"
+            ],
+            [
+                5,
+                5,
+                "WV', 'TN', 'WV"
+            ],
+            [
+                2,
+                0,
+                "GA', 'GA', 'SC"
+            ],
+            [
+                6,
+                1,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                6,
+                5,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                2,
+                0,
+                "WV', 'WV', 'TN"
+            ],
+            [
+                8,
+                5,
+                "LA', 'SC', 'SC"
+            ],
+            [
+                12,
+                6,
+                "GA', 'LA', 'LA"
+            ],
+            [
+                9,
+                1,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                1,
+                3,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                3,
+                5,
+                "GA', 'GA', 'GA"
+            ],
+            [
+                4,
+                2,
+                "TN', 'TN', 'TN"
+            ],
+            [
+                4,
+                3,
+                "MN', 'SC', 'MN"
+            ],
+            [
+                3,
+                4,
+                "WV', 'WV', 'WV"
+            ],
+            [
+                1,
+                1,
+                "MN', 'MN', 'MN"
+            ],
+            [
+                4,
+                0,
+                "SC', 'SC', 'MN"
+            ]
+        ]
+    }
+}

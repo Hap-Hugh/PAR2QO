@@ -1,0 +1,226 @@
+
+
+
+{
+    "013": {
+        "query":"select min(ss_quantity)\n       ,min(ss_ext_sales_price)\n       ,min(ss_ext_wholesale_cost)\n       ,min(ss_ext_wholesale_cost)\n from store_sales\n     ,store\n     ,customer_demographics\n     ,household_demographics\n     ,customer_address\n     ,date_dim\n where s_store_sk = ss_store_sk\n and  ss_sold_date_sk = d_date_sk and d_year = 2001\n and((ss_hdemo_sk=hd_demo_sk\n  and cd_demo_sk = ss_cdemo_sk\n  and cd_marital_status = '@param0'\n  and cd_education_status = '@param1'\n  and ss_sales_price between 100.00 and 150.00\n  and hd_dep_count = 3\n     )or\n     (ss_hdemo_sk=hd_demo_sk\n  and cd_demo_sk = ss_cdemo_sk\n  and cd_marital_status = '@param2'\n  and cd_education_status = '@param3'\n  and ss_sales_price between 50.00 and 100.00\n  and hd_dep_count = 1\n     ) or\n     (ss_hdemo_sk=hd_demo_sk\n  and cd_demo_sk = ss_cdemo_sk\n  and cd_marital_status = '@param4'\n  and cd_education_status = '@param5'\n  and ss_sales_price between 150.00 and 200.00\n  and hd_dep_count = 1\n     ))\n and((ss_addr_sk = ca_address_sk\n  and ca_country = 'United States'\n  and ca_state in ('@param6')\n  and ss_net_profit between 100 and 200\n     ) or\n     (ss_addr_sk = ca_address_sk\n  and ca_country = 'United States'\n  and ca_state in ('@param7')\n  and ss_net_profit between 150 and 300\n     ) or\n     (ss_addr_sk = ca_address_sk\n  and ca_country = 'United States'\n  and ca_state in ('@param8')\n  and ss_net_profit between 50 and 250\n     ))\n;",
+        "predicates": [
+            {
+                "alias": "",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd_demo_sk = ss_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd_demo_sk = ss_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd_demo_sk = ss_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd_demo_sk = ss_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd_demo_sk = ss_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd_demo_sk = ss_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ca_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_addr_sk = ca_address_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ca_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_addr_sk = ca_address_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ca_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_addr_sk = ca_address_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            }
+        ]
+    }
+}

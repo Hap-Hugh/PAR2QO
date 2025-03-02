@@ -1,0 +1,2464 @@
+{
+  "26-0": {
+    "query": "SELECT MIN(chn.name) AS character_name, MIN(mi_idx.info) AS rating, MIN(n.name) AS playing_actor, MIN(t.title) AS complete_hero_movie\nFROM complete_cast AS cc,\n   comp_cast_type AS cct1,\n   comp_cast_type AS cct2,\n   char_name AS chn,\n   cast_info AS ci,\n   info_type AS it2,\n   keyword AS k,\n   kind_type AS kt,\n   movie_info_idx AS mi_idx,\n   movie_keyword AS mk,\n   name AS n,\n   title AS t\nWHERE kt.id = t.kind_id\nAND t.id = mk.movie_id\nAND t.id = ci.movie_id\nAND t.id = cc.movie_id\nAND t.id = mi_idx.movie_id\nAND mk.movie_id = ci.movie_id\nAND mk.movie_id = cc.movie_id\nAND mk.movie_id = mi_idx.movie_id\nAND ci.movie_id = cc.movie_id\nAND ci.movie_id = mi_idx.movie_id\nAND cc.movie_id = mi_idx.movie_id\nAND chn.id = ci.person_role_id\nAND n.id = ci.person_id\nAND k.id = mk.keyword_id\nAND cct1.id = cc.subject_id\nAND cct2.id = cc.status_id\nAND it2.id = mi_idx.info_type_id\nAND cct1.kind = '@param0'\nAND cct2.kind LIKE '@param1'\nAND chn.name IS NOT NULL\nAND (chn.name LIKE '@param2' OR chn.name LIKE '@param3')\nAND it2.info = '@param4'\nAND k.keyword IN ('@param5')\nAND kt.kind = '@param6'\nAND mi_idx.info > '@param7'\nAND t.production_year > @param8;",
+    "predicates": [
+      {
+        "alias": "cct",
+        "original_alias": "cct1",
+        "column": "kind",
+        "operator": "=",
+        "data_type": "text",
+        "table": "comp_cast_type",
+        "join_tables_alias": [
+          "cc"
+        ],
+        "join_tables": [
+          "complete_cast"
+        ],
+        "join_conditions": [
+          "cct.id = cc.subject_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "cct",
+        "original_alias": "cct2",
+        "column": "kind",
+        "operator": "=",
+        "data_type": "text",
+        "table": "comp_cast_type",
+        "join_tables_alias": [
+          "cc"
+        ],
+        "join_tables": [
+          "complete_cast"
+        ],
+        "join_conditions": [
+          "cct.id = cc.status_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "chn",
+        "column": "name",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "char_name",
+        "join_tables_alias": [
+          "ci"
+        ],
+        "join_tables": [
+          "cast_info"
+        ],
+        "join_conditions": [
+          "chn.id = ci.person_role_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "chn",
+        "column": "name",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "char_name",
+        "join_tables_alias": [
+          "ci"
+        ],
+        "join_tables": [
+          "cast_info"
+        ],
+        "join_conditions": [
+          "chn.id = ci.person_role_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "it",
+        "original_alias": "it2",
+        "column": "info",
+        "operator": "=",
+        "data_type": "text",
+        "table": "info_type",
+        "join_tables_alias": [
+          "mi_idx"
+        ],
+        "join_tables": [
+          "movie_info_idx"
+        ],
+        "join_conditions": [
+          "it.id = mi_idx.info_type_id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "info"
+          ]
+        ]
+      },
+      {
+        "alias": "k",
+        "column": "keyword",
+        "operator": "IN",
+        "data_type": "text",
+        "table": "keyword",
+        "join_tables_alias": [
+          "mk"
+        ],
+        "join_tables": [
+          "movie_keyword"
+        ],
+        "join_conditions": [
+          "k.id = mk.keyword_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "kt",
+        "column": "kind",
+        "operator": "=",
+        "data_type": "text",
+        "table": "kind_type",
+        "join_tables_alias": [
+          "t"
+        ],
+        "join_tables": [
+          "title"
+        ],
+        "join_conditions": [
+          "kt.id = t.kind_id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "production_year"
+          ]
+        ]
+      },
+      {
+        "alias": "mi_idx",
+        "column": "info",
+        "operator": ">",
+        "data_type": "text",
+        "table": "movie_info_idx",
+        "join_tables_alias": [
+          "t",
+          "mk",
+          "ci",
+          "cc",
+          "it"
+        ],
+        "join_tables": [
+          "title",
+          "movie_keyword",
+          "cast_info",
+          "complete_cast",
+          "info_type"
+        ],
+        "join_conditions": [
+          "t.id = mi_idx.movie_id",
+          "mk.movie_id = mi_idx.movie_id",
+          "ci.movie_id = mi_idx.movie_id",
+          "cc.movie_id = mi_idx.movie_id",
+          "it.id = mi_idx.info_type_id"
+        ],
+        "left_or_right": [
+          "both",
+          "l",
+          "l",
+          "l",
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "production_year"
+          ],
+          [],
+          [],
+          [],
+          [
+            "info"
+          ]
+        ]
+      },
+      {
+        "alias": "t",
+        "column": "production_year",
+        "operator": ">",
+        "data_type": "int",
+        "table": "title",
+        "min": 1880,
+        "max": 2019,
+        "join_tables_alias": [
+          "kt",
+          "mk",
+          "ci",
+          "cc",
+          "mi_idx"
+        ],
+        "join_tables": [
+          "kind_type",
+          "movie_keyword",
+          "cast_info",
+          "complete_cast",
+          "movie_info_idx"
+        ],
+        "join_conditions": [
+          "kt.id = t.kind_id",
+          "t.id = mk.movie_id",
+          "t.id = ci.movie_id",
+          "t.id = cc.movie_id",
+          "t.id = mi_idx.movie_id"
+        ],
+        "left_or_right": [
+          "both",
+          "l",
+          "l",
+          "l",
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "kind"
+          ],
+          [],
+          [],
+          [],
+          [
+            "info"
+          ]
+        ]
+      }
+    ],
+    "params": [
+      [
+        "cast",
+        "complete+verified",
+        "%J%",
+        "%e%",
+        "votes",
+        "driver', 'made-for-internet', 'contested-will', 'dinner-for-two', 'vidocq",
+        "movie",
+        "1343",
+        1971
+      ],
+      [
+        "cast",
+        "complete",
+        "%Iron%Man%",
+        "%man%",
+        "rating",
+        "sequel', 'revenge', 'based-on-novel",
+        "movie",
+        "7.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete",
+        "%y%",
+        "%a%",
+        "rating",
+        "teaching', 'glaucoma', 'lake-huron', 'brown-water', 'emerson-college",
+        "movie",
+        "6.5",
+        1998
+      ],
+      [
+        "cast",
+        "complete",
+        "%Man%",
+        "%man%",
+        "votes",
+        "superhero', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence', 'magnet', 'web', 'claw', 'laser",
+        "movie",
+        "7.0",
+        "2005"
+      ],
+      [
+        "cast",
+        "complete",
+        "%Ivy%",
+        "%m%",
+        "rating",
+        "murder', 'female-nudity', 'female-nudity', 'female-nudity', 'murder",
+        "movie",
+        "15",
+        2006
+      ],
+      [
+        "cast",
+        "complete",
+        "%l%",
+        "%s%",
+        "votes",
+        "love', 'tv-mini-series', 'anal-sex', 'one-word-title', 'death",
+        "episode",
+        "6.7",
+        1955
+      ],
+      [
+        "cast",
+        "complete",
+        "%r%",
+        "%A%",
+        "votes",
+        "nude-cheerleading', 'sentai-adaptation', 'walking-into-water', 'racial-role-playing', 'sitting",
+        "movie",
+        "806",
+        2001
+      ],
+      [
+        "cast",
+        "complete",
+        "%Joey%",
+        "%s%",
+        "votes",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "episode",
+        "6",
+        1953
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%m%",
+        "%Robello%",
+        "votes",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "movie",
+        "18",
+        1969
+      ],
+      [
+        "crew",
+        "complete",
+        "%Home%",
+        "%s%",
+        "rating",
+        "based-on-novel', 'independent-film', 'based-on-novel', 'independent-film', 'based-on-novel",
+        "episode",
+        "0000012211",
+        2003
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%Himself%",
+        "%m%",
+        "rating",
+        "number-in-title', 'oral-sex', 'friendship', 'surrealism', 'friendship",
+        "movie",
+        "6.7",
+        1973
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%n%",
+        "%a%",
+        "votes",
+        "1950s', 'sword-of-damocles', 'stein', 'scooping-poop', 'red-robe",
+        "movie",
+        "1343",
+        1971
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%Host%",
+        "%m%",
+        "votes",
+        "love', 'bare-chested-male', 'number-in-title', 'dog', 'violence",
+        "episode",
+        "0000001222",
+        1999
+      ],
+      [
+        "cast",
+        "complete",
+        "%man%",
+        "%Man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "7.0",
+        "2010"
+      ],
+      [
+        "cast",
+        "complete",
+        "%m%",
+        "%Himself%",
+        "votes",
+        "friendship', 'based-on-play', 'love', 'death', 'family-relationships",
+        "episode",
+        "7",
+        1888
+      ],
+      [
+        "crew",
+        "complete",
+        "%C%",
+        "%n%",
+        "votes",
+        "van', 'vampire-parents', 'confinement', 'compounds', 'shooting-a-cow",
+        "movie",
+        "1460",
+        1977
+      ],
+      [
+        "crew",
+        "complete",
+        "%man%",
+        "%Tony%Stark%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "7.0",
+        "1950"
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%m%",
+        "%Host%",
+        "votes",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "tv movie",
+        ".00.002210",
+        2006
+      ],
+      [
+        "cast",
+        "complete",
+        "%l%",
+        "%m%",
+        "votes",
+        "based-on-novel', 'based-on-novel', 'independent-film', 'independent-film', 'based-on-novel",
+        "episode",
+        "21",
+        1972
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%l%",
+        "%McDonald%",
+        "votes",
+        "sequel', 'tv-mini-series', 'tv-mini-series', 'number-in-title', 'tv-mini-series",
+        "episode",
+        "24",
+        1981
+      ],
+      [
+        "crew",
+        "complete",
+        "%a%",
+        "%i%",
+        "votes distribution",
+        "cooking', 'orienteering', 'dinner-with-parents', 'cilia', 'tour-of-duty",
+        "movie",
+        "0000001211",
+        1999
+      ],
+      [
+        "crew",
+        "complete",
+        "%l%",
+        "%s%",
+        "votes",
+        "based-on-novel', 'independent-film', 'based-on-novel', 'based-on-novel', 'independent-film",
+        "episode",
+        "5",
+        2001
+      ],
+      [
+        "cast",
+        "complete",
+        "%Man%",
+        "%man%",
+        "votes",
+        "superhero', 'marvel-comics', 'based-on-comic', 'fight",
+        "movie",
+        "8.0",
+        "1990"
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%Host%",
+        "%m%",
+        "votes",
+        "surrealism', 'violence', 'family-relationships', 'blood', 'bare-breasts",
+        "episode",
+        "19",
+        2001
+      ],
+      [
+        "cast",
+        "complete",
+        "%Singer%",
+        "%s%",
+        "votes",
+        "female-nudity', 'female-nudity', 'female-nudity', 'murder', 'murder",
+        "episode",
+        "8",
+        1995
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Man%",
+        "%Tony%Stark%",
+        "votes",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "movie",
+        "6.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Man%",
+        "%Iron%Man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "8.0",
+        "2005"
+      ],
+      [
+        "crew",
+        "complete",
+        "%Baites%",
+        "%m%",
+        "votes",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "episode",
+        "0000012211",
+        2002
+      ],
+      [
+        "cast",
+        "complete",
+        "%l%",
+        "%m%",
+        "rating",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "episode",
+        "6.6",
+        2005
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%d%",
+        "%S%",
+        "votes",
+        "sexual-humor', 'universal-pictures', 'high-wire-performer', 'body-ritual', 'secret-entrance",
+        "movie",
+        "132469",
+        1998
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%n%",
+        "%t%",
+        "rating",
+        "based-on-play', 'reference-to-t-rex', 'requel', 'lost-boyz', 'son-of-odin",
+        "movie",
+        "7.0",
+        1998
+      ],
+      [
+        "cast",
+        "complete",
+        "%Himself%",
+        "%m%",
+        "votes",
+        "hardcore', 'hardcore', 'hardcore', 'hardcore', 'hardcore",
+        "movie",
+        "7",
+        1972
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%r%",
+        "%M%",
+        "votes distribution",
+        "lawyer', 'vinegar-bath', 'and\u00c3\u00bajar-spain', 'the-monkey''s-paw', 'all-seeing-eye",
+        "movie",
+        "0000012112",
+        1934
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Iron%Man%",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "2.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "5.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete",
+        "%man%",
+        "%Man%",
+        "votes",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "movie",
+        "8.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%C%",
+        "%C%",
+        "votes distribution",
+        "dog', 'traffic-court', 'french-fleet', '1948', 'traveling-salesman",
+        "movie",
+        "0000002211",
+        1992
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%m%",
+        "%Himself%",
+        "votes",
+        "female-nudity', 'murder', 'female-nudity', 'female-nudity', 'female-nudity",
+        "movie",
+        "6.9",
+        1944
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%m%",
+        "%Host%",
+        "votes",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "episode",
+        "5.9",
+        1908
+      ],
+      [
+        "cast",
+        "complete",
+        "%m%",
+        "%Himself%",
+        "rating",
+        "based-on-play', 'husband-wife-relationship', 'sequel', 'father-daughter-relationship', 'dog",
+        "video game",
+        "7.5",
+        2000
+      ],
+      [
+        "crew",
+        "complete",
+        "%m%",
+        "%Maremma%",
+        "votes",
+        "sequel', 'father-daughter-relationship', 'friendship', 'sequel', 'sequel",
+        "episode",
+        "23",
+        2009
+      ],
+      [
+        "crew",
+        "complete",
+        "%L%",
+        "%i%",
+        "rating",
+        "masturbation', 'flute-player', 'venison', 'psychedelic-drug', 'chess-board",
+        "movie",
+        "7.5",
+        2004
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%t%",
+        "%F%",
+        "rating",
+        "liquor', 'fire-and-forget', 'iwisa', 'blasphemy', 'intellectual-snob",
+        "movie",
+        "7.1",
+        1934
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%man%",
+        "rating",
+        "superhero', 'marvel-comics', 'based-on-comic', 'fight",
+        "movie",
+        "8.0",
+        "2005"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%l%",
+        "%Dr%",
+        "rating",
+        "husband-wife-relationship', 'number-in-title', 'police', 'based-on-play', 'bare-chested-male",
+        "episode",
+        "7",
+        2004
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Tony%Stark%",
+        "rating",
+        "murder', 'blood', 'gore', 'death', 'female-nudity",
+        "movie",
+        "7.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%Iron%Man%",
+        "rating",
+        "murder', 'blood', 'gore', 'death', 'female-nudity",
+        "movie",
+        "5.0",
+        "1950"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%Man%",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "7.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Iron%Man%",
+        "%man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "2.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete",
+        "%n%",
+        "%n%",
+        "rating",
+        "dead-cat', 'legal-wrangle', 'baffin-island', 'imdb', 'burning-a-village",
+        "tv movie",
+        "4.7",
+        1994
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%m%",
+        "%Host%",
+        "votes distribution",
+        "blood', 'love', 'revenge', 'father-son-relationship', 'anal-sex",
+        "movie",
+        "0000001222",
+        1990
+      ],
+      [
+        "crew",
+        "complete",
+        "%man%",
+        "%Man%",
+        "rating",
+        "murder', 'blood', 'gore', 'death', 'female-nudity",
+        "movie",
+        "6.0",
+        "2009"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%m%",
+        "%e%",
+        "votes",
+        "independent-film', 'based-on-novel', 'based-on-novel', 'independent-film', 'independent-film",
+        "episode",
+        "15",
+        1913
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%a%",
+        "%r%",
+        "votes",
+        "sequel', 'mobster-in-drag', 'criminal-activity', '24-hours-to-live', 'hasbro",
+        "movie",
+        "17818",
+        1997
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Man%",
+        "%man%",
+        "rating",
+        "murder', 'blood', 'gore', 'death', 'female-nudity",
+        "movie",
+        "2.0",
+        "2000"
+      ],
+      [
+        "crew",
+        "complete",
+        "%Serious%",
+        "%s%",
+        "rating",
+        "hardcore', 'hardcore', 'hardcore', 'hardcore', 'hardcore",
+        "video movie",
+        "6",
+        2005
+      ],
+      [
+        "crew",
+        "complete",
+        "%s%",
+        "%a%",
+        "votes distribution",
+        "chicago-illinois', 'rudolf-steiner', 'chirping', 'corporate-media', 'destruction-of-toy",
+        "movie",
+        "0000122100",
+        2001
+      ],
+      [
+        "cast",
+        "complete",
+        "%m%",
+        "%Ron%",
+        "rating",
+        "independent-film', 'independent-film', 'independent-film', 'independent-film', 'based-on-novel",
+        "episode",
+        "6.5",
+        1980
+      ],
+      [
+        "crew",
+        "complete",
+        "%Host%",
+        "%s%",
+        "votes",
+        "independent-film', 'independent-film', 'independent-film', 'independent-film', 'based-on-novel",
+        "movie",
+        "7.7",
+        2006
+      ],
+      [
+        "crew",
+        "complete",
+        "%l%",
+        "%m%",
+        "votes",
+        "murder', 'murder', 'murder', 'murder', 'murder",
+        "episode",
+        "6.6",
+        2005
+      ],
+      [
+        "crew",
+        "complete",
+        "%R%",
+        "%o%",
+        "votes distribution",
+        "sex-standing-up', 'roanoke-virginia', 'anti-pornography', 'post-detox', 'moving-sale",
+        "movie",
+        "0000002310",
+        2004
+      ],
+      [
+        "crew",
+        "complete",
+        "%2%",
+        "%Himself%",
+        "rating",
+        "based-on-novel', 'independent-film', 'independent-film', 'independent-film', 'independent-film",
+        "movie",
+        "14",
+        2001
+      ],
+      [
+        "cast",
+        "complete",
+        "%m%",
+        "%s%",
+        "votes",
+        "murder', 'female-nudity', 'murder', 'murder', 'female-nudity",
+        "movie",
+        "6.1",
+        2010
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%m%",
+        "%s%",
+        "rating",
+        "death', 'police', 'bare-breasts', 'family-relationships', 'male-nudity",
+        "episode",
+        "7.3",
+        2002
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%h%",
+        "%h%",
+        "votes",
+        "sexist', 'year-1901', 'webcam-sex', 'magazine-format', 'turntable",
+        "movie",
+        "43020",
+        1984
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%e%",
+        "%r%",
+        "votes distribution",
+        "shot-to-death', 'multiplex', 'graveyard-shift', 'tacks', 'undersea-tunnel",
+        "movie",
+        "0000002211",
+        1992
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Tony%Stark%",
+        "votes",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "8.0",
+        "2005"
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%Himself%",
+        "%Cem%",
+        "votes",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "episode",
+        "6.8",
+        1947
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Iron%Man%",
+        "%Man%",
+        "votes",
+        "nerd', 'loner', 'alienation', 'dignity",
+        "movie",
+        "2.0",
+        "1990"
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%u%",
+        "%h%",
+        "rating",
+        "title-spoken-by-character', 'singing-girl', 'death-of-a-horse', 'con-man', 'paris-liberation",
+        "movie",
+        "7.6",
+        1984
+      ],
+      [
+        "crew",
+        "complete",
+        "%Mother%",
+        "%Host%",
+        "votes",
+        "revenge', 'based-on-play', 'sequel', 'father-son-relationship', 'based-on-play",
+        "episode",
+        "4.9",
+        1996
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%man%",
+        "%Tony%Stark%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "2.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Iron%Man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "8.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Man%",
+        "votes",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "movie",
+        "9.0",
+        "2005"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%i%",
+        "%i%",
+        "votes",
+        "scheme', 'underground-digging', 'pouch', 'credibility', 'air-bladder",
+        "movie",
+        "1386",
+        1948
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%man%",
+        "rating",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "movie",
+        "7.0",
+        "1950"
+      ],
+      [
+        "crew",
+        "complete",
+        "%\u00c3\u00a5r%",
+        "%s%",
+        "votes",
+        "independent-film', 'independent-film', 'independent-film', 'independent-film', 'based-on-novel",
+        "episode",
+        "10..0.1211",
+        2001
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Man%",
+        "%Tony%Stark%",
+        "votes",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "movie",
+        "2.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Iron%Man%",
+        "%man%",
+        "rating",
+        "sequel', 'revenge', 'based-on-novel",
+        "movie",
+        "8.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Man%",
+        "%Tony%Stark%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "5.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete",
+        "%l%",
+        "%l%",
+        "rating",
+        "river', 'musical-heritage', 'respect', 'prospecting', 'female-servant",
+        "movie",
+        "7.1",
+        2003
+      ],
+      [
+        "cast",
+        "complete",
+        "%k%",
+        "%n%",
+        "votes",
+        "recreational-vehicle', 'threatening-note', 'box-around-head', 'broken-floor-board', 'smashing-a-piano",
+        "episode",
+        "3223",
+        2009
+      ],
+      [
+        "crew",
+        "complete",
+        "%H%",
+        "%a%",
+        "votes",
+        "roman-catholic', 'mercy', 'newspaper-headline', 'tibetans-in-exile', 'zippy",
+        "movie",
+        "202769",
+        2005
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%y%",
+        "%y%",
+        "votes",
+        "art', 'mailwoman', 'supermarket-clerk', 'continental-drift', 'exam",
+        "movie",
+        "19951",
+        1997
+      ],
+      [
+        "crew",
+        "complete",
+        "%L%",
+        "%r%",
+        "votes",
+        "french-new-wave', 'under-stairs', 'butternut-squash', 'based-on-dojin-game', 'branded",
+        "movie",
+        "1592",
+        1991
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%m%",
+        "%s%",
+        "votes",
+        "police', 'tv-mini-series', 'blood', 'oral-sex', 'number-in-title",
+        "episode",
+        "6.1",
+        1999
+      ],
+      [
+        "cast",
+        "complete",
+        "%o%",
+        "%e%",
+        "votes",
+        "arrest', 'healing', 'terrorist-speach', 'meat-axe', 'lying-to-boss",
+        "episode",
+        "252",
+        2008
+      ],
+      [
+        "cast",
+        "complete",
+        "%Iron%Man%",
+        "%man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "8.0",
+        "2000"
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%Host%",
+        "%m%",
+        "rating",
+        "number-in-title', 'number-in-title', 'bare-chested-male', 'number-in-title', 'bare-breasts",
+        "episode",
+        "0000200011",
+        1999
+      ],
+      [
+        "cast",
+        "complete",
+        "%l%",
+        "%m%",
+        "votes",
+        "violence', 'bare-chested-male', 'husband-wife-relationship', 'police', 'bare-chested-male",
+        "episode",
+        "8",
+        2005
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Iron%Man%",
+        "%man%",
+        "rating",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "movie",
+        "8.0",
+        "2008"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Tony%Stark%",
+        "top 250 rank",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "6.0",
+        "2000"
+      ],
+      [
+        "crew",
+        "complete",
+        "%S%",
+        "%S%",
+        "votes distribution",
+        "stable', 'body-count', 'punctured-tire', '25-year-old', 'opal-miner",
+        "movie",
+        "0000012111",
+        1994
+      ],
+      [
+        "cast",
+        "complete",
+        "%Iron%Man%",
+        "%Man%",
+        "rating",
+        "sequel', 'revenge', 'based-on-novel",
+        "movie",
+        "8.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%EMT%",
+        "%s%",
+        "rating",
+        "murder', 'female-nudity', 'female-nudity', 'murder', 'murder",
+        "tv movie",
+        "6.6",
+        1989
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%man%",
+        "votes",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "2.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "7.0",
+        "1950"
+      ],
+      [
+        "crew",
+        "complete",
+        "%J%",
+        "%r%",
+        "votes",
+        "policewoman', 'steep-waterfall', 'social-entrepreneur', 'municipal-force', 'australian-army",
+        "movie",
+        "46594",
+        2001
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%S%",
+        "%h%",
+        "votes",
+        "valley-girl', 'tok-pisin', 'washing-back', 'afternoon-sex', 'sabellianism",
+        "movie",
+        "20151",
+        1990
+      ],
+      [
+        "cast",
+        "complete",
+        "%s%",
+        "%v%",
+        "votes",
+        "husband-wife-relationship', 'tonka-dump-truck', 'mcguffey''s-reader', 'neediness', 'scoptophilia",
+        "movie",
+        "40",
+        1957
+      ],
+      [
+        "cast",
+        "complete",
+        "%Tony%Stark%",
+        "%man%",
+        "votes",
+        "superhero', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence', 'magnet', 'web', 'claw', 'laser",
+        "movie",
+        "8.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete",
+        "%Rapaz%",
+        "%Host%",
+        "votes",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "episode",
+        "26",
+        2004
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%m%",
+        "%Alex%",
+        "votes",
+        "based-on-novel', 'independent-film', 'based-on-novel', 'independent-film', 'based-on-novel",
+        "movie",
+        "6.7",
+        2005
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%Iron%Man%",
+        "rating",
+        "superhero', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence', 'magnet', 'web', 'claw', 'laser",
+        "movie",
+        "6.5",
+        "2005"
+      ],
+      [
+        "crew",
+        "complete",
+        "%m%",
+        "%Lauren%",
+        "votes",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "episode",
+        "5",
+        1997
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%r%",
+        "%e%",
+        "rating",
+        "piano', 'national-title', 'tunafish', 'fountain-pen', 'martian-meteorite",
+        "movie",
+        "7.6",
+        1984
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%R%",
+        "%r%",
+        "votes",
+        "based-on-novel', 'hockey-stadium', 'year-67-bc', 'break-even', 'south-italy",
+        "movie",
+        "2283",
+        1976
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%m%",
+        "%Host%",
+        "votes",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "movie",
+        "7",
+        2004
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "5.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Man%",
+        "%Iron%Man%",
+        "votes",
+        "superhero', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence', 'magnet', 'web', 'claw', 'laser",
+        "movie",
+        "7.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete",
+        "%Iron%Man%",
+        "%Tony%Stark%",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "7.0",
+        "2008"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%jeune%",
+        "%Himself%",
+        "rating",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "episode",
+        "6.6",
+        1975
+      ],
+      [
+        "crew",
+        "complete",
+        "%o%",
+        "%r%",
+        "votes distribution",
+        "manhattan-new-york-city', 'singing-girl', 'female-gambler', 'film-theory', 'soldiers-in-peril",
+        "movie",
+        "0000002311",
+        1983
+      ],
+      [
+        "cast",
+        "complete",
+        "%de%",
+        "%Himself%",
+        "votes",
+        "independent-film', 'based-on-novel', 'independent-film', 'independent-film', 'independent-film",
+        "episode",
+        "5.1",
+        2008
+      ],
+      [
+        "cast",
+        "complete",
+        "%r%",
+        "%o%",
+        "votes distribution",
+        "catfight', 'construction-area', 'animated-music', 'free-tv', 'killing-one''s-lover",
+        "movie",
+        "5100000000",
+        2001
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Iron%Man%",
+        "%Tony%Stark%",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "6.0",
+        "2000"
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%Iron%Man%",
+        "%man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "8.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%a%",
+        "%i%",
+        "votes",
+        "cigarette-smoking', 'syndicated', 'ejection', 'al-zarqawi', 'arm-chopped-off",
+        "movie",
+        "132469",
+        1998
+      ],
+      [
+        "crew",
+        "complete",
+        "%o%",
+        "%u%",
+        "rating",
+        "prayer', 'speed-racer', 'famous', 'solaiimaneyah-iraq', 'gun-control",
+        "movie",
+        "7.5",
+        2004
+      ],
+      [
+        "cast",
+        "complete",
+        "%l%",
+        "%m%",
+        "votes",
+        "spanish-regions', 'fire-wood', 'erb''s-palsey', 'fictional-football-team', 'reference-to-dom-deluise",
+        "episode",
+        "6.8",
+        1973
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%y%",
+        "%g%",
+        "votes distribution",
+        "paralysis', 'cutting-arm', 'dead-woman-on-beach', 'sleeping-in-office', 'stolen-safe",
+        "movie",
+        "0000122100",
+        1937
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%o%",
+        "%o%",
+        "rating",
+        "spoof', 'carotid-artery', 'snog', 'expanding-gas', 'amazing-grace-hymn",
+        "movie",
+        "4.5",
+        1985
+      ],
+      [
+        "cast",
+        "complete",
+        "%m%",
+        "%Host%",
+        "votes",
+        "female-nudity', 'female-nudity', 'female-nudity', 'murder', 'murder",
+        "episode",
+        "9",
+        2004
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%O%",
+        "%h%",
+        "rating",
+        "dance', 'lads-mags', 'backyard-wrestling', 'arctic-seal', 'homosexual-couple",
+        "movie",
+        "6.7",
+        1932
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%l%",
+        "%m%",
+        "rating",
+        "murder', 'female-nudity', 'murder', 'female-nudity', 'female-nudity",
+        "movie",
+        "6",
+        1907
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%n%",
+        "%i%",
+        "rating",
+        "throwing-an-animal-overboard', 'betelnut-beauty', 'altar', 'keyboard-player', 'rolling-downhill",
+        "movie",
+        "7.6",
+        1939
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%l%",
+        "%Murdoch%",
+        "votes",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "episode",
+        "....3.131.",
+        1997
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Iron%Man%",
+        "%Tony%Stark%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "5.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete",
+        "%m%",
+        "%s%",
+        "rating",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "episode",
+        "7",
+        2002
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Himself%",
+        "%m%",
+        "votes",
+        "hardcore', 'hardcore', 'hardcore', 'hardcore', 'hardcore",
+        "movie",
+        "24",
+        1968
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Iron%Man%",
+        "rating",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "movie",
+        "7.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Iron%Man%",
+        "%man%",
+        "rating",
+        "murder', 'blood', 'gore', 'death', 'female-nudity",
+        "movie",
+        "7.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "8.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%m%",
+        "%Japanese%",
+        "votes",
+        "female-nudity', 'murder', 'female-nudity', 'female-nudity', 'female-nudity",
+        "episode",
+        "6.8",
+        1952
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Man%",
+        "%Tony%Stark%",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "8.0",
+        "2000"
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%Carlton%",
+        "%Himself%",
+        "rating",
+        "murder', 'murder', 'female-nudity', 'murder', 'female-nudity",
+        "movie",
+        "7",
+        1998
+      ],
+      [
+        "cast",
+        "complete",
+        "%u%",
+        "%a%",
+        "rating",
+        "apology', 'oil-gusher', 'raspberry-tart', 'pop-culture', 'hittites",
+        "episode",
+        "8.2",
+        2000
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%Iron%Man%",
+        "votes",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "2.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete",
+        "%man%",
+        "%Man%",
+        "votes",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "5.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Iron%Man%",
+        "%Man%",
+        "votes",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "8.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Iron%Man%",
+        "%Tony%Stark%",
+        "rating",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "movie",
+        "2.0",
+        "2000"
+      ],
+      [
+        "crew",
+        "complete",
+        "%\u00c3%",
+        "%m%",
+        "votes",
+        "based-on-novel', 'independent-film', 'independent-film', 'independent-film', 'based-on-novel",
+        "episode",
+        "17",
+        2006
+      ],
+      [
+        "cast",
+        "complete",
+        "%l%",
+        "%s%",
+        "rating",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "episode",
+        "5.3",
+        2003
+      ],
+      [
+        "cast",
+        "complete",
+        "%Tony%Stark%",
+        "%Man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "5.0",
+        "2010"
+      ],
+      [
+        "cast",
+        "complete",
+        "%Iron%Man%",
+        "%man%",
+        "votes",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "movie",
+        "2.0",
+        "2005"
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%l%",
+        "%m%",
+        "votes",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "movie",
+        "8",
+        1948
+      ],
+      [
+        "crew",
+        "complete",
+        "%m%",
+        "%Himself%",
+        "votes",
+        "independent-film', 'based-on-novel', 'based-on-novel', 'based-on-novel', 'independent-film",
+        "episode",
+        "31",
+        2008
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Iron%Man%",
+        "%Man%",
+        "votes",
+        "superhero', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence', 'magnet', 'web', 'claw', 'laser",
+        "movie",
+        "6.5",
+        "2005"
+      ],
+      [
+        "cast",
+        "complete",
+        "%Iron%Man%",
+        "%Tony%Stark%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "7.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Man%",
+        "%Tony%Stark%",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "8.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%x%",
+        "%r%",
+        "votes",
+        "subjective-camera', 'cartoon-cat', 'dmanisi-georgia', 'comet-vilt-2', 'briton",
+        "movie",
+        "2041",
+        1990
+      ],
+      [
+        "crew",
+        "complete",
+        "%Host%",
+        "%in%",
+        "rating",
+        "drowning-someone', 'dell', 'violate', 'partially-lost-film', 'birth-adoption",
+        "episode",
+        "7",
+        2000
+      ],
+      [
+        "crew",
+        "complete",
+        "%Iron%Man%",
+        "%Man%",
+        "rating",
+        "murder', 'murder-in-title",
+        "movie",
+        "5.0",
+        "2005"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%Iron%Man%",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "7.0",
+        "2005"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Man%",
+        "%Iron%Man%",
+        "votes",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "8.0",
+        "2005"
+      ],
+      [
+        "cast",
+        "complete",
+        "%o%",
+        "%l%",
+        "rating",
+        "blood', 'eco-manifesto', 'eucalyptus-tree', 'military-discipline', 'dyed-egg",
+        "movie",
+        "7.7",
+        2002
+      ],
+      [
+        "cast",
+        "complete",
+        "%Tony%Stark%",
+        "%man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "5.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete",
+        "%P%",
+        "%y%",
+        "votes distribution",
+        "punctuation-in-title', 'bosko', 'loss-of-taste', 'post-humanism', 'breakthrough",
+        "episode",
+        "0000001212",
+        1996
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%s%",
+        "%c%",
+        "votes distribution",
+        "racism', 'omega-wristwatch', 'talking-butt', 'beanie-baby', 'dead-boy",
+        "movie",
+        "0000001212",
+        1984
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%l%",
+        "%s%",
+        "rating",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "episode",
+        "7.2",
+        1993
+      ],
+      [
+        "cast",
+        "complete",
+        "%l%",
+        "%r%",
+        "votes distribution",
+        "murder', 'listing-ship', 'secret-villain', 'lumber-camp', 'moo-goo-gai-pan",
+        "episode",
+        "0000001312",
+        2008
+      ],
+      [
+        "cast",
+        "complete",
+        "%n%",
+        "%o%",
+        "votes distribution",
+        "sex', 'western-song', 'boy-prince', 'longest-swim', 'crazy-mother",
+        "movie",
+        "1010100001",
+        1987
+      ],
+      [
+        "crew",
+        "complete",
+        "%o%",
+        "%C%",
+        "votes distribution",
+        "family-love', 'juvenile-justice', 'shopping-district', 'watercize', 'drive-by-shooting",
+        "movie",
+        "0000112101",
+        1950
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%m%",
+        "%s%",
+        "rating",
+        "dog', 'police', 'father-daughter-relationship', 'number-in-title', 'surrealism",
+        "episode",
+        "5.4",
+        1976
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Man%",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "9.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete",
+        "%m%",
+        "%s%",
+        "votes",
+        "female-nudity', 'female-nudity', 'murder', 'murder', 'female-nudity",
+        "movie",
+        "6.6",
+        1998
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Man%",
+        "votes",
+        "hero', 'martial-arts', 'hand-to-hand-combat', 'computer-animated-movie",
+        "movie",
+        "9.0",
+        "2000"
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%l%",
+        "%Wizard%",
+        "rating",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "episode",
+        "5613",
+        1998
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%e%",
+        "%h%",
+        "rating",
+        "domestic-violence', 'drugs-disposal', 'parker-pyne', 'serving-god', 'boiler",
+        "movie",
+        "7.6",
+        1984
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Iron%Man%",
+        "votes",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "6.5",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%r%",
+        "%i%",
+        "votes",
+        "accidental-death', 'reading-letter', 'friends-falling-out', 'horny-woman', 'gay-asian",
+        "movie",
+        "14883",
+        1973
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%Man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "7.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%m%",
+        "%Wife%",
+        "rating",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "episode",
+        "7.9",
+        1990
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%r%",
+        "%A%",
+        "rating",
+        "slow-motion-scene', 'kikuchi-clan', 'remains', 'ballot', 'portable-house",
+        "movie",
+        "6.6",
+        1990
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%man%",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "8.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%man%",
+        "%Man%",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "movie",
+        "6.5",
+        "2005"
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%t%",
+        "%t%",
+        "votes distribution",
+        "walking-on-the-moon', 'lucky-charms-cereal', 'social-history', 'drawing', 'sex-in-train",
+        "movie",
+        "0000122100",
+        1962
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%l%",
+        "%Boss%",
+        "rating",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "episode",
+        "25",
+        1983
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%h%",
+        "%e%",
+        "votes",
+        "piano', 'windowpane-acid', 'disappointed-in-son', 'loss-of-patient', 'vocational-school",
+        "movie",
+        "43020",
+        1984
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%Iron%Man%",
+        "%man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "6.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%m%",
+        "%Host%",
+        "votes",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "episode",
+        "6.9",
+        1991
+      ],
+      [
+        "cast",
+        "complete",
+        "%Himself%",
+        "%m%",
+        "votes",
+        "based-on-novel', 'independent-film', 'independent-film', 'based-on-novel', 'based-on-novel",
+        "movie",
+        "13",
+        2000
+      ],
+      [
+        "crew",
+        "complete",
+        "%Host%",
+        "%Shack%",
+        "votes",
+        "based-on-novel', 'based-on-novel', 'independent-film', 'based-on-novel', 'based-on-novel",
+        "video movie",
+        ".10..000.6",
+        1970
+      ],
+      [
+        "crew",
+        "complete",
+        "%m%",
+        "%s%",
+        "votes distribution",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "episode",
+        "10",
+        1992
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%B%",
+        "%t%",
+        "votes distribution",
+        "death-by-drowning', 'masters-boxers', 'mephedrone', 'chopping-wood', 'cracker-box",
+        "movie",
+        "0000002211",
+        1997
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%r%",
+        "%o%",
+        "votes distribution",
+        "militia', 'delahaye-automobile', 'air-power', 'unsuccessful-doctor', 'alley-cat",
+        "movie",
+        "0011111000",
+        1997
+      ],
+      [
+        "cast",
+        "complete",
+        "%l%",
+        "%Himself%",
+        "votes",
+        "dog', 'one-word-title', 'bare-breasts', 'dog', 'sequel",
+        "episode",
+        "5.3",
+        2004
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Himself%",
+        "%s%",
+        "votes",
+        "non-fiction', 'oral-sex', 'anal-sex', 'nudity', 'friendship",
+        "episode",
+        "5.7",
+        1950
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%Man%",
+        "votes",
+        "murder', 'blood', 'gore', 'death', 'female-nudity",
+        "movie",
+        "2.0",
+        "2005"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%Man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "8.0",
+        "1990"
+      ],
+      [
+        "crew",
+        "complete",
+        "%Host%",
+        "%s%",
+        "rating",
+        "police', 'non-fiction', 'family-relationships', 'number-in-title', 'bare-breasts",
+        "episode",
+        "6.0",
+        1920
+      ],
+      [
+        "crew",
+        "complete",
+        "%J%",
+        "%u%",
+        "rating",
+        "writer', 'senior-prom', 'yorkshire-terrier', 'executive-secretary', 'filthy-apartment",
+        "movie",
+        "5.8",
+        1997
+      ],
+      [
+        "cast",
+        "complete",
+        "%man%",
+        "%Iron%Man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "5.0",
+        "1990"
+      ],
+      [
+        "cast",
+        "complete",
+        "%Host%",
+        "%m%",
+        "rating",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "episode",
+        "12",
+        1995
+      ],
+      [
+        "crew",
+        "complete",
+        "%Host%",
+        "%Natalie%",
+        "rating",
+        "female-nudity', 'murder', 'murder', 'murder', 'murder",
+        "episode",
+        "6",
+        1994
+      ],
+      [
+        "cast",
+        "complete",
+        "%l%",
+        "%m%",
+        "votes",
+        "independent-film', 'based-on-novel', 'based-on-novel', 'independent-film', 'independent-film",
+        "episode",
+        "5",
+        1984
+      ],
+      [
+        "crew",
+        "complete+verified",
+        "%B%",
+        "%B%",
+        "rating",
+        "hitman', 'railroad-company', 'twin-sister', 'reparenting-therapy', 'luzon",
+        "movie",
+        "7.1",
+        1976
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Iron%Man%",
+        "%Man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "5.0",
+        "2005"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Man%",
+        "%Iron%Man%",
+        "rating",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "movie",
+        "8.0",
+        "2000"
+      ],
+      [
+        "cast",
+        "complete+verified",
+        "%Tony%Stark%",
+        "%man%",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "movie",
+        "8.0",
+        "2000"
+      ]
+    ]
+  }
+}

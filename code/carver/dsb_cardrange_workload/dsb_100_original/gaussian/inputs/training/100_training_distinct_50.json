@@ -1,0 +1,940 @@
+{
+  "100": {
+    "query": "SELECT min(item1.i_item_sk),\n    min(item2.i_item_sk),\n    min(s1.ss_ticket_number),\n    min(s1.ss_item_sk)\nFROM item AS item1,\nitem AS item2,\nstore_sales AS s1,\nstore_sales AS s2,\ndate_dim,\ncustomer,\ncustomer_address,\ncustomer_demographics\nWHERE\nitem1.i_item_sk < item2.i_item_sk\nAND s1.ss_ticket_number = s2.ss_ticket_number\nAND s1.ss_item_sk = item1.i_item_sk and s2.ss_item_sk = item2.i_item_sk\nAND s1.ss_customer_sk = c_customer_sk\nand c_current_addr_sk = ca_address_sk\nand c_current_cdemo_sk = cd_demo_sk\nAND d_year between @param0 and @param0 + 1\nand d_date_sk = s1.ss_sold_date_sk\nand item1.i_category in ('@param1')\nand item2.i_manager_id between @param2 and @param3\nand cd_marital_status = '@param4'\nand cd_education_status = '@param5'\nand s1.ss_list_price between @param6 and @param7\nand s2.ss_list_price between @param8 and @param9\n;",
+    "predicates": [
+      {
+        "alias": "",
+        "column": "d_year",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "date_dim",
+        "min": 1900,
+        "max": 2100,
+        "join_tables": [
+          "store_sales"
+        ],
+        "join_tables_alias": [
+          "s1"
+        ],
+        "join_tables_column": [
+          [
+            "ss_sold_date_sk"
+          ]
+        ],
+        "join_conditions": [
+          "d_date_sk = s1.ss_sold_date_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "item1",
+        "column": "i_category",
+        "operator": "IN",
+        "data_type": "text",
+        "table": "item",
+        "join_tables": [
+          "item",
+          "store_sales"
+        ],
+        "join_tables_alias": [
+          "item2",
+          "s1"
+        ],
+        "join_tables_column": [
+          [
+            "i_item_sk"
+          ],
+          [
+            "ss_item_sk"
+          ]
+        ],
+        "join_conditions": [
+          "item1.i_item_sk < item2.i_item_sk",
+          "s1.ss_item_sk = item1.i_item_sk "
+        ],
+        "left_or_right": [
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "item2",
+        "column": "i_manager_id",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "item",
+        "min": 1,
+        "max": 100,
+        "join_tables": [
+          "item",
+          "store_sales"
+        ],
+        "join_tables_alias": [
+          "item1",
+          "s2"
+        ],
+        "join_tables_column": [
+          [
+            "i_item_sk"
+          ],
+          [
+            "ss_item_sk"
+          ]
+        ],
+        "join_conditions": [
+          "item1.i_item_sk < item2.i_item_sk",
+          "s2.ss_item_sk = item2.i_item_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "item2",
+        "column": "i_manager_id",
+        "operator": "<=",
+        "data_type": "int",
+        "table": "item",
+        "min": 1,
+        "max": 100,
+        "join_tables": [
+          "item",
+          "store_sales"
+        ],
+        "join_tables_alias": [
+          "item1",
+          "s2"
+        ],
+        "join_tables_column": [
+          [
+            "i_item_sk"
+          ],
+          [
+            "ss_item_sk"
+          ]
+        ],
+        "join_conditions": [
+          "item1.i_item_sk < item2.i_item_sk",
+          "s2.ss_item_sk = item2.i_item_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cd_marital_status",
+        "operator": "=",
+        "data_type": "text",
+        "table": "customer_demographics",
+        "join_tables": [
+          "customer"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "c_current_cdemo_sk"
+          ]
+        ],
+        "join_conditions": [
+          "c_current_cdemo_sk = cd_demo_sk"
+        ],
+        "left_or_right": [
+          "l"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cd_education_status",
+        "operator": "=",
+        "data_type": "text",
+        "table": "customer_demographics",
+        "join_tables": [
+          "customer"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "c_current_cdemo_sk"
+          ]
+        ],
+        "join_conditions": [
+          "c_current_cdemo_sk = cd_demo_sk"
+        ],
+        "left_or_right": [
+          "l"
+        ]
+      },
+      {
+        "alias": "s1",
+        "column": "ss_list_price",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "store_sales",
+        "min": 1,
+        "max": 300,
+        "join_tables": [
+          "store_sales",
+          "item",
+          "customer",
+          "date_dim"
+        ],
+        "join_tables_alias": [
+          "s2",
+          "item1",
+          "",
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "ss_ticket_number"
+          ],
+          [
+            "i_item_sk"
+          ],
+          [
+            "c_customer_sk"
+          ],
+          [
+            "d_date_sk"
+          ]
+        ],
+        "join_conditions": [
+          "s1.ss_ticket_number = s2.ss_ticket_number",
+          "s1.ss_item_sk = item1.i_item_sk ",
+          "s1.ss_customer_sk = c_customer_sk",
+          "d_date_sk = s1.ss_sold_date_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "l",
+          "both"
+        ]
+      },
+      {
+        "alias": "s1",
+        "column": "ss_list_price",
+        "operator": "<=",
+        "data_type": "int",
+        "table": "store_sales",
+        "min": 1,
+        "max": 300,
+        "join_tables": [
+          "store_sales",
+          "item",
+          "customer",
+          "date_dim"
+        ],
+        "join_tables_alias": [
+          "s2",
+          "item1",
+          "",
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "ss_ticket_number"
+          ],
+          [
+            "i_item_sk"
+          ],
+          [
+            "c_customer_sk"
+          ],
+          [
+            "d_date_sk"
+          ]
+        ],
+        "join_conditions": [
+          "s1.ss_ticket_number = s2.ss_ticket_number",
+          "s1.ss_item_sk = item1.i_item_sk ",
+          "s1.ss_customer_sk = c_customer_sk",
+          "d_date_sk = s1.ss_sold_date_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "l",
+          "both"
+        ]
+      },
+      {
+        "alias": "s2",
+        "column": "ss_list_price",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "store_sales",
+        "min": 1,
+        "max": 300,
+        "join_tables": [
+          "store_sales",
+          "item"
+        ],
+        "join_tables_alias": [
+          "s1",
+          "item2"
+        ],
+        "join_tables_column": [
+          [
+            "ss_ticket_number"
+          ],
+          [
+            "i_item_sk"
+          ]
+        ],
+        "join_conditions": [
+          "s1.ss_ticket_number = s2.ss_ticket_number",
+          "s2.ss_item_sk = item2.i_item_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "s2",
+        "column": "ss_list_price",
+        "operator": "<=",
+        "data_type": "int",
+        "table": "store_sales",
+        "min": 1,
+        "max": 300,
+        "join_tables": [
+          "store_sales",
+          "item"
+        ],
+        "join_tables_alias": [
+          "s1",
+          "item2"
+        ],
+        "join_tables_column": [
+          [
+            "ss_ticket_number"
+          ],
+          [
+            "i_item_sk"
+          ]
+        ],
+        "join_conditions": [
+          "s1.ss_ticket_number = s2.ss_ticket_number",
+          "s2.ss_item_sk = item2.i_item_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both"
+        ]
+      }
+    ],
+    "params": [
+      [
+        "2000",
+        "Children', 'Electronics', 'Women",
+        "57",
+        "76",
+        "W",
+        "Advanced Degree",
+        "169",
+        "183",
+        "169",
+        "183"
+      ],
+      [
+        "2000",
+        "Children', 'Jewelry', 'Sports",
+        "81",
+        "100",
+        "W",
+        "2 yr Degree",
+        "51",
+        "65",
+        "51",
+        "65"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "54",
+        "73",
+        "D",
+        "4 yr Degree",
+        "76",
+        "90",
+        "76",
+        "90"
+      ],
+      [
+        "1998",
+        "Books', 'Children', 'Women",
+        "79",
+        "98",
+        "W",
+        "College",
+        "92",
+        "106",
+        "92",
+        "106"
+      ],
+      [
+        "1999",
+        "Electronics', 'Jewelry', 'Women",
+        "100",
+        "119",
+        "S",
+        "4 yr Degree",
+        "68",
+        "82",
+        "68",
+        "82"
+      ],
+      [
+        "1998",
+        "Electronics', 'Home', 'Jewelry",
+        "56",
+        "75",
+        "S",
+        "Primary",
+        "131",
+        "145",
+        "131",
+        "145"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Jewelry",
+        "2",
+        "21",
+        "S",
+        "2 yr Degree",
+        "57",
+        "71",
+        "57",
+        "71"
+      ],
+      [
+        "1998",
+        "Home', 'Jewelry', 'Shoes",
+        "81",
+        "100",
+        "D",
+        "4 yr Degree",
+        "217",
+        "231",
+        "217",
+        "231"
+      ],
+      [
+        "1999",
+        "Electronics', 'Jewelry', 'Men",
+        "69",
+        "88",
+        "S",
+        "Primary",
+        "113",
+        "127",
+        "113",
+        "127"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Women",
+        "77",
+        "96",
+        "D",
+        "College",
+        "69",
+        "83",
+        "69",
+        "83"
+      ],
+      [
+        "2000",
+        "Electronics', 'Jewelry', 'Women",
+        "81",
+        "100",
+        "D",
+        "Advanced Degree",
+        "147",
+        "161",
+        "147",
+        "161"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Women",
+        "55",
+        "74",
+        "D",
+        "4 yr Degree",
+        "116",
+        "130",
+        "116",
+        "130"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Jewelry",
+        "49",
+        "68",
+        "W",
+        "Primary",
+        "195",
+        "209",
+        "195",
+        "209"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Home",
+        "48",
+        "67",
+        "M",
+        "4 yr Degree",
+        "55",
+        "69",
+        "55",
+        "69"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Jewelry",
+        "28",
+        "47",
+        "W",
+        "Advanced Degree",
+        "2",
+        "16",
+        "2",
+        "16"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Home",
+        "27",
+        "46",
+        "M",
+        "4 yr Degree",
+        "194",
+        "208",
+        "194",
+        "208"
+      ],
+      [
+        "1999",
+        "Home', 'Jewelry', 'Women",
+        "55",
+        "74",
+        "W",
+        "Advanced Degree",
+        "42",
+        "56",
+        "42",
+        "56"
+      ],
+      [
+        "2000",
+        "Children', 'Home', 'Sports",
+        "68",
+        "87",
+        "W",
+        "Primary",
+        "207",
+        "221",
+        "207",
+        "221"
+      ],
+      [
+        "2000",
+        "Children', 'Home', 'Women",
+        "66",
+        "85",
+        "W",
+        "Advanced Degree",
+        "59",
+        "73",
+        "59",
+        "73"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "73",
+        "92",
+        "D",
+        "Advanced Degree",
+        "36",
+        "50",
+        "36",
+        "50"
+      ],
+      [
+        "1999",
+        "Children', 'Home', 'Sports",
+        "14",
+        "33",
+        "W",
+        "College",
+        "107",
+        "121",
+        "107",
+        "121"
+      ],
+      [
+        "2000",
+        "Children', 'Home', 'Jewelry",
+        "11",
+        "30",
+        "M",
+        "4 yr Degree",
+        "145",
+        "159",
+        "145",
+        "159"
+      ],
+      [
+        "2000",
+        "Home', 'Jewelry', 'Women",
+        "39",
+        "58",
+        "W",
+        "Primary",
+        "203",
+        "217",
+        "203",
+        "217"
+      ],
+      [
+        "1998",
+        "Children', 'Jewelry', 'Women",
+        "19",
+        "38",
+        "W",
+        "Advanced Degree",
+        "114",
+        "128",
+        "114",
+        "128"
+      ],
+      [
+        "1998",
+        "Electronics', 'Jewelry', 'Men",
+        "65",
+        "84",
+        "M",
+        "Advanced Degree",
+        "137",
+        "151",
+        "137",
+        "151"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Jewelry",
+        "62",
+        "81",
+        "S",
+        "4 yr Degree",
+        "38",
+        "52",
+        "38",
+        "52"
+      ],
+      [
+        "1998",
+        "Books', 'Jewelry', 'Women",
+        "66",
+        "85",
+        "S",
+        "Advanced Degree",
+        "49",
+        "63",
+        "49",
+        "63"
+      ],
+      [
+        "1999",
+        "Jewelry', 'Men', 'Women",
+        "74",
+        "93",
+        "D",
+        "4 yr Degree",
+        "9",
+        "23",
+        "9",
+        "23"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Home",
+        "40",
+        "59",
+        "W",
+        "Primary",
+        "96",
+        "110",
+        "96",
+        "110"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Men",
+        "81",
+        "100",
+        "D",
+        "Secondary",
+        "162",
+        "176",
+        "162",
+        "176"
+      ],
+      [
+        "1999",
+        "Children', 'Jewelry', 'Women",
+        "39",
+        "58",
+        "M",
+        "Advanced Degree",
+        "256",
+        "270",
+        "256",
+        "270"
+      ],
+      [
+        "1999",
+        "Books', 'Jewelry', 'Women",
+        "66",
+        "85",
+        "W",
+        "Advanced Degree",
+        "267",
+        "281",
+        "267",
+        "281"
+      ],
+      [
+        "1998",
+        "Books', 'Children', 'Men",
+        "79",
+        "98",
+        "W",
+        "Advanced Degree",
+        "9",
+        "23",
+        "9",
+        "23"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Home",
+        "29",
+        "48",
+        "D",
+        "4 yr Degree",
+        "141",
+        "155",
+        "141",
+        "155"
+      ],
+      [
+        "1998",
+        "Home', 'Jewelry', 'Women",
+        "81",
+        "100",
+        "D",
+        "Advanced Degree",
+        "233",
+        "247",
+        "233",
+        "247"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Women",
+        "2",
+        "21",
+        "D",
+        "College",
+        "174",
+        "188",
+        "174",
+        "188"
+      ],
+      [
+        "2000",
+        "Electronics', 'Jewelry', 'Music",
+        "42",
+        "61",
+        "W",
+        "Advanced Degree",
+        "194",
+        "208",
+        "194",
+        "208"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Men",
+        "39",
+        "58",
+        "D",
+        "College",
+        "170",
+        "184",
+        "170",
+        "184"
+      ],
+      [
+        "1999",
+        "Children', 'Jewelry', 'Shoes",
+        "69",
+        "88",
+        "M",
+        "College",
+        "41",
+        "55",
+        "41",
+        "55"
+      ],
+      [
+        "1999",
+        "Books', 'Electronics', 'Jewelry",
+        "54",
+        "73",
+        "W",
+        "2 yr Degree",
+        "7",
+        "21",
+        "7",
+        "21"
+      ],
+      [
+        "1998",
+        "Children', 'Men', 'Women",
+        "81",
+        "100",
+        "D",
+        "4 yr Degree",
+        "103",
+        "117",
+        "103",
+        "117"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Jewelry",
+        "42",
+        "61",
+        "M",
+        "Advanced Degree",
+        "237",
+        "251",
+        "237",
+        "251"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Women",
+        "79",
+        "98",
+        "D",
+        "4 yr Degree",
+        "200",
+        "214",
+        "200",
+        "214"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Jewelry",
+        "81",
+        "100",
+        "D",
+        "Primary",
+        "59",
+        "73",
+        "59",
+        "73"
+      ],
+      [
+        "1998",
+        "Electronics', 'Men', 'Women",
+        "67",
+        "86",
+        "W",
+        "Primary",
+        "83",
+        "97",
+        "83",
+        "97"
+      ],
+      [
+        "1998",
+        "Home', 'Jewelry', 'Women",
+        "8",
+        "27",
+        "W",
+        "Primary",
+        "89",
+        "103",
+        "89",
+        "103"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Jewelry",
+        "81",
+        "100",
+        "W",
+        "Primary",
+        "158",
+        "172",
+        "158",
+        "172"
+      ],
+      [
+        "2000",
+        "Electronics', 'Home', 'Women",
+        "48",
+        "67",
+        "D",
+        "Advanced Degree",
+        "141",
+        "155",
+        "141",
+        "155"
+      ],
+      [
+        "1998",
+        "Children', 'Men', 'Women",
+        "33",
+        "52",
+        "D",
+        "Primary",
+        "42",
+        "56",
+        "42",
+        "56"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Jewelry",
+        "64",
+        "83",
+        "S",
+        "Advanced Degree",
+        "106",
+        "120",
+        "106",
+        "120"
+      ]
+    ]
+  }
+}

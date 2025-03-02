@@ -1,0 +1,2044 @@
+{
+  "7-0": {
+    "query": "SELECT MIN(n.name) AS of_person, MIN(t.title) AS biography_movie\n FROM aka_name AS an,\n cast_info AS ci,\n info_type AS it,\n link_type AS lt,\n movie_link AS ml,\n name AS n,\n person_info AS pi,\n title AS t\n WHERE n.id = an.person_id\n AND n.id = pi.person_id\n AND ci.person_id = n.id\n AND t.id = ci.movie_id\n AND ml.linked_movie_id = t.id\n AND lt.id = ml.link_type_id\n AND it.id = pi.info_type_id\n AND pi.person_id = an.person_id\n AND pi.person_id = ci.person_id\n AND an.person_id = ci.person_id\n AND ci.movie_id = ml.linked_movie_id\n AND an.name LIKE '@param0'\n AND it.info = '@param1'\n AND lt.link = '@param2'\n AND (n.gender = '@param3' OR (n.gender = '@param4' AND n.name LIKE '@param5'))\n AND pi.note = '@param6';",
+    "predicates": [
+      {
+        "alias": "an",
+        "column": "name",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "aka_name",
+        "join_tables_alias": [
+          "n",
+          "pi",
+          "ci"
+        ],
+        "join_tables": [
+          "name",
+          "person_info",
+          "cast_info"
+        ],
+        "join_conditions": [
+          "n.id = an.person_id",
+          "pi.person_id = an.person_id",
+          "an.person_id = ci.person_id"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "l"
+        ],
+        "join_tables_column": [
+          [
+            "gender",
+            "name"
+          ],
+          [
+            "note"
+          ],
+          []
+        ]
+      },
+      {
+        "alias": "it",
+        "column": "info",
+        "operator": "=",
+        "data_type": "text",
+        "table": "info_type",
+        "join_tables_alias": [
+          "pi"
+        ],
+        "join_tables": [
+          "person_info"
+        ],
+        "join_conditions": [
+          "it.id = pi.info_type_id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "note"
+          ]
+        ]
+      },
+      {
+        "alias": "lt",
+        "column": "link",
+        "operator": "=",
+        "data_type": "text",
+        "table": "link_type",
+        "join_tables_alias": [
+          "ml"
+        ],
+        "join_tables": [
+          "movie_link"
+        ],
+        "join_conditions": [
+          "lt.id = ml.link_type_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "n",
+        "column": "gender",
+        "operator": "=",
+        "data_type": "text",
+        "table": "name",
+        "join_tables_alias": [
+          "an",
+          "pi",
+          "ci"
+        ],
+        "join_tables": [
+          "aka_name",
+          "person_info",
+          "cast_info"
+        ],
+        "join_conditions": [
+          "n.id = an.person_id",
+          "n.id = pi.person_id",
+          "ci.person_id = n.id"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "l"
+        ],
+        "join_tables_column": [
+          [
+            "name"
+          ],
+          [
+            "note"
+          ],
+          []
+        ]
+      },
+      {
+        "alias": "n",
+        "column": "gender",
+        "operator": "=",
+        "data_type": "text",
+        "table": "name",
+        "join_tables_alias": [
+          "an",
+          "pi",
+          "ci"
+        ],
+        "join_tables": [
+          "aka_name",
+          "person_info",
+          "cast_info"
+        ],
+        "join_conditions": [
+          "n.id = an.person_id",
+          "n.id = pi.person_id",
+          "ci.person_id = n.id"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "l"
+        ],
+        "join_tables_column": [
+          [
+            "name"
+          ],
+          [
+            "note"
+          ],
+          []
+        ]
+      },
+      {
+        "alias": "n",
+        "column": "name",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "name",
+        "join_tables_alias": [
+          "an",
+          "pi",
+          "ci"
+        ],
+        "join_tables": [
+          "aka_name",
+          "person_info",
+          "cast_info"
+        ],
+        "join_conditions": [
+          "n.id = an.person_id",
+          "n.id = pi.person_id",
+          "ci.person_id = n.id"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "l"
+        ],
+        "join_tables_column": [
+          [
+            "name"
+          ],
+          [
+            "note"
+          ],
+          []
+        ]
+      },
+      {
+        "alias": "pi",
+        "column": "note",
+        "operator": "=",
+        "data_type": "text",
+        "table": "person_info",
+        "join_tables_alias": [
+          "n",
+          "it",
+          "an",
+          "ci"
+        ],
+        "join_tables": [
+          "name",
+          "info_type",
+          "aka_name",
+          "cast_info"
+        ],
+        "join_conditions": [
+          "n.id = pi.person_id",
+          "it.id = pi.info_type_id",
+          "pi.person_id = an.person_id",
+          "pi.person_id = ci.person_id"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "both",
+          "l"
+        ],
+        "join_tables_column": [
+          [
+            "gender",
+            "name"
+          ],
+          [
+            "info"
+          ],
+          [
+            "name"
+          ],
+          []
+        ]
+      }
+    ],
+    "params": [
+      [
+        "%,%",
+        "mini biography",
+        "spoofed in",
+        "m",
+        "f",
+        "%a%",
+        "mike.konczewski@itb.mckhboc.com"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%G%",
+        "Volker Boehm"
+      ],
+      [
+        "%c%",
+        "mini biography",
+        "version of",
+        "m",
+        "f",
+        "%o%",
+        "Steve Shelokhonov"
+      ],
+      [
+        "%h%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%B%",
+        "Volker Boehm"
+      ],
+      [
+        "%i%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%Taylor%",
+        "Bob Stage"
+      ],
+      [
+        "%George%",
+        "mini biography",
+        "referenced in",
+        "m",
+        "f",
+        "%Kornbluth%",
+        "Anonymous"
+      ],
+      [
+        "%t%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%c%",
+        "Anonymous"
+      ],
+      [
+        "%l%",
+        "mini biography",
+        "version of",
+        "f",
+        "m",
+        "%Chris%",
+        "Anonymous"
+      ],
+      [
+        "%s%",
+        "mini biography",
+        "version of",
+        "m",
+        "f",
+        "%\u00c3\u0081lvarez%",
+        "Anonymous"
+      ],
+      [
+        "%o%",
+        "mini biography",
+        "featured in",
+        "f",
+        "m",
+        "%Drury%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%s%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%David%",
+        "Anonymous"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "alternate language version of",
+        "f",
+        "m",
+        "%o%",
+        "Natasha Lance Rogoff"
+      ],
+      [
+        "%W%",
+        "mini biography",
+        "references",
+        "f",
+        "m",
+        "%Jay%",
+        "frankfob2@yahoo.com"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%X%",
+        "Volker Boehm"
+      ],
+      [
+        "%J%",
+        "mini biography",
+        "referenced in",
+        "f",
+        "m",
+        "%Joiner%",
+        "Steve Shelokhonov"
+      ],
+      [
+        "%n%",
+        "mini biography",
+        "edited from",
+        "f",
+        "m",
+        "%a%",
+        "HanonymousT"
+      ],
+      [
+        "%z%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Bert%",
+        "Volker Boehm"
+      ],
+      [
+        "%k%",
+        "mini biography",
+        "featured in",
+        "m",
+        "f",
+        "%Weinstein%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%J%",
+        "mini biography",
+        "featured in",
+        "f",
+        "m",
+        "%Armand%",
+        "woodyanders"
+      ],
+      [
+        "%Mo%",
+        "mini biography",
+        "version of",
+        "m",
+        "f",
+        "%Davis%",
+        "anonymous"
+      ],
+      [
+        "%z%",
+        "mini biography",
+        "referenced in",
+        "m",
+        "f",
+        "%-%",
+        "J.M."
+      ],
+      [
+        "%o%",
+        "mini biography",
+        "followed by",
+        "f",
+        "m",
+        "%Garc\u00c3\u00ada%",
+        "Anonymous"
+      ],
+      [
+        "%w%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%Yo%",
+        "Volker Boehm"
+      ],
+      [
+        "%T%",
+        "mini biography",
+        "spin off from",
+        "f",
+        "m",
+        "%G%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%Doug%",
+        "mini biography",
+        "edited from",
+        "m",
+        "f",
+        "%Kent%",
+        "Anonymous"
+      ],
+      [
+        "R%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%H%",
+        "Volker Boehm"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%D%",
+        "Volker Boehm"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "edited from",
+        "m",
+        "f",
+        "%Jones%",
+        "Anonymous"
+      ],
+      [
+        "%M%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%Ngo%",
+        "woodyanders"
+      ],
+      [
+        "%e%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%,%",
+        "F.Reid"
+      ],
+      [
+        "%r%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%n%",
+        "Matthew Patay"
+      ],
+      [
+        "%y%",
+        "mini biography",
+        "follows",
+        "f",
+        "m",
+        "%Chiara%",
+        "Anonymous"
+      ],
+      [
+        "%B%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%o%",
+        "Bulldog-Dan@lycos.com"
+      ],
+      [
+        "M%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "X%",
+        "Volker Boehm"
+      ],
+      [
+        "H%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "B%",
+        "Volker Boehm"
+      ],
+      [
+        "A%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%C%",
+        "Volker Boehm"
+      ],
+      [
+        "%h%",
+        "mini biography",
+        "followed by",
+        "m",
+        "f",
+        "%g%",
+        "Jon C. Hopwood"
+      ],
+      [
+        "%Pacino%",
+        "mini biography",
+        "featured in",
+        "m",
+        "f",
+        "%Trey%",
+        "Anonymous"
+      ],
+      [
+        "%Mary%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Fernando%",
+        "Anonymous"
+      ],
+      [
+        "%S%",
+        "mini biography",
+        "edited from",
+        "f",
+        "m",
+        "%Levitan%",
+        "frankfob2@yahoo.com"
+      ],
+      [
+        "%N%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Spelling%",
+        "Anonymous"
+      ],
+      [
+        "%i%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%L%",
+        "KLange"
+      ],
+      [
+        "%Z%",
+        "mini biography",
+        "referenced in",
+        "m",
+        "f",
+        "%s%",
+        "iaiyrdmkl"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "U%",
+        "Volker Boehm"
+      ],
+      [
+        "%y%",
+        "mini biography",
+        "followed by",
+        "m",
+        "f",
+        "%Morgan%",
+        "anonymous"
+      ],
+      [
+        "%u%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%R%",
+        "Volker Boehm"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%C%",
+        "Volker Boehm"
+      ],
+      [
+        "B%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%Downey%Robert%",
+        "Volker Boehm"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%A%",
+        "Volker Boehm"
+      ],
+      [
+        "%,%",
+        "mini biography",
+        "references",
+        "f",
+        "m",
+        "%e%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%o%",
+        "mini biography",
+        "featured in",
+        "f",
+        "m",
+        "%Gene%",
+        "Anonymous"
+      ],
+      [
+        "V%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%K%",
+        "Volker Boehm"
+      ],
+      [
+        "%e%",
+        "mini biography",
+        "referenced in",
+        "m",
+        "f",
+        "%Sandra%",
+        "Anonymous"
+      ],
+      [
+        "%l%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%a%",
+        "Rolando Molina"
+      ],
+      [
+        "B%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "I%",
+        "Volker Boehm"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "version of",
+        "m",
+        "f",
+        "%Darius%",
+        "Anonymous"
+      ],
+      [
+        "%o%",
+        "mini biography",
+        "featured in",
+        "m",
+        "f",
+        "%A%",
+        "Brandon Scott"
+      ],
+      [
+        "%s%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%Stewart%",
+        "Anonymous"
+      ],
+      [
+        "%i%",
+        "mini biography",
+        "references",
+        "f",
+        "m",
+        "%Vanacore%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%Chris%",
+        "mini biography",
+        "version of",
+        "m",
+        "f",
+        "%Bell%",
+        "Anonymous"
+      ],
+      [
+        "%,%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%,%",
+        "Kramer"
+      ],
+      [
+        "%h%",
+        "mini biography",
+        "followed by",
+        "m",
+        "f",
+        "%Griffin%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%Bill%",
+        "mini biography",
+        "follows",
+        "m",
+        "f",
+        "%David%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%K%",
+        "mini biography",
+        "featured in",
+        "f",
+        "m",
+        "%Tara%",
+        "woodyanders"
+      ],
+      [
+        "%L%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%L%",
+        "Mike McKinley"
+      ],
+      [
+        "%,%",
+        "mini biography",
+        "edited from",
+        "m",
+        "f",
+        "%b%",
+        "Jon C. Hopwood"
+      ],
+      [
+        "%g%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%F%",
+        "Volker Boehm"
+      ],
+      [
+        "%m%",
+        "mini biography",
+        "follows",
+        "f",
+        "m",
+        "%Francisco%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%s%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "S%",
+        "Volker Boehm"
+      ],
+      [
+        "%l%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%y%",
+        "The Muppet Avenger"
+      ],
+      [
+        "%J%",
+        "mini biography",
+        "featured in",
+        "m",
+        "f",
+        "%Barker%",
+        "Anonymous"
+      ],
+      [
+        "%v%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Tim%",
+        "Volker Boehm"
+      ],
+      [
+        "R%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Downey%Robert%",
+        "Volker Boehm"
+      ],
+      [
+        "J%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "V%",
+        "Volker Boehm"
+      ],
+      [
+        "%y%",
+        "mini biography",
+        "version of",
+        "m",
+        "f",
+        "%l%",
+        "Tony Fontana <tony.fontana@spacebbs.com>"
+      ],
+      [
+        "%u%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Downey%Robert%",
+        "Volker Boehm"
+      ],
+      [
+        "%Brown%",
+        "mini biography",
+        "featured in",
+        "f",
+        "m",
+        "%Ron%",
+        "Anonymous"
+      ],
+      [
+        "%y%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%H%",
+        "Volker Boehm"
+      ],
+      [
+        "B%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "X%",
+        "Volker Boehm"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "H%",
+        "Volker Boehm"
+      ],
+      [
+        "%J%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%n%",
+        "Anonymous 2012"
+      ],
+      [
+        "%,%",
+        "mini biography",
+        "spoofs",
+        "m",
+        "f",
+        "%,%",
+        "Unknown"
+      ],
+      [
+        "%e%",
+        "mini biography",
+        "referenced in",
+        "f",
+        "m",
+        "%G%",
+        "Calliope"
+      ],
+      [
+        "%k%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%h%",
+        "John F. Barlow"
+      ],
+      [
+        "%c%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%n%",
+        "Anonymous"
+      ],
+      [
+        "%J%",
+        "mini biography",
+        "featured in",
+        "f",
+        "m",
+        "%Michael%",
+        "Anonymous"
+      ],
+      [
+        "%n%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%y%",
+        "Silas Mayfield"
+      ],
+      [
+        "%g%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "Q%",
+        "Volker Boehm"
+      ],
+      [
+        "%j%",
+        "mini biography",
+        "referenced in",
+        "f",
+        "m",
+        "%David%",
+        "frankfob2@yahoo.com"
+      ],
+      [
+        "%m%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%Donaldson%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%I%",
+        "Volker Boehm"
+      ],
+      [
+        "W%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "A%",
+        "Volker Boehm"
+      ],
+      [
+        "%r%",
+        "mini biography",
+        "version of",
+        "m",
+        "f",
+        "%t%",
+        "Terry Dinan"
+      ],
+      [
+        "G%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%U%",
+        "Volker Boehm"
+      ],
+      [
+        "%Andrew%",
+        "mini biography",
+        "referenced in",
+        "f",
+        "m",
+        "%Bradley%",
+        "Anonymous"
+      ],
+      [
+        "D%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%Downey%Robert%",
+        "Volker Boehm"
+      ],
+      [
+        "%z%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "M%",
+        "Volker Boehm"
+      ],
+      [
+        "%C%",
+        "mini biography",
+        "spoofs",
+        "m",
+        "f",
+        "%a%",
+        "I.S.Mowis"
+      ],
+      [
+        "%R%",
+        "mini biography",
+        "references",
+        "f",
+        "m",
+        "%s%",
+        "Michael Cound"
+      ],
+      [
+        "%e%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%e%",
+        "Matt Dicker, and Katie Boyum"
+      ],
+      [
+        "%f%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%Bert%",
+        "Volker Boehm"
+      ],
+      [
+        "%r%",
+        "mini biography",
+        "references",
+        "f",
+        "m",
+        "%Christy%",
+        "Anonymous"
+      ],
+      [
+        "%w%",
+        "mini biography",
+        "referenced in",
+        "f",
+        "m",
+        "%Stewart%",
+        "Anonymous"
+      ],
+      [
+        "%w%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "Y%",
+        "Volker Boehm"
+      ],
+      [
+        "%m%",
+        "mini biography",
+        "followed by",
+        "m",
+        "f",
+        "%i%",
+        "Anonymous"
+      ],
+      [
+        "%h%",
+        "mini biography",
+        "referenced in",
+        "f",
+        "m",
+        "%,%",
+        "Tom Weaver <TomWeavr@aol.com>"
+      ],
+      [
+        "%o%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%l%",
+        "Jim Beaver <jumblejim@prodigy.net>"
+      ],
+      [
+        "%A%",
+        "mini biography",
+        "references",
+        "f",
+        "m",
+        "%Jose%",
+        "frankfob2@yahoo.com"
+      ],
+      [
+        "C%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "O%",
+        "Volker Boehm"
+      ],
+      [
+        "%c%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Yo%",
+        "Volker Boehm"
+      ],
+      [
+        "%m%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "P%",
+        "Volker Boehm"
+      ],
+      [
+        "%e%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Taylor%",
+        "Anonymous"
+      ],
+      [
+        "%o%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%,%",
+        "Gordon Morrice"
+      ],
+      [
+        "%Christopher%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%Dar\u00c3\u00ado%",
+        "anonymous"
+      ],
+      [
+        "%e%",
+        "mini biography",
+        "featured in",
+        "f",
+        "m",
+        "%V%",
+        "Bobby G"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "A%",
+        "Volker Boehm"
+      ],
+      [
+        "%g%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%C%",
+        "Volker Boehm"
+      ],
+      [
+        "%l%",
+        "mini biography",
+        "featured in",
+        "f",
+        "m",
+        "%c%",
+        "Revitalizations@aol.com"
+      ],
+      [
+        "%t%",
+        "mini biography",
+        "version of",
+        "m",
+        "f",
+        "%E%",
+        "spouse"
+      ],
+      [
+        "%e%",
+        "mini biography",
+        "referenced in",
+        "f",
+        "m",
+        "%Berman%",
+        "Anonymous"
+      ],
+      [
+        "%F%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%,%",
+        "REDL Public Relations"
+      ],
+      [
+        "%D%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%t%",
+        "Steve Shelokhonov"
+      ],
+      [
+        "%l%",
+        "mini biography",
+        "edited from",
+        "m",
+        "f",
+        "%Bell%",
+        "Anonymous"
+      ],
+      [
+        "%e%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%,%",
+        "Ken Miller"
+      ],
+      [
+        "%o%",
+        "mini biography",
+        "references",
+        "f",
+        "m",
+        "%David%",
+        "Anonymous"
+      ],
+      [
+        "%c%",
+        "mini biography",
+        "referenced in",
+        "f",
+        "m",
+        "%l%",
+        "Jason Ankeny All Music Guide"
+      ],
+      [
+        "%m%",
+        "mini biography",
+        "referenced in",
+        "m",
+        "f",
+        "%Benson%",
+        "anonymous"
+      ],
+      [
+        "%w%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "H%",
+        "Volker Boehm"
+      ],
+      [
+        "%Carol%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Victoria%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%n%",
+        "mini biography",
+        "referenced in",
+        "m",
+        "f",
+        "%Clinton%",
+        "Anonymous"
+      ],
+      [
+        "%b%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%Tim%",
+        "Volker Boehm"
+      ],
+      [
+        "%s%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%F%",
+        "Volker Boehm"
+      ],
+      [
+        "C%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "B%",
+        "Volker Boehm"
+      ],
+      [
+        "%D%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Roberts%",
+        "anonymous"
+      ],
+      [
+        "E%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "M%",
+        "Volker Boehm"
+      ],
+      [
+        "%M%",
+        "mini biography",
+        "referenced in",
+        "f",
+        "m",
+        "%Joiner%",
+        "Anonymous"
+      ],
+      [
+        "%p%",
+        "mini biography",
+        "featured in",
+        "m",
+        "f",
+        "%R%",
+        "Silvio Ferreira Cosi (amc.cosi@ig.com.br)"
+      ],
+      [
+        "L%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "Z%",
+        "Volker Boehm"
+      ],
+      [
+        "E%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%S%",
+        "Volker Boehm"
+      ],
+      [
+        "V%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Q%",
+        "Volker Boehm"
+      ],
+      [
+        "N%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "H%",
+        "Volker Boehm"
+      ],
+      [
+        "%T%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Viola%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%m%",
+        "mini biography",
+        "referenced in",
+        "m",
+        "f",
+        "%Frank%",
+        "Anonymous"
+      ],
+      [
+        "%x%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "C%",
+        "Volker Boehm"
+      ],
+      [
+        "A%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "E%",
+        "Volker Boehm"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "references",
+        "f",
+        "m",
+        "%Carlos%",
+        "Anonymous"
+      ],
+      [
+        "%v%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Manzini%",
+        "I.S.Mowis"
+      ],
+      [
+        "H%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "E%",
+        "Volker Boehm"
+      ],
+      [
+        "A%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "C%",
+        "Volker Boehm"
+      ],
+      [
+        "B%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "J%",
+        "Volker Boehm"
+      ],
+      [
+        "%u%",
+        "mini biography",
+        "featured in",
+        "f",
+        "m",
+        "%c%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%x%",
+        "mini biography",
+        "version of",
+        "f",
+        "m",
+        "%Jones%",
+        "Anonymous"
+      ],
+      [
+        "%b%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Downey%Robert%",
+        "Volker Boehm"
+      ],
+      [
+        "C%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%B%",
+        "Volker Boehm"
+      ],
+      [
+        "%v%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "M%",
+        "Volker Boehm"
+      ],
+      [
+        "%,%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%r%",
+        "JBPR"
+      ],
+      [
+        "M%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "T%",
+        "Volker Boehm"
+      ],
+      [
+        "%h%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%b%",
+        "Anonymous"
+      ],
+      [
+        "%o%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%j%",
+        "Alex Hajdu"
+      ],
+      [
+        "%m%",
+        "mini biography",
+        "featured in",
+        "f",
+        "m",
+        "%Dennis%",
+        "Anonymous"
+      ],
+      [
+        "%T%",
+        "mini biography",
+        "remake of",
+        "m",
+        "f",
+        "%i%",
+        "Liberty Salinger <liberty_salinger@hotmail.com>"
+      ],
+      [
+        "%l%",
+        "mini biography",
+        "version of",
+        "m",
+        "f",
+        "%B%",
+        "Donovan Webber"
+      ],
+      [
+        "%d%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%n%",
+        "Ken Yousten <kyousten@bev.net>"
+      ],
+      [
+        "%m%",
+        "mini biography",
+        "referenced in",
+        "f",
+        "m",
+        "%Boyd%",
+        "Anonymous"
+      ],
+      [
+        "%z%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%Angel%",
+        "Volker Boehm"
+      ],
+      [
+        "%Robert%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%Brian%",
+        "Anonymous"
+      ],
+      [
+        "V%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "B%",
+        "Volker Boehm"
+      ],
+      [
+        "%i%",
+        "mini biography",
+        "version of",
+        "f",
+        "m",
+        "%Welker%",
+        "Anonymous"
+      ],
+      [
+        "%R%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%S%",
+        "Jim Beaver <jumblejim@prodigy.net>"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "W%",
+        "Volker Boehm"
+      ],
+      [
+        "%i%",
+        "mini biography",
+        "featured in",
+        "f",
+        "m",
+        "%M%",
+        "Denny Jackson"
+      ],
+      [
+        "A%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "K%",
+        "Volker Boehm"
+      ],
+      [
+        "%d%",
+        "mini biography",
+        "followed by",
+        "m",
+        "f",
+        "%Mark%",
+        "woodyanders"
+      ],
+      [
+        "%t%",
+        "mini biography",
+        "referenced in",
+        "m",
+        "f",
+        "%n%",
+        "Anonymous"
+      ],
+      [
+        "%t%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "P%",
+        "Volker Boehm"
+      ],
+      [
+        "D%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "E%",
+        "Volker Boehm"
+      ],
+      [
+        "%i%",
+        "mini biography",
+        "references",
+        "f",
+        "m",
+        "%B%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%c%",
+        "mini biography",
+        "spoofs",
+        "m",
+        "f",
+        "%Bell%",
+        "woodyanders"
+      ],
+      [
+        "%v%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%o%",
+        "sandra seymour"
+      ],
+      [
+        "K%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "X%",
+        "Volker Boehm"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "referenced in",
+        "m",
+        "f",
+        "%Fred%",
+        "Gilli"
+      ],
+      [
+        "%y%",
+        "mini biography",
+        "version of",
+        "f",
+        "m",
+        "%David%",
+        "Anonymous"
+      ],
+      [
+        "%d%",
+        "mini biography",
+        "referenced in",
+        "m",
+        "f",
+        "%Ren\u00c3\u00a9e%",
+        "Anonymous"
+      ],
+      [
+        "%s%",
+        "mini biography",
+        "remade as",
+        "m",
+        "f",
+        "%a%",
+        "Anonymous"
+      ],
+      [
+        "%e%",
+        "mini biography",
+        "version of",
+        "f",
+        "m",
+        "%e%",
+        "Meredy <meredy@meredy.com>"
+      ],
+      [
+        "%n%",
+        "mini biography",
+        "references",
+        "f",
+        "m",
+        "%n%",
+        "Phil Thompson"
+      ],
+      [
+        "%e%",
+        "mini biography",
+        "followed by",
+        "f",
+        "m",
+        "%Morgan%",
+        "Gary Brumburgh / gr-home@pacbell.net"
+      ],
+      [
+        "%k%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%Frank%",
+        "woodyanders"
+      ],
+      [
+        "%m%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "K%",
+        "Volker Boehm"
+      ],
+      [
+        "%z%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "S%",
+        "Volker Boehm"
+      ],
+      [
+        "%A%",
+        "mini biography",
+        "references",
+        "m",
+        "f",
+        "%Martin%",
+        "woodyanders"
+      ],
+      [
+        "%S%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%r%",
+        "B. J. Coverdale"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%A%",
+        "Volker Boehm"
+      ],
+      [
+        "%Robert%",
+        "mini biography",
+        "featured in",
+        "m",
+        "f",
+        "%Frank%",
+        "frankfob2@yahoo.com"
+      ],
+      [
+        "%e%",
+        "mini biography",
+        "version of",
+        "m",
+        "f",
+        "%Kennedy%",
+        "Anonymous"
+      ],
+      [
+        "%a%",
+        "mini biography",
+        "referenced in",
+        "f",
+        "m",
+        "%Markovic%",
+        "frankfob2@yahoo.com"
+      ],
+      [
+        "%F%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%e%",
+        "I.S.Mowis"
+      ],
+      [
+        "%i%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "F%",
+        "Volker Boehm"
+      ],
+      [
+        "%u%",
+        "mini biography",
+        "features",
+        "f",
+        "m",
+        "%Q%",
+        "Volker Boehm"
+      ],
+      [
+        "%c%",
+        "mini biography",
+        "features",
+        "m",
+        "f",
+        "%J%",
+        "Volker Boehm"
+      ]
+    ]
+  }
+}

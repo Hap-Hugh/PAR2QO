@@ -1,0 +1,859 @@
+{
+    "084": {
+        "query": "SELECT min(c_customer_id),\n       min(sr_ticket_number),\n       min(sr_item_sk)\nFROM customer ,\n     customer_address ,\n     customer_demographics ,\n     household_demographics ,\n     income_band ,\n     store_returns\nWHERE ca_city = '@param0'\n  AND c_current_addr_sk = ca_address_sk\n  AND ib_lower_bound >= @param1\n  AND ib_upper_bound <= @param1 + 50000\n  AND ib_income_band_sk = hd_income_band_sk\n  AND cd_demo_sk = c_current_cdemo_sk\n  AND hd_demo_sk = c_current_hdemo_sk\n  AND sr_cdemo_sk = cd_demo_sk ;",
+        "predicates": [
+            {
+                "alias": "",
+                "column": "ca_city",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "customer"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "c_current_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "c_current_addr_sk = ca_address_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ib_lower_bound",
+                "operator": ">=",
+                "data_type": "int",
+                "table": "income_band",
+                "min": 0,
+                "max": 190001,
+                "join_tables": [
+                    "household_demographics"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "hd_income_band_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ib_income_band_sk = hd_income_band_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            }
+        ],
+        "params": [
+            [
+                "Lebanon",
+                "20000"
+            ],
+            [
+                "Glenwood",
+                "60000"
+            ],
+            [
+                "Wildwood",
+                "70000"
+            ],
+            [
+                "Harmony",
+                "20000"
+            ],
+            [
+                "Five Points",
+                "30000"
+            ],
+            [
+                "Oak Ridge",
+                "10000"
+            ],
+            [
+                "Hopewell",
+                "60000"
+            ],
+            [
+                "Franklin",
+                "30000"
+            ],
+            [
+                "Highland Park",
+                "40000"
+            ],
+            [
+                "Greenville",
+                "0"
+            ],
+            [
+                "Wilson",
+                "30000"
+            ],
+            [
+                "Oakland",
+                "70000"
+            ],
+            [
+                "Sunnyside",
+                "0"
+            ],
+            [
+                "Spring Hill",
+                "30000"
+            ],
+            [
+                "Farmington",
+                "30000"
+            ],
+            [
+                "Mount Pleasant",
+                "20000"
+            ],
+            [
+                "Edgewood",
+                "20000"
+            ],
+            [
+                "Edgewood",
+                "70000"
+            ],
+            [
+                "Clinton",
+                "30000"
+            ],
+            [
+                "Wildwood",
+                "0"
+            ],
+            [
+                "Plainview",
+                "30000"
+            ],
+            [
+                "Newtown",
+                "70000"
+            ],
+            [
+                "Salem",
+                "50000"
+            ],
+            [
+                "Centerville",
+                "60000"
+            ],
+            [
+                "Mount Pleasant",
+                "20000"
+            ],
+            [
+                "Hillcrest",
+                "0"
+            ],
+            [
+                "Woodlawn",
+                "20000"
+            ],
+            [
+                "Waterloo",
+                "0"
+            ],
+            [
+                "Kingston",
+                "20000"
+            ],
+            [
+                "New Hope",
+                "40000"
+            ],
+            [
+                "Clifton",
+                "30000"
+            ],
+            [
+                "Franklin",
+                "60000"
+            ],
+            [
+                "Lincoln",
+                "20000"
+            ],
+            [
+                "Pleasant Valley",
+                "40000"
+            ],
+            [
+                "Oak Grove",
+                "50000"
+            ],
+            [
+                "Farmington",
+                "30000"
+            ],
+            [
+                "Marion",
+                "30000"
+            ],
+            [
+                "Lebanon",
+                "20000"
+            ],
+            [
+                "Deerfield",
+                "40000"
+            ],
+            [
+                "Maple Grove",
+                "0"
+            ],
+            [
+                "Walnut Grove",
+                "20000"
+            ],
+            [
+                "Forest Hills",
+                "40000"
+            ],
+            [
+                "Newtown",
+                "20000"
+            ],
+            [
+                "Buena Vista",
+                "50000"
+            ],
+            [
+                "Maple Grove",
+                "70000"
+            ],
+            [
+                "Crossroads",
+                "60000"
+            ],
+            [
+                "Mount Zion",
+                "70000"
+            ],
+            [
+                "Mount Zion",
+                "30000"
+            ],
+            [
+                "Union",
+                "20000"
+            ],
+            [
+                "Shiloh",
+                "0"
+            ],
+            [
+                "Stringtown",
+                "0"
+            ],
+            [
+                "Sunnyside",
+                "10000"
+            ],
+            [
+                "Unionville",
+                "70000"
+            ],
+            [
+                "Shady Grove",
+                "0"
+            ],
+            [
+                "Plainview",
+                "10000"
+            ],
+            [
+                "Jamestown",
+                "40000"
+            ],
+            [
+                "Lakeview",
+                "70000"
+            ],
+            [
+                "Pine Grove",
+                "10000"
+            ],
+            [
+                "Pleasant Hill",
+                "10000"
+            ],
+            [
+                "Greenville",
+                "70000"
+            ],
+            [
+                "Highland Park",
+                "40000"
+            ],
+            [
+                "Salem",
+                "60000"
+            ],
+            [
+                "Springdale",
+                "50000"
+            ],
+            [
+                "Buena Vista",
+                "60000"
+            ],
+            [
+                "Antioch",
+                "30000"
+            ],
+            [
+                "Greenfield",
+                "0"
+            ],
+            [
+                "New Hope",
+                "60000"
+            ],
+            [
+                "Walnut Grove",
+                "10000"
+            ],
+            [
+                "Friendship",
+                "10000"
+            ],
+            [
+                "Red Hill",
+                "70000"
+            ],
+            [
+                "Antioch",
+                "40000"
+            ],
+            [
+                "Newtown",
+                "70000"
+            ],
+            [
+                "Hopewell",
+                "70000"
+            ],
+            [
+                "Highland Park",
+                "0"
+            ],
+            [
+                "Lincoln",
+                "40000"
+            ],
+            [
+                "Glendale",
+                "40000"
+            ],
+            [
+                "Bethel",
+                "70000"
+            ],
+            [
+                "Five Forks",
+                "0"
+            ],
+            [
+                "Greenville",
+                "60000"
+            ],
+            [
+                "Newtown",
+                "30000"
+            ],
+            [
+                "Mount Pleasant",
+                "20000"
+            ],
+            [
+                "Concord",
+                "20000"
+            ],
+            [
+                "Enterprise",
+                "40000"
+            ],
+            [
+                "Hillcrest",
+                "30000"
+            ],
+            [
+                "Georgetown",
+                "50000"
+            ],
+            [
+                "Macedonia",
+                "30000"
+            ],
+            [
+                "Buena Vista",
+                "0"
+            ],
+            [
+                "Marion",
+                "60000"
+            ],
+            [
+                "Five Forks",
+                "30000"
+            ],
+            [
+                "Bethel",
+                "30000"
+            ],
+            [
+                "Antioch",
+                "20000"
+            ],
+            [
+                "Marion",
+                "30000"
+            ],
+            [
+                "Spring Hill",
+                "40000"
+            ],
+            [
+                "Glenwood",
+                "0"
+            ],
+            [
+                "Kingston",
+                "20000"
+            ],
+            [
+                "Centerville",
+                "40000"
+            ],
+            [
+                "Riverview",
+                "10000"
+            ],
+            [
+                "Pleasant Valley",
+                "70000"
+            ],
+            [
+                "Woodland",
+                "50000"
+            ],
+            [
+                "Hamilton",
+                "10000"
+            ],
+            [
+                "Five Forks",
+                "70000"
+            ],
+            [
+                "Oak Hill",
+                "10000"
+            ],
+            [
+                "Georgetown",
+                "60000"
+            ],
+            [
+                "Hamilton",
+                "40000"
+            ],
+            [
+                "Fairfield",
+                "50000"
+            ],
+            [
+                "Hamilton",
+                "50000"
+            ],
+            [
+                "Riverdale",
+                "0"
+            ],
+            [
+                "Plainview",
+                "10000"
+            ],
+            [
+                "Green Acres",
+                "10000"
+            ],
+            [
+                "Valley View",
+                "40000"
+            ],
+            [
+                "Woodville",
+                "20000"
+            ],
+            [
+                "Hopewell",
+                "60000"
+            ],
+            [
+                "Walnut Grove",
+                "20000"
+            ],
+            [
+                "Franklin",
+                "40000"
+            ],
+            [
+                "Shiloh",
+                "70000"
+            ],
+            [
+                "Five Forks",
+                "70000"
+            ],
+            [
+                "Oakwood",
+                "20000"
+            ],
+            [
+                "Mountain View",
+                "30000"
+            ],
+            [
+                "Providence",
+                "0"
+            ],
+            [
+                "Farmington",
+                "60000"
+            ],
+            [
+                "Walnut Grove",
+                "50000"
+            ],
+            [
+                "Crossroads",
+                "40000"
+            ],
+            [
+                "Riverview",
+                "0"
+            ],
+            [
+                "Brownsville",
+                "10000"
+            ],
+            [
+                "Jamestown",
+                "60000"
+            ],
+            [
+                "Mount Pleasant",
+                "60000"
+            ],
+            [
+                "Harmony",
+                "20000"
+            ],
+            [
+                "Spring Hill",
+                "50000"
+            ],
+            [
+                "Spring Valley",
+                "60000"
+            ],
+            [
+                "Concord",
+                "60000"
+            ],
+            [
+                "Forest Hills",
+                "40000"
+            ],
+            [
+                "Georgetown",
+                "70000"
+            ],
+            [
+                "Marion",
+                "20000"
+            ],
+            [
+                "Fairview",
+                "70000"
+            ],
+            [
+                "Red Hill",
+                "10000"
+            ],
+            [
+                "Riverside",
+                "50000"
+            ],
+            [
+                "Enterprise",
+                "0"
+            ],
+            [
+                "Springfield",
+                "30000"
+            ],
+            [
+                "Lakeside",
+                "70000"
+            ],
+            [
+                "Woodlawn",
+                "60000"
+            ],
+            [
+                "Salem",
+                "50000"
+            ],
+            [
+                "Kingston",
+                "60000"
+            ],
+            [
+                "Glendale",
+                "50000"
+            ],
+            [
+                "Green Acres",
+                "70000"
+            ],
+            [
+                "Wilson",
+                "0"
+            ],
+            [
+                "Greenville",
+                "0"
+            ],
+            [
+                "Ashland",
+                "50000"
+            ],
+            [
+                "Mount Vernon",
+                "10000"
+            ],
+            [
+                "Oakland",
+                "70000"
+            ],
+            [
+                "Harmony",
+                "0"
+            ],
+            [
+                "Oakland",
+                "60000"
+            ],
+            [
+                "Highland Park",
+                "40000"
+            ],
+            [
+                "Georgetown",
+                "60000"
+            ],
+            [
+                "Green Acres",
+                "0"
+            ],
+            [
+                "Bethel",
+                "60000"
+            ],
+            [
+                "Springfield",
+                "10000"
+            ],
+            [
+                "Wildwood",
+                "30000"
+            ],
+            [
+                "Bethel",
+                "70000"
+            ],
+            [
+                "Jackson",
+                "40000"
+            ],
+            [
+                "Jamestown",
+                "0"
+            ],
+            [
+                "Woodlawn",
+                "70000"
+            ],
+            [
+                "Shiloh",
+                "40000"
+            ],
+            [
+                "Fairfield",
+                "40000"
+            ],
+            [
+                "Mount Pleasant",
+                "50000"
+            ],
+            [
+                "Sulphur Springs",
+                "60000"
+            ],
+            [
+                "Wilson",
+                "40000"
+            ],
+            [
+                "Highland",
+                "30000"
+            ],
+            [
+                "Crossroads",
+                "0"
+            ],
+            [
+                "Antioch",
+                "50000"
+            ],
+            [
+                "New Hope",
+                "0"
+            ],
+            [
+                "Springdale",
+                "70000"
+            ],
+            [
+                "Antioch",
+                "50000"
+            ],
+            [
+                "Riverview",
+                "40000"
+            ],
+            [
+                "Red Hill",
+                "50000"
+            ],
+            [
+                "Greenville",
+                "20000"
+            ],
+            [
+                "Riverside",
+                "30000"
+            ],
+            [
+                "Lakeview",
+                "10000"
+            ],
+            [
+                "Hamilton",
+                "60000"
+            ],
+            [
+                "Sunnyside",
+                "70000"
+            ],
+            [
+                "Mountain View",
+                "50000"
+            ],
+            [
+                "White Oak",
+                "30000"
+            ],
+            [
+                "Oak Ridge",
+                "60000"
+            ],
+            [
+                "Glendale",
+                "0"
+            ],
+            [
+                "Florence",
+                "70000"
+            ],
+            [
+                "Concord",
+                "70000"
+            ],
+            [
+                "White Oak",
+                "70000"
+            ],
+            [
+                "Greenville",
+                "30000"
+            ],
+            [
+                "Mount Vernon",
+                "50000"
+            ],
+            [
+                "Greenfield",
+                "20000"
+            ],
+            [
+                "Oakland",
+                "0"
+            ],
+            [
+                "Mount Pleasant",
+                "50000"
+            ],
+            [
+                "Lincoln",
+                "30000"
+            ],
+            [
+                "Maple Grove",
+                "0"
+            ],
+            [
+                "Wildwood",
+                "70000"
+            ],
+            [
+                "Woodland",
+                "20000"
+            ],
+            [
+                "Greenfield",
+                "20000"
+            ],
+            [
+                "Oakwood",
+                "0"
+            ],
+            [
+                "Brownsville",
+                "40000"
+            ],
+            [
+                "Oak Hill",
+                "40000"
+            ],
+            [
+                "Summit",
+                "0"
+            ]
+        ]
+    }
+}

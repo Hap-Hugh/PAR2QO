@@ -1,0 +1,2801 @@
+query,plan_id,plan_content
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 1969;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Doug%'
+ AND t.production_year > 1972;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%Barker%'
+ AND t.production_year > 2005;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'based-on-novel'
+ AND n.name LIKE '%Griffin%'
+ AND t.production_year > 2004;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Bob%'
+ AND t.production_year > 2006;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Barker%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Boyd%'
+ AND t.production_year > 2002;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'death'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 2005;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'pfizer'
+ AND n.name LIKE '%Bob%'
+ AND t.production_year > 1991;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Kenny%'
+ AND t.production_year > 2005;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'based-on-novel'
+ AND n.name LIKE '%Bradley%'
+ AND t.production_year > 2009;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Jim%'
+ AND t.production_year > 1974;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Fitzgerald%'
+ AND t.production_year > 1949;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Trey%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Ãlvarez%'
+ AND t.production_year > 1957;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'blood'
+ AND n.name LIKE '%Goldberg%'
+ AND t.production_year > 1969;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Spelling%'
+ AND t.production_year > 2006;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Jim%'
+ AND t.production_year > 1991;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'based-on-play'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 1966;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'u.s.-sailor'
+ AND n.name LIKE '%Jay%'
+ AND t.production_year > 1898;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'father-daughter-relationship'
+ AND n.name LIKE '%Jim%'
+ AND t.production_year > 1998;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'burning-money'
+ AND n.name LIKE '%Bob%'
+ AND t.production_year > 2002;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Bob%'
+ AND t.production_year > 2004;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'father-daughter-relationship'
+ AND n.name LIKE '%Jon%'
+ AND t.production_year > 1990;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'father-daughter-relationship'
+ AND n.name LIKE '%RodrÃ­guez%'
+ AND t.production_year > 2001;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 1998;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Siegmund%'
+ AND t.production_year > 1974;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Bell%'
+ AND t.production_year > 2008;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'number-in-title'
+ AND n.name LIKE '%Ivan%'
+ AND t.production_year > 2004;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Hinnant%'
+ AND t.production_year > 1993;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%JosÃ©%'
+ AND t.production_year > 1967;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Borg%'
+ AND t.production_year > 2008;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Garcia%'
+ AND t.production_year > 2002;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Griffin%'
+ AND t.production_year > 1979;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Janice%'
+ AND t.production_year > 1997;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Cooke%'
+ AND t.production_year > 1971;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Barker%'
+ AND t.production_year > 1972;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Bradley%'
+ AND t.production_year > 1975;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Griffin%'
+ AND t.production_year > 1988;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Reg%'
+ AND t.production_year > 1960;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Barker%'
+ AND t.production_year > 2006;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Barker%'
+ AND t.production_year > 2005;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Craig%'
+ AND t.production_year > 1957;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%Kirsten%'
+ AND t.production_year > 2009;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Irene%'
+ AND t.production_year > 2006;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Stewart%'
+ AND t.production_year > 1958;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Vieira%'
+ AND t.production_year > 1962;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 1960;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%S%'
+ AND t.production_year > 2009;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%David%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'based-on-play'
+ AND n.name LIKE '%Welker%'
+ AND t.production_year > 2000;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%F%'
+ AND t.production_year > 1956;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Bob%'
+ AND t.production_year > 1991;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Jay%'
+ AND t.production_year > 2011;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Grilo%'
+ AND t.production_year > 1972;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Joseph%'
+ AND t.production_year > 1990;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%Letterman%'
+ AND t.production_year > 1948;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'father-daughter-relationship'
+ AND n.name LIKE '%Alves%'
+ AND t.production_year > 2005;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%Russ%'
+ AND t.production_year > 2005;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Boyd%'
+ AND t.production_year > 1966;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Bell%'
+ AND t.production_year > 2011;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Jon%'
+ AND t.production_year > 2006;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'based-on-novel'
+ AND n.name LIKE '%Norton%'
+ AND t.production_year > 2005;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'friendship'
+ AND n.name LIKE '%Azaria%'
+ AND t.production_year > 1969;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'blood-on-bare-breasts'
+ AND n.name LIKE '%Bob%'
+ AND t.production_year > 1905;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'number-in-title'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 2008;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'number-in-title'
+ AND n.name LIKE '%Michael%'
+ AND t.production_year > 1989;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Boyd%'
+ AND t.production_year > 1976;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Colbert%'
+ AND t.production_year > 2005;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%Dias%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hedonist'
+ AND n.name LIKE '%Bob%'
+ AND t.production_year > 1995;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'death'
+ AND n.name LIKE '%Frank%'
+ AND t.production_year > 1923;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'revenge'
+ AND n.name LIKE '%Stewart%'
+ AND t.production_year > 2003;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Leno%'
+ AND t.production_year > 2008;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'dog'
+ AND n.name LIKE '%Richard%'
+ AND t.production_year > 1983;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%Canto%'
+ AND t.production_year > 2005;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Jim%'
+ AND t.production_year > 2008;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Santos%'
+ AND t.production_year > 1969;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'violence'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 2008;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'based-on-novel'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 1997;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Bradley%'
+ AND t.production_year > 1983;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%Mehta%'
+ AND t.production_year > 2001;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Kelley%'
+ AND t.production_year > 2001;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%West%'
+ AND t.production_year > 1980;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Jon%'
+ AND t.production_year > 2008;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Rita%'
+ AND t.production_year > 1948;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'dog'
+ AND n.name LIKE '%Barker%'
+ AND t.production_year > 1998;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Sara%'
+ AND t.production_year > 2012;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'family-relationships'
+ AND n.name LIKE '%Stewart%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Barker%'
+ AND t.production_year > 1970;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Lizzie%'
+ AND t.production_year > 2007;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Bradley%'
+ AND t.production_year > 1963;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Jon%'
+ AND t.production_year > 2003;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Parkinson%'
+ AND t.production_year > 2004;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Leno%'
+ AND t.production_year > 2006;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Jay%'
+ AND t.production_year > 2008;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%D%'
+ AND t.production_year > 2006;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%Tom%'
+ AND t.production_year > 1984;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Bob%'
+ AND t.production_year > 1994;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%Orlando%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'based-on-novel'
+ AND n.name LIKE '%Jon%'
+ AND t.production_year > 2013;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%Michael%'
+ AND t.production_year > 1991;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'father-daughter-relationship'
+ AND n.name LIKE '%Jay%'
+ AND t.production_year > 1999;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%Clark%'
+ AND t.production_year > 1967;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 1985;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'based-on-novel'
+ AND n.name LIKE '%Barker%'
+ AND t.production_year > 2000;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Thom%'
+ AND t.production_year > 1949;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%H%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Barker%'
+ AND t.production_year > 1992;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%e%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Janice%'
+ AND t.production_year > 2006;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'gun-under-pillow'
+ AND n.name LIKE '%Bob%'
+ AND t.production_year > 1971;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'needing-money'
+ AND n.name LIKE '%Thomas%'
+ AND t.production_year > 1998;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Jim%'
+ AND t.production_year > 1970;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Fernandes%'
+ AND t.production_year > 1951;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Bastos%'
+ AND t.production_year > 1970;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Steve%'
+ AND t.production_year > 2004;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%Griffin%'
+ AND t.production_year > 2006;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Griffin%'
+ AND t.production_year > 1969;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Patricia%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%Griffin%'
+ AND t.production_year > 2002;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%David%'
+ AND t.production_year > 2009;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Scheimer%'
+ AND t.production_year > 1890;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%Lowry%'
+ AND t.production_year > 2007;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Douglas%'
+ AND t.production_year > 2001;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Rogers%'
+ AND t.production_year > 1959;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'bare-breasts'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 1998;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%Maria%'
+ AND t.production_year > 1969;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Robert%'
+ AND t.production_year > 2005;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Joe%'
+ AND t.production_year > 2003;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Griffin%'
+ AND t.production_year > 2007;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%Pedro%'
+ AND t.production_year > 2004;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 1926;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'based-on-play'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 2009;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Roddy%'
+ AND t.production_year > 1969;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'based-on-novel'
+ AND n.name LIKE '%Miguel%'
+ AND t.production_year > 1954;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'death'
+ AND n.name LIKE '%George%'
+ AND t.production_year > 2012;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'bare-chested-male'
+ AND n.name LIKE '%P%'
+ AND t.production_year > 1998;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Michael%'
+ AND t.production_year > 2003;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Will%'
+ AND t.production_year > 2002;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Boyd%'
+ AND t.production_year > 1994;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%De%'
+ AND t.production_year > 1995;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'father-son-relationship'
+ AND n.name LIKE '%Welker%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Bradley%'
+ AND t.production_year > 1995;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%Phil%'
+ AND t.production_year > 2001;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Griffin%'
+ AND t.production_year > 1986;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 2008;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%Conan%'
+ AND t.production_year > 1988;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'violence'
+ AND n.name LIKE '%Nicolau%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%Griffin%'
+ AND t.production_year > 1977;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Jim%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%Del%'
+ AND t.production_year > 1999;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Boyd%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Bob%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Bradley%'
+ AND t.production_year > 1981;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Gabriel%'
+ AND t.production_year > 1998;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 2001;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Merv%'
+ AND t.production_year > 1987;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'based-on-novel'
+ AND n.name LIKE '%Griffin%'
+ AND t.production_year > 2005;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Nikola%'
+ AND t.production_year > 1983;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Bob%'
+ AND t.production_year > 1923;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Wallice%'
+ AND t.production_year > 1957;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Stephen%'
+ AND t.production_year > 1998;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%JoÃ£o%'
+ AND t.production_year > 1983;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'based-on-novel'
+ AND n.name LIKE '%Pennington%'
+ AND t.production_year > 2009;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%Stewart%'
+ AND t.production_year > 1979;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'one-word-title'
+ AND n.name LIKE '%Skip%'
+ AND t.production_year > 2009;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'one-word-title'
+ AND n.name LIKE '%McNeil%'
+ AND t.production_year > 1974;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Olson%'
+ AND t.production_year > 2003;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Bell%'
+ AND t.production_year > 1918;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Pennington%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'petroglyphs'
+ AND n.name LIKE '%O%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Bell%'
+ AND t.production_year > 2001;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'independent-film'
+ AND n.name LIKE '%Jay%'
+ AND t.production_year > 1995;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Bennett%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'friendship'
+ AND n.name LIKE '%Stewart%'
+ AND t.production_year > 2007;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'father-daughter-relationship'
+ AND n.name LIKE '%Bernini%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%J%'
+ AND t.production_year > 2004;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Jay%'
+ AND t.production_year > 1978;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%John%'
+ AND t.production_year > 2014;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'husband-wife-relationship'
+ AND n.name LIKE '%Letterman%'
+ AND t.production_year > 1954;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Lightfoot%'
+ AND t.production_year > 1903;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'murder'
+ AND n.name LIKE '%Alexandre%'
+ AND t.production_year > 2007;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'based-on-novel'
+ AND n.name LIKE '%Bob%'
+ AND t.production_year > 1989;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'female-nudity'
+ AND n.name LIKE '%Pedro%'
+ AND t.production_year > 2005;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'nudity'
+ AND n.name LIKE '%Stephen%'
+ AND t.production_year > 2008;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Dee%'
+ AND t.production_year > 1971;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Burnett%'
+ AND t.production_year > 1919;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Terry%'
+ AND t.production_year > 1987;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'reference-to-a-famous-painting'
+ AND n.name LIKE '%John%'
+ AND t.production_year > 2010;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'squalene'
+ AND n.name LIKE '%de%'
+ AND t.production_year > 1995;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Pete%'
+ AND t.production_year > 2009;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Bradley%'
+ AND t.production_year > 2007;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'character-name-in-title'
+ AND n.name LIKE '%Rizzo%'
+ AND t.production_year > 1985;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'sex'
+ AND n.name LIKE '%Barbera%'
+ AND t.production_year > 1993;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'father-daughter-relationship'
+ AND n.name LIKE '%JoÃ£o%'
+ AND t.production_year > 1985;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'weaponry'
+ AND n.name LIKE '%Ben%'
+ AND t.production_year > 1937;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'photographic-memory'
+ AND n.name LIKE '%Steve%'
+ AND t.production_year > 1996;",58,/*+  SeqScan(t) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(ci movie_id_cast_info) SeqScan(n) NestLoop(k mk) HashJoin(t k mk) NestLoop(t k mk ci) HashJoin(t k mk ci n) Leading((((t (k mk)) ci) n)) */
+"SELECT MIN(k.keyword) AS movie_keyword, MIN(n.name) AS actor_name, MIN(t.title) AS marvel_movie
+ FROM cast_info AS ci,
+ keyword AS k,
+ movie_keyword AS mk,
+ name AS n,
+ title AS t
+ WHERE k.id = mk.keyword_id
+ AND t.id = mk.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mk.movie_id
+ AND n.id = ci.person_id
+ AND k.keyword = 'hardcore'
+ AND n.name LIKE '%Gala%'
+ AND t.production_year > 1997;",28,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t ci) NestLoop(k mk t ci n) Leading(((((k mk) t) ci) n)) */

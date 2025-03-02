@@ -1,0 +1,1795 @@
+{
+  "099": {
+    "query": "SELECT min(w_warehouse_name)\n  ,min(sm_type)\n  ,min(cc_name)\n  ,min(cs_order_number)\n  ,min(cs_item_sk)\nfrom\n   catalog_sales\n  ,warehouse\n  ,ship_mode\n  ,call_center\n  ,date_dim\nwhere\n    d_month_seq between @param0 and @param0 + 23\nand cs_ship_date_sk   = d_date_sk\nand cs_warehouse_sk   = w_warehouse_sk\nand cs_ship_mode_sk   = sm_ship_mode_sk\nand cs_call_center_sk = cc_call_center_sk\nand cs_list_price between @param1 and @param2\nand sm_type = '@param3'\nand cc_class = '@param4'\nand w_gmt_offset = @param5\n;",
+    "predicates": [
+      {
+        "alias": "",
+        "column": "d_month_seq",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "date_dim",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_ship_date_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_ship_date_sk   = d_date_sk"
+        ],
+        "left_or_right": [
+          "l"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cs_list_price",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "catalog_sales",
+        "join_tables": [
+          "date_dim",
+          "warehouse",
+          "ship_mode",
+          "call_center"
+        ],
+        "join_tables_alias": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "d_date_sk"
+          ],
+          [
+            "w_warehouse_sk"
+          ],
+          [
+            "sm_ship_mode_sk"
+          ],
+          [
+            "cc_call_center_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_ship_date_sk   = d_date_sk",
+          "cs_warehouse_sk   = w_warehouse_sk",
+          "cs_ship_mode_sk   = sm_ship_mode_sk",
+          "cs_call_center_sk = cc_call_center_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cs_list_price",
+        "operator": "<=",
+        "data_type": "int",
+        "table": "catalog_sales",
+        "join_tables": [
+          "date_dim",
+          "warehouse",
+          "ship_mode",
+          "call_center"
+        ],
+        "join_tables_alias": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "d_date_sk"
+          ],
+          [
+            "w_warehouse_sk"
+          ],
+          [
+            "sm_ship_mode_sk"
+          ],
+          [
+            "cc_call_center_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_ship_date_sk   = d_date_sk",
+          "cs_warehouse_sk   = w_warehouse_sk",
+          "cs_ship_mode_sk   = sm_ship_mode_sk",
+          "cs_call_center_sk = cc_call_center_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "sm_type",
+        "operator": "=",
+        "data_type": "text",
+        "table": "ship_mode",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_ship_mode_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_ship_mode_sk   = sm_ship_mode_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cc_class",
+        "operator": "=",
+        "data_type": "text",
+        "table": "call_center",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_call_center_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_call_center_sk = cc_call_center_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "w_gmt_offset",
+        "operator": "=",
+        "data_type": "int",
+        "table": "warehouse",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_warehouse_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_warehouse_sk   = w_warehouse_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      }
+    ],
+    "params": [
+      [
+        1229,
+        72,
+        123,
+        "TWO DAY                       ",
+        "small",
+        -6
+      ],
+      [
+        1226,
+        61,
+        73,
+        "EXPRESS                       ",
+        "medium",
+        -6
+      ],
+      [
+        1236,
+        82,
+        289,
+        "LIBRARY                       ",
+        "small",
+        -6
+      ],
+      [
+        1221,
+        9,
+        263,
+        "OVERNIGHT                     ",
+        "small",
+        -5
+      ],
+      [
+        1236,
+        12,
+        104,
+        "OVERNIGHT                     ",
+        "small",
+        -6
+      ],
+      [
+        1228,
+        28,
+        47,
+        "OVERNIGHT                     ",
+        "large",
+        -5
+      ],
+      [
+        1215,
+        119,
+        127,
+        "OVERNIGHT                     ",
+        "small",
+        -6
+      ],
+      [
+        1232,
+        2,
+        202,
+        "LIBRARY                       ",
+        "large",
+        -6
+      ],
+      [
+        1192,
+        76,
+        125,
+        "EXPRESS                       ",
+        "small",
+        -6
+      ],
+      [
+        1221,
+        89,
+        284,
+        "LIBRARY                       ",
+        "small",
+        -6
+      ],
+      [
+        1237,
+        100,
+        121,
+        "NEXT DAY                      ",
+        "large",
+        -6
+      ],
+      [
+        1200,
+        55,
+        92,
+        "REGULAR                       ",
+        "small",
+        -5
+      ],
+      [
+        1218,
+        82,
+        174,
+        "EXPRESS                       ",
+        "medium",
+        -5
+      ],
+      [
+        1197,
+        136,
+        140,
+        "OVERNIGHT                     ",
+        "small",
+        -6
+      ],
+      [
+        1188,
+        46,
+        136,
+        "TWO DAY                       ",
+        "small",
+        -5
+      ],
+      [
+        1218,
+        27,
+        76,
+        "OVERNIGHT                     ",
+        "large",
+        -6
+      ],
+      [
+        1202,
+        10,
+        137,
+        "REGULAR                       ",
+        "medium",
+        -5
+      ],
+      [
+        1225,
+        13,
+        72,
+        "NEXT DAY                      ",
+        "medium",
+        -5
+      ],
+      [
+        1218,
+        81,
+        90,
+        "NEXT DAY                      ",
+        "medium",
+        -6
+      ],
+      [
+        1190,
+        27,
+        263,
+        "NEXT DAY                      ",
+        "small",
+        -5
+      ],
+      [
+        1223,
+        83,
+        123,
+        "OVERNIGHT                     ",
+        "large",
+        -5
+      ],
+      [
+        1240,
+        142,
+        149,
+        "OVERNIGHT                     ",
+        "large",
+        -5
+      ],
+      [
+        1221,
+        63,
+        143,
+        "LIBRARY                       ",
+        "small",
+        -5
+      ],
+      [
+        1239,
+        63,
+        156,
+        "REGULAR                       ",
+        "small",
+        -6
+      ],
+      [
+        1231,
+        128,
+        190,
+        "REGULAR                       ",
+        "large",
+        -5
+      ],
+      [
+        1217,
+        2,
+        15,
+        "LIBRARY                       ",
+        "large",
+        -6
+      ],
+      [
+        1234,
+        14,
+        208,
+        "TWO DAY                       ",
+        "small",
+        -6
+      ],
+      [
+        1197,
+        64,
+        143,
+        "NEXT DAY                      ",
+        "small",
+        -5
+      ],
+      [
+        1219,
+        17,
+        49,
+        "LIBRARY                       ",
+        "medium",
+        -6
+      ],
+      [
+        1195,
+        89,
+        163,
+        "NEXT DAY                      ",
+        "large",
+        -5
+      ],
+      [
+        1223,
+        100,
+        109,
+        "NEXT DAY                      ",
+        "large",
+        -5
+      ],
+      [
+        1203,
+        18,
+        228,
+        "REGULAR                       ",
+        "small",
+        -6
+      ],
+      [
+        1194,
+        120,
+        147,
+        "EXPRESS                       ",
+        "large",
+        -5
+      ],
+      [
+        1211,
+        39,
+        173,
+        "OVERNIGHT                     ",
+        "large",
+        -6
+      ],
+      [
+        1225,
+        163,
+        221,
+        "NEXT DAY                      ",
+        "small",
+        -5
+      ],
+      [
+        1177,
+        1,
+        191,
+        "OVERNIGHT                     ",
+        "large",
+        -6
+      ],
+      [
+        1211,
+        120,
+        131,
+        "NEXT DAY                      ",
+        "small",
+        -6
+      ],
+      [
+        1223,
+        42,
+        113,
+        "NEXT DAY                      ",
+        "small",
+        -5
+      ],
+      [
+        1245,
+        104,
+        118,
+        "LIBRARY                       ",
+        "large",
+        -5
+      ],
+      [
+        1211,
+        131,
+        154,
+        "LIBRARY                       ",
+        "large",
+        -5
+      ],
+      [
+        1227,
+        45,
+        55,
+        "REGULAR                       ",
+        "small",
+        -6
+      ],
+      [
+        1209,
+        167,
+        216,
+        "REGULAR                       ",
+        "small",
+        -5
+      ],
+      [
+        1218,
+        28,
+        79,
+        "EXPRESS                       ",
+        "medium",
+        -6
+      ],
+      [
+        1189,
+        73,
+        194,
+        "REGULAR                       ",
+        "large",
+        -6
+      ],
+      [
+        1210,
+        17,
+        89,
+        "TWO DAY                       ",
+        "large",
+        -5
+      ],
+      [
+        1237,
+        56,
+        123,
+        "LIBRARY                       ",
+        "large",
+        -6
+      ],
+      [
+        1245,
+        53,
+        114,
+        "LIBRARY                       ",
+        "small",
+        -5
+      ],
+      [
+        1194,
+        195,
+        223,
+        "EXPRESS                       ",
+        "large",
+        -6
+      ],
+      [
+        1240,
+        89,
+        226,
+        "REGULAR                       ",
+        "small",
+        -5
+      ],
+      [
+        1233,
+        29,
+        142,
+        "NEXT DAY                      ",
+        "medium",
+        -5
+      ],
+      [
+        1224,
+        26,
+        65,
+        "EXPRESS                       ",
+        "medium",
+        -5
+      ],
+      [
+        1200,
+        14,
+        96,
+        "LIBRARY                       ",
+        "small",
+        -5
+      ],
+      [
+        1220,
+        73,
+        91,
+        "EXPRESS                       ",
+        "medium",
+        -5
+      ],
+      [
+        1233,
+        27,
+        206,
+        "OVERNIGHT                     ",
+        "large",
+        -6
+      ],
+      [
+        1180,
+        2,
+        29,
+        "LIBRARY                       ",
+        "small",
+        -6
+      ],
+      [
+        1239,
+        69,
+        114,
+        "NEXT DAY                      ",
+        "small",
+        -6
+      ],
+      [
+        1212,
+        14,
+        194,
+        "NEXT DAY                      ",
+        "large",
+        -6
+      ],
+      [
+        1207,
+        68,
+        190,
+        "LIBRARY                       ",
+        "medium",
+        -5
+      ],
+      [
+        1196,
+        129,
+        198,
+        "TWO DAY                       ",
+        "large",
+        -6
+      ],
+      [
+        1239,
+        108,
+        183,
+        "NEXT DAY                      ",
+        "medium",
+        -6
+      ],
+      [
+        1181,
+        91,
+        162,
+        "REGULAR                       ",
+        "medium",
+        -6
+      ],
+      [
+        1204,
+        47,
+        211,
+        "TWO DAY                       ",
+        "medium",
+        -6
+      ],
+      [
+        1239,
+        7,
+        29,
+        "LIBRARY                       ",
+        "medium",
+        -6
+      ],
+      [
+        1213,
+        72,
+        183,
+        "EXPRESS                       ",
+        "small",
+        -5
+      ],
+      [
+        1211,
+        6,
+        64,
+        "NEXT DAY                      ",
+        "small",
+        -6
+      ],
+      [
+        1230,
+        2,
+        169,
+        "EXPRESS                       ",
+        "large",
+        -6
+      ],
+      [
+        1218,
+        163,
+        163,
+        "OVERNIGHT                     ",
+        "small",
+        -5
+      ],
+      [
+        1240,
+        149,
+        230,
+        "NEXT DAY                      ",
+        "medium",
+        -5
+      ],
+      [
+        1237,
+        58,
+        128,
+        "LIBRARY                       ",
+        "large",
+        -6
+      ],
+      [
+        1180,
+        108,
+        205,
+        "LIBRARY                       ",
+        "large",
+        -5
+      ],
+      [
+        1198,
+        1,
+        236,
+        "EXPRESS                       ",
+        "small",
+        -5
+      ],
+      [
+        1212,
+        118,
+        164,
+        "LIBRARY                       ",
+        "large",
+        -5
+      ],
+      [
+        1240,
+        88,
+        173,
+        "NEXT DAY                      ",
+        "large",
+        -5
+      ],
+      [
+        1240,
+        87,
+        116,
+        "TWO DAY                       ",
+        "small",
+        -5
+      ],
+      [
+        1205,
+        25,
+        30,
+        "EXPRESS                       ",
+        "large",
+        -6
+      ],
+      [
+        1182,
+        104,
+        112,
+        "NEXT DAY                      ",
+        "small",
+        -6
+      ],
+      [
+        1191,
+        23,
+        75,
+        "OVERNIGHT                     ",
+        "medium",
+        -5
+      ],
+      [
+        1179,
+        29,
+        104,
+        "LIBRARY                       ",
+        "large",
+        -5
+      ],
+      [
+        1196,
+        51,
+        64,
+        "EXPRESS                       ",
+        "small",
+        -6
+      ],
+      [
+        1230,
+        26,
+        156,
+        "LIBRARY                       ",
+        "small",
+        -6
+      ],
+      [
+        1248,
+        32,
+        127,
+        "NEXT DAY                      ",
+        "large",
+        -6
+      ],
+      [
+        1239,
+        12,
+        64,
+        "NEXT DAY                      ",
+        "small",
+        -6
+      ],
+      [
+        1228,
+        18,
+        120,
+        "TWO DAY                       ",
+        "small",
+        -5
+      ],
+      [
+        1197,
+        190,
+        278,
+        "EXPRESS                       ",
+        "large",
+        -5
+      ],
+      [
+        1222,
+        22,
+        68,
+        "LIBRARY                       ",
+        "large",
+        -6
+      ],
+      [
+        1184,
+        2,
+        42,
+        "LIBRARY                       ",
+        "small",
+        -6
+      ],
+      [
+        1221,
+        42,
+        75,
+        "OVERNIGHT                     ",
+        "large",
+        -6
+      ],
+      [
+        1230,
+        70,
+        167,
+        "LIBRARY                       ",
+        "large",
+        -6
+      ],
+      [
+        1192,
+        53,
+        87,
+        "OVERNIGHT                     ",
+        "small",
+        -5
+      ],
+      [
+        1228,
+        3,
+        44,
+        "LIBRARY                       ",
+        "small",
+        -5
+      ],
+      [
+        1234,
+        46,
+        87,
+        "LIBRARY                       ",
+        "small",
+        -6
+      ],
+      [
+        1235,
+        69,
+        82,
+        "OVERNIGHT                     ",
+        "medium",
+        -6
+      ],
+      [
+        1213,
+        35,
+        220,
+        "TWO DAY                       ",
+        "medium",
+        -5
+      ],
+      [
+        1188,
+        2,
+        64,
+        "NEXT DAY                      ",
+        "large",
+        -6
+      ],
+      [
+        1237,
+        15,
+        216,
+        "LIBRARY                       ",
+        "medium",
+        -6
+      ],
+      [
+        1238,
+        63,
+        211,
+        "NEXT DAY                      ",
+        "medium",
+        -6
+      ],
+      [
+        1210,
+        116,
+        125,
+        "LIBRARY                       ",
+        "medium",
+        -5
+      ],
+      [
+        1222,
+        27,
+        90,
+        "LIBRARY                       ",
+        "medium",
+        -5
+      ],
+      [
+        1210,
+        11,
+        100,
+        "OVERNIGHT                     ",
+        "large",
+        -5
+      ],
+      [
+        1197,
+        63,
+        172,
+        "REGULAR                       ",
+        "large",
+        -6
+      ],
+      [
+        1226,
+        29,
+        221,
+        "EXPRESS                       ",
+        "small",
+        -6
+      ],
+      [
+        1196,
+        14,
+        89,
+        "LIBRARY                       ",
+        "small",
+        -5
+      ],
+      [
+        1177,
+        17,
+        184,
+        "OVERNIGHT                     ",
+        "medium",
+        -5
+      ],
+      [
+        1214,
+        155,
+        263,
+        "LIBRARY                       ",
+        "small",
+        -5
+      ],
+      [
+        1191,
+        12,
+        21,
+        "NEXT DAY                      ",
+        "large",
+        -5
+      ],
+      [
+        1238,
+        70,
+        268,
+        "LIBRARY                       ",
+        "small",
+        -6
+      ],
+      [
+        1208,
+        23,
+        247,
+        "REGULAR                       ",
+        "large",
+        -5
+      ],
+      [
+        1213,
+        72,
+        82,
+        "NEXT DAY                      ",
+        "large",
+        -6
+      ],
+      [
+        1221,
+        149,
+        213,
+        "REGULAR                       ",
+        "large",
+        -6
+      ],
+      [
+        1230,
+        103,
+        143,
+        "OVERNIGHT                     ",
+        "large",
+        -5
+      ],
+      [
+        1238,
+        64,
+        257,
+        "OVERNIGHT                     ",
+        "large",
+        -6
+      ],
+      [
+        1219,
+        21,
+        162,
+        "LIBRARY                       ",
+        "medium",
+        -5
+      ],
+      [
+        1228,
+        61,
+        123,
+        "EXPRESS                       ",
+        "small",
+        -5
+      ],
+      [
+        1211,
+        28,
+        49,
+        "REGULAR                       ",
+        "small",
+        -5
+      ],
+      [
+        1230,
+        61,
+        120,
+        "EXPRESS                       ",
+        "small",
+        -5
+      ],
+      [
+        1197,
+        41,
+        137,
+        "REGULAR                       ",
+        "large",
+        -6
+      ],
+      [
+        1208,
+        123,
+        184,
+        "TWO DAY                       ",
+        "large",
+        -5
+      ],
+      [
+        1209,
+        14,
+        95,
+        "EXPRESS                       ",
+        "small",
+        -5
+      ],
+      [
+        1219,
+        18,
+        138,
+        "REGULAR                       ",
+        "medium",
+        -6
+      ],
+      [
+        1223,
+        112,
+        138,
+        "EXPRESS                       ",
+        "small",
+        -5
+      ],
+      [
+        1177,
+        97,
+        174,
+        "NEXT DAY                      ",
+        "medium",
+        -6
+      ],
+      [
+        1215,
+        72,
+        78,
+        "LIBRARY                       ",
+        "medium",
+        -5
+      ],
+      [
+        1242,
+        51,
+        137,
+        "NEXT DAY                      ",
+        "small",
+        -5
+      ],
+      [
+        1217,
+        123,
+        205,
+        "OVERNIGHT                     ",
+        "small",
+        -6
+      ],
+      [
+        1229,
+        24,
+        76,
+        "TWO DAY                       ",
+        "large",
+        -6
+      ],
+      [
+        1176,
+        68,
+        138,
+        "OVERNIGHT                     ",
+        "large",
+        -5
+      ],
+      [
+        1179,
+        13,
+        237,
+        "OVERNIGHT                     ",
+        "small",
+        -5
+      ],
+      [
+        1219,
+        2,
+        37,
+        "EXPRESS                       ",
+        "medium",
+        -6
+      ],
+      [
+        1200,
+        69,
+        72,
+        "NEXT DAY                      ",
+        "medium",
+        -5
+      ],
+      [
+        1240,
+        23,
+        133,
+        "TWO DAY                       ",
+        "large",
+        -6
+      ],
+      [
+        1203,
+        1,
+        145,
+        "OVERNIGHT                     ",
+        "medium",
+        -5
+      ],
+      [
+        1229,
+        79,
+        88,
+        "OVERNIGHT                     ",
+        "medium",
+        -5
+      ],
+      [
+        1239,
+        16,
+        46,
+        "OVERNIGHT                     ",
+        "large",
+        -5
+      ],
+      [
+        1219,
+        13,
+        120,
+        "NEXT DAY                      ",
+        "large",
+        -6
+      ],
+      [
+        1215,
+        17,
+        263,
+        "LIBRARY                       ",
+        "medium",
+        -6
+      ],
+      [
+        1208,
+        58,
+        137,
+        "OVERNIGHT                     ",
+        "small",
+        -5
+      ],
+      [
+        1220,
+        17,
+        133,
+        "REGULAR                       ",
+        "small",
+        -6
+      ],
+      [
+        1188,
+        149,
+        228,
+        "LIBRARY                       ",
+        "large",
+        -6
+      ],
+      [
+        1213,
+        46,
+        104,
+        "NEXT DAY                      ",
+        "medium",
+        -5
+      ],
+      [
+        1213,
+        140,
+        186,
+        "LIBRARY                       ",
+        "large",
+        -5
+      ],
+      [
+        1236,
+        17,
+        61,
+        "NEXT DAY                      ",
+        "small",
+        -5
+      ],
+      [
+        1214,
+        45,
+        78,
+        "TWO DAY                       ",
+        "large",
+        -6
+      ],
+      [
+        1229,
+        143,
+        174,
+        "REGULAR                       ",
+        "medium",
+        -6
+      ],
+      [
+        1199,
+        83,
+        113,
+        "LIBRARY                       ",
+        "medium",
+        -5
+      ],
+      [
+        1195,
+        136,
+        289,
+        "EXPRESS                       ",
+        "medium",
+        -6
+      ],
+      [
+        1238,
+        118,
+        206,
+        "EXPRESS                       ",
+        "medium",
+        -6
+      ],
+      [
+        1191,
+        114,
+        234,
+        "NEXT DAY                      ",
+        "small",
+        -6
+      ],
+      [
+        1247,
+        62,
+        243,
+        "OVERNIGHT                     ",
+        "medium",
+        -5
+      ],
+      [
+        1233,
+        143,
+        203,
+        "TWO DAY                       ",
+        "large",
+        -6
+      ],
+      [
+        1197,
+        61,
+        70,
+        "EXPRESS                       ",
+        "large",
+        -6
+      ],
+      [
+        1187,
+        24,
+        63,
+        "OVERNIGHT                     ",
+        "large",
+        -5
+      ],
+      [
+        1224,
+        32,
+        75,
+        "EXPRESS                       ",
+        "large",
+        -5
+      ],
+      [
+        1187,
+        21,
+        108,
+        "LIBRARY                       ",
+        "large",
+        -5
+      ],
+      [
+        1209,
+        49,
+        257,
+        "NEXT DAY                      ",
+        "small",
+        -5
+      ],
+      [
+        1185,
+        140,
+        198,
+        "OVERNIGHT                     ",
+        "small",
+        -6
+      ],
+      [
+        1225,
+        108,
+        203,
+        "REGULAR                       ",
+        "large",
+        -6
+      ],
+      [
+        1247,
+        82,
+        173,
+        "NEXT DAY                      ",
+        "medium",
+        -5
+      ],
+      [
+        1236,
+        72,
+        211,
+        "REGULAR                       ",
+        "medium",
+        -5
+      ],
+      [
+        1180,
+        13,
+        149,
+        "REGULAR                       ",
+        "large",
+        -6
+      ],
+      [
+        1176,
+        39,
+        79,
+        "TWO DAY                       ",
+        "large",
+        -6
+      ],
+      [
+        1195,
+        68,
+        202,
+        "LIBRARY                       ",
+        "large",
+        -6
+      ],
+      [
+        1231,
+        1,
+        289,
+        "NEXT DAY                      ",
+        "large",
+        -5
+      ],
+      [
+        1209,
+        112,
+        124,
+        "NEXT DAY                      ",
+        "small",
+        -5
+      ],
+      [
+        1227,
+        78,
+        105,
+        "EXPRESS                       ",
+        "small",
+        -6
+      ],
+      [
+        1185,
+        35,
+        82,
+        "OVERNIGHT                     ",
+        "medium",
+        -6
+      ],
+      [
+        1215,
+        120,
+        257,
+        "NEXT DAY                      ",
+        "large",
+        -5
+      ],
+      [
+        1220,
+        69,
+        109,
+        "OVERNIGHT                     ",
+        "large",
+        -5
+      ],
+      [
+        1232,
+        1,
+        11,
+        "OVERNIGHT                     ",
+        "medium",
+        -5
+      ],
+      [
+        1182,
+        64,
+        79,
+        "NEXT DAY                      ",
+        "medium",
+        -6
+      ],
+      [
+        1237,
+        24,
+        49,
+        "LIBRARY                       ",
+        "medium",
+        -5
+      ],
+      [
+        1200,
+        46,
+        73,
+        "EXPRESS                       ",
+        "medium",
+        -6
+      ],
+      [
+        1227,
+        51,
+        206,
+        "LIBRARY                       ",
+        "small",
+        -5
+      ],
+      [
+        1212,
+        128,
+        198,
+        "OVERNIGHT                     ",
+        "large",
+        -6
+      ],
+      [
+        1218,
+        147,
+        195,
+        "LIBRARY                       ",
+        "small",
+        -5
+      ],
+      [
+        1196,
+        125,
+        154,
+        "REGULAR                       ",
+        "medium",
+        -6
+      ],
+      [
+        1180,
+        64,
+        70,
+        "TWO DAY                       ",
+        "small",
+        -6
+      ],
+      [
+        1213,
+        108,
+        237,
+        "EXPRESS                       ",
+        "small",
+        -6
+      ],
+      [
+        1222,
+        18,
+        234,
+        "NEXT DAY                      ",
+        "medium",
+        -5
+      ],
+      [
+        1212,
+        103,
+        169,
+        "LIBRARY                       ",
+        "small",
+        -6
+      ],
+      [
+        1180,
+        52,
+        76,
+        "OVERNIGHT                     ",
+        "small",
+        -6
+      ],
+      [
+        1218,
+        12,
+        112,
+        "OVERNIGHT                     ",
+        "small",
+        -6
+      ],
+      [
+        1243,
+        118,
+        192,
+        "TWO DAY                       ",
+        "small",
+        -6
+      ],
+      [
+        1233,
+        173,
+        220,
+        "LIBRARY                       ",
+        "small",
+        -6
+      ],
+      [
+        1234,
+        113,
+        145,
+        "NEXT DAY                      ",
+        "large",
+        -5
+      ],
+      [
+        1196,
+        35,
+        198,
+        "NEXT DAY                      ",
+        "large",
+        -5
+      ],
+      [
+        1202,
+        16,
+        64,
+        "LIBRARY                       ",
+        "small",
+        -5
+      ],
+      [
+        1217,
+        26,
+        49,
+        "REGULAR                       ",
+        "medium",
+        -6
+      ],
+      [
+        1190,
+        198,
+        243,
+        "OVERNIGHT                     ",
+        "small",
+        -5
+      ],
+      [
+        1248,
+        30,
+        53,
+        "REGULAR                       ",
+        "medium",
+        -6
+      ],
+      [
+        1235,
+        17,
+        89,
+        "TWO DAY                       ",
+        "medium",
+        -5
+      ],
+      [
+        1195,
+        136,
+        169,
+        "EXPRESS                       ",
+        "medium",
+        -5
+      ],
+      [
+        1192,
+        63,
+        213,
+        "NEXT DAY                      ",
+        "medium",
+        -5
+      ],
+      [
+        1240,
+        59,
+        69,
+        "NEXT DAY                      ",
+        "large",
+        -5
+      ],
+      [
+        1223,
+        1,
+        203,
+        "REGULAR                       ",
+        "medium",
+        -5
+      ],
+      [
+        1198,
+        42,
+        129,
+        "EXPRESS                       ",
+        "large",
+        -5
+      ],
+      [
+        1243,
+        145,
+        184,
+        "LIBRARY                       ",
+        "small",
+        -6
+      ],
+      [
+        1228,
+        1,
+        55,
+        "TWO DAY                       ",
+        "medium",
+        -5
+      ],
+      [
+        1237,
+        8,
+        88,
+        "LIBRARY                       ",
+        "small",
+        -6
+      ],
+      [
+        1244,
+        1,
+        149,
+        "LIBRARY                       ",
+        "medium",
+        -6
+      ],
+      [
+        1228,
+        145,
+        172,
+        "REGULAR                       ",
+        "large",
+        -5
+      ]
+    ]
+  }
+}

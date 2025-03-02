@@ -1,0 +1,2801 @@
+query,plan_id,plan_content
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'bare-chested-male';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'tv-mini-series';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'female-nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-novel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'female-nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'blood';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'number-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'female-nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'bare-breasts';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'love';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-play';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'female-nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'one-word-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-novel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'male-nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'police';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'dog';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'police';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-novel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'non-fiction';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'father-son-relationship';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-novel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'anal-sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'bare-breasts';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'female-nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'family-relationships';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-novel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-play';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'father-daughter-relationship';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'friendship';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'coyote';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'female-nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'revenge';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'female-nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'oral-sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-novel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'female-nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-novel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-novel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sequel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-novel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-novel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sequel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'blood';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sequel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'tv-mini-series';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'anal-sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'female-nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'friendship';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-novel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'female-nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'oral-sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'father-son-estrangement';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'surrealism';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'one-word-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-novel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'independent-film';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'blood';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'blood';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'female-nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'dog';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'murder';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'number-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'hardcore';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'friendship';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'sex';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'character-name-in-title';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'beefcake';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'female-nudity';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */
+"SELECT MIN(lt.link) AS link_type, MIN(t1.title) AS first_movie, MIN(t2.title) AS second_movie
+FROM keyword AS k,
+    link_type AS lt,
+    movie_keyword AS mk,
+    movie_link AS ml,
+    title AS t1,
+    title AS t2
+WHERE mk.keyword_id = k.id
+AND t1.id = mk.movie_id
+AND ml.movie_id = t1.id
+AND ml.linked_movie_id = t2.id
+AND lt.id = ml.link_type_id
+AND mk.movie_id = t1.id
+AND k.keyword = 'based-on-novel';",67,/*+  IndexScan(ml movie_id_movie_link) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(lt link_type_pkey) IndexScan(t2 title_pkey) IndexScan(t1 title_pkey) NestLoop(k mk) MergeJoin(ml k mk) NestLoop(ml k mk lt) NestLoop(ml k mk lt t2) NestLoop(ml k mk lt t2 t1) Leading(((((ml (k mk)) lt) t2) t1)) */

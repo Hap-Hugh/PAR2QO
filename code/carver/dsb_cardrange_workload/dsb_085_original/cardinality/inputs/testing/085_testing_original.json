@@ -1,0 +1,2649 @@
+{
+    "085": {
+        "query": "SELECT min(ws_quantity) ,\n       min(wr_refunded_cash) ,\n       min(wr_fee) ,\n       min(ws_item_sk) ,\n       min(wr_order_number) ,\n       min(cd1.cd_demo_sk) ,\n       min(cd2.cd_demo_sk)\nFROM web_sales,\n     web_returns,\n     web_page,\n     customer_demographics cd1,\n     customer_demographics cd2,\n     customer_address,\n     date_dim,\n     reason\nWHERE ws_web_page_sk = wp_web_page_sk\n  AND ws_item_sk = wr_item_sk\n  AND ws_order_number = wr_order_number\n  AND ws_sold_date_sk = d_date_sk\n  AND d_year = @param0\n  AND cd1.cd_demo_sk = wr_refunded_cdemo_sk\n  AND cd2.cd_demo_sk = wr_returning_cdemo_sk\n  AND ca_address_sk = wr_refunded_addr_sk\n  AND r_reason_sk = wr_reason_sk\n  AND ((cd1.cd_marital_status = '@param1'\n        AND cd1.cd_marital_status = cd2.cd_marital_status\n        AND cd1.cd_education_status = '@param2'\n        AND cd1.cd_education_status = cd2.cd_education_status\n        AND ws_sales_price BETWEEN 100.00 AND 150.00)\n       OR (cd1.cd_marital_status = '@param3'\n           AND cd1.cd_marital_status = cd2.cd_marital_status\n           AND cd1.cd_education_status = '@param4'\n           AND cd1.cd_education_status = cd2.cd_education_status\n           AND ws_sales_price BETWEEN 50.00 AND 100.00)\n       OR (cd1.cd_marital_status = '@param5'\n           AND cd1.cd_marital_status = cd2.cd_marital_status\n           AND cd1.cd_education_status = '@param6'\n           AND cd1.cd_education_status = cd2.cd_education_status\n           AND ws_sales_price BETWEEN 150.00 AND 200.00))\n  AND ((ca_country = 'United States' AND ca_state in ('@param7')\n        AND ws_net_profit BETWEEN 100 AND 200)\n       OR (ca_country = 'United States' AND ca_state in ('@param8')\n           AND ws_net_profit BETWEEN 150 AND 300)\n       OR (ca_country = 'United States' AND ca_state in ('@param9')\n           AND ws_net_profit BETWEEN 50 AND 250)) ;",
+        "predicates": [
+            {
+                "alias": "",
+                "column": "d_year",
+                "operator": "=",
+                "data_type": "int",
+                "table": "date_dim",
+                "join_tables": [
+                    "web_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ws_sold_date_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ws_sold_date_sk = d_date_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "cd1",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd1.cd_demo_sk = wr_refunded_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "cd1",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd1.cd_demo_sk = wr_refunded_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "cd1",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd1.cd_demo_sk = wr_refunded_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "cd1",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd1.cd_demo_sk = wr_refunded_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "cd1",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd1.cd_demo_sk = wr_refunded_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "cd1",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd1.cd_demo_sk = wr_refunded_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ca_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ca_address_sk = wr_refunded_addr_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ca_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ca_address_sk = wr_refunded_addr_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ca_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ca_address_sk = wr_refunded_addr_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            }
+        ],
+        "params": [
+            [
+                2002,
+                "U",
+                "Secondary           ",
+                "S",
+                "College             ",
+                "D",
+                "Primary             ",
+                "TX', 'TX', 'TX",
+                "CO', 'PA', 'WV",
+                "CA', 'PA', 'MI"
+            ],
+            [
+                1999,
+                "S",
+                "Primary             ",
+                "U",
+                "2 yr Degree         ",
+                "D",
+                "Unknown             ",
+                "NV', 'DE', 'DE",
+                "MT', 'AR', 'WV",
+                "MO', 'NC', 'KY"
+            ],
+            [
+                2002,
+                "D",
+                "College             ",
+                "M",
+                "Unknown             ",
+                "S",
+                "Secondary           ",
+                "GA', 'GA', 'VA",
+                "TX', 'TX', 'TX",
+                "GA', 'GA', 'VA"
+            ],
+            [
+                2003,
+                "U",
+                "Primary             ",
+                "D",
+                "Secondary           ",
+                "M",
+                "Unknown             ",
+                "IN', 'MS', 'TN",
+                "KY', 'MO', 'KS",
+                "OK', 'NY', 'MT"
+            ],
+            [
+                2000,
+                "U",
+                "Advanced Degree     ",
+                "M",
+                "Unknown             ",
+                "S",
+                "Primary             ",
+                "VA', 'VA', 'VA",
+                "NJ', 'OR', 'SC",
+                "NM', 'NM', 'UT"
+            ],
+            [
+                1999,
+                "S",
+                "Secondary           ",
+                "U",
+                "College             ",
+                "M",
+                "2 yr Degree         ",
+                "KS', 'NC', 'KS",
+                "TX', 'TX', 'TX",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2000,
+                "M",
+                "2 yr Degree         ",
+                "D",
+                "Advanced Degree     ",
+                "U",
+                "Secondary           ",
+                "NC', 'MO', 'NC",
+                "MS', 'MS', 'MS",
+                "KS', 'NC', 'NC"
+            ],
+            [
+                2001,
+                "M",
+                "Secondary           ",
+                "S",
+                "4 yr Degree         ",
+                "U",
+                "2 yr Degree         ",
+                "ND', 'ND', 'ND",
+                "NC', 'KS', 'KY",
+                "VA', 'GA', 'VA"
+            ],
+            [
+                1999,
+                "U",
+                "4 yr Degree         ",
+                "S",
+                "Advanced Degree     ",
+                "M",
+                "Primary             ",
+                "DE', 'NV', 'MD",
+                "ID', 'NM', 'ND",
+                "NM', 'OR', 'UT"
+            ],
+            [
+                2000,
+                "M",
+                "College             ",
+                "S",
+                "Unknown             ",
+                "U",
+                "4 yr Degree         ",
+                "MI', 'MI', 'LA",
+                "WA', 'OR', 'NJ",
+                "MN', 'IN', 'IL"
+            ],
+            [
+                1999,
+                "D",
+                "2 yr Degree         ",
+                "S",
+                "Unknown             ",
+                "M",
+                "Secondary           ",
+                "PA', 'LA', 'NY",
+                "NE', 'MN', 'NE",
+                "IA', 'NE', 'NE"
+            ],
+            [
+                2002,
+                "M",
+                "Unknown             ",
+                "W",
+                "College             ",
+                "U",
+                "Primary             ",
+                "KS', 'KY', 'KY",
+                "RI', 'DC', 'HI",
+                "MS', 'IL', 'IN"
+            ],
+            [
+                2000,
+                "U",
+                "College             ",
+                "S",
+                "4 yr Degree         ",
+                "M",
+                "Unknown             ",
+                "VA', 'GA', 'GA",
+                "GA', 'VA', 'VA",
+                "FL', 'MT', 'NY"
+            ],
+            [
+                1999,
+                "D",
+                "4 yr Degree         ",
+                "W",
+                "2 yr Degree         ",
+                "M",
+                "College             ",
+                "OR', 'OR', 'OR",
+                "NE', 'IN', 'MS",
+                "VA', 'GA', 'VA"
+            ],
+            [
+                2001,
+                "M",
+                "2 yr Degree         ",
+                "U",
+                "Secondary           ",
+                "S",
+                "Unknown             ",
+                "GA', 'GA', 'GA",
+                "NE', 'IL', 'NE",
+                "VA', 'VA', 'GA"
+            ],
+            [
+                2001,
+                "M",
+                "Advanced Degree     ",
+                "S",
+                "4 yr Degree         ",
+                "U",
+                "2 yr Degree         ",
+                "TX', 'TX', 'TX",
+                "MO', 'MO', 'NC",
+                "WI', 'LA', 'CO"
+            ],
+            [
+                1999,
+                "U",
+                "2 yr Degree         ",
+                "W",
+                "Unknown             ",
+                "D",
+                "College             ",
+                "MD', 'VT', 'CT",
+                "AK', 'AK', 'NV",
+                "NH', 'WY', 'AZ"
+            ],
+            [
+                1999,
+                "U",
+                "Secondary           ",
+                "W",
+                "Advanced Degree     ",
+                "D",
+                "2 yr Degree         ",
+                "NJ', 'SC', 'ND",
+                "KS', 'MO', 'KS",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2000,
+                "M",
+                "Advanced Degree     ",
+                "U",
+                "4 yr Degree         ",
+                "W",
+                "Secondary           ",
+                "GA', 'VA', 'VA",
+                "OH', 'NE', 'NE",
+                "IL', 'IL', 'NE"
+            ],
+            [
+                2000,
+                "S",
+                "2 yr Degree         ",
+                "D",
+                "Primary             ",
+                "M",
+                "Secondary           ",
+                "MO', 'MO', 'KY",
+                "IL', 'MN', 'NE",
+                "AZ', 'VT', 'NH"
+            ],
+            [
+                2002,
+                "U",
+                "Secondary           ",
+                "M",
+                "Primary             ",
+                "S",
+                "2 yr Degree         ",
+                "TX', 'TX', 'TX",
+                "NY', 'WI', 'CO",
+                "VA', 'GA', 'VA"
+            ],
+            [
+                2003,
+                "M",
+                "Advanced Degree     ",
+                "U",
+                "2 yr Degree         ",
+                "S",
+                "College             ",
+                "AZ', 'DC', 'NV",
+                "WA', 'ND', 'NM",
+                "WA', 'OR', 'NJ"
+            ],
+            [
+                2003,
+                "S",
+                "Primary             ",
+                "W",
+                "4 yr Degree         ",
+                "M",
+                "Secondary           ",
+                "AL', 'NY', 'WI",
+                "RI', 'MD', 'ME",
+                "GA', 'VA', 'GA"
+            ],
+            [
+                2002,
+                "M",
+                "4 yr Degree         ",
+                "S",
+                "Secondary           ",
+                "W",
+                "Primary             ",
+                "VA', 'VA', 'VA",
+                "RI', 'MD', 'MD",
+                "KY', 'KY', 'KY"
+            ],
+            [
+                2002,
+                "S",
+                "Advanced Degree     ",
+                "U",
+                "4 yr Degree         ",
+                "D",
+                "Unknown             ",
+                "NV', 'MD', 'NV",
+                "ME', 'RI', 'RI",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2000,
+                "S",
+                "2 yr Degree         ",
+                "W",
+                "Unknown             ",
+                "U",
+                "Primary             ",
+                "NE', 'IN', 'MN",
+                "MN', 'MS', 'TN",
+                "VT', 'WY', 'RI"
+            ],
+            [
+                1999,
+                "U",
+                "Secondary           ",
+                "S",
+                "4 yr Degree         ",
+                "M",
+                "Unknown             ",
+                "KY', 'NC', 'MO",
+                "MN', 'MN', 'TN",
+                "GA', 'VA', 'VA"
+            ],
+            [
+                2001,
+                "U",
+                "4 yr Degree         ",
+                "S",
+                "College             ",
+                "M",
+                "Secondary           ",
+                "MN', 'MN', 'IL",
+                "TX', 'TX', 'TX",
+                "ND', 'ID', 'ID"
+            ],
+            [
+                2001,
+                "D",
+                "Primary             ",
+                "U",
+                "2 yr Degree         ",
+                "M",
+                "Secondary           ",
+                "ID', 'ID', 'UT",
+                "HI', 'NH', 'NV",
+                "IN', 'NE', 'MN"
+            ],
+            [
+                2002,
+                "S",
+                "2 yr Degree         ",
+                "U",
+                "Secondary           ",
+                "M",
+                "College             ",
+                "MT', 'SD', 'CA",
+                "NM', 'UT', 'NJ",
+                "KY', 'NC', 'MO"
+            ],
+            [
+                2000,
+                "D",
+                "2 yr Degree         ",
+                "M",
+                "Unknown             ",
+                "U",
+                "Secondary           ",
+                "TX', 'TX', 'TX",
+                "VA', 'VA', 'GA",
+                "MO', 'MO', 'MO"
+            ],
+            [
+                2003,
+                "W",
+                "Primary             ",
+                "U",
+                "Secondary           ",
+                "D",
+                "2 yr Degree         ",
+                "KS', 'KY', 'NC",
+                "VA', 'VA', 'VA",
+                "WI', 'SD', 'WV"
+            ],
+            [
+                2000,
+                "M",
+                "Secondary           ",
+                "U",
+                "2 yr Degree         ",
+                "D",
+                "Unknown             ",
+                "AL', 'WV', 'CO",
+                "TX', 'TX', 'TX",
+                "GA', 'GA', 'GA"
+            ],
+            [
+                1999,
+                "W",
+                "2 yr Degree         ",
+                "U",
+                "Unknown             ",
+                "S",
+                "Secondary           ",
+                "IL', 'IL', 'TN",
+                "GA', 'GA', 'VA",
+                "IN', 'IA', 'OH"
+            ],
+            [
+                2003,
+                "W",
+                "Unknown             ",
+                "S",
+                "2 yr Degree         ",
+                "U",
+                "Primary             ",
+                "TX', 'TX', 'TX",
+                "DE', 'AK', 'MA",
+                "TN', 'IN', 'MS"
+            ],
+            [
+                2002,
+                "M",
+                "Secondary           ",
+                "W",
+                "Unknown             ",
+                "S",
+                "College             ",
+                "TX', 'TX', 'TX",
+                "TX', 'TX', 'TX",
+                "ME', 'RI', 'CT"
+            ],
+            [
+                2001,
+                "W",
+                "2 yr Degree         ",
+                "M",
+                "Unknown             ",
+                "S",
+                "4 yr Degree         ",
+                "DC', 'NH', 'NH",
+                "NH', 'DE', 'DE",
+                "TN', 'MS', 'IA"
+            ],
+            [
+                2000,
+                "U",
+                "Unknown             ",
+                "W",
+                "2 yr Degree         ",
+                "S",
+                "College             ",
+                "VA', 'GA', 'GA",
+                "SC', 'OR', 'ID",
+                "TN', 'MN', 'TN"
+            ],
+            [
+                2003,
+                "U",
+                "Unknown             ",
+                "M",
+                "2 yr Degree         ",
+                "S",
+                "Advanced Degree     ",
+                "IN', 'TN', 'IA",
+                "TX', 'TX', 'TX",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2000,
+                "M",
+                "Secondary           ",
+                "U",
+                "2 yr Degree         ",
+                "D",
+                "Advanced Degree     ",
+                "MN', 'OH', 'NE",
+                "TX', 'TX', 'TX",
+                "NE', 'IA', 'IN"
+            ],
+            [
+                2001,
+                "M",
+                "Unknown             ",
+                "U",
+                "Secondary           ",
+                "W",
+                "4 yr Degree         ",
+                "MI', 'AL', 'MT",
+                "NH', 'NV', 'NV",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2001,
+                "W",
+                "Advanced Degree     ",
+                "M",
+                "2 yr Degree         ",
+                "U",
+                "Secondary           ",
+                "OK', 'LA', 'OK",
+                "WA', 'NJ', 'SC",
+                "HI', 'VT', 'ME"
+            ],
+            [
+                2000,
+                "S",
+                "4 yr Degree         ",
+                "W",
+                "Secondary           ",
+                "U",
+                "2 yr Degree         ",
+                "IN', 'TN', 'IN",
+                "DE', 'MD', 'CT",
+                "VA', 'VA', 'GA"
+            ],
+            [
+                2000,
+                "M",
+                "Secondary           ",
+                "D",
+                "4 yr Degree         ",
+                "S",
+                "Unknown             ",
+                "NC', 'KS', 'MO",
+                "HI', 'NH', 'VT",
+                "VT', 'DE', 'DC"
+            ],
+            [
+                2001,
+                "M",
+                "2 yr Degree         ",
+                "S",
+                "Primary             ",
+                "U",
+                "Unknown             ",
+                "KS', 'KY', 'KS",
+                "TX', 'TX', 'TX",
+                "VT', 'AZ', 'ME"
+            ],
+            [
+                1999,
+                "D",
+                "Secondary           ",
+                "W",
+                "2 yr Degree         ",
+                "M",
+                "Unknown             ",
+                "HI', 'ME', 'NV",
+                "MO', 'NC', 'KS",
+                "MO', 'KS', 'KY"
+            ],
+            [
+                1999,
+                "M",
+                "Secondary           ",
+                "U",
+                "Primary             ",
+                "W",
+                "Unknown             ",
+                "NY', 'WV', 'SD",
+                "MO', 'MO', 'KY",
+                "GA', 'GA', 'GA"
+            ],
+            [
+                1998,
+                "W",
+                "Secondary           ",
+                "S",
+                "4 yr Degree         ",
+                "M",
+                "Unknown             ",
+                "TX', 'TX', 'TX",
+                "TX', 'TX', 'TX",
+                "RI', 'WY', 'WY"
+            ],
+            [
+                2002,
+                "W",
+                "Unknown             ",
+                "D",
+                "Advanced Degree     ",
+                "M",
+                "2 yr Degree         ",
+                "MO', 'MO', 'KY",
+                "WA', 'WA', 'ND",
+                "WI', 'MT', 'PA"
+            ],
+            [
+                1998,
+                "W",
+                "Secondary           ",
+                "S",
+                "2 yr Degree         ",
+                "M",
+                "4 yr Degree         ",
+                "GA', 'VA', 'VA",
+                "TX', 'TX', 'TX",
+                "NJ', 'OR', 'OR"
+            ],
+            [
+                2000,
+                "D",
+                "Unknown             ",
+                "M",
+                "Advanced Degree     ",
+                "S",
+                "2 yr Degree         ",
+                "WA', 'OR', 'NJ",
+                "CT', 'DE', 'NV",
+                "NC', 'KY', 'NC"
+            ],
+            [
+                1999,
+                "M",
+                "Secondary           ",
+                "S",
+                "Unknown             ",
+                "W",
+                "Primary             ",
+                "ND', 'ND', 'ID",
+                "RI', 'CT', 'AK",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2002,
+                "W",
+                "Advanced Degree     ",
+                "D",
+                "Unknown             ",
+                "S",
+                "Primary             ",
+                "PA', 'MT', 'OK",
+                "VA', 'VA', 'GA",
+                "KS', 'NC', 'MO"
+            ],
+            [
+                2003,
+                "D",
+                "Advanced Degree     ",
+                "M",
+                "Unknown             ",
+                "S",
+                "Primary             ",
+                "GA', 'GA', 'VA",
+                "OH', 'MS', 'TN",
+                "PA', 'SD', 'MT"
+            ],
+            [
+                2000,
+                "W",
+                "Secondary           ",
+                "U",
+                "2 yr Degree         ",
+                "M",
+                "Unknown             ",
+                "NY', 'AR', 'SD",
+                "KY', 'KY', 'KS",
+                "WA', 'OR', 'WA"
+            ],
+            [
+                2001,
+                "W",
+                "Unknown             ",
+                "S",
+                "College             ",
+                "M",
+                "Secondary           ",
+                "TX', 'TX', 'TX",
+                "ND', 'ID', 'NM",
+                "NH', 'RI', 'NH"
+            ],
+            [
+                2001,
+                "U",
+                "Secondary           ",
+                "M",
+                "Primary             ",
+                "S",
+                "Unknown             ",
+                "SD', 'PA', 'MI",
+                "KS', 'NC', 'MO",
+                "VA', 'VA', 'VA"
+            ],
+            [
+                1998,
+                "M",
+                "Advanced Degree     ",
+                "W",
+                "2 yr Degree         ",
+                "S",
+                "Secondary           ",
+                "VT', 'NV', 'VT",
+                "TX', 'TX', 'TX",
+                "CA', 'SD', 'SD"
+            ],
+            [
+                1999,
+                "M",
+                "2 yr Degree         ",
+                "U",
+                "College             ",
+                "S",
+                "Secondary           ",
+                "ND', 'SC', 'UT",
+                "NM', 'NJ', 'ND",
+                "GA', 'GA', 'VA"
+            ],
+            [
+                1999,
+                "M",
+                "Primary             ",
+                "D",
+                "Secondary           ",
+                "S",
+                "2 yr Degree         ",
+                "VA', 'GA', 'VA",
+                "MA', 'ME', 'NV",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2003,
+                "M",
+                "Secondary           ",
+                "D",
+                "Primary             ",
+                "U",
+                "2 yr Degree         ",
+                "KY', 'KS', 'KS",
+                "KY', 'KS', 'NC",
+                "PA', 'WV', 'WI"
+            ],
+            [
+                2003,
+                "U",
+                "College             ",
+                "D",
+                "2 yr Degree         ",
+                "S",
+                "4 yr Degree         ",
+                "NC', 'MO', 'NC",
+                "NE', 'IA', 'MN",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2003,
+                "S",
+                "2 yr Degree         ",
+                "U",
+                "College             ",
+                "M",
+                "Unknown             ",
+                "SC', 'NM', 'OR",
+                "TX', 'TX', 'TX",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2000,
+                "D",
+                "Unknown             ",
+                "U",
+                "Secondary           ",
+                "S",
+                "4 yr Degree         ",
+                "IL', 'MN', 'MN",
+                "NC', 'KS', 'KS",
+                "MS', 'IA', 'MS"
+            ],
+            [
+                2000,
+                "W",
+                "4 yr Degree         ",
+                "D",
+                "Secondary           ",
+                "S",
+                "2 yr Degree         ",
+                "AR', 'WI', 'NY",
+                "MO', 'NC', 'MO",
+                "IA', 'OH', 'TN"
+            ],
+            [
+                2000,
+                "M",
+                "2 yr Degree         ",
+                "W",
+                "4 yr Degree         ",
+                "U",
+                "Primary             ",
+                "WA', 'NJ', 'WA",
+                "NC', 'KY', 'NC",
+                "VA', 'GA', 'VA"
+            ],
+            [
+                2003,
+                "S",
+                "4 yr Degree         ",
+                "U",
+                "Unknown             ",
+                "W",
+                "College             ",
+                "DC', 'ME', 'HI",
+                "CO', 'OK', 'NY",
+                "SC', 'ID', 'WA"
+            ],
+            [
+                1999,
+                "D",
+                "2 yr Degree         ",
+                "S",
+                "Advanced Degree     ",
+                "U",
+                "Unknown             ",
+                "TX', 'TX', 'TX",
+                "NE', 'MS', 'IN",
+                "RI', 'AK', 'ME"
+            ],
+            [
+                2002,
+                "M",
+                "4 yr Degree         ",
+                "U",
+                "Unknown             ",
+                "S",
+                "College             ",
+                "VA', 'VA', 'GA",
+                "CT', 'DE', 'NH",
+                "ND', 'SC', 'UT"
+            ],
+            [
+                2001,
+                "D",
+                "Secondary           ",
+                "W",
+                "College             ",
+                "S",
+                "Unknown             ",
+                "NV', 'AK', 'RI",
+                "NJ', 'UT', 'NJ",
+                "MN', 'MN', 'IL"
+            ],
+            [
+                1999,
+                "D",
+                "College             ",
+                "M",
+                "Unknown             ",
+                "U",
+                "2 yr Degree         ",
+                "NJ', 'WA', 'NM",
+                "NC', 'KY', 'KS",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2000,
+                "S",
+                "Unknown             ",
+                "W",
+                "Primary             ",
+                "U",
+                "College             ",
+                "WA', 'SC', 'ID",
+                "VA', 'GA', 'VA",
+                "CT', 'CT', 'HI"
+            ],
+            [
+                1999,
+                "U",
+                "4 yr Degree         ",
+                "W",
+                "Unknown             ",
+                "S",
+                "Primary             ",
+                "WA', 'OR', 'ND",
+                "VA', 'GA', 'VA",
+                "WA', 'UT', 'OR"
+            ],
+            [
+                2000,
+                "D",
+                "Secondary           ",
+                "M",
+                "College             ",
+                "S",
+                "2 yr Degree         ",
+                "TX', 'TX', 'TX",
+                "MS', 'IN', 'MS",
+                "OH', 'IN', 'IL"
+            ],
+            [
+                2000,
+                "U",
+                "4 yr Degree         ",
+                "S",
+                "2 yr Degree         ",
+                "D",
+                "Advanced Degree     ",
+                "OR', 'ND', 'ID",
+                "MN', 'IL', 'IA",
+                "NC', 'KS', 'NC"
+            ],
+            [
+                2000,
+                "M",
+                "Secondary           ",
+                "S",
+                "Unknown             ",
+                "U",
+                "Advanced Degree     ",
+                "IA', 'IL', 'IN",
+                "CO', 'FL', 'MI",
+                "TN', 'TN', 'NE"
+            ],
+            [
+                2001,
+                "M",
+                "Primary             ",
+                "D",
+                "2 yr Degree         ",
+                "S",
+                "Unknown             ",
+                "GA', 'VA', 'VA",
+                "MO', 'KS', 'MO",
+                "GA', 'VA', 'VA"
+            ],
+            [
+                2001,
+                "W",
+                "4 yr Degree         ",
+                "D",
+                "Advanced Degree     ",
+                "M",
+                "Unknown             ",
+                "MS', 'TN', 'OH",
+                "NC', 'NC', 'MO",
+                "NC', 'KS', 'KS"
+            ],
+            [
+                1998,
+                "M",
+                "Unknown             ",
+                "S",
+                "2 yr Degree         ",
+                "D",
+                "4 yr Degree         ",
+                "NE', 'TN', 'MS",
+                "TX', 'TX', 'TX",
+                "SC', 'OR', 'UT"
+            ],
+            [
+                2002,
+                "M",
+                "Unknown             ",
+                "S",
+                "Secondary           ",
+                "U",
+                "2 yr Degree         ",
+                "NV', 'MA', 'NV",
+                "TX', 'TX', 'TX",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2002,
+                "W",
+                "College             ",
+                "M",
+                "Secondary           ",
+                "S",
+                "Unknown             ",
+                "NC', 'MO', 'KY",
+                "VA', 'VA', 'VA",
+                "AR', 'NY', 'MI"
+            ],
+            [
+                2001,
+                "S",
+                "Secondary           ",
+                "M",
+                "2 yr Degree         ",
+                "D",
+                "College             ",
+                "WY', 'WY', 'AK",
+                "OR', 'ID', 'NM",
+                "KY', 'NC', 'NC"
+            ],
+            [
+                1999,
+                "U",
+                "2 yr Degree         ",
+                "S",
+                "Secondary           ",
+                "W",
+                "Primary             ",
+                "KY', 'KY', 'MO",
+                "TX', 'TX', 'TX",
+                "SD', 'WI', 'MT"
+            ],
+            [
+                2001,
+                "U",
+                "Unknown             ",
+                "M",
+                "College             ",
+                "W",
+                "Primary             ",
+                "GA', 'VA', 'GA",
+                "CT', 'NH', 'WY",
+                "VA', 'VA', 'GA"
+            ],
+            [
+                2000,
+                "S",
+                "Unknown             ",
+                "M",
+                "College             ",
+                "U",
+                "Primary             ",
+                "TN', 'IN', 'IA",
+                "GA', 'GA', 'VA",
+                "VA', 'GA', 'GA"
+            ],
+            [
+                2003,
+                "M",
+                "4 yr Degree         ",
+                "U",
+                "College             ",
+                "S",
+                "Secondary           ",
+                "UT', 'NM', 'ND",
+                "TX', 'TX', 'TX",
+                "SD', 'SD', 'WV"
+            ],
+            [
+                2002,
+                "U",
+                "2 yr Degree         ",
+                "M",
+                "College             ",
+                "W",
+                "Advanced Degree     ",
+                "IL', 'NE', 'NE",
+                "TX', 'TX', 'TX",
+                "MN', 'MS', 'MN"
+            ],
+            [
+                2000,
+                "S",
+                "4 yr Degree         ",
+                "W",
+                "2 yr Degree         ",
+                "U",
+                "Advanced Degree     ",
+                "GA', 'GA', 'GA",
+                "TX', 'TX', 'TX",
+                "SC', 'NM', 'ID"
+            ],
+            [
+                2002,
+                "M",
+                "College             ",
+                "S",
+                "2 yr Degree         ",
+                "W",
+                "Unknown             ",
+                "SC', 'NJ', 'ND",
+                "NC', 'MO', 'NC",
+                "AL', 'LA', 'CO"
+            ],
+            [
+                2001,
+                "U",
+                "4 yr Degree         ",
+                "D",
+                "College             ",
+                "W",
+                "Advanced Degree     ",
+                "WV', 'CO', 'NY",
+                "GA', 'VA', 'GA",
+                "ME', 'NV', 'WY"
+            ],
+            [
+                2003,
+                "W",
+                "2 yr Degree         ",
+                "M",
+                "Primary             ",
+                "S",
+                "Unknown             ",
+                "TN', 'NE', 'IL",
+                "WA', 'OR', 'UT",
+                "PA', 'LA', 'CA"
+            ],
+            [
+                2003,
+                "M",
+                "Secondary           ",
+                "S",
+                "Unknown             ",
+                "U",
+                "Primary             ",
+                "TX', 'TX', 'TX",
+                "KS', 'MO', 'KY",
+                "NC', 'MO', 'KS"
+            ],
+            [
+                2000,
+                "U",
+                "Advanced Degree     ",
+                "W",
+                "Unknown             ",
+                "S",
+                "Primary             ",
+                "TN', 'OH', 'IN",
+                "KY', 'NC', 'MO",
+                "NJ', 'OR', 'NJ"
+            ],
+            [
+                2001,
+                "S",
+                "Unknown             ",
+                "U",
+                "2 yr Degree         ",
+                "M",
+                "Secondary           ",
+                "TX', 'TX', 'TX",
+                "TX', 'TX', 'TX",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2002,
+                "D",
+                "Advanced Degree     ",
+                "M",
+                "Secondary           ",
+                "W",
+                "College             ",
+                "IL', 'MS', 'IL",
+                "ME', 'HI', 'WY",
+                "VT', 'DC', 'HI"
+            ],
+            [
+                1999,
+                "U",
+                "Primary             ",
+                "D",
+                "Unknown             ",
+                "S",
+                "4 yr Degree         ",
+                "IA', 'IA', 'NE",
+                "TX', 'TX', 'TX",
+                "HI', 'RI', 'RI"
+            ],
+            [
+                2002,
+                "S",
+                "Advanced Degree     ",
+                "M",
+                "Unknown             ",
+                "D",
+                "2 yr Degree         ",
+                "VA', 'GA', 'GA",
+                "GA', 'GA', 'GA",
+                "NC', 'NC', 'NC"
+            ],
+            [
+                2002,
+                "U",
+                "Primary             ",
+                "M",
+                "College             ",
+                "S",
+                "Secondary           ",
+                "TX', 'TX', 'TX",
+                "AL', 'AR', 'CA",
+                "AK', 'MD', 'MD"
+            ],
+            [
+                2002,
+                "S",
+                "2 yr Degree         ",
+                "U",
+                "Secondary           ",
+                "W",
+                "College             ",
+                "TX', 'TX', 'TX",
+                "NC', 'NC', 'MO",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                1998,
+                "M",
+                "2 yr Degree         ",
+                "S",
+                "4 yr Degree         ",
+                "W",
+                "Advanced Degree     ",
+                "WA', 'SC', 'NJ",
+                "VA', 'VA', 'VA",
+                "KY', 'MO', 'MO"
+            ],
+            [
+                1999,
+                "M",
+                "4 yr Degree         ",
+                "S",
+                "Primary             ",
+                "D",
+                "2 yr Degree         ",
+                "KY', 'MO', 'KS",
+                "WI', 'AL', 'FL",
+                "IN', 'NE', 'IL"
+            ],
+            [
+                2001,
+                "M",
+                "Unknown             ",
+                "U",
+                "Primary             ",
+                "D",
+                "Advanced Degree     ",
+                "VA', 'GA', 'GA",
+                "IN', 'TN', 'MN",
+                "TN', 'IA', 'IA"
+            ],
+            [
+                1999,
+                "D",
+                "Unknown             ",
+                "U",
+                "4 yr Degree         ",
+                "S",
+                "Primary             ",
+                "IN', 'IN', 'OH",
+                "VA', 'VA', 'GA",
+                "PA', 'CA', 'OK"
+            ],
+            [
+                1999,
+                "U",
+                "Secondary           ",
+                "W",
+                "2 yr Degree         ",
+                "S",
+                "4 yr Degree         ",
+                "TX', 'TX', 'TX",
+                "VA', 'GA', 'VA",
+                "MS', 'TN', 'OH"
+            ],
+            [
+                2001,
+                "S",
+                "Unknown             ",
+                "M",
+                "2 yr Degree         ",
+                "U",
+                "College             ",
+                "WV', 'AL', 'CO",
+                "WI', 'NY', 'SD",
+                "MO', 'KS', 'NC"
+            ],
+            [
+                1998,
+                "S",
+                "Primary             ",
+                "M",
+                "Unknown             ",
+                "U",
+                "Advanced Degree     ",
+                "DC', 'AZ', 'VT",
+                "IL', 'MS', 'IN",
+                "MO', 'KS', 'KS"
+            ],
+            [
+                1999,
+                "U",
+                "2 yr Degree         ",
+                "S",
+                "Unknown             ",
+                "D",
+                "College             ",
+                "OR', 'SC', 'OR",
+                "TN', 'NE', 'IA",
+                "OK', 'SD', 'PA"
+            ],
+            [
+                1998,
+                "D",
+                "Primary             ",
+                "M",
+                "4 yr Degree         ",
+                "S",
+                "Secondary           ",
+                "MT', 'AR', 'MT",
+                "DC', 'MA', 'MA",
+                "NC', 'NC', 'MO"
+            ],
+            [
+                1999,
+                "W",
+                "Unknown             ",
+                "D",
+                "2 yr Degree         ",
+                "M",
+                "Primary             ",
+                "CO', 'MT', 'LA",
+                "IA', 'MS', 'IN",
+                "MA', 'MD', 'DC"
+            ],
+            [
+                2003,
+                "S",
+                "Primary             ",
+                "U",
+                "College             ",
+                "W",
+                "2 yr Degree         ",
+                "WA', 'NM', 'UT",
+                "AL', 'CO', 'WV",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2003,
+                "M",
+                "Advanced Degree     ",
+                "S",
+                "Secondary           ",
+                "U",
+                "4 yr Degree         ",
+                "IA', 'MS', 'OH",
+                "TX', 'TX', 'TX",
+                "ME', 'RI', 'CT"
+            ],
+            [
+                1999,
+                "S",
+                "Unknown             ",
+                "U",
+                "Primary             ",
+                "D",
+                "Advanced Degree     ",
+                "TX', 'TX', 'TX",
+                "MT', 'MI', 'AL",
+                "GA', 'VA', 'VA"
+            ],
+            [
+                2003,
+                "S",
+                "College             ",
+                "M",
+                "Primary             ",
+                "U",
+                "4 yr Degree         ",
+                "LA', 'AR', 'CA",
+                "VA', 'VA', 'VA",
+                "VA', 'VA', 'GA"
+            ],
+            [
+                1999,
+                "S",
+                "Unknown             ",
+                "M",
+                "Primary             ",
+                "U",
+                "Secondary           ",
+                "HI', 'AK', 'NV",
+                "GA', 'GA', 'GA",
+                "NC', 'MO', 'NC"
+            ],
+            [
+                2000,
+                "M",
+                "2 yr Degree         ",
+                "S",
+                "College             ",
+                "U",
+                "4 yr Degree         ",
+                "TX', 'TX', 'TX",
+                "KS', 'MO', 'NC",
+                "IN', 'MN', 'NE"
+            ],
+            [
+                2002,
+                "W",
+                "Primary             ",
+                "S",
+                "Unknown             ",
+                "U",
+                "2 yr Degree         ",
+                "VA', 'GA', 'GA",
+                "NC', 'KS', 'KS",
+                "OK', 'SD', 'CO"
+            ],
+            [
+                2002,
+                "D",
+                "Primary             ",
+                "W",
+                "Advanced Degree     ",
+                "U",
+                "College             ",
+                "NC', 'KY', 'KS",
+                "NC', 'KY', 'MO",
+                "LA', 'FL', 'CA"
+            ],
+            [
+                2001,
+                "M",
+                "2 yr Degree         ",
+                "W",
+                "Secondary           ",
+                "S",
+                "4 yr Degree         ",
+                "HI', 'MA', 'NH",
+                "VA', 'VA', 'VA",
+                "VA', 'VA', 'GA"
+            ],
+            [
+                2002,
+                "D",
+                "College             ",
+                "M",
+                "2 yr Degree         ",
+                "U",
+                "4 yr Degree         ",
+                "KS', 'NC', 'MO",
+                "OH', 'IL', 'NE",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2001,
+                "S",
+                "Primary             ",
+                "D",
+                "College             ",
+                "U",
+                "Secondary           ",
+                "IN', 'IN', 'NE",
+                "VT', 'ME', 'CT",
+                "WV', 'CO', 'OK"
+            ],
+            [
+                2001,
+                "U",
+                "4 yr Degree         ",
+                "M",
+                "2 yr Degree         ",
+                "S",
+                "Secondary           ",
+                "MO', 'KY', 'KY",
+                "AZ', 'MD', 'DC",
+                "WV', 'CO', 'WV"
+            ],
+            [
+                2001,
+                "S",
+                "2 yr Degree         ",
+                "D",
+                "Primary             ",
+                "U",
+                "Secondary           ",
+                "IA', 'MS', 'OH",
+                "OH', 'IA', 'MN",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2002,
+                "W",
+                "Unknown             ",
+                "U",
+                "Advanced Degree     ",
+                "S",
+                "Secondary           ",
+                "NC', 'MO', 'NC",
+                "VA', 'GA', 'VA",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2001,
+                "W",
+                "Unknown             ",
+                "U",
+                "Secondary           ",
+                "S",
+                "2 yr Degree         ",
+                "TX', 'TX', 'TX",
+                "GA', 'VA', 'GA",
+                "NE', 'TN', 'MN"
+            ],
+            [
+                2000,
+                "D",
+                "2 yr Degree         ",
+                "U",
+                "Unknown             ",
+                "M",
+                "College             ",
+                "VA', 'VA', 'GA",
+                "RI', 'AK', 'RI",
+                "OR', 'NJ', 'UT"
+            ],
+            [
+                1999,
+                "W",
+                "Advanced Degree     ",
+                "U",
+                "Primary             ",
+                "M",
+                "College             ",
+                "MS', 'IA', 'TN",
+                "IA', 'MS', 'IL",
+                "GA', 'VA', 'VA"
+            ],
+            [
+                2002,
+                "U",
+                "Unknown             ",
+                "M",
+                "Advanced Degree     ",
+                "D",
+                "Secondary           ",
+                "IN', 'IN', 'NE",
+                "PA', 'NY', 'WI",
+                "IN', 'IN', 'OH"
+            ],
+            [
+                2002,
+                "U",
+                "Primary             ",
+                "D",
+                "Secondary           ",
+                "W",
+                "Unknown             ",
+                "WA', 'SC', 'OR",
+                "CA', 'AR', 'LA",
+                "GA', 'VA', 'GA"
+            ],
+            [
+                2001,
+                "D",
+                "2 yr Degree         ",
+                "U",
+                "Secondary           ",
+                "S",
+                "4 yr Degree         ",
+                "IL', 'IN', 'MS",
+                "NC', 'NC', 'KY",
+                "NH', 'MA', 'MD"
+            ],
+            [
+                2003,
+                "U",
+                "Advanced Degree     ",
+                "M",
+                "Unknown             ",
+                "S",
+                "Secondary           ",
+                "VA', 'VA', 'VA",
+                "GA', 'VA', 'VA",
+                "NY', 'AR', 'FL"
+            ],
+            [
+                2003,
+                "M",
+                "2 yr Degree         ",
+                "D",
+                "Primary             ",
+                "U",
+                "Advanced Degree     ",
+                "AZ', 'AK', 'MD",
+                "MO', 'NC', 'KY",
+                "VA', 'GA', 'VA"
+            ],
+            [
+                2003,
+                "M",
+                "Unknown             ",
+                "D",
+                "Secondary           ",
+                "U",
+                "Advanced Degree     ",
+                "NC', 'KS', 'NC",
+                "NJ', 'ND', 'NJ",
+                "GA', 'GA', 'VA"
+            ],
+            [
+                2001,
+                "M",
+                "Unknown             ",
+                "S",
+                "2 yr Degree         ",
+                "W",
+                "4 yr Degree         ",
+                "AZ', 'DC', 'AZ",
+                "DC', 'HI', 'CT",
+                "GA', 'VA', 'VA"
+            ],
+            [
+                2001,
+                "W",
+                "Secondary           ",
+                "D",
+                "2 yr Degree         ",
+                "U",
+                "Advanced Degree     ",
+                "GA', 'VA', 'VA",
+                "AL', 'AL', 'CA",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2001,
+                "S",
+                "Unknown             ",
+                "M",
+                "Advanced Degree     ",
+                "U",
+                "Secondary           ",
+                "GA', 'VA', 'VA",
+                "NY', 'PA', 'AR",
+                "IN', 'IL', 'IN"
+            ],
+            [
+                2002,
+                "W",
+                "4 yr Degree         ",
+                "M",
+                "Advanced Degree     ",
+                "S",
+                "College             ",
+                "VA', 'VA', 'GA",
+                "KY', 'KS', 'KS",
+                "GA', 'VA', 'VA"
+            ],
+            [
+                1998,
+                "W",
+                "2 yr Degree         ",
+                "M",
+                "Secondary           ",
+                "D",
+                "Unknown             ",
+                "FL', 'AL', 'MI",
+                "AR', 'WI', 'AL",
+                "GA', 'GA', 'VA"
+            ],
+            [
+                2000,
+                "D",
+                "College             ",
+                "S",
+                "Unknown             ",
+                "U",
+                "Secondary           ",
+                "TX', 'TX', 'TX",
+                "IL', 'NE', 'MS",
+                "TN', 'IA', 'IA"
+            ],
+            [
+                1999,
+                "D",
+                "2 yr Degree         ",
+                "S",
+                "Primary             ",
+                "U",
+                "Unknown             ",
+                "VA', 'VA', 'VA",
+                "MS', 'TN', 'OH",
+                "MO', 'KS', 'MO"
+            ],
+            [
+                2000,
+                "M",
+                "Advanced Degree     ",
+                "W",
+                "Unknown             ",
+                "U",
+                "Primary             ",
+                "DC', 'DE', 'HI",
+                "MO', 'KY', 'KS",
+                "MO', 'MO', 'KS"
+            ],
+            [
+                1999,
+                "D",
+                "2 yr Degree         ",
+                "U",
+                "Secondary           ",
+                "M",
+                "Advanced Degree     ",
+                "AZ', 'NV', 'NH",
+                "NE', 'IN', 'MS",
+                "VA', 'VA', 'VA"
+            ],
+            [
+                2001,
+                "S",
+                "2 yr Degree         ",
+                "U",
+                "4 yr Degree         ",
+                "M",
+                "College             ",
+                "DC', 'RI', 'CT",
+                "VA', 'GA', 'GA",
+                "FL', 'WV', 'LA"
+            ],
+            [
+                1999,
+                "W",
+                "Advanced Degree     ",
+                "S",
+                "4 yr Degree         ",
+                "U",
+                "Primary             ",
+                "GA', 'VA', 'VA",
+                "KY', 'KS', 'KS",
+                "IN', 'MN', 'NE"
+            ],
+            [
+                2001,
+                "S",
+                "Secondary           ",
+                "D",
+                "Unknown             ",
+                "M",
+                "4 yr Degree         ",
+                "NE', 'TN', 'MN",
+                "ID', 'WA', 'NJ",
+                "KS', 'NC', 'MO"
+            ],
+            [
+                2002,
+                "D",
+                "Unknown             ",
+                "M",
+                "Advanced Degree     ",
+                "S",
+                "College             ",
+                "TX', 'TX', 'TX",
+                "VT', 'DE', 'RI",
+                "DE', 'VT', 'ME"
+            ],
+            [
+                2002,
+                "U",
+                "4 yr Degree         ",
+                "S",
+                "Secondary           ",
+                "D",
+                "Primary             ",
+                "IA', 'MS', 'IN",
+                "KS', 'KY', 'KS",
+                "ND', 'OR', 'UT"
+            ],
+            [
+                2000,
+                "M",
+                "Advanced Degree     ",
+                "S",
+                "4 yr Degree         ",
+                "U",
+                "Unknown             ",
+                "TX', 'TX', 'TX",
+                "SC', 'UT', 'SC",
+                "NE', 'NE', 'TN"
+            ],
+            [
+                1999,
+                "U",
+                "2 yr Degree         ",
+                "M",
+                "Primary             ",
+                "S",
+                "Secondary           ",
+                "TX', 'TX', 'TX",
+                "LA', 'MT', 'CO",
+                "SD', 'PA', 'FL"
+            ],
+            [
+                2000,
+                "W",
+                "College             ",
+                "M",
+                "Advanced Degree     ",
+                "S",
+                "Unknown             ",
+                "AZ', 'AK', 'ME",
+                "TN', 'TN', 'MS",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2002,
+                "S",
+                "Advanced Degree     ",
+                "D",
+                "2 yr Degree         ",
+                "M",
+                "Secondary           ",
+                "WY', 'MD', 'DC",
+                "VA', 'GA', 'VA",
+                "IN', 'OH', 'NE"
+            ],
+            [
+                2001,
+                "S",
+                "Secondary           ",
+                "U",
+                "Primary             ",
+                "M",
+                "Unknown             ",
+                "IL', 'NE', 'MN",
+                "VA', 'VA', 'VA",
+                "KY', 'NC', 'KY"
+            ],
+            [
+                2000,
+                "U",
+                "Primary             ",
+                "D",
+                "College             ",
+                "W",
+                "Advanced Degree     ",
+                "AK', 'RI', 'ME",
+                "CA', 'PA', 'WV",
+                "MO', 'KY', 'NC"
+            ],
+            [
+                1998,
+                "M",
+                "4 yr Degree         ",
+                "S",
+                "Unknown             ",
+                "U",
+                "Secondary           ",
+                "AL', 'CO', 'NY",
+                "MO', 'MO', 'KS",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                1999,
+                "W",
+                "College             ",
+                "U",
+                "Secondary           ",
+                "S",
+                "2 yr Degree         ",
+                "NC', 'KY', 'MO",
+                "ID', 'OR', 'WA",
+                "IN', 'IL', 'OH"
+            ],
+            [
+                2003,
+                "U",
+                "Secondary           ",
+                "W",
+                "2 yr Degree         ",
+                "M",
+                "Unknown             ",
+                "NC', 'MO', 'KS",
+                "IA', 'IA', 'MN",
+                "MT', 'MT', 'AL"
+            ],
+            [
+                2002,
+                "M",
+                "Unknown             ",
+                "U",
+                "Secondary           ",
+                "W",
+                "4 yr Degree         ",
+                "TX', 'TX', 'TX",
+                "MN', 'TN', 'IN",
+                "VA', 'VA', 'VA"
+            ],
+            [
+                1999,
+                "M",
+                "College             ",
+                "D",
+                "Primary             ",
+                "W",
+                "Secondary           ",
+                "OR', 'ND', 'NJ",
+                "GA', 'VA', 'VA",
+                "GA', 'VA', 'VA"
+            ],
+            [
+                2003,
+                "U",
+                "Primary             ",
+                "W",
+                "Advanced Degree     ",
+                "S",
+                "Secondary           ",
+                "KY', 'KS', 'KS",
+                "MS', 'OH', 'MN",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2002,
+                "W",
+                "Unknown             ",
+                "M",
+                "Advanced Degree     ",
+                "U",
+                "College             ",
+                "IA', 'TN', 'MN",
+                "UT', 'ND', 'UT",
+                "OH', 'OH', 'IN"
+            ],
+            [
+                2002,
+                "W",
+                "2 yr Degree         ",
+                "D",
+                "College             ",
+                "M",
+                "Unknown             ",
+                "PA', 'LA', 'AL",
+                "VA', 'VA', 'VA",
+                "WY', 'RI', 'VT"
+            ],
+            [
+                2001,
+                "D",
+                "4 yr Degree         ",
+                "W",
+                "Primary             ",
+                "S",
+                "Unknown             ",
+                "ND', 'UT', 'NJ",
+                "SC', 'OR', 'WA",
+                "TN', 'IA', 'MN"
+            ],
+            [
+                2003,
+                "D",
+                "Secondary           ",
+                "S",
+                "2 yr Degree         ",
+                "W",
+                "Advanced Degree     ",
+                "NJ', 'NM', 'NM",
+                "ME', 'DC', 'NV",
+                "SD', 'AR', 'MI"
+            ],
+            [
+                2002,
+                "W",
+                "Advanced Degree     ",
+                "U",
+                "2 yr Degree         ",
+                "S",
+                "Unknown             ",
+                "RI', 'DC', 'WY",
+                "GA', 'GA', 'VA",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2002,
+                "S",
+                "Primary             ",
+                "M",
+                "College             ",
+                "U",
+                "Unknown             ",
+                "NH', 'WY', 'NV",
+                "NE', 'IN', 'NE",
+                "ND', 'SC', 'WA"
+            ],
+            [
+                2002,
+                "S",
+                "4 yr Degree         ",
+                "U",
+                "College             ",
+                "D",
+                "2 yr Degree         ",
+                "MN', 'IA', 'NE",
+                "TX', 'TX', 'TX",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2003,
+                "U",
+                "2 yr Degree         ",
+                "W",
+                "Advanced Degree     ",
+                "M",
+                "Secondary           ",
+                "TX', 'TX', 'TX",
+                "KY', 'KY', 'NC",
+                "KY', 'MO', 'MO"
+            ],
+            [
+                2002,
+                "M",
+                "Advanced Degree     ",
+                "S",
+                "College             ",
+                "W",
+                "2 yr Degree         ",
+                "TX', 'TX', 'TX",
+                "IA', 'IL', 'IN",
+                "CO', 'FL', 'AR"
+            ],
+            [
+                2000,
+                "U",
+                "Unknown             ",
+                "D",
+                "College             ",
+                "S",
+                "2 yr Degree         ",
+                "AL', 'CO', 'MT",
+                "IA', 'NE', 'MS",
+                "NH', 'VT', 'NH"
+            ],
+            [
+                2002,
+                "S",
+                "Primary             ",
+                "W",
+                "Advanced Degree     ",
+                "M",
+                "2 yr Degree         ",
+                "MO', 'KS', 'MO",
+                "NH', 'RI', 'MA",
+                "VA', 'GA', 'VA"
+            ],
+            [
+                2003,
+                "D",
+                "Secondary           ",
+                "S",
+                "2 yr Degree         ",
+                "W",
+                "Advanced Degree     ",
+                "IN', 'TN', 'IL",
+                "OK', 'WV', 'LA",
+                "IL', 'IN', 'IN"
+            ],
+            [
+                2000,
+                "S",
+                "Advanced Degree     ",
+                "W",
+                "College             ",
+                "M",
+                "Primary             ",
+                "TX', 'TX', 'TX",
+                "IL', 'OH', 'TN",
+                "MD', 'MD', 'MD"
+            ],
+            [
+                2002,
+                "S",
+                "Secondary           ",
+                "W",
+                "2 yr Degree         ",
+                "M",
+                "Unknown             ",
+                "ID', 'ND', 'WA",
+                "UT', 'WA', 'NJ",
+                "NC', 'KY', 'KS"
+            ],
+            [
+                1999,
+                "M",
+                "Advanced Degree     ",
+                "U",
+                "2 yr Degree         ",
+                "S",
+                "Secondary           ",
+                "GA', 'VA', 'GA",
+                "PA', 'MT', 'OK",
+                "KY', 'KY', 'NC"
+            ],
+            [
+                2001,
+                "D",
+                "College             ",
+                "M",
+                "2 yr Degree         ",
+                "S",
+                "Primary             ",
+                "IN', 'MS', 'IN",
+                "SD', 'WI', 'SD",
+                "NE', 'TN', 'TN"
+            ],
+            [
+                1998,
+                "U",
+                "2 yr Degree         ",
+                "D",
+                "Secondary           ",
+                "S",
+                "Primary             ",
+                "IA', 'MS', 'MN",
+                "NC', 'KS', 'KY",
+                "NH', 'MA', 'AZ"
+            ],
+            [
+                2000,
+                "U",
+                "Secondary           ",
+                "S",
+                "4 yr Degree         ",
+                "D",
+                "Advanced Degree     ",
+                "NM', 'UT', 'NM",
+                "TX', 'TX', 'TX",
+                "LA', 'WV', 'OK"
+            ],
+            [
+                1999,
+                "S",
+                "Secondary           ",
+                "W",
+                "Unknown             ",
+                "D",
+                "4 yr Degree         ",
+                "DE', 'WY', 'CT",
+                "TX', 'TX', 'TX",
+                "GA', 'VA', 'VA"
+            ],
+            [
+                2003,
+                "D",
+                "2 yr Degree         ",
+                "U",
+                "Unknown             ",
+                "M",
+                "Secondary           ",
+                "GA', 'GA', 'GA",
+                "KY', 'NC', 'KY",
+                "MN', 'OH', 'NE"
+            ],
+            [
+                1999,
+                "U",
+                "4 yr Degree         ",
+                "S",
+                "2 yr Degree         ",
+                "M",
+                "College             ",
+                "ID', 'OR', 'NJ",
+                "KS', 'KS', 'KY",
+                "DE', 'AK', 'DC"
+            ],
+            [
+                1998,
+                "S",
+                "Primary             ",
+                "U",
+                "Advanced Degree     ",
+                "W",
+                "Secondary           ",
+                "IL', 'MS', 'IL",
+                "KY', 'KY', 'KS",
+                "GA', 'VA', 'VA"
+            ],
+            [
+                2002,
+                "S",
+                "Primary             ",
+                "D",
+                "Unknown             ",
+                "M",
+                "Advanced Degree     ",
+                "TX', 'TX', 'TX",
+                "AR', 'LA', 'LA",
+                "VA', 'GA', 'GA"
+            ],
+            [
+                2001,
+                "S",
+                "College             ",
+                "U",
+                "2 yr Degree         ",
+                "M",
+                "Unknown             ",
+                "TX', 'TX', 'TX",
+                "NH', 'RI', 'HI",
+                "GA', 'GA', 'GA"
+            ],
+            [
+                1998,
+                "S",
+                "Secondary           ",
+                "M",
+                "Unknown             ",
+                "U",
+                "4 yr Degree         ",
+                "TX', 'TX', 'TX",
+                "NJ', 'ID', 'OR",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2001,
+                "S",
+                "4 yr Degree         ",
+                "U",
+                "Secondary           ",
+                "M",
+                "Unknown             ",
+                "KS', 'MO', 'KY",
+                "MD', 'AZ', 'CT",
+                "AR', 'AR', 'CA"
+            ],
+            [
+                2001,
+                "M",
+                "4 yr Degree         ",
+                "U",
+                "College             ",
+                "W",
+                "2 yr Degree         ",
+                "KS', 'NC', 'KS",
+                "KY', 'NC', 'KY",
+                "MO', 'MO', 'KY"
+            ],
+            [
+                2001,
+                "S",
+                "2 yr Degree         ",
+                "U",
+                "Unknown             ",
+                "W",
+                "4 yr Degree         ",
+                "SC', 'NJ', 'NM",
+                "VA', 'GA', 'VA",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2001,
+                "M",
+                "Secondary           ",
+                "S",
+                "2 yr Degree         ",
+                "U",
+                "College             ",
+                "VA', 'GA', 'VA",
+                "OH', 'IA', 'NE",
+                "NJ', 'OR', 'ND"
+            ],
+            [
+                2001,
+                "U",
+                "Unknown             ",
+                "D",
+                "Primary             ",
+                "W",
+                "Secondary           ",
+                "KS', 'MO', 'NC",
+                "KS', 'KY', 'KS",
+                "NM', 'SC', 'UT"
+            ],
+            [
+                1999,
+                "U",
+                "College             ",
+                "M",
+                "4 yr Degree         ",
+                "D",
+                "2 yr Degree         ",
+                "WV', 'WV', 'OK",
+                "TX', 'TX', 'TX",
+                "AZ', 'RI', 'VT"
+            ],
+            [
+                2000,
+                "M",
+                "Unknown             ",
+                "S",
+                "Advanced Degree     ",
+                "D",
+                "2 yr Degree         ",
+                "WA', 'ND', 'NM",
+                "TX', 'TX', 'TX",
+                "KS', 'NC', 'NC"
+            ],
+            [
+                2001,
+                "M",
+                "Secondary           ",
+                "S",
+                "2 yr Degree         ",
+                "U",
+                "Unknown             ",
+                "RI', 'DC', 'DE",
+                "TX', 'TX', 'TX",
+                "VA', 'VA', 'GA"
+            ],
+            [
+                2002,
+                "W",
+                "Primary             ",
+                "M",
+                "Advanced Degree     ",
+                "D",
+                "Unknown             ",
+                "GA', 'VA', 'VA",
+                "WA', 'OR', 'SC",
+                "AR', 'WV', 'AL"
+            ],
+            [
+                2003,
+                "M",
+                "4 yr Degree         ",
+                "W",
+                "Secondary           ",
+                "S",
+                "Unknown             ",
+                "NJ', 'ID', 'SC",
+                "ID', 'ID', 'NM",
+                "RI', 'MD', 'AK"
+            ],
+            [
+                1999,
+                "D",
+                "Secondary           ",
+                "S",
+                "2 yr Degree         ",
+                "U",
+                "4 yr Degree         ",
+                "KY', 'KY', 'KY",
+                "NM', 'ID', 'NM",
+                "GA', 'GA', 'VA"
+            ],
+            [
+                2000,
+                "D",
+                "Unknown             ",
+                "S",
+                "2 yr Degree         ",
+                "W",
+                "Advanced Degree     ",
+                "ND', 'SC', 'SC",
+                "UT', 'ND', 'NM",
+                "KY', 'KS', 'NC"
+            ],
+            [
+                2003,
+                "U",
+                "2 yr Degree         ",
+                "D",
+                "Secondary           ",
+                "S",
+                "4 yr Degree         ",
+                "VA', 'VA', 'VA",
+                "MO', 'MO', 'KS",
+                "IL', 'IN', 'NE"
+            ],
+            [
+                1999,
+                "D",
+                "Secondary           ",
+                "S",
+                "2 yr Degree         ",
+                "M",
+                "Primary             ",
+                "IA', 'IA', 'OH",
+                "AR', 'MT', 'OK",
+                "VA', 'GA', 'GA"
+            ],
+            [
+                2000,
+                "S",
+                "Advanced Degree     ",
+                "U",
+                "2 yr Degree         ",
+                "W",
+                "Unknown             ",
+                "NM', 'NJ', 'SC",
+                "MA', 'ME', 'MA",
+                "TX', 'TX', 'TX"
+            ],
+            [
+                2000,
+                "D",
+                "4 yr Degree         ",
+                "S",
+                "Secondary           ",
+                "W",
+                "2 yr Degree         ",
+                "MS', 'NE', 'OH",
+                "IL', 'MS', 'NE",
+                "GA', 'VA', 'VA"
+            ],
+            [
+                1999,
+                "D",
+                "Advanced Degree     ",
+                "M",
+                "College             ",
+                "S",
+                "Secondary           ",
+                "OH', 'IN', 'IL",
+                "HI', 'NH', 'AZ",
+                "OR', 'ND', 'WA"
+            ]
+        ]
+    }
+}

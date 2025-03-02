@@ -1,0 +1,561 @@
+{
+    "027": {
+        "query": "SELECT min(i_item_id), min(s_state), min(ss_quantity), min(ss_list_price), min(ss_coupon_amt), min(ss_sales_price), min(ss_item_sk), min(ss_ticket_number)\nFROM store_sales,\n     customer_demographics,\n     date_dim,\n     store,\n     item\nWHERE ss_sold_date_sk = d_date_sk\n  AND ss_item_sk = i_item_sk\n  AND ss_store_sk = s_store_sk\n  AND ss_cdemo_sk = cd_demo_sk\n  AND cd_gender = '@param0'\n  AND cd_marital_status = '@param1'\n  AND cd_education_status = '@param2'\n  AND d_year = @param3\n  AND s_state = '@param4'\n  AND i_category = '@param5' ;",
+        "predicates": [
+            {
+                "alias": "",
+                "column": "cd_gender",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_cdemo_sk = cd_demo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_cdemo_sk = cd_demo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_cdemo_sk = cd_demo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "d_year",
+                "operator": "=",
+                "data_type": "int",
+                "table": "date_dim",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_sold_date_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_sold_date_sk = d_date_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "s_state",
+                "operator": "=",
+                "data_type": "text",
+                "table": "store",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_store_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_store_sk = s_store_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "i_category",
+                "operator": "=",
+                "data_type": "text",
+                "table": "item",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_item_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_item_sk = i_item_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            }
+        ],
+        "params": [
+            [
+                "M",
+                "S",
+                "Secondary           ",
+                2002,
+                "MN",
+                "Jewelry                                           "
+            ],
+            [
+                "F",
+                "U",
+                "4 yr Degree         ",
+                2001,
+                "MN",
+                "Electronics                                       "
+            ],
+            [
+                "M",
+                "W",
+                "Secondary           ",
+                2003,
+                "GA",
+                "Jewelry                                           "
+            ],
+            [
+                "F",
+                "S",
+                "Secondary           ",
+                2003,
+                "TN",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "M",
+                "4 yr Degree         ",
+                2002,
+                "WV",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "D",
+                "Secondary           ",
+                1998,
+                "SC",
+                "Shoes                                             "
+            ],
+            [
+                "F",
+                "U",
+                "2 yr Degree         ",
+                2000,
+                "MN",
+                "Books                                             "
+            ],
+            [
+                "M",
+                "D",
+                "2 yr Degree         ",
+                2001,
+                "GA",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "M",
+                "Unknown             ",
+                2003,
+                "SC",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "U",
+                "Advanced Degree     ",
+                2001,
+                "TN",
+                "Music                                             "
+            ],
+            [
+                "F",
+                "U",
+                "Secondary           ",
+                1998,
+                "GA",
+                "Shoes                                             "
+            ],
+            [
+                "F",
+                "U",
+                "Unknown             ",
+                2000,
+                "TN",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "U",
+                "Secondary           ",
+                2001,
+                "SC",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "D",
+                "Unknown             ",
+                2000,
+                "GA",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "M",
+                "Advanced Degree     ",
+                2002,
+                "GA",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "U",
+                "Primary             ",
+                2001,
+                "TN",
+                "Children                                          "
+            ],
+            [
+                "M",
+                "S",
+                "College             ",
+                2001,
+                "GA",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "S",
+                "College             ",
+                2000,
+                "MN",
+                "Books                                             "
+            ],
+            [
+                "M",
+                "S",
+                "Primary             ",
+                1999,
+                "TN",
+                "Shoes                                             "
+            ],
+            [
+                "M",
+                "U",
+                "Secondary           ",
+                2000,
+                "GA",
+                "Music                                             "
+            ],
+            [
+                "F",
+                "M",
+                "2 yr Degree         ",
+                2001,
+                "GA",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "D",
+                "4 yr Degree         ",
+                2003,
+                "GA",
+                "Books                                             "
+            ],
+            [
+                "M",
+                "S",
+                "Unknown             ",
+                2001,
+                "MN",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "S",
+                "2 yr Degree         ",
+                2003,
+                "WV",
+                "Books                                             "
+            ],
+            [
+                "M",
+                "S",
+                "2 yr Degree         ",
+                2000,
+                "WV",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "M",
+                "Secondary           ",
+                2002,
+                "TN",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "D",
+                "4 yr Degree         ",
+                1999,
+                "WV",
+                "Books                                             "
+            ],
+            [
+                "F",
+                "U",
+                "Secondary           ",
+                2003,
+                "GA",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "M",
+                "Unknown             ",
+                2001,
+                "WV",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "S",
+                "Primary             ",
+                2003,
+                "MN",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "D",
+                "4 yr Degree         ",
+                2002,
+                "MN",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "U",
+                "Secondary           ",
+                2000,
+                "TN",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "U",
+                "Advanced Degree     ",
+                2003,
+                "TN",
+                "Shoes                                             "
+            ],
+            [
+                "M",
+                "S",
+                "Advanced Degree     ",
+                1999,
+                "SC",
+                "Electronics                                       "
+            ],
+            [
+                "M",
+                "S",
+                "Unknown             ",
+                1999,
+                "MN",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "S",
+                "Unknown             ",
+                2000,
+                "MN",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "M",
+                "Secondary           ",
+                2000,
+                "TN",
+                "Electronics                                       "
+            ],
+            [
+                "F",
+                "W",
+                "4 yr Degree         ",
+                2003,
+                "TN",
+                "Jewelry                                           "
+            ],
+            [
+                "F",
+                "U",
+                "Secondary           ",
+                2003,
+                "MN",
+                "Electronics                                       "
+            ],
+            [
+                "F",
+                "U",
+                "Advanced Degree     ",
+                1998,
+                "GA",
+                "Jewelry                                           "
+            ],
+            [
+                "F",
+                "M",
+                "Unknown             ",
+                2003,
+                "WV",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "S",
+                "2 yr Degree         ",
+                2001,
+                "SC",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "W",
+                "2 yr Degree         ",
+                1999,
+                "TN",
+                "Women                                             "
+            ],
+            [
+                "F",
+                "S",
+                "2 yr Degree         ",
+                2003,
+                "GA",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "M",
+                "Secondary           ",
+                2003,
+                "MN",
+                "Electronics                                       "
+            ],
+            [
+                "M",
+                "S",
+                "Unknown             ",
+                2000,
+                "SC",
+                "Electronics                                       "
+            ],
+            [
+                "M",
+                "D",
+                "2 yr Degree         ",
+                2000,
+                "GA",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "S",
+                "2 yr Degree         ",
+                1999,
+                "TN",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "S",
+                "College             ",
+                2001,
+                "WV",
+                "Jewelry                                           "
+            ],
+            [
+                "F",
+                "D",
+                "2 yr Degree         ",
+                2000,
+                "GA",
+                "Shoes                                             "
+            ],
+            [
+                "F",
+                "U",
+                "2 yr Degree         ",
+                2003,
+                "WV",
+                "Sports                                            "
+            ]
+        ]
+    }
+}

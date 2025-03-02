@@ -1,0 +1,4001 @@
+query,plan_id,plan_content
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[ar]'
+AND k.keyword = 'punctuation-in-title'
+AND n.name LIKE '%S%';",104,/*+  SeqScan(mc) SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(k mk) HashJoin(mc cn k mk) NestLoop(mc cn k mk t) NestLoop(mc cn k mk t ci) NestLoop(mc cn k mk t ci n) Leading((((((mc cn) (k mk)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE '%O%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'one-word-title'
+AND n.name LIKE '%h%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[nl]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%A%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gb]'
+AND k.keyword = 'bare-breasts'
+AND n.name LIKE '%Boyd%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'death'
+AND n.name LIKE '%Jon%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[ar]'
+AND k.keyword = 'airplane'
+AND n.name LIKE '%,%';",104,/*+  SeqScan(mc) SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(k mk) HashJoin(mc cn k mk) NestLoop(mc cn k mk t) NestLoop(mc cn k mk t ci) NestLoop(mc cn k mk t ci n) Leading((((((mc cn) (k mk)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gb]'
+AND k.keyword = 'sex'
+AND n.name LIKE '%Pennington%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sex'
+AND n.name LIKE '%Skip%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'friendship'
+AND n.name LIKE '%Mike%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'female-nudity'
+AND n.name LIKE '%Jimmy%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'presumed-dead'
+AND n.name LIKE '%a%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'based-on-novel'
+AND n.name LIKE '%Frank%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE 'N%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'hardcore'
+AND n.name LIKE '%Barker%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'jazz-music'
+AND n.name LIKE '%t%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE 'B%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[ni]'
+AND k.keyword = 'murder'
+AND n.name LIKE '%Stewart%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'hardcore'
+AND n.name LIKE '%Aaron%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'oral-sex'
+AND n.name LIKE '%Jon%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[ar]'
+AND k.keyword = 'accident'
+AND n.name LIKE '%t%';",104,/*+  SeqScan(mc) SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(k mk) HashJoin(mc cn k mk) NestLoop(mc cn k mk t) NestLoop(mc cn k mk t ci) NestLoop(mc cn k mk t ci n) Leading((((((mc cn) (k mk)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fi]'
+AND k.keyword = 'hardcore'
+AND n.name LIKE '%Bell%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[ru]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'K%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Bob%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sex'
+AND n.name LIKE '%Bell%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'computer-animation'
+AND n.name LIKE '%S%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'F%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gb]'
+AND k.keyword = 'hardcore'
+AND n.name LIKE '%Merv%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'based-on-play'
+AND n.name LIKE '%de%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'shot-in-the-chest'
+AND n.name LIKE '%r%';",104,/*+  SeqScan(mc) SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(k mk) HashJoin(mc cn k mk) NestLoop(mc cn k mk t) NestLoop(mc cn k mk t ci) NestLoop(mc cn k mk t ci n) Leading((((((mc cn) (k mk)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'mother-daughter-relationship'
+AND n.name LIKE '%a%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Griffin%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'surprise-during-end-credits'
+AND n.name LIKE '%e%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'J%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[jp]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Yo%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'O%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'fireplace'
+AND n.name LIKE '%m%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'hardcore'
+AND n.name LIKE '%Griffin%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gb]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Merv%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'police'
+AND n.name LIKE '%Sharon%';",104,/*+  SeqScan(mc) SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(k mk) HashJoin(mc cn k mk) NestLoop(mc cn k mk t) NestLoop(mc cn k mk t ci) NestLoop(mc cn k mk t ci n) Leading((((((mc cn) (k mk)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Merv%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[nl]'
+AND k.keyword = 'declaration-of-independence'
+AND n.name LIKE '%l%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'corona-california'
+AND n.name LIKE '%g%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%B%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gb]'
+AND k.keyword = 'murder'
+AND n.name LIKE '%Barker%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[jp]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Downey%Robert%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE '%W%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Q%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'computer-animation'
+AND n.name LIKE '%U%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[au]'
+AND k.keyword = 'pregnant-from-rape'
+AND n.name LIKE '%,%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%F%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE '%Tim%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'hardcore'
+AND n.name LIKE '%Griffin%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[se]'
+AND k.keyword = 'fake-id'
+AND n.name LIKE '%i%';",21,/*+  SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexScan(mc movie_id_movie_companies) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk mc) HashJoin(cn k mk mc) NestLoop(cn k mk mc t) NestLoop(cn k mk mc t ci) NestLoop(cn k mk mc t ci n) Leading(((((cn ((k mk) mc)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE '%An%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'sex'
+AND n.name LIKE '%Janice%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'adultery'
+AND n.name LIKE '%u%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[uy]'
+AND k.keyword = 'blood'
+AND n.name LIKE '%David%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'hardcore'
+AND n.name LIKE '%Bradley%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Boyd%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'limousine'
+AND n.name LIKE '%d%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'non-fiction'
+AND n.name LIKE '%Barker%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'hardcore'
+AND n.name LIKE '%Snyder%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sex'
+AND n.name LIKE '%Griffin%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[ch]'
+AND k.keyword = 'railway'
+AND n.name LIKE '%N%';",104,/*+  SeqScan(mc) SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(k mk) HashJoin(mc cn k mk) NestLoop(mc cn k mk t) NestLoop(mc cn k mk t ci) NestLoop(mc cn k mk t ci n) Leading((((((mc cn) (k mk)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'police'
+AND n.name LIKE '%n%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%N%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'female-nudity'
+AND n.name LIKE '%Trebek%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[jp]'
+AND k.keyword = 'sequel'
+AND n.name LIKE 'A%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'pony'
+AND n.name LIKE '%e%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gb]'
+AND k.keyword = 'based-on-novel'
+AND n.name LIKE '%Boyd%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'marvel-cinematic-universe'
+AND n.name LIKE 'C%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[jp]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%L%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Yo%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'disappearance'
+AND n.name LIKE '%l%';",104,/*+  SeqScan(mc) SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(k mk) HashJoin(mc cn k mk) NestLoop(mc cn k mk t) NestLoop(mc cn k mk t ci) NestLoop(mc cn k mk t ci n) Leading((((((mc cn) (k mk)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Y%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'father-son-relationship'
+AND n.name LIKE '%Rocco%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'computer-animation'
+AND n.name LIKE 'K%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'K%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[jp]'
+AND k.keyword = 'sequel'
+AND n.name LIKE 'S%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[nl]'
+AND k.keyword = 'corruption'
+AND n.name LIKE '%u%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[nl]'
+AND k.keyword = 'biologist'
+AND n.name LIKE '%r%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[ar]'
+AND k.keyword = 'surprise-during-end-credits'
+AND n.name LIKE '%s%';",104,/*+  SeqScan(mc) SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(k mk) HashJoin(mc cn k mk) NestLoop(mc cn k mk t) NestLoop(mc cn k mk t ci) NestLoop(mc cn k mk t ci n) Leading((((((mc cn) (k mk)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'infidelity'
+AND n.name LIKE '%s%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[nl]'
+AND k.keyword = 'nun'
+AND n.name LIKE '%©%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'based-on-novel'
+AND n.name LIKE '%Bob%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[es]'
+AND k.keyword = 'house-cat'
+AND n.name LIKE '%y%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Angel%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[cu]'
+AND k.keyword = 'bare-breasts'
+AND n.name LIKE '%Alex%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'number-in-title'
+AND n.name LIKE '%Barker%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Downey%Robert%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%C%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'riddle'
+AND n.name LIKE '%L%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'S%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'broke'
+AND n.name LIKE '%Danielle%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'C%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Q%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'nipples-visible-through-clothing'
+AND n.name LIKE '%B%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[nl]'
+AND k.keyword = 'brother-sister-relationship'
+AND n.name LIKE '%.%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[nl]'
+AND k.keyword = 'warrior'
+AND n.name LIKE '%n%';",104,/*+  SeqScan(mc) SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(k mk) HashJoin(mc cn k mk) NestLoop(mc cn k mk t) NestLoop(mc cn k mk t ci) NestLoop(mc cn k mk t ci n) Leading((((((mc cn) (k mk)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%U%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'revenge'
+AND n.name LIKE '%Conan%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Kimmel%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE '%T%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'based-on-novel'
+AND n.name LIKE '%Bob%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'murder'
+AND n.name LIKE '%g%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'smothered-with-pillow'
+AND n.name LIKE '%t%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'independent-film'
+AND n.name LIKE '%Susie%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE 'B%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Q%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%M%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gb]'
+AND k.keyword = 'based-on-play'
+AND n.name LIKE '%Rhonda%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'housekeeper'
+AND n.name LIKE '%y%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Jon%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'watching-someone-sleep'
+AND n.name LIKE '%u%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'computer-animation'
+AND n.name LIKE 'L%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'B%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[nl]'
+AND k.keyword = 'american'
+AND n.name LIKE '%y%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'runaway-child'
+AND n.name LIKE '%o%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'based-on-novel'
+AND n.name LIKE '%Steve%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[es]'
+AND k.keyword = 'sun'
+AND n.name LIKE '%e%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'unrequited-love'
+AND n.name LIKE '%w%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[br]'
+AND k.keyword = 'hardcore'
+AND n.name LIKE '%Frank%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gr]'
+AND k.keyword = 'man-with-glasses'
+AND n.name LIKE '%r%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'vibrating-cell-phone'
+AND n.name LIKE '%O%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'smothered-with-pillow'
+AND n.name LIKE '%y%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sex'
+AND n.name LIKE '%Leno%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Downey%Robert%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'sex'
+AND n.name LIKE '%Merv%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gb]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Lionel%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE '%Downey%Robert%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%T%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'computer-animation'
+AND n.name LIKE 'F%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'sex'
+AND n.name LIKE '%Morgan%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE '%Bert%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'murder'
+AND n.name LIKE '%Javier%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'good-versus-evil'
+AND n.name LIKE '%s%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE '%X%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%A%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%O%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE '%Q%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'nudity'
+AND n.name LIKE '%Merv%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gb]'
+AND k.keyword = 'dog'
+AND n.name LIKE '%Alex%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%D%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE '%Q%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sex'
+AND n.name LIKE '%Pedro%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[za]'
+AND k.keyword = 'sex'
+AND n.name LIKE '%David%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE '%An%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%W%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[jp]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'X%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gb]'
+AND k.keyword = 'sex-show'
+AND n.name LIKE '%z%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gb]'
+AND k.keyword = 'based-on-novel'
+AND n.name LIKE '%FÃ©lix%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'I%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'W%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'marvel-cinematic-universe'
+AND n.name LIKE 'Z%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[th]'
+AND k.keyword = 'childhood-memory'
+AND n.name LIKE '%,%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'marvel-cinematic-universe'
+AND n.name LIKE 'O%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[ar]'
+AND k.keyword = 'surprise-during-end-credits'
+AND n.name LIKE '%a%';",104,/*+  SeqScan(mc) SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(k mk) HashJoin(mc cn k mk) NestLoop(mc cn k mk t) NestLoop(mc cn k mk t ci) NestLoop(mc cn k mk t ci n) Leading((((((mc cn) (k mk)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[ca]'
+AND k.keyword = 'cliff'
+AND n.name LIKE '%W%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'independent-film'
+AND n.name LIKE '%Griffin%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'library'
+AND n.name LIKE '%e%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'courtship'
+AND n.name LIKE '%h%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gr]'
+AND k.keyword = 'shoeshine-stand'
+AND n.name LIKE '%e%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'based-on-novel'
+AND n.name LIKE '%Ãlvarez%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'T%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gb]'
+AND k.keyword = 'murder'
+AND n.name LIKE '%Bob%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'marvel-cinematic-universe'
+AND n.name LIKE '%P%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'hardcore'
+AND n.name LIKE '%Boyd%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[nl]'
+AND k.keyword = 'space-travel'
+AND n.name LIKE '%R%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%F%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[es]'
+AND k.keyword = 'threatening-telephone-call'
+AND n.name LIKE '%p%';",104,/*+  SeqScan(mc) SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(k mk) HashJoin(mc cn k mk) NestLoop(mc cn k mk t) NestLoop(mc cn k mk t ci) NestLoop(mc cn k mk t ci n) Leading((((((mc cn) (k mk)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'V%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'murder'
+AND n.name LIKE '%Jon%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'drunkenness'
+AND n.name LIKE '%d%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE 'B%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'G%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[nl]'
+AND k.keyword = 'id-badge'
+AND n.name LIKE '%A%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[gb]'
+AND k.keyword = 'oral-sex'
+AND n.name LIKE '%Welker%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[sg]'
+AND k.keyword = 'psychiatrist-patient-relationship'
+AND n.name LIKE '%O%';",104,/*+  SeqScan(mc) SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(k mk) HashJoin(mc cn k mk) NestLoop(mc cn k mk t) NestLoop(mc cn k mk t ci) NestLoop(mc cn k mk t ci n) Leading((((((mc cn) (k mk)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE '%Downey%Robert%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'independent-film'
+AND n.name LIKE '%Jay%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'based-on-novel'
+AND n.name LIKE '%Stewart%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'revenge'
+AND n.name LIKE '%Frank%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sex'
+AND n.name LIKE '%CÃ©sar%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'fight'
+AND n.name LIKE '%i%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[be]'
+AND k.keyword = 'communion-wafer'
+AND n.name LIKE '%A%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%Barker%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[fr]'
+AND k.keyword = 'sex'
+AND n.name LIKE '%Bell%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%A%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE '%R%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'hardcore'
+AND n.name LIKE '%Cummings%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'nightclub'
+AND n.name LIKE '%r%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE 'O%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'hardcore'
+AND n.name LIKE '%Griffin%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[de]'
+AND k.keyword = 'murder'
+AND n.name LIKE '%Bob%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'love'
+AND n.name LIKE '%Pennington%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[br]'
+AND k.keyword = 'based-on-novel'
+AND n.name LIKE '%,%';",104,/*+  SeqScan(mc) SeqScan(cn) SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) HashJoin(mc cn) NestLoop(k mk) HashJoin(mc cn k mk) NestLoop(mc cn k mk t) NestLoop(mc cn k mk t ci) NestLoop(mc cn k mk t ci n) Leading((((((mc cn) (k mk)) t) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'character-name-in-title'
+AND n.name LIKE 'W%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[ru]'
+AND k.keyword = 'sequel'
+AND n.name LIKE 'E%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */
+"SELECT MIN(n.name) AS member_in_charnamed_american_movie, MIN(n.name) AS a1
+FROM cast_info AS ci,
+   company_name AS cn,
+   keyword AS k,
+   movie_companies AS mc,
+   movie_keyword AS mk,
+   name AS n,
+   title AS t
+WHERE n.id = ci.person_id
+AND ci.movie_id = t.id
+AND t.id = mk.movie_id
+AND mk.keyword_id = k.id
+AND t.id = mc.movie_id
+AND mc.company_id = cn.id
+AND ci.movie_id = mc.movie_id
+AND ci.movie_id = mk.movie_id
+AND mc.movie_id = mk.movie_id
+AND cn.country_code = '[us]'
+AND k.keyword = 'sequel'
+AND n.name LIKE '%Yo%';",33,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword) IndexOnlyScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexScan(ci movie_id_cast_info) IndexScan(n name_pkey) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mc) NestLoop(k mk t mc cn) NestLoop(k mk t mc cn ci) NestLoop(k mk t mc cn ci n) Leading(((((((k mk) t) mc) cn) ci) n)) */

@@ -1,0 +1,2107 @@
+{
+  "15-0": {
+    "query": "SELECT MIN(mi.info) AS release_date, MIN(t.title) AS internet_movie\nFROM aka_title AS aka_t,\n   company_name AS cn,\n   company_type AS ct,\n   info_type AS it1,\n   keyword AS k,\n   movie_companies AS mc,\n   movie_info AS mi,\n   movie_keyword AS mk,\n   title AS t\nWHERE t.id = aka_t.movie_id\nAND t.id = mi.movie_id\nAND t.id = mk.movie_id\nAND t.id = mc.movie_id\nAND mk.movie_id = mi.movie_id\nAND mk.movie_id = mc.movie_id\nAND mk.movie_id = aka_t.movie_id\nAND mi.movie_id = mc.movie_id\nAND mi.movie_id = aka_t.movie_id\nAND mc.movie_id = aka_t.movie_id\nAND k.id = mk.keyword_id\nAND it1.id = mi.info_type_id\nAND cn.id = mc.company_id\nAND ct.id = mc.company_type_id\nAND cn.country_code = '@param0'\nAND it1.info = '@param1'\nAND mc.note LIKE '@param2'\nAND mc.note LIKE '@param3'\nAND mi.note LIKE '@param4'\nAND mi.info LIKE '@param5'\nAND t.production_year > @param6;",
+    "predicates": [
+      {
+        "alias": "cn",
+        "column": "country_code",
+        "operator": "=",
+        "data_type": "text",
+        "table": "company_name",
+        "join_tables_alias": [
+          "mc"
+        ],
+        "join_tables": [
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "cn.id = mc.company_id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "note"
+          ]
+        ]
+      },
+      {
+        "alias": "it",
+        "original_alias": "it1",
+        "column": "info",
+        "operator": "=",
+        "data_type": "text",
+        "table": "info_type",
+        "join_tables_alias": [
+          "mi"
+        ],
+        "join_tables": [
+          "movie_info"
+        ],
+        "join_conditions": [
+          "it.id = mi.info_type_id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "note",
+            "info"
+          ]
+        ]
+      },
+      {
+        "alias": "mc",
+        "column": "note",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "movie_companies",
+        "join_tables_alias": [
+          "t",
+          "mk",
+          "mi",
+          "aka_t",
+          "cn",
+          "ct"
+        ],
+        "join_tables": [
+          "title",
+          "movie_keyword",
+          "movie_info",
+          "aka_title",
+          "company_name",
+          "company_type"
+        ],
+        "join_conditions": [
+          "t.id = mc.movie_id",
+          "mk.movie_id = mc.movie_id",
+          "mi.movie_id = mc.movie_id",
+          "mc.movie_id = aka_t.movie_id",
+          "cn.id = mc.company_id",
+          "ct.id = mc.company_type_id"
+        ],
+        "left_or_right": [
+          "both",
+          "l",
+          "both",
+          "l",
+          "both",
+          "l"
+        ],
+        "join_tables_column": [
+          [
+            "production_year"
+          ],
+          [],
+          [
+            "note",
+            "info"
+          ],
+          [],
+          [
+            "country_code"
+          ],
+          []
+        ]
+      },
+      {
+        "alias": "mc",
+        "column": "note",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "movie_companies",
+        "join_tables_alias": [
+          "t",
+          "mk",
+          "mi",
+          "aka_t",
+          "cn",
+          "ct"
+        ],
+        "join_tables": [
+          "title",
+          "movie_keyword",
+          "movie_info",
+          "aka_title",
+          "company_name",
+          "company_type"
+        ],
+        "join_conditions": [
+          "t.id = mc.movie_id",
+          "mk.movie_id = mc.movie_id",
+          "mi.movie_id = mc.movie_id",
+          "mc.movie_id = aka_t.movie_id",
+          "cn.id = mc.company_id",
+          "ct.id = mc.company_type_id"
+        ],
+        "left_or_right": [
+          "both",
+          "l",
+          "both",
+          "l",
+          "both",
+          "l"
+        ],
+        "join_tables_column": [
+          [
+            "production_year"
+          ],
+          [],
+          [
+            "note",
+            "info"
+          ],
+          [],
+          [
+            "country_code"
+          ],
+          []
+        ]
+      },
+      {
+        "alias": "mi",
+        "column": "note",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "movie_info",
+        "join_tables_alias": [
+          "t",
+          "mk",
+          "mc",
+          "aka_t",
+          "it"
+        ],
+        "join_tables": [
+          "title",
+          "movie_keyword",
+          "movie_companies",
+          "aka_title",
+          "info_type"
+        ],
+        "join_conditions": [
+          "t.id = mi.movie_id",
+          "mk.movie_id = mi.movie_id",
+          "mi.movie_id = mc.movie_id",
+          "mi.movie_id = aka_t.movie_id",
+          "it.id = mi.info_type_id"
+        ],
+        "left_or_right": [
+          "both",
+          "l",
+          "both",
+          "l",
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "production_year"
+          ],
+          [],
+          [
+            "note"
+          ],
+          [],
+          [
+            "info"
+          ]
+        ]
+      },
+      {
+        "alias": "mi",
+        "column": "info",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "movie_info",
+        "join_tables_alias": [
+          "t",
+          "mk",
+          "mc",
+          "aka_t",
+          "it"
+        ],
+        "join_tables": [
+          "title",
+          "movie_keyword",
+          "movie_companies",
+          "aka_title",
+          "info_type"
+        ],
+        "join_conditions": [
+          "t.id = mi.movie_id",
+          "mk.movie_id = mi.movie_id",
+          "mi.movie_id = mc.movie_id",
+          "mi.movie_id = aka_t.movie_id",
+          "it.id = mi.info_type_id"
+        ],
+        "left_or_right": [
+          "both",
+          "l",
+          "both",
+          "l",
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "production_year"
+          ],
+          [],
+          [
+            "note"
+          ],
+          [],
+          [
+            "info"
+          ]
+        ]
+      },
+      {
+        "alias": "t",
+        "column": "production_year",
+        "operator": ">",
+        "data_type": "int",
+        "table": "title",
+        "min": 1880,
+        "max": 2019,
+        "join_tables_alias": [
+          "aka_t",
+          "mi",
+          "mk",
+          "mc"
+        ],
+        "join_tables": [
+          "aka_title",
+          "movie_info",
+          "movie_keyword",
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "t.id = aka_t.movie_id",
+          "t.id = mi.movie_id",
+          "t.id = mk.movie_id",
+          "t.id = mc.movie_id"
+        ],
+        "left_or_right": [
+          "l",
+          "both",
+          "l",
+          "both"
+        ],
+        "join_tables_column": [
+          [],
+          [
+            "note",
+            "info"
+          ],
+          [],
+          [
+            "note"
+          ]
+        ]
+      }
+    ],
+    "params": [
+      [
+        "[nl]",
+        "tech info",
+        "%''%",
+        "%D%",
+        "%a%",
+        "%7%",
+        1990
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(worldwide)%",
+        "%(2007)%",
+        "%internet%",
+        "USA:% 200%",
+        "1990"
+      ],
+      [
+        "[us]",
+        "sound mix",
+        "%2%",
+        "%2%",
+        "%)%",
+        "%o%",
+        1956
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2006)%",
+        "%(USA)%",
+        "%internet%",
+        "USA:%201%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%USA%",
+        "%DVD%",
+        "%u%",
+        "%l%",
+        2010
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%production%",
+        "%s%",
+        "%TV%",
+        "%o%",
+        1944
+      ],
+      [
+        "[gb]",
+        "tech info",
+        "%1%",
+        "%h%",
+        "%g%",
+        "%m%",
+        2010
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%VHS%",
+        "%as%",
+        "%A%",
+        "%l%",
+        1956
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%theatrical%",
+        "%in%",
+        "%m%",
+        "%r%",
+        1930
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%USA%",
+        "%2012%",
+        "%TV%",
+        "%r%",
+        1938
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%USA%",
+        "%premiere%",
+        "%l%",
+        1988
+      ],
+      [
+        "[es]",
+        "release dates",
+        "%(%",
+        "%i%",
+        "%)%",
+        "%r%",
+        1970
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%r%",
+        "%Blu%",
+        "%n%",
+        "%35%",
+        1919
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(worldwide)%",
+        "%(2006)%",
+        "%internet%",
+        "USA:% 200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%r%",
+        "%USA%",
+        "%DVD%",
+        "%a%",
+        1934
+      ],
+      [
+        "[de]",
+        "sound mix",
+        "%e%",
+        "%m%",
+        "%W%",
+        "%n%",
+        1954
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(worldwide)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:%200%",
+        "2005"
+      ],
+      [
+        "[gb]",
+        "release dates",
+        "%TV%",
+        "%USA%",
+        "%A%",
+        "%i%",
+        1888
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%edition%",
+        "%2011%",
+        "%video%",
+        "%r%",
+        1950
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%USA%",
+        "%2011%",
+        "%1%",
+        "%o%",
+        1921
+      ],
+      [
+        "[cz]",
+        "tech info",
+        "%i%",
+        "%0%",
+        "%n%",
+        "%A%",
+        2004
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%2009%",
+        "%USA%",
+        "%A%",
+        "%16%",
+        1943
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(worldwide)%",
+        "%(2007)%",
+        "%internet%",
+        "USA:% 200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%TV%",
+        "%media%",
+        "%premiere%",
+        "%n%",
+        1983
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%Gate%",
+        "%USA%",
+        "%n%",
+        "%and%",
+        1996
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(USA)%",
+        "%internet%",
+        "USA:%200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(2007)%",
+        "%internet%",
+        "USA:% 200%",
+        "1950"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%TV%",
+        "%USA%",
+        "%u%",
+        "%to%",
+        2005
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%USA%",
+        "%theatrical%",
+        "%DVD%",
+        "%t%",
+        2012
+      ],
+      [
+        "[us]",
+        "sound mix",
+        "%1%",
+        "%S%",
+        "%)%",
+        "%M%",
+        1956
+      ],
+      [
+        "[de]",
+        "runtimes",
+        "%e%",
+        "%(%",
+        "%s%",
+        "%A%",
+        2005
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%in%",
+        "%USA%",
+        "%of%",
+        "%1%",
+        2002
+      ],
+      [
+        "[hr]",
+        "release dates",
+        "%(%",
+        "%r%",
+        "%i%",
+        "%A%",
+        2006
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(USA)%",
+        "%internet%",
+        "USA:%200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(theatrical)%",
+        "%internet%",
+        "USA:%200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:% 200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "certificates",
+        "%o%",
+        "%U%",
+        "%u%",
+        "%G%",
+        1987
+      ],
+      [
+        "[hu]",
+        "release dates",
+        "%2003%",
+        "%TV%",
+        "%DVD%",
+        "%A%",
+        1992
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%USA%",
+        "%of%",
+        "%o%",
+        2001
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%USA%",
+        "%theatrical%",
+        "%premiere%",
+        "%t%",
+        1946
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%co%",
+        "%theatrical%",
+        "%New%",
+        "%A%",
+        1900
+      ],
+      [
+        "[se]",
+        "certificates",
+        "%e%",
+        "%e%",
+        "%)%",
+        "%A%",
+        1966
+      ],
+      [
+        "[de]",
+        "release dates",
+        "%e%",
+        "%(%",
+        "%y%",
+        "%e%",
+        2004
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(theatrical)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:%2008%",
+        "1950"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%2009%",
+        "%co%",
+        "%DVD%",
+        "%o%",
+        1947
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(worldwide)%",
+        "%(2007)%",
+        "%internet%",
+        "USA:% 200%",
+        "2005"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:% 200%",
+        "1990"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2006)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:%2008%",
+        "1990"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(theatrical)%",
+        "%internet%",
+        "USA:%200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "plot",
+        "%h%",
+        "%l%",
+        "%e%",
+        "%c%",
+        1992
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%association%",
+        "%n%",
+        "%t%",
+        2002
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2006)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:%200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%with%",
+        "%as%",
+        "%premiere%",
+        "%M%",
+        1990
+      ],
+      [
+        "[au]",
+        "certificates",
+        "%H%",
+        "%i%",
+        "%u%",
+        "%r%",
+        1993
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(theatrical)%",
+        "%internet%",
+        "USA:%201%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%theatrical%",
+        "%with%",
+        "%Fest%",
+        "%D%",
+        1942
+      ],
+      [
+        "[fi]",
+        "locations",
+        "%n%",
+        "%)%",
+        "%n%",
+        "%C%",
+        1982
+      ],
+      [
+        "[es]",
+        "release dates",
+        "%in%",
+        "%TV%",
+        "%i%",
+        "%n%",
+        2006
+      ],
+      [
+        "[gb]",
+        "release dates",
+        "%n%",
+        "%worldwide%",
+        "%n%",
+        "%l%",
+        1991
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%in%",
+        "%2003%",
+        "%s%",
+        "%i%",
+        1943
+      ],
+      [
+        "[hr]",
+        "release dates",
+        "%8%",
+        "%a%",
+        "%e%",
+        "%2%",
+        2006
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%2010%",
+        "%Dallas%",
+        "%r%",
+        2007
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%VHS%",
+        "%2007%",
+        "%DVD%",
+        "%o%",
+        2000
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%i%",
+        "%premiere%",
+        "%r%",
+        2001
+      ],
+      [
+        "[nl]",
+        "locations",
+        "%(%",
+        "%9%",
+        "%s%",
+        "%e%",
+        1990
+      ],
+      [
+        "[se]",
+        "release dates",
+        "%)%",
+        "%l%",
+        "%)%",
+        "%:%",
+        1987
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(worldwide)%",
+        "%internet%",
+        "USA:% 200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%theatrical%",
+        "%e%",
+        "%original%",
+        "%U%",
+        1983
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(theatrical)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:%201%",
+        "2000"
+      ],
+      [
+        "[fr]",
+        "certificates",
+        "%a%",
+        "%r%",
+        "%i%",
+        "%U%",
+        1957
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%2012%",
+        "%media%",
+        "%A%",
+        "%U%",
+        1954
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:%2008%",
+        "2005"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(USA)%",
+        "%internet%",
+        "USA:% 200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(2006)%",
+        "%internet%",
+        "USA:% 200%",
+        "2000"
+      ],
+      [
+        "[ae]",
+        "tech info",
+        "%(%",
+        "%1%",
+        "%o%",
+        "%o%",
+        2012
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2006)%",
+        "%(worldwide)%",
+        "%internet%",
+        "USA:%200%",
+        "1990"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%USA%",
+        "%premiere%",
+        "%out%",
+        1989
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(2007)%",
+        "%internet%",
+        "USA:% 200%",
+        "1990"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(worldwide)%",
+        "%internet%",
+        "USA:%200%",
+        "2005"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(worldwide)%",
+        "%internet%",
+        "USA:% 200%",
+        "1990"
+      ],
+      [
+        "[ar]",
+        "certificates",
+        "%h%",
+        "%n%",
+        "%r%",
+        "%A%",
+        1946
+      ],
+      [
+        "[hr]",
+        "release dates",
+        "%t%",
+        "%m%",
+        "%a%",
+        "%e%",
+        2006
+      ],
+      [
+        "[jp]",
+        "tech info",
+        "%(%",
+        "%0%",
+        "%5%",
+        "%1%",
+        2006
+      ],
+      [
+        "[us]",
+        "tech info",
+        "%d%",
+        "%a%",
+        "%e%",
+        "%i%",
+        2008
+      ],
+      [
+        "[hk]",
+        "release dates",
+        "%7%",
+        "%w%",
+        "%l%",
+        "%8%",
+        2006
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%co%",
+        "%DVD%",
+        "%premiere%",
+        "%1%",
+        1936
+      ],
+      [
+        "[gr]",
+        "tech info",
+        "%c%",
+        "%a%",
+        "%2%",
+        "%e%",
+        2012
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2006)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:%201%",
+        "1990"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%USA%",
+        "%A%",
+        "%n%",
+        1951
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%UK%",
+        "%theatrical%",
+        "%A%",
+        "%r%",
+        1893
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(worldwide)%",
+        "%(2007)%",
+        "%internet%",
+        "USA:%200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2007)%",
+        "%(worldwide)%",
+        "%internet%",
+        "USA:% 200%",
+        "2005"
+      ],
+      [
+        "[hr]",
+        "release dates",
+        "%0%",
+        "%d%",
+        "%t%",
+        "%2%",
+        2006
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(USA)%",
+        "%internet%",
+        "USA:%201%",
+        "1990"
+      ],
+      [
+        "[de]",
+        "release dates",
+        "%r%",
+        "%theatrical%",
+        "%TV%",
+        "%15%",
+        1891
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(theatrical)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:% 200%",
+        "2005"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(2006)%",
+        "%internet%",
+        "USA:%201%",
+        "1990"
+      ],
+      [
+        "[sg]",
+        "certificates",
+        "%a%",
+        "%t%",
+        "%B%",
+        "%e%",
+        2006
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%u%",
+        "%u%",
+        "%p%",
+        "%2%",
+        2002
+      ],
+      [
+        "[nl]",
+        "release dates",
+        "%)%",
+        "%)%",
+        "%c%",
+        "%9%",
+        1998
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:% 200%",
+        "2005"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%co%",
+        "%i%",
+        "%i%",
+        1996
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%p%",
+        "%s%",
+        "%i%",
+        2000
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(theatrical)%",
+        "%internet%",
+        "USA:% 200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%r%",
+        "%USA%",
+        "%u%",
+        "%i%",
+        2005
+      ],
+      [
+        "[us]",
+        "certificates",
+        "%9%",
+        "%U%",
+        "%n%",
+        "%G%",
+        1961
+      ],
+      [
+        "[se]",
+        "release dates",
+        "%8%",
+        "%w%",
+        "%(%",
+        "%S%",
+        1987
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%USA%",
+        "%TV%",
+        "%1%",
+        "%o%",
+        1985
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(worldwide)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:%200%",
+        "2005"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(2006)%",
+        "%internet%",
+        "USA:%201%",
+        "1990"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(worldwide)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:%201%",
+        "1950"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%limited%",
+        "%DVD%",
+        "%DVD%",
+        "%r%",
+        1931
+      ],
+      [
+        "[at]",
+        "certificates",
+        "%(%",
+        "%(%",
+        "%n%",
+        "%l%",
+        1952
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%theatrical%",
+        "%USA%",
+        "%City%",
+        "%a%",
+        2008
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%u%",
+        "%)%",
+        "%e%",
+        "%0%",
+        2006
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(worldwide)%",
+        "%(2006)%",
+        "%internet%",
+        "USA:%2008%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(worldwide)%",
+        "%internet%",
+        "USA:%2008%",
+        "2005"
+      ],
+      [
+        "[gr]",
+        "plot",
+        "%H%",
+        "%8%",
+        "%B%",
+        "%c%",
+        1996
+      ],
+      [
+        "[au]",
+        "color info",
+        "%H%",
+        "%a%",
+        "%r%",
+        "%C%",
+        1990
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%TV%",
+        "%2009%",
+        "%premiere%",
+        "%l%",
+        1986
+      ],
+      [
+        "[gb]",
+        "tech info",
+        "%B%",
+        "%D%",
+        "%3%",
+        "%0%",
+        1990
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%o%",
+        "%0%",
+        "%e%",
+        "%y%",
+        1960
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%e%",
+        "%t%",
+        "%premiere%",
+        "%r%",
+        2006
+      ],
+      [
+        "[es]",
+        "certificates",
+        "%4%",
+        "%l%",
+        "%(%",
+        "%a%",
+        2003
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%2005%",
+        "%original%",
+        "%premiere%",
+        "%A%",
+        1957
+      ],
+      [
+        "[us]",
+        "certificates",
+        "%t%",
+        "%r%",
+        "%i%",
+        "%1%",
+        1979
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%production%",
+        "%TV%",
+        "%u%",
+        "%1%",
+        2003
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(theatrical)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:%200%",
+        "1990"
+      ],
+      [
+        "[fr]",
+        "release dates",
+        "%2003%",
+        "%TV%",
+        "%n%",
+        "%A%",
+        1981
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%co%",
+        "%2012%",
+        "%premiere%",
+        "%U%",
+        1927
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2006)%",
+        "%(worldwide)%",
+        "%internet%",
+        "USA:%200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2007)%",
+        "%(worldwide)%",
+        "%internet%",
+        "USA:%200%",
+        "1950"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(theatrical)%",
+        "%internet%",
+        "USA:%201%",
+        "2005"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%2008%",
+        "%USA%",
+        "%H%",
+        "%t%",
+        2006
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(2007)%",
+        "%internet%",
+        "USA:%200%",
+        "2005"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%TV%",
+        "%i%",
+        "%Festival%",
+        "%t%",
+        1997
+      ],
+      [
+        "[br]",
+        "release dates",
+        "%r%",
+        "%?%",
+        "%e%",
+        "%n%",
+        1990
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2006)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:% 200%",
+        "1950"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(2006)%",
+        "%internet%",
+        "USA:%200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2007)%",
+        "%(worldwide)%",
+        "%internet%",
+        "USA:% 200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(worldwide)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:%2008%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%USA%",
+        "%theatrical%",
+        "%a%",
+        "%r%",
+        2003
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%USA%",
+        "%on%",
+        "%1%",
+        1991
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2006)%",
+        "%(worldwide)%",
+        "%internet%",
+        "USA:%200%",
+        "1990"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:%2008%",
+        "1990"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%USA%",
+        "%DVD%",
+        "%premiere%",
+        "%D%",
+        1982
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%and%",
+        "%USA%",
+        "%DVD%",
+        "%USA%",
+        1933
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(USA)%",
+        "%internet%",
+        "Japan:%200%",
+        "1950"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(worldwide)%",
+        "%internet%",
+        "USA:%200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(theatrical)%",
+        "%(USA)%",
+        "%internet%",
+        "USA:%2008%",
+        "2005"
+      ],
+      [
+        "[my]",
+        "release dates",
+        "%)%",
+        "%)%",
+        "%D%",
+        "%2%",
+        2006
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%e%",
+        "%USA%",
+        "%version%",
+        "%o%",
+        1963
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(worldwide)%",
+        "%(2007)%",
+        "%internet%",
+        "USA:%200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(USA)%",
+        "%internet%",
+        "USA:%200%",
+        "1990"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(theatrical)%",
+        "%internet%",
+        "USA:%201%",
+        "1950"
+      ],
+      [
+        "[us]",
+        "locations",
+        "%)%",
+        "%i%",
+        "%)%",
+        "%C%",
+        1997
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:% 200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%0%",
+        "%d%",
+        "%r%",
+        "%r%",
+        2005
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%t%",
+        "%(%",
+        "%e%",
+        "%1%",
+        1953
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%2004%",
+        "%2005%",
+        "%u%",
+        "%o%",
+        1921
+      ],
+      [
+        "[se]",
+        "plot",
+        "%2%",
+        "%c%",
+        "%y%",
+        "%m%",
+        2006
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%1%",
+        "%(%",
+        "%d%",
+        "%9%",
+        1987
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%2%",
+        "%(%",
+        "%i%",
+        "%2%",
+        2007
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%USA%",
+        "%DVD%",
+        "%1%",
+        "%C%",
+        1990
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(200%)%",
+        "%internet%",
+        "Japan:%200%",
+        "2005"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%2012%",
+        "%release%",
+        "%UK%",
+        1943
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2007)%",
+        "%(worldwide)%",
+        "%internet%",
+        "USA:%200%",
+        "2005"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%2001%",
+        "%DVD%",
+        "%DVD%",
+        "%C%",
+        1926
+      ],
+      [
+        "[us]",
+        "plot",
+        "%0%",
+        "%)%",
+        "%>%",
+        "%e%",
+        1947
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(worldwide)%",
+        "%(2006)%",
+        "%internet%",
+        "USA:%200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "certificates",
+        "%D%",
+        "%(%",
+        "%i%",
+        "%:%",
+        1966
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(theatrical)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:% 200%",
+        "2005"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%2008%",
+        "%USA%",
+        "%premiere%",
+        "%o%",
+        2000
+      ],
+      [
+        "[hk]",
+        "tech info",
+        "%t%",
+        "%u%",
+        "%(%",
+        "%r%",
+        2006
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(2006)%",
+        "%internet%",
+        "USA:%2008%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2007)%",
+        "%(USA)%",
+        "%internet%",
+        "USA:% 200%",
+        "2005"
+      ],
+      [
+        "[ae]",
+        "tech info",
+        "%l%",
+        "%(%",
+        "%)%",
+        "%d%",
+        2012
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%widescreen%",
+        "%premiere%",
+        "%o%",
+        1999
+      ],
+      [
+        "[jp]",
+        "release dates",
+        "%a%",
+        "%0%",
+        "%C%",
+        "%F%",
+        2002
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2007)%",
+        "%(worldwide)%",
+        "%internet%",
+        "USA:%200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%theatrical%",
+        "%DVD%",
+        "%n%",
+        "%S%",
+        1971
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%theatrical%",
+        "%USA%",
+        "%New%",
+        "%l%",
+        1990
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%with%",
+        "%premiere%",
+        "%A%",
+        1976
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%worldwide%",
+        "%premiere%",
+        "%M%",
+        1974
+      ],
+      [
+        "[gr]",
+        "tech info",
+        "%2%",
+        "%0%",
+        "%(%",
+        "%n%",
+        2010
+      ],
+      [
+        "[se]",
+        "plot",
+        "%9%",
+        "%S%",
+        "%t%",
+        "%o%",
+        1996
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%2009%",
+        "%2008%",
+        "%DVD%",
+        "%A%",
+        1997
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%USA%",
+        "%theatrical%",
+        "%premiere%",
+        "%u%",
+        2009
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:% 200%",
+        "2008"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(worldwide)%",
+        "%(2006)%",
+        "%internet%",
+        "USA:%200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%VHS%",
+        "%DVD%",
+        "%premiere%",
+        "%o%",
+        1980
+      ],
+      [
+        "[ar]",
+        "release dates",
+        "%a%",
+        "%a%",
+        "%e%",
+        "%c%",
+        1992
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(theatrical)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:% 200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%DVD%",
+        "%USA%",
+        "%premiere%",
+        "%o%",
+        1964
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%TV%",
+        "%2007%",
+        "%DVD%",
+        "%m%",
+        1981
+      ],
+      [
+        "[fr]",
+        "release dates",
+        "%r%",
+        "%DVD%",
+        "%version%",
+        "%o%",
+        1991
+      ],
+      [
+        "[dk]",
+        "release dates",
+        "%m%",
+        "%m%",
+        "%m%",
+        "%7%",
+        1976
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(2006)%",
+        "%(200%)%",
+        "%internet%",
+        "USA:%200%",
+        "1990"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(200%)%",
+        "%(USA)%",
+        "%internet%",
+        "USA:% 200%",
+        "2000"
+      ],
+      [
+        "[us]",
+        "release dates",
+        "%(USA)%",
+        "%(2006)%",
+        "%internet%",
+        "USA:%201%",
+        "2000"
+      ]
+    ]
+  }
+}

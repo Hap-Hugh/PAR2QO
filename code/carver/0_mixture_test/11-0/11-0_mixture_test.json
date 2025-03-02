@@ -1,0 +1,2209 @@
+{
+  "11-0": {
+    "query": "SELECT MIN(cn.name) AS from_company, MIN(lt.link) AS movie_link_type, MIN(t.title) AS non_polish_sequel_movie\nFROM company_name AS cn,\n company_type AS ct,\n keyword AS k,\n link_type AS lt,\n movie_companies AS mc,\n movie_keyword AS mk,\n movie_link AS ml,\n title AS t\nWHERE lt.id = ml.link_type_id\n AND ml.movie_id = t.id\n AND t.id = mk.movie_id\n AND mk.keyword_id = k.id\n AND t.id = mc.movie_id\n AND mc.company_type_id = ct.id\n AND mc.company_id = cn.id\n AND ml.movie_id = mk.movie_id\n AND ml.movie_id = mc.movie_id\n AND mk.movie_id = mc.movie_id\nAND cn.country_code != '@param0'\nAND (cn.name LIKE '@param1' OR cn.name LIKE '@param2')\nAND ct.kind = '@param3'\nAND k.keyword = '@param4'\nAND lt.link LIKE '@param5'\nAND mc.note IS NULL\nAND t.production_year BETWEEN @param6 AND @param7;",
+    "predicates": [
+      {
+        "alias": "cn",
+        "column": "country_code",
+        "operator": "!=",
+        "data_type": "text",
+        "table": "company_name",
+        "join_tables_alias": [
+          "mc"
+        ],
+        "join_tables": [
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "mc.company_id = cn.id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "cn",
+        "column": "name",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "company_name",
+        "join_tables_alias": [
+          "mc"
+        ],
+        "join_tables": [
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "mc.company_id = cn.id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "cn",
+        "column": "name",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "company_name",
+        "join_tables_alias": [
+          "mc"
+        ],
+        "join_tables": [
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "mc.company_id = cn.id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "ct",
+        "column": "kind",
+        "operator": "=",
+        "data_type": "text",
+        "table": "company_type",
+        "join_tables_alias": [
+          "mc"
+        ],
+        "join_tables": [
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "mc.company_type_id = ct.id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "k",
+        "column": "keyword",
+        "operator": "=",
+        "data_type": "text",
+        "table": "keyword",
+        "join_tables_alias": [
+          "mk"
+        ],
+        "join_tables": [
+          "movie_keyword"
+        ],
+        "join_conditions": [
+          "mk.keyword_id = k.id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "lt",
+        "column": "link",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "link_type",
+        "join_tables_alias": [
+          "ml"
+        ],
+        "join_tables": [
+          "movie_link"
+        ],
+        "join_conditions": [
+          "lt.id = ml.link_type_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "t",
+        "column": "production_year",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "title",
+        "min": 1880,
+        "max": 2019,
+        "join_tables_alias": [
+          "ml",
+          "mk",
+          "mc"
+        ],
+        "join_tables": [
+          "movie_link",
+          "movie_keyword",
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "ml.movie_id = t.id",
+          "t.id = mk.movie_id",
+          "t.id = mc.movie_id"
+        ],
+        "left_or_right": [
+          "l",
+          "l",
+          "l"
+        ],
+        "join_tables_column": [
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "alias": "t",
+        "column": "production_year",
+        "operator": "<=",
+        "data_type": "int",
+        "table": "title",
+        "min": 1880,
+        "max": 2019,
+        "join_tables_alias": [
+          "ml",
+          "mk",
+          "mc"
+        ],
+        "join_tables": [
+          "movie_link",
+          "movie_keyword",
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "ml.movie_id = t.id",
+          "t.id = mk.movie_id",
+          "t.id = mc.movie_id"
+        ],
+        "left_or_right": [
+          "l",
+          "l",
+          "l"
+        ],
+        "join_tables_column": [
+          [],
+          [],
+          []
+        ]
+      }
+    ],
+    "params": [
+      [
+        "[ph]",
+        "%M%",
+        "%G%",
+        "production companies",
+        "politics",
+        "%e%",
+        1937,
+        2011
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follows%",
+        "2000",
+        "2007"
+      ],
+      [
+        "[us]",
+        "%r%",
+        "%e%",
+        "production companies",
+        "character-name-in-title",
+        "%e%",
+        1996,
+        2011
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2010"
+      ],
+      [
+        "[de]",
+        "%Broadcasting%",
+        "%Produktion%",
+        "production companies",
+        "character-name-in-title",
+        "%in%",
+        1954,
+        1998
+      ],
+      [
+        "[fr]",
+        "%Video%",
+        "%General%",
+        "distributors",
+        "based-on-novel",
+        "%o%",
+        1998,
+        2001
+      ],
+      [
+        "[us]",
+        "%a%",
+        "%m%",
+        "production companies",
+        "music-industry",
+        "%i%",
+        1958,
+        2011
+      ],
+      [
+        "[fr]",
+        "%Broadcasting%",
+        "%BBC%",
+        "production companies",
+        "based-on-novel",
+        "%version%",
+        1956,
+        2010
+      ],
+      [
+        "[de]",
+        "%Broadcasting%",
+        "%Universal%",
+        "production companies",
+        "independent-film",
+        "%r%",
+        1979,
+        2007
+      ],
+      [
+        "[bd]",
+        "%NBC%",
+        "%BBC%",
+        "distributors",
+        "character-name-in-title",
+        "%featured%",
+        1985,
+        2011
+      ],
+      [
+        "[sa]",
+        "%Fox%",
+        "%ABS%",
+        "distributors",
+        "character-name-in-title",
+        "%version%",
+        1966,
+        2014
+      ],
+      [
+        "[us]",
+        "%l%",
+        "%a%",
+        "production companies",
+        "homosexual",
+        "%e%",
+        1966,
+        2017
+      ],
+      [
+        "[us]",
+        "%Corporation%",
+        "%Columbia%",
+        "production companies",
+        "murder",
+        "%in%",
+        1950,
+        1973
+      ],
+      [
+        "[pl]",
+        "20th Century Fox%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follows%",
+        "2000",
+        "2010"
+      ],
+      [
+        "[de]",
+        "%Broadcasting%",
+        "%CBS%",
+        "production companies",
+        "sex",
+        "%u%",
+        1969,
+        1987
+      ],
+      [
+        "[ca]",
+        "%t%",
+        "%E%",
+        "production companies",
+        "beauty-salon",
+        "%f%",
+        1982,
+        2017
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "2000",
+        "2007"
+      ],
+      [
+        "[us]",
+        "%Broadcasting%",
+        "%Yleisradio%",
+        "production companies",
+        "murder",
+        "%e%",
+        1954,
+        1968
+      ],
+      [
+        "[us]",
+        "%n%",
+        "%RedLeaf%",
+        "production companies",
+        "character-name-in-title",
+        "%in%",
+        1987,
+        1994
+      ],
+      [
+        "[gp]",
+        "%ABC%",
+        "%Warner%",
+        "production companies",
+        "female-nudity",
+        "%featured%",
+        1981,
+        2008
+      ],
+      [
+        "[us]",
+        "%t%",
+        "%t%",
+        "production companies",
+        "based-on-book",
+        "%n%",
+        1943,
+        1990
+      ],
+      [
+        "[us]",
+        "%System%",
+        "%Company%",
+        "production companies",
+        "based-on-novel",
+        "%version%",
+        1995,
+        2011
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "%Warner%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1950",
+        "2010"
+      ],
+      [
+        "[lu]",
+        "%CBS%",
+        "%Home%",
+        "distributors",
+        "number-in-title",
+        "%s%",
+        1952,
+        2007
+      ],
+      [
+        "[ao]",
+        "%Goldwyn%",
+        "%Entertainment%",
+        "production companies",
+        "character-name-in-title",
+        "%c%",
+        1979,
+        2011
+      ],
+      [
+        "[pl]",
+        "Twentieth Century Fox%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2008"
+      ],
+      [
+        "[us]",
+        "%Warner%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1950",
+        "2005"
+      ],
+      [
+        "[us]",
+        "%Company%",
+        "%British%",
+        "production companies",
+        "character-name-in-title",
+        "%featured%",
+        1974,
+        1979
+      ],
+      [
+        "[us]",
+        "%Broadcasting%",
+        "%ABC%",
+        "distributors",
+        "character-name-in-title",
+        "%in%",
+        1961,
+        1997
+      ],
+      [
+        "[us]",
+        "%s%",
+        "%n%",
+        "production companies",
+        "secret-identity",
+        "%o%",
+        1986,
+        2010
+      ],
+      [
+        "[gb]",
+        "%y%",
+        "%S%",
+        "production companies",
+        "end-of-the-world-scenario",
+        "%e%",
+        1997,
+        2016
+      ],
+      [
+        "[fr]",
+        "%System%",
+        "%Broadcasting%",
+        "production companies",
+        "character-name-in-title",
+        "%f%",
+        2000,
+        2006
+      ],
+      [
+        "[gb]",
+        "%S%",
+        "%B%",
+        "production companies",
+        "apocalypse",
+        "%f%",
+        1924,
+        2017
+      ],
+      [
+        "[us]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "1990",
+        "2000"
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "%Warner%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2010"
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "%Warner%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "1990",
+        "2015"
+      ],
+      [
+        "[us]",
+        "%t%",
+        "%a%",
+        "production companies",
+        "sled",
+        "%v%",
+        1900,
+        2017
+      ],
+      [
+        "[us]",
+        "%Video%",
+        "%BBC%",
+        "production companies",
+        "sex",
+        "%s%",
+        1980,
+        2000
+      ],
+      [
+        "[zw]",
+        "%CBN%",
+        "%ABC%",
+        "distributors",
+        "character-name-in-title",
+        "%in%",
+        1980,
+        2006
+      ],
+      [
+        "[bt]",
+        "%CBN%",
+        "%Broadcasting%",
+        "distributors",
+        "sex",
+        "%e%",
+        1963,
+        1992
+      ],
+      [
+        "[fr]",
+        "%ABS%",
+        "%Broadcasting%",
+        "production companies",
+        "character-name-in-title",
+        "%e%",
+        1945,
+        2007
+      ],
+      [
+        "[gb]",
+        "%r%",
+        "%r%",
+        "production companies",
+        "lie",
+        "%o%",
+        1907,
+        2006
+      ],
+      [
+        "[us]",
+        "%t%",
+        "%o%",
+        "production companies",
+        "brother-sister-relationship",
+        "%r%",
+        1889,
+        2017
+      ],
+      [
+        "[pl]",
+        "20th Century Fox%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1950",
+        "2008"
+      ],
+      [
+        "[cz]",
+        "%YLE%",
+        "%Warner%",
+        "production companies",
+        "character-name-in-title",
+        "%n%",
+        1969,
+        2001
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "Lionsgate%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "1990",
+        "2010"
+      ],
+      [
+        "[pl]",
+        "%Warner%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2005",
+        "2010"
+      ],
+      [
+        "[us]",
+        "%Film%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1990",
+        "2010"
+      ],
+      [
+        "[pl]",
+        "%Warner%",
+        "%Film%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "%r%",
+        "%l%",
+        "production companies",
+        "lawyer",
+        "%i%",
+        1910,
+        2017
+      ],
+      [
+        "[de]",
+        "%British%",
+        "%Inter%",
+        "production companies",
+        "based-on-novel",
+        "%n%",
+        1984,
+        2010
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "%Warner%",
+        "distributors",
+        "sequel",
+        "%follow%",
+        "1990",
+        "2000"
+      ],
+      [
+        "[de]",
+        "%Warner%",
+        "%Broadcasting%",
+        "production companies",
+        "murder",
+        "%f%",
+        1939,
+        2011
+      ],
+      [
+        "[us]",
+        "%o%",
+        "%d%",
+        "production companies",
+        "makeover",
+        "%f%",
+        1967,
+        2011
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "%Home%",
+        "%AB%",
+        "production companies",
+        "sex",
+        "%e%",
+        1935,
+        2011
+      ],
+      [
+        "[us]",
+        "%E%",
+        "%S%",
+        "production companies",
+        "dead-body",
+        "%f%",
+        1914,
+        2016
+      ],
+      [
+        "[gb]",
+        "%20th%",
+        "%a%",
+        "distributors",
+        "character-name-in-title",
+        "%from%",
+        1961,
+        2008
+      ],
+      [
+        "[us]",
+        "%CBN%",
+        "%Broadcasting%",
+        "production companies",
+        "non-fiction",
+        "%referenced%",
+        1918,
+        1971
+      ],
+      [
+        "[zw]",
+        "%National%",
+        "%Broadcasting%",
+        "production companies",
+        "character-name-in-title",
+        "%featured%",
+        1971,
+        2017
+      ],
+      [
+        "[us]",
+        "%c%",
+        "%P%",
+        "production companies",
+        "revenge",
+        "%r%",
+        1986,
+        2013
+      ],
+      [
+        "[gb]",
+        "%Broadcasting%",
+        "%i%",
+        "production companies",
+        "character-name-in-title",
+        "%featured%",
+        1939,
+        1973
+      ],
+      [
+        "[lk]",
+        "%Entertainment%",
+        "%Columbia%",
+        "production companies",
+        "murder",
+        "%referenced%",
+        1996,
+        2004
+      ],
+      [
+        "[ie]",
+        "%K%",
+        "%CBS%",
+        "production companies",
+        "murder",
+        "%version%",
+        1985,
+        2010
+      ],
+      [
+        "[ca]",
+        "%i%",
+        "%i%",
+        "production companies",
+        "based-on-play",
+        "%e%",
+        1985,
+        2017
+      ],
+      [
+        "[us]",
+        "%r%",
+        "%o%",
+        "production companies",
+        "cowardice",
+        "%r%",
+        1893,
+        2019
+      ],
+      [
+        "[us]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2005",
+        "2010"
+      ],
+      [
+        "[dk]",
+        "%Warner%",
+        "%Broadcasting%",
+        "distributors",
+        "character-name-in-title",
+        "%referenced%",
+        1983,
+        2003
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "1990",
+        "2010"
+      ],
+      [
+        "[gb]",
+        "%n%",
+        "%r%",
+        "production companies",
+        "sequel",
+        "%o%",
+        1965,
+        1995
+      ],
+      [
+        "[de]",
+        "%Columbia%",
+        "%Pictures%",
+        "production companies",
+        "sex",
+        "%in%",
+        1998,
+        2009
+      ],
+      [
+        "[us]",
+        "%Film%",
+        "20th Century Fox%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1990",
+        "2008"
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2007"
+      ],
+      [
+        "[pl]",
+        "20th Century Fox%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2005",
+        "2015"
+      ],
+      [
+        "[jp]",
+        "%P%",
+        "%k%",
+        "production companies",
+        "nurse",
+        "%r%",
+        1906,
+        2013
+      ],
+      [
+        "[pl]",
+        "20th Century Fox%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1990",
+        "2008"
+      ],
+      [
+        "[fr]",
+        "%Television%",
+        "%American%",
+        "distributors",
+        "murder",
+        "%of%",
+        1969,
+        1998
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "%Warner%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1990",
+        "2008"
+      ],
+      [
+        "[us]",
+        "%Film%",
+        "%Warner%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "1990",
+        "2015"
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2015"
+      ],
+      [
+        "[gb]",
+        "%e%",
+        "%T%",
+        "production companies",
+        "spy",
+        "%s%",
+        1944,
+        1985
+      ],
+      [
+        "[us]",
+        "%u%",
+        "%i%",
+        "production companies",
+        "sister-sister-relationship",
+        "%d%",
+        1900,
+        2004
+      ],
+      [
+        "[us]",
+        "%A%",
+        "%s%",
+        "production companies",
+        "revenge",
+        "%s%",
+        1892,
+        2020
+      ],
+      [
+        "[gb]",
+        "%)%",
+        "%i%",
+        "production companies",
+        "sequel",
+        "%f%",
+        1892,
+        1988
+      ],
+      [
+        "[us]",
+        "%N%",
+        "%l%",
+        "production companies",
+        "actress",
+        "%e%",
+        1970,
+        2010
+      ],
+      [
+        "[bo]",
+        "%Company%",
+        "%of%",
+        "production companies",
+        "character-name-in-title",
+        "%featured%",
+        1978,
+        2012
+      ],
+      [
+        "[au]",
+        "%u%",
+        "%p%",
+        "production companies",
+        "non-fiction",
+        "%c%",
+        1952,
+        1965
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2014"
+      ],
+      [
+        "[us]",
+        "%Canada%",
+        "%BBC%",
+        "production companies",
+        "murder",
+        "%s%",
+        1965,
+        2017
+      ],
+      [
+        "[lt]",
+        "%National%",
+        "%Deutsches%",
+        "distributors",
+        "character-name-in-title",
+        "%in%",
+        1899,
+        2001
+      ],
+      [
+        "[pl]",
+        "%Warner%",
+        "%Film%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "1950",
+        "2010"
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "%Warner%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1990",
+        "1995"
+      ],
+      [
+        "[gb]",
+        "%r%",
+        "%i%",
+        "production companies",
+        "polytheism",
+        "%e%",
+        1961,
+        2019
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2005",
+        "2010"
+      ],
+      [
+        "[us]",
+        "%Broadcasting%",
+        "%Film%",
+        "distributors",
+        "character-name-in-title",
+        "%in%",
+        1979,
+        2009
+      ],
+      [
+        "[us]",
+        "Twentieth Century Fox%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1990",
+        "2010"
+      ],
+      [
+        "[us]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2015"
+      ],
+      [
+        "[gb]",
+        "%r%",
+        "%r%",
+        "production companies",
+        "religion",
+        "%f%",
+        1934,
+        2008
+      ],
+      [
+        "[us]",
+        "%a%",
+        "%i%",
+        "production companies",
+        "construction-site",
+        "%e%",
+        1997,
+        2007
+      ],
+      [
+        "[us]",
+        "%i%",
+        "%i%",
+        "production companies",
+        "performance",
+        "%e%",
+        1946,
+        2014
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "%Warner%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2008"
+      ],
+      [
+        "[gb]",
+        "%Company%",
+        "%American%",
+        "production companies",
+        "female-nudity",
+        "%o%",
+        1971,
+        2006
+      ],
+      [
+        "[ml]",
+        "%National%",
+        "%Warner%",
+        "production companies",
+        "character-name-in-title",
+        "%r%",
+        2001,
+        2008
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "%NBC%",
+        "%Broadcasting%",
+        "distributors",
+        "husband-wife-relationship",
+        "%f%",
+        1995,
+        2011
+      ],
+      [
+        "[us]",
+        "%v%",
+        "%l%",
+        "production companies",
+        "actor-shares-first-name-with-character",
+        "%f%",
+        1968,
+        2008
+      ],
+      [
+        "[us]",
+        "%B%",
+        "%o%",
+        "production companies",
+        "reporter",
+        "%f%",
+        1899,
+        2000
+      ],
+      [
+        "[af]",
+        "%ABS%",
+        "%Corporation%",
+        "production companies",
+        "character-name-in-title",
+        "%r%",
+        1925,
+        1989
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "20th Century Fox%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1990",
+        "2010"
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "20th Century Fox%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1950",
+        "2014"
+      ],
+      [
+        "[us]",
+        "%Warner%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2005",
+        "2008"
+      ],
+      [
+        "[us]",
+        "%British%",
+        "%National%",
+        "production companies",
+        "murder",
+        "%n%",
+        1929,
+        2000
+      ],
+      [
+        "[us]",
+        "%B%",
+        "%r%",
+        "production companies",
+        "irony",
+        "%t%",
+        1972,
+        2003
+      ],
+      [
+        "[sm]",
+        "%NODE%",
+        "%BBC%",
+        "distributors",
+        "murder",
+        "%s%",
+        1979,
+        2001
+      ],
+      [
+        "[gb]",
+        "%y%",
+        "%B%",
+        "production companies",
+        "destiny",
+        "%r%",
+        1983,
+        2005
+      ],
+      [
+        "[pl]",
+        "20th Century Fox%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2008"
+      ],
+      [
+        "[us]",
+        "%Warner%",
+        "%Film%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "2000",
+        "2005"
+      ],
+      [
+        "[gb]",
+        "%r%",
+        "%e%",
+        "production companies",
+        "interview",
+        "%n%",
+        1933,
+        2012
+      ],
+      [
+        "[gb]",
+        "%o%",
+        "%B%",
+        "production companies",
+        "end-of-the-world-scenario",
+        "%e%",
+        1993,
+        2019
+      ],
+      [
+        "[ir]",
+        "%Universal%",
+        "%Broadcasting%",
+        "production companies",
+        "murder",
+        "%w%",
+        1997,
+        2011
+      ],
+      [
+        "[us]",
+        "%n%",
+        "%e%",
+        "production companies",
+        "mother-daughter-relationship",
+        "%r%",
+        1985,
+        2006
+      ],
+      [
+        "[gb]",
+        "%i%",
+        "%k%",
+        "production companies",
+        "refugee",
+        "%n%",
+        1993,
+        2008
+      ],
+      [
+        "[fj]",
+        "%Home%",
+        "%System%",
+        "distributors",
+        "character-name-in-title",
+        "%l%",
+        1954,
+        2017
+      ],
+      [
+        "[us]",
+        "%n%",
+        "%n%",
+        "production companies",
+        "based-on-comic-book",
+        "%f%",
+        1926,
+        2019
+      ],
+      [
+        "[us]",
+        "%Film%",
+        "%BBC%",
+        "distributors",
+        "character-name-in-title",
+        "%f%",
+        1976,
+        2010
+      ],
+      [
+        "[gb]",
+        "%s%",
+        "%r%",
+        "production companies",
+        "hybrid",
+        "%i%",
+        1908,
+        2019
+      ],
+      [
+        "[us]",
+        "%Broadcasting%",
+        "%i%",
+        "distributors",
+        "murder",
+        "%w%",
+        1998,
+        2006
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "20th Century Fox%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1950",
+        "2015"
+      ],
+      [
+        "[ru]",
+        "%Pictures%",
+        "%Home%",
+        "production companies",
+        "non-fiction",
+        "%r%",
+        1990,
+        2007
+      ],
+      [
+        "[pe]",
+        "%Home%",
+        "%n%",
+        "distributors",
+        "based-on-novel",
+        "%referenced%",
+        1927,
+        2004
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "Twentieth Century Fox%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1950",
+        "2014"
+      ],
+      [
+        "[us]",
+        "%Warner%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "%Film%",
+        "Lionsgate%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "1990",
+        "2014"
+      ],
+      [
+        "[kr]",
+        "%Company%",
+        "%Video%",
+        "distributors",
+        "character-name-in-title",
+        "%referenced%",
+        1899,
+        2000
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "%Warner%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1950",
+        "2008"
+      ],
+      [
+        "[us]",
+        "%c%",
+        "%Video%",
+        "production companies",
+        "murder",
+        "%of%",
+        1961,
+        2007
+      ],
+      [
+        "[us]",
+        "%s%",
+        "%D%",
+        "distributors",
+        "anime",
+        "%e%",
+        1899,
+        1999
+      ],
+      [
+        "[pl]",
+        "20th Century Fox%",
+        "%Film%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "2000",
+        "2010"
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1950",
+        "2010"
+      ],
+      [
+        "[us]",
+        "%Film%",
+        "%Warner%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "1950",
+        "2010"
+      ],
+      [
+        "[us]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follows%",
+        "2005",
+        "2010"
+      ],
+      [
+        "[gb]",
+        "%TV%",
+        "%ABS%",
+        "distributors",
+        "sex",
+        "%r%",
+        1896,
+        2008
+      ],
+      [
+        "[be]",
+        "%Television%",
+        "%Company%",
+        "distributors",
+        "husband-wife-relationship",
+        "%in%",
+        1967,
+        2011
+      ],
+      [
+        "[pl]",
+        "20th Century Fox%",
+        "Lionsgate%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "1950",
+        "2005"
+      ],
+      [
+        "[us]",
+        "%Film%",
+        "20th Century Fox%",
+        "production companies",
+        "sequel",
+        "%follows%",
+        "2000",
+        "2010"
+      ],
+      [
+        "[la]",
+        "%Film%",
+        "%Company%",
+        "production companies",
+        "female-nudity",
+        "%c%",
+        2001,
+        2003
+      ],
+      [
+        "[us]",
+        "%British%",
+        "%Broadcasting%",
+        "production companies",
+        "female-nudity",
+        "%e%",
+        1969,
+        2008
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "Twentieth Century Fox%",
+        "%Film%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "2000",
+        "2007"
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1990",
+        "2010"
+      ],
+      [
+        "[us]",
+        "%D%",
+        "%F%",
+        "distributors",
+        "earth",
+        "%n%",
+        1930,
+        1995
+      ],
+      [
+        "[us]",
+        "%Zweites%",
+        "%Company%",
+        "production companies",
+        "character-name-in-title",
+        "%referenced%",
+        1984,
+        2003
+      ],
+      [
+        "[us]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2010"
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2010"
+      ],
+      [
+        "[pl]",
+        "20th Century Fox%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1990",
+        "2010"
+      ],
+      [
+        "[us]",
+        "%e%",
+        "%o%",
+        "production companies",
+        "sitcom",
+        "%o%",
+        1994,
+        2014
+      ],
+      [
+        "[us]",
+        "%Film%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2008"
+      ],
+      [
+        "[us]",
+        "%s%",
+        "%m%",
+        "production companies",
+        "bodyguard",
+        "%e%",
+        2002,
+        2014
+      ],
+      [
+        "[jp]",
+        "%P%",
+        "%.%",
+        "production companies",
+        "eyepatch",
+        "%e%",
+        1952,
+        2015
+      ],
+      [
+        "[gb]",
+        "%Columbia%",
+        "%The%",
+        "distributors",
+        "murder",
+        "%s%",
+        1902,
+        1998
+      ],
+      [
+        "[do]",
+        "%d%",
+        "%i%",
+        "production companies",
+        "rocker",
+        "%o%",
+        1973,
+        2012
+      ],
+      [
+        "[us]",
+        "%r%",
+        "%t%",
+        "production companies",
+        "snow",
+        "%n%",
+        1957,
+        2005
+      ],
+      [
+        "[us]",
+        "%l%",
+        "%i%",
+        "production companies",
+        "death",
+        "%e%",
+        1953,
+        2011
+      ],
+      [
+        "[us]",
+        "%Broadcasting%",
+        "%CBS%",
+        "production companies",
+        "independent-film",
+        "%a%",
+        1983,
+        2005
+      ],
+      [
+        "[pl]",
+        "%Warner%",
+        "%Film%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "2000",
+        "2015"
+      ],
+      [
+        "[us]",
+        "%American%",
+        "%Company%",
+        "production companies",
+        "character-name-in-title",
+        "%w%",
+        1990,
+        2017
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "20th Century Fox%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1990",
+        "2008"
+      ],
+      [
+        "[ly]",
+        "%Productions%",
+        "%Corporation%",
+        "distributors",
+        "character-name-in-title",
+        "%in%",
+        1954,
+        2000
+      ],
+      [
+        "[us]",
+        "%D%",
+        "%t%",
+        "production companies",
+        "eviction",
+        "%r%",
+        1967,
+        2016
+      ],
+      [
+        "[us]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "1990",
+        "2015"
+      ],
+      [
+        "[us]",
+        "%T%",
+        "%n%",
+        "production companies",
+        "based-on-comic",
+        "%e%",
+        1903,
+        2015
+      ],
+      [
+        "[us]",
+        "Twentieth Century Fox%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1990",
+        "2010"
+      ],
+      [
+        "[de]",
+        "%NBC%",
+        "%Hayk%",
+        "distributors",
+        "character-name-in-title",
+        "%of%",
+        1894,
+        1995
+      ],
+      [
+        "[us]",
+        "%i%",
+        "%F%",
+        "distributors",
+        "rescue",
+        "%i%",
+        1942,
+        2010
+      ],
+      [
+        "[pl]",
+        "Twentieth Century Fox%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1990",
+        "2008"
+      ],
+      [
+        "[pl]",
+        "%Warner%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2010"
+      ],
+      [
+        "[gb]",
+        "%B%",
+        "%g%",
+        "production companies",
+        "love",
+        "%e%",
+        1990,
+        2007
+      ],
+      [
+        "[us]",
+        "%d%",
+        "%Broadcasting%",
+        "production companies",
+        "based-on-play",
+        "%e%",
+        1985,
+        1993
+      ],
+      [
+        "[gb]",
+        "%d%",
+        "%B%",
+        "production companies",
+        "apocalypse",
+        "%i%",
+        1911,
+        2013
+      ],
+      [
+        "[pl]",
+        "%Warner%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "1990",
+        "2010"
+      ],
+      [
+        "[in]",
+        "%V%",
+        "%Path\u00c3\u00a9%",
+        "distributors",
+        "sex",
+        "%referenced%",
+        1999,
+        2007
+      ],
+      [
+        "[gg]",
+        "%Company%",
+        "%Broadcasting%",
+        "distributors",
+        "character-name-in-title",
+        "%w%",
+        1994,
+        2011
+      ],
+      [
+        "[mx]",
+        "%Century%",
+        "%Company%",
+        "production companies",
+        "character-name-in-title",
+        "%s%",
+        1991,
+        2012
+      ],
+      [
+        "[fr]",
+        "%Corporation%",
+        "%Broadcasting%",
+        "production companies",
+        "character-name-in-title",
+        "%featured%",
+        1995,
+        2003
+      ],
+      [
+        "[jp]",
+        "%l%",
+        "%C%",
+        "production companies",
+        "actress-playing-multiple-roles",
+        "%e%",
+        1901,
+        2015
+      ],
+      [
+        "[us]",
+        "%l%",
+        "%s%",
+        "production companies",
+        "death",
+        "%r%",
+        1998,
+        2014
+      ],
+      [
+        "[lk]",
+        "%Broadcasting%",
+        "%ABC%",
+        "production companies",
+        "sex",
+        "%followed%",
+        1949,
+        2004
+      ],
+      [
+        "[um]",
+        "%Company%",
+        "%Film%",
+        "production companies",
+        "sex",
+        "%r%",
+        1957,
+        2017
+      ],
+      [
+        "[pl]",
+        "%Warner%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2005",
+        "2008"
+      ],
+      [
+        "[pl]",
+        "Lionsgate%",
+        "%Film%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2005",
+        "2015"
+      ],
+      [
+        "[fr]",
+        "%Company%",
+        "%Broadcasting%",
+        "production companies",
+        "nudity",
+        "%in%",
+        1999,
+        2005
+      ],
+      [
+        "[gb]",
+        "%i%",
+        "%B%",
+        "production companies",
+        "lie",
+        "%e%",
+        1889,
+        2015
+      ],
+      [
+        "[pl]",
+        "%Film%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2005",
+        "2010"
+      ],
+      [
+        "[fr]",
+        "%BBC%",
+        "%Applied%",
+        "production companies",
+        "sex",
+        "%in%",
+        1998,
+        2012
+      ],
+      [
+        "[se]",
+        "%Entertainment%",
+        "%Corporation%",
+        "distributors",
+        "sex",
+        "%in%",
+        1962,
+        2003
+      ],
+      [
+        "[fr]",
+        "%CBN%",
+        "%Corporation%",
+        "production companies",
+        "sex",
+        "%s%",
+        1967,
+        1996
+      ],
+      [
+        "[us]",
+        "%s%",
+        "%i%",
+        "production companies",
+        "teacher",
+        "%c%",
+        1914,
+        2014
+      ],
+      [
+        "[pl]",
+        "20th Century Fox%",
+        "%Warner%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "1990",
+        "2014"
+      ],
+      [
+        "[us]",
+        "%Film%",
+        "Lionsgate%",
+        "production companies",
+        "character-name-in-title",
+        "%follow%",
+        "2000",
+        "2014"
+      ],
+      [
+        "[us]",
+        "%Warner%",
+        "%Film%",
+        "production companies",
+        "sequel",
+        "%follow%",
+        "1990",
+        "2005"
+      ]
+    ]
+  }
+}

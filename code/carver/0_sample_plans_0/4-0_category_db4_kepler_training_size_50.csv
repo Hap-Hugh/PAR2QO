@@ -1,0 +1,3001 @@
+query,plan_id,plan_content
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '9.0'
+ AND t.production_year > 2010;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%u%'
+ AND mi_idx.info > '0....2..05'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '45'
+ AND t.production_year > 2002;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%n%'
+ AND mi_idx.info > '2111010001'
+ AND t.production_year > 2001;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%d%'
+ AND mi_idx.info > '4.4'
+ AND t.production_year > 1990;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%l%'
+ AND mi_idx.info > '4.0'
+ AND t.production_year > 2007;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%i%'
+ AND mi_idx.info > '2211000000'
+ AND t.production_year > 1988;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '5.9'
+ AND t.production_year > 2003;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '1111110000'
+ AND t.production_year > 1995;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%p%'
+ AND mi_idx.info > '7.6'
+ AND t.production_year > 1985;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%d%'
+ AND mi_idx.info > '0000001123'
+ AND t.production_year > 2007;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '0000001222'
+ AND t.production_year > 2012;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%h%'
+ AND mi_idx.info > '0.00022002'
+ AND t.production_year > 1995;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '..1.1111.2'
+ AND t.production_year > 1984;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%n%'
+ AND mi_idx.info > '2010001000'
+ AND t.production_year > 2008;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '6.3'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%u%'
+ AND mi_idx.info > '16'
+ AND t.production_year > 2011;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%-%'
+ AND mi_idx.info > '4.3'
+ AND t.production_year > 2001;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%l%'
+ AND mi_idx.info > '..1.211..1'
+ AND t.production_year > 2001;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%l%'
+ AND mi_idx.info > '12'
+ AND t.production_year > 2007;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%i%'
+ AND mi_idx.info > '4000000001'
+ AND t.production_year > 1998;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%b%'
+ AND mi_idx.info > '0000000007'
+ AND t.production_year > 2004;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%t%'
+ AND mi_idx.info > '6.9'
+ AND t.production_year > 2002;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '6.8'
+ AND t.production_year > 1989;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%m%'
+ AND mi_idx.info > '6.6'
+ AND t.production_year > 2001;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%i%'
+ AND mi_idx.info > '31'
+ AND t.production_year > 1994;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%y%'
+ AND mi_idx.info > '6.1'
+ AND t.production_year > 2004;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '21..2.22..'
+ AND t.production_year > 1991;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '2.00.02.03'
+ AND t.production_year > 1996;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '...213.2..'
+ AND t.production_year > 1994;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%l%'
+ AND mi_idx.info > '4.0'
+ AND t.production_year > 1996;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%k%'
+ AND mi_idx.info > '1011110000'
+ AND t.production_year > 2007;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%l%'
+ AND mi_idx.info > '28'
+ AND t.production_year > 1995;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%y%'
+ AND mi_idx.info > '402'
+ AND t.production_year > 1997;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '5.0'
+ AND t.production_year > 2000;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%p%'
+ AND mi_idx.info > '......2.15'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '25'
+ AND t.production_year > 2004;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%-%'
+ AND mi_idx.info > '1000011102'
+ AND t.production_year > 2006;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '...2.2222.'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%t%'
+ AND mi_idx.info > '0...010400'
+ AND t.production_year > 2001;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '2.00.00004'
+ AND t.production_year > 2009;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%p%'
+ AND mi_idx.info > '5.4'
+ AND t.production_year > 1997;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '...31112..'
+ AND t.production_year > 1993;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '20.0.11102'
+ AND t.production_year > 2001;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%c%'
+ AND mi_idx.info > '4...12...3'
+ AND t.production_year > 2010;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%b%'
+ AND mi_idx.info > '3762'
+ AND t.production_year > 2007;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%m%'
+ AND mi_idx.info > '45'
+ AND t.production_year > 1997;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%g%'
+ AND mi_idx.info > '..01010014'
+ AND t.production_year > 1985;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%n%'
+ AND mi_idx.info > '18'
+ AND t.production_year > 2009;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%f%'
+ AND mi_idx.info > '17'
+ AND t.production_year > 2007;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%u%'
+ AND mi_idx.info > '7'
+ AND t.production_year > 2004;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '.2.2.222..'
+ AND t.production_year > 1992;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '5.2'
+ AND t.production_year > 1998;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '983'
+ AND t.production_year > 1994;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%p%'
+ AND mi_idx.info > '200.000103'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '4000100001'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '..11..311.'
+ AND t.production_year > 1984;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '6.8'
+ AND t.production_year > 2008;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '3...2..111'
+ AND t.production_year > 1985;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '0000001113'
+ AND t.production_year > 1979;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '0000122000'
+ AND t.production_year > 1994;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%g%'
+ AND mi_idx.info > '0000000115'
+ AND t.production_year > 2007;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%-%'
+ AND mi_idx.info > '4.3'
+ AND t.production_year > 2003;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '0112.0...1'
+ AND t.production_year > 1999;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '1019'
+ AND t.production_year > 1995;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%t%'
+ AND mi_idx.info > '7.8'
+ AND t.production_year > 2006;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%l%'
+ AND mi_idx.info > '5.2'
+ AND t.production_year > 1998;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%b%'
+ AND mi_idx.info > '30'
+ AND t.production_year > 2000;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%b%'
+ AND mi_idx.info > '3.7'
+ AND t.production_year > 1990;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '16'
+ AND t.production_year > 1988;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%i%'
+ AND mi_idx.info > '0001011001'
+ AND t.production_year > 1996;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%-%'
+ AND mi_idx.info > '2017'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '1.00.0.014'
+ AND t.production_year > 1999;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '5.7'
+ AND t.production_year > 1999;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '222'
+ AND t.production_year > 1999;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '554'
+ AND t.production_year > 2006;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '119'
+ AND t.production_year > 2003;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '6'
+ AND t.production_year > 1997;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '55'
+ AND t.production_year > 1998;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '3693'
+ AND t.production_year > 2011;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '18'
+ AND t.production_year > 2006;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%c%'
+ AND mi_idx.info > '1000110012'
+ AND t.production_year > 2001;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '......61.1'
+ AND t.production_year > 1996;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '4.8'
+ AND t.production_year > 2002;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '5.3'
+ AND t.production_year > 2003;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%n%'
+ AND mi_idx.info > '7.7'
+ AND t.production_year > 2000;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%n%'
+ AND mi_idx.info > '0.00002113'
+ AND t.production_year > 1993;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '2000110001'
+ AND t.production_year > 1997;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%d%'
+ AND mi_idx.info > '0.0.100.03'
+ AND t.production_year > 1994;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '4.9'
+ AND t.production_year > 2008;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%t%'
+ AND mi_idx.info > '3.6'
+ AND t.production_year > 2004;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%n%'
+ AND mi_idx.info > '.......0.9'
+ AND t.production_year > 2007;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '0000000104'
+ AND t.production_year > 1998;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '1964'
+ AND t.production_year > 1998;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%p%'
+ AND mi_idx.info > '0001211000'
+ AND t.production_year > 2008;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%y%'
+ AND mi_idx.info > '503'
+ AND t.production_year > 2001;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '6.4'
+ AND t.production_year > 1993;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%u%'
+ AND mi_idx.info > '6692'
+ AND t.production_year > 2008;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '8'
+ AND t.production_year > 1995;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%g%'
+ AND mi_idx.info > '109'
+ AND t.production_year > 2001;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%t%'
+ AND mi_idx.info > '6.3'
+ AND t.production_year > 1986;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '96'
+ AND t.production_year > 1999;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%c%'
+ AND mi_idx.info > '11'
+ AND t.production_year > 1993;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '1001210001'
+ AND t.production_year > 1999;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%l%'
+ AND mi_idx.info > '16'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '10'
+ AND t.production_year > 2007;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '5.9'
+ AND t.production_year > 1999;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '9590'
+ AND t.production_year > 1999;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%-%'
+ AND mi_idx.info > '31'
+ AND t.production_year > 2007;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%h%'
+ AND mi_idx.info > '10....0204'
+ AND t.production_year > 2007;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%l%'
+ AND mi_idx.info > '572'
+ AND t.production_year > 1997;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%t%'
+ AND mi_idx.info > '2000010002'
+ AND t.production_year > 1996;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%-%'
+ AND mi_idx.info > '31....23..'
+ AND t.production_year > 1995;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '6.8'
+ AND t.production_year > 1998;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '0000111101'
+ AND t.production_year > 1990;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '65'
+ AND t.production_year > 1978;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%v%'
+ AND mi_idx.info > '161'
+ AND t.production_year > 2002;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '..1..11.13'
+ AND t.production_year > 2002;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%l%'
+ AND mi_idx.info > '5.8'
+ AND t.production_year > 2009;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '6.7'
+ AND t.production_year > 1988;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%v%'
+ AND mi_idx.info > '14'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '1....01015'
+ AND t.production_year > 1985;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%c%'
+ AND mi_idx.info > '3.7'
+ AND t.production_year > 2008;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '218'
+ AND t.production_year > 1994;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%n%'
+ AND mi_idx.info > '..21.113.1'
+ AND t.production_year > 2000;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%g%'
+ AND mi_idx.info > '101'
+ AND t.production_year > 1991;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '3.2'
+ AND t.production_year > 2008;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%u%'
+ AND mi_idx.info > '000.0200.4'
+ AND t.production_year > 2006;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '.....42..4'
+ AND t.production_year > 2002;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%-%'
+ AND mi_idx.info > '2212'
+ AND t.production_year > 2007;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%l%'
+ AND mi_idx.info > '139'
+ AND t.production_year > 1997;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '86'
+ AND t.production_year > 2001;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '....6.2.2.'
+ AND t.production_year > 2008;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '5.4'
+ AND t.production_year > 2004;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%t%'
+ AND mi_idx.info > '40000000.2'
+ AND t.production_year > 1993;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '0011211001'
+ AND t.production_year > 1998;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%i%'
+ AND mi_idx.info > '6.1'
+ AND t.production_year > 2007;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '2110100.00'
+ AND t.production_year > 2002;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%l%'
+ AND mi_idx.info > '6.3'
+ AND t.production_year > 1993;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '5.5'
+ AND t.production_year > 1994;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%t%'
+ AND mi_idx.info > '.050..02.0'
+ AND t.production_year > 1994;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%n%'
+ AND mi_idx.info > '3.4'
+ AND t.production_year > 2002;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%m%'
+ AND mi_idx.info > '1.6'
+ AND t.production_year > 2004;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%g%'
+ AND mi_idx.info > '2.000000.4'
+ AND t.production_year > 2003;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%u%'
+ AND mi_idx.info > '17'
+ AND t.production_year > 1999;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%n%'
+ AND mi_idx.info > '00310.0..1'
+ AND t.production_year > 2004;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%f%'
+ AND mi_idx.info > '1000021101'
+ AND t.production_year > 2002;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%n%'
+ AND mi_idx.info > '8'
+ AND t.production_year > 1998;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%l%'
+ AND mi_idx.info > '0100101101'
+ AND t.production_year > 2001;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '14'
+ AND t.production_year > 1999;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '3.9'
+ AND t.production_year > 2000;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%l%'
+ AND mi_idx.info > '47'
+ AND t.production_year > 1999;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '4..1.1...4'
+ AND t.production_year > 1992;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%n%'
+ AND mi_idx.info > '68'
+ AND t.production_year > 1990;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%d%'
+ AND mi_idx.info > '0011210000'
+ AND t.production_year > 2009;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '6.4'
+ AND t.production_year > 1993;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%y%'
+ AND mi_idx.info > '....1.2222'
+ AND t.production_year > 1997;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '3.1'
+ AND t.production_year > 2009;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '142'
+ AND t.production_year > 2004;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '2.......25'
+ AND t.production_year > 2006;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%g%'
+ AND mi_idx.info > '3.5'
+ AND t.production_year > 2002;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%t%'
+ AND mi_idx.info > '1011110000'
+ AND t.production_year > 2007;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '5.1'
+ AND t.production_year > 2001;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '106'
+ AND t.production_year > 1991;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '3.9'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '1.11100003'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%i%'
+ AND mi_idx.info > '1..0001023'
+ AND t.production_year > 2009;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '1010100002'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '7.3'
+ AND t.production_year > 1994;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '.0..112110'
+ AND t.production_year > 2003;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%y%'
+ AND mi_idx.info > '61'
+ AND t.production_year > 1983;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '.1.10..015'
+ AND t.production_year > 1997;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%m%'
+ AND mi_idx.info > '7'
+ AND t.production_year > 2000;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%t%'
+ AND mi_idx.info > '6.4'
+ AND t.production_year > 2009;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%k%'
+ AND mi_idx.info > '1011010002'
+ AND t.production_year > 1993;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%m%'
+ AND mi_idx.info > '.1....30.4'
+ AND t.production_year > 1997;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '0000001211'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%u%'
+ AND mi_idx.info > '.0.00.1312'
+ AND t.production_year > 1999;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '0000011101'
+ AND t.production_year > 1988;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%a%'
+ AND mi_idx.info > '1....01.04'
+ AND t.production_year > 2007;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%d%'
+ AND mi_idx.info > '6.8'
+ AND t.production_year > 1997;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '0010101002'
+ AND t.production_year > 1994;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%f%'
+ AND mi_idx.info > '1..1.12122'
+ AND t.production_year > 2005;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%o%'
+ AND mi_idx.info > '2091'
+ AND t.production_year > 2010;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '0101001202'
+ AND t.production_year > 1996;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%s%'
+ AND mi_idx.info > '6.5'
+ AND t.production_year > 1994;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%m%'
+ AND mi_idx.info > '179'
+ AND t.production_year > 2010;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%h%'
+ AND mi_idx.info > '3111000000'
+ AND t.production_year > 2001;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%-%'
+ AND mi_idx.info > '00.0000004'
+ AND t.production_year > 2008;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%n%'
+ AND mi_idx.info > '0000011102'
+ AND t.production_year > 2009;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%d%'
+ AND mi_idx.info > '1000111001'
+ AND t.production_year > 1984;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%c%'
+ AND mi_idx.info > '3.0'
+ AND t.production_year > 2001;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%v%'
+ AND mi_idx.info > '49'
+ AND t.production_year > 1996;",12,/*+  SeqScan(mi_idx) SeqScan(it) IndexScan(t cat_title_4_pkey) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) NestLoop(mi_idx it t) NestLoop(mi_idx it t mk) HashJoin(mi_idx it t mk k) Leading(((((mi_idx it) t) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '6.8'
+ AND t.production_year > 2000;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%x%'
+ AND mi_idx.info > '4.9'
+ AND t.production_year > 1990;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes distribution'
+ AND k.keyword LIKE '%b%'
+ AND mi_idx.info > '1111110000'
+ AND t.production_year > 2004;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%n%'
+ AND mi_idx.info > '4.3'
+ AND t.production_year > 1999;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'rating'
+ AND k.keyword LIKE '%e%'
+ AND mi_idx.info > '5.1'
+ AND t.production_year > 1997;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%r%'
+ AND mi_idx.info > '6'
+ AND t.production_year > 1996;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */
+"SELECT MIN(mi_idx.info) AS rating, MIN(t.title) AS movie_title
+ FROM cat_info_type_4 AS it,
+ cat_keyword_4 AS k,
+ cat_movie_info_idx_4 AS mi_idx,
+ cat_movie_keyword_4 AS mk,
+ cat_title_4 AS t
+ WHERE t.id = mi_idx.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi_idx.movie_id
+ AND k.id = mk.keyword_id
+ AND it.id = mi_idx.info_type_id
+ AND it.info = 'votes'
+ AND k.keyword LIKE '%d%'
+ AND mi_idx.info > '6'
+ AND t.production_year > 2001;",72,/*+  SeqScan(t) SeqScan(mi_idx) SeqScan(it) IndexScan(mk movie_id_movie_keyword_cat_4) SeqScan(k) HashJoin(mi_idx it) HashJoin(t mi_idx it) NestLoop(t mi_idx it mk) HashJoin(t mi_idx it mk k) Leading((((t (mi_idx it)) mk) k)) */

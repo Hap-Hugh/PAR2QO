@@ -1,0 +1,259 @@
+{
+    "084": {
+        "query": "SELECT min(c_customer_id),\n       min(sr_ticket_number),\n       min(sr_item_sk)\nFROM customer ,\n     customer_address ,\n     customer_demographics ,\n     household_demographics ,\n     income_band ,\n     store_returns\nWHERE ca_city = '@param0'\n  AND c_current_addr_sk = ca_address_sk\n  AND ib_lower_bound >= @param1\n  AND ib_upper_bound <= @param1 + 50000\n  AND ib_income_band_sk = hd_income_band_sk\n  AND cd_demo_sk = c_current_cdemo_sk\n  AND hd_demo_sk = c_current_hdemo_sk\n  AND sr_cdemo_sk = cd_demo_sk ;",
+        "predicates": [
+            {
+                "alias": "",
+                "column": "ca_city",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "customer"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "c_current_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "c_current_addr_sk = ca_address_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ib_lower_bound",
+                "operator": ">=",
+                "data_type": "int",
+                "table": "income_band",
+                "min": 0,
+                "max": 190001,
+                "join_tables": [
+                    "household_demographics"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "hd_income_band_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ib_income_band_sk = hd_income_band_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            }
+        ],
+        "params": [
+            [
+                "Pleasant Grove",
+                "50000"
+            ],
+            [
+                "Newtown",
+                "50000"
+            ],
+            [
+                "Newtown",
+                "10000"
+            ],
+            [
+                "Newtown",
+                "10000"
+            ],
+            [
+                "Jamestown",
+                "70000"
+            ],
+            [
+                "Sunnyside",
+                "70000"
+            ],
+            [
+                "Macedonia",
+                "0"
+            ],
+            [
+                "Kingston",
+                "60000"
+            ],
+            [
+                "Deerfield",
+                "40000"
+            ],
+            [
+                "Midway",
+                "20000"
+            ],
+            [
+                "Providence",
+                "20000"
+            ],
+            [
+                "Providence",
+                "20000"
+            ],
+            [
+                "White Oak",
+                "0"
+            ],
+            [
+                "Wildwood",
+                "50000"
+            ],
+            [
+                "Ashland",
+                "30000"
+            ],
+            [
+                "Five Forks",
+                "10000"
+            ],
+            [
+                "Red Hill",
+                "50000"
+            ],
+            [
+                "Spring Valley",
+                "50000"
+            ],
+            [
+                "Riverside",
+                "10000"
+            ],
+            [
+                "Shady Grove",
+                "40000"
+            ],
+            [
+                "Cedar Grove",
+                "40000"
+            ],
+            [
+                "Kingston",
+                "0"
+            ],
+            [
+                "Riverview",
+                "20000"
+            ],
+            [
+                "Forest Hills",
+                "60000"
+            ],
+            [
+                "Mount Olive",
+                "70000"
+            ],
+            [
+                "Clinton",
+                "50000"
+            ],
+            [
+                "Summit",
+                "20000"
+            ],
+            [
+                "Five Forks",
+                "70000"
+            ],
+            [
+                "Pleasant Hill",
+                "50000"
+            ],
+            [
+                "Macedonia",
+                "40000"
+            ],
+            [
+                "Plainview",
+                "60000"
+            ],
+            [
+                "Springdale",
+                "60000"
+            ],
+            [
+                "Bridgeport",
+                "20000"
+            ],
+            [
+                "Buena Vista",
+                "30000"
+            ],
+            [
+                "Centerville",
+                "70000"
+            ],
+            [
+                "Maple Grove",
+                "60000"
+            ],
+            [
+                "Friendship",
+                "0"
+            ],
+            [
+                "Mount Zion",
+                "20000"
+            ],
+            [
+                "Brownsville",
+                "70000"
+            ],
+            [
+                "Brownsville",
+                "70000"
+            ],
+            [
+                "Brownsville",
+                "20000"
+            ],
+            [
+                "Five Points",
+                "40000"
+            ],
+            [
+                "Oakdale",
+                "10000"
+            ],
+            [
+                "Lakeside",
+                "60000"
+            ],
+            [
+                "Red Hill",
+                "60000"
+            ],
+            [
+                "Deerfield",
+                "50000"
+            ],
+            [
+                "Shiloh",
+                "60000"
+            ],
+            [
+                "Highland Park",
+                "60000"
+            ],
+            [
+                "Hamilton",
+                "10000"
+            ],
+            [
+                "Ashland",
+                "0"
+            ]
+        ]
+    }
+}

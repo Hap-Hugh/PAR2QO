@@ -1,0 +1,2035 @@
+{
+  "8-0": {
+    "query": "SELECT MIN(an.name) AS actress_pseudonym, MIN(t.title) AS japanese_movie_dubbed\nFROM aka_name AS an,\n cast_info AS ci,\n company_name AS cn,\n movie_companies AS mc,\n name AS n,\n role_type AS rt,\n title AS t\nWHERE an.person_id = n.id\n AND n.id = ci.person_id\n AND ci.movie_id = t.id\n AND t.id = mc.movie_id\n AND mc.company_id = cn.id\n AND ci.role_id = rt.id\n AND an.person_id = ci.person_id\n AND ci.movie_id = mc.movie_id\nAND ci.note = '@param0'\nAND cn.country_code = '@param1'\nAND mc.note LIKE '@param2'\nAND mc.note NOT LIKE '@param3'\nAND n.name LIKE '@param4'\nAND n.name NOT LIKE '@param5'\nAND rt.role = '@param6';",
+    "predicates": [
+      {
+        "alias": "ci",
+        "column": "note",
+        "operator": "=",
+        "data_type": "text",
+        "table": "cast_info",
+        "join_tables_alias": [
+          "n",
+          "t",
+          "rt",
+          "an",
+          "mc"
+        ],
+        "join_tables": [
+          "name",
+          "title",
+          "role_type",
+          "aka_name",
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "n.id = ci.person_id",
+          "ci.movie_id = t.id",
+          "ci.role_id = rt.id",
+          "an.person_id = ci.person_id",
+          "ci.movie_id = mc.movie_id"
+        ],
+        "left_or_right": [
+          "both",
+          "l",
+          "both",
+          "l",
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "name"
+          ],
+          [],
+          [
+            "role"
+          ],
+          [],
+          [
+            "note"
+          ]
+        ]
+      },
+      {
+        "alias": "cn",
+        "column": "country_code",
+        "operator": "=",
+        "data_type": "text",
+        "table": "company_name",
+        "join_tables_alias": [
+          "mc"
+        ],
+        "join_tables": [
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "mc.company_id = cn.id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "note"
+          ]
+        ]
+      },
+      {
+        "alias": "mc",
+        "column": "note",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "movie_companies",
+        "join_tables_alias": [
+          "t",
+          "cn",
+          "ci"
+        ],
+        "join_tables": [
+          "title",
+          "company_name",
+          "cast_info"
+        ],
+        "join_conditions": [
+          "t.id = mc.movie_id",
+          "mc.company_id = cn.id",
+          "ci.movie_id = mc.movie_id"
+        ],
+        "left_or_right": [
+          "l",
+          "both",
+          "both"
+        ],
+        "join_tables_column": [
+          [],
+          [
+            "country_code"
+          ],
+          [
+            "note"
+          ]
+        ]
+      },
+      {
+        "alias": "mc",
+        "column": "note",
+        "operator": "NOT LIKE",
+        "data_type": "text",
+        "table": "movie_companies",
+        "join_tables_alias": [
+          "t",
+          "cn",
+          "ci"
+        ],
+        "join_tables": [
+          "title",
+          "company_name",
+          "cast_info"
+        ],
+        "join_conditions": [
+          "t.id = mc.movie_id",
+          "mc.company_id = cn.id",
+          "ci.movie_id = mc.movie_id"
+        ],
+        "left_or_right": [
+          "l",
+          "both",
+          "both"
+        ],
+        "join_tables_column": [
+          [],
+          [
+            "country_code"
+          ],
+          [
+            "note"
+          ]
+        ]
+      },
+      {
+        "alias": "n",
+        "column": "name",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "name",
+        "join_tables_alias": [
+          "an",
+          "ci"
+        ],
+        "join_tables": [
+          "aka_name",
+          "cast_info"
+        ],
+        "join_conditions": [
+          "an.person_id = n.id",
+          "n.id = ci.person_id"
+        ],
+        "left_or_right": [
+          "l",
+          "both"
+        ],
+        "join_tables_column": [
+          [],
+          [
+            "note"
+          ]
+        ]
+      },
+      {
+        "alias": "n",
+        "column": "name",
+        "operator": "NOT LIKE",
+        "data_type": "text",
+        "table": "name",
+        "join_tables_alias": [
+          "an",
+          "ci"
+        ],
+        "join_tables": [
+          "aka_name",
+          "cast_info"
+        ],
+        "join_conditions": [
+          "an.person_id = n.id",
+          "n.id = ci.person_id"
+        ],
+        "left_or_right": [
+          "l",
+          "both"
+        ],
+        "join_tables_column": [
+          [],
+          [
+            "note"
+          ]
+        ]
+      },
+      {
+        "alias": "rt",
+        "column": "role",
+        "operator": "=",
+        "data_type": "text",
+        "table": "role_type",
+        "join_tables_alias": [
+          "ci"
+        ],
+        "join_tables": [
+          "cast_info"
+        ],
+        "join_conditions": [
+          "ci.role_id = rt.id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "note"
+          ]
+        ]
+      }
+    ],
+    "params": [
+      [
+        "(production executive: Infinity)",
+        "[us]",
+        "%(%",
+        "%9%",
+        "%o%",
+        "%R%",
+        "miscellaneous crew"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(2007)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%M%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(uncredited)",
+        "[ca]",
+        "%c%",
+        "%t%",
+        "%a%",
+        "%t%",
+        "actress"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(VHS)%",
+        "%(USA)%",
+        "%J%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%2006%",
+        "%co%",
+        "%D%",
+        "%Joey%",
+        "producer"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%USA%",
+        "%with%",
+        "%Kevin%",
+        "%Albert%",
+        "actor"
+      ],
+      [
+        "(screenplay and adaptation)",
+        "[fr]",
+        "%t%",
+        "%m%",
+        "%e%",
+        "%F%",
+        "writer"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%with%",
+        "%1995%",
+        "%Rob%",
+        "%William%",
+        "producer"
+      ],
+      [
+        "(executive producer)",
+        "[us]",
+        "%TV%",
+        "%2006%",
+        "%Harry%",
+        "%Moore%",
+        "producer"
+      ],
+      [
+        "(executive producer)",
+        "[us]",
+        "%p%",
+        "%i%",
+        "%Sr%",
+        "%n%",
+        "producer"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%c%",
+        "%Golden%",
+        "%Godfrey%",
+        "%Greenhough%",
+        "producer"
+      ],
+      [
+        "(continuity)",
+        "[gb]",
+        "%)%",
+        "%a%",
+        "%i%",
+        "%a%",
+        "miscellaneous crew"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%USA%",
+        "%TV%",
+        "%Frank%",
+        "%Ko%",
+        "actor"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(200%)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%J%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(executive producer)",
+        "[us]",
+        "%worldwide%",
+        "%DVD%",
+        "%Wolf%",
+        "%D%",
+        "producer"
+      ],
+      [
+        "(executive producer)",
+        "[jp]",
+        "%(%",
+        "%a%",
+        "%c%",
+        "%n%",
+        "producer"
+      ],
+      [
+        "(voice)",
+        "[nl]",
+        "%(2007)%",
+        "%(USA)%",
+        "%Yo%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%c%",
+        "%2010%",
+        "%Quinn%",
+        "%Kimberly%",
+        "actor"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%USA%",
+        "%media%",
+        "%h%",
+        "%Roger%",
+        "producer"
+      ],
+      [
+        "(writer)",
+        "[us]",
+        "%USA%",
+        "%2006%",
+        "%Frank%",
+        "%Dever%",
+        "miscellaneous crew"
+      ],
+      [
+        "(production assistant)",
+        "[br]",
+        "%l%",
+        "%2%",
+        "%t%",
+        "%K%",
+        "miscellaneous crew"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%TV%",
+        "%worldwide%",
+        "%Michaels%",
+        "%Reems%",
+        "actor"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(worldwide)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "A%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(archive footage)",
+        "[us]",
+        "%association%",
+        "%TV%",
+        "%Ho%",
+        "%Cassie%",
+        "actress"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%USA%",
+        "%r%",
+        "%Roger%",
+        "%Havlan%",
+        "producer"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(theatrical)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%G%",
+        "%Yu%",
+        "actor"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(Blu-ray)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%G%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%co%",
+        "%theatrical%",
+        "%Ho%",
+        "%Jana%",
+        "producer"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%USA%",
+        "%Hungary%",
+        "%Jes\u00c3\u00bas%",
+        "%Robert%",
+        "actor"
+      ],
+      [
+        "(voice) (uncredited)",
+        "[us]",
+        "%(%",
+        "%0%",
+        "%r%",
+        "%s%",
+        "actor"
+      ],
+      [
+        "(script supervisor)",
+        "[nl]",
+        "%(%",
+        "%i%",
+        "%p%",
+        "%r%",
+        "miscellaneous crew"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%association%",
+        "%USA%",
+        "%Michael%",
+        "%Frank%",
+        "producer"
+      ],
+      [
+        "(costumes: women)",
+        "[fr]",
+        "%(%",
+        "%0%",
+        "%e%",
+        "%r%",
+        "costume designer"
+      ],
+      [
+        "(voice: English version)",
+        "[jp]",
+        "%(200%)%",
+        "%(USA)%",
+        "%S%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(theatrical)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%An%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(Japan)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%W%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(production assistant)",
+        "[us]",
+        "%)%",
+        "%D%",
+        "%P%",
+        "%A%",
+        "miscellaneous crew"
+      ],
+      [
+        "(production assistant)",
+        "[us]",
+        "%2007%",
+        "%2011%",
+        "%Roger%",
+        "%Merv%",
+        "miscellaneous crew"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%2007%",
+        "%in%",
+        "%Dan%",
+        "%Jammot%",
+        "writer"
+      ],
+      [
+        "(executive producer)",
+        "[us]",
+        "%in%",
+        "%DVD%",
+        "%Armand%",
+        "%Dobkowitz%",
+        "producer"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%A%",
+        "%DVD%",
+        "%Joe%",
+        "%Sal%",
+        "writer"
+      ],
+      [
+        "(uncredited)",
+        "[de]",
+        "%)%",
+        "%1%",
+        "%M%",
+        "%r%",
+        "actor"
+      ],
+      [
+        "(screenplay)",
+        "[us]",
+        "%)%",
+        "%?%",
+        "%r%",
+        "%,%",
+        "writer"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(2006)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "C%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(production assistant)",
+        "[us]",
+        "%USA%",
+        "%with%",
+        "%E%",
+        "%Riccardo%",
+        "miscellaneous crew"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(USA)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%Q%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[de]",
+        "%(2007)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%S%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(presents)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "J%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(Japan)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%H%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(double) (uncredited)",
+        "[us]",
+        "%s%",
+        "%V%",
+        "%y%",
+        "%l%",
+        "miscellaneous crew"
+      ],
+      [
+        "(executive producer)",
+        "[fr]",
+        "%t%",
+        "%association%",
+        "%Ho%",
+        "%Dobkowitz%",
+        "producer"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(worldwide)%",
+        "%(USA)%",
+        "%R%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%2004%",
+        "%as%",
+        "%Brian%",
+        "%Armand%",
+        "actress"
+      ],
+      [
+        "(uncredited)",
+        "[fr]",
+        "%F%",
+        "%c%",
+        "%i%",
+        "%C%",
+        "actor"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(worldwide)%",
+        "%(USA)%",
+        "B%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(associate producer)",
+        "[us]",
+        "%Four%",
+        "%TV%",
+        "%Michael%",
+        "%Kane%",
+        "producer"
+      ],
+      [
+        "(craft service)",
+        "[us]",
+        "%a%",
+        "%1%",
+        "%,%",
+        "%n%",
+        "miscellaneous crew"
+      ],
+      [
+        "(writer)",
+        "[us]",
+        "%TV%",
+        "%DVD%",
+        "%Jackie%",
+        "%Ho%",
+        "writer"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%DVD%",
+        "%co%",
+        "%Jonathan%",
+        "%Buttars%",
+        "actor"
+      ],
+      [
+        "(co-producer)",
+        "[us]",
+        "%in%",
+        "%association%",
+        "%Bob%",
+        "%Wallice%",
+        "producer"
+      ],
+      [
+        "(uncredited)",
+        "[es]",
+        "%(%",
+        "%i%",
+        "%m%",
+        "%o%",
+        "actor"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%worldwide%",
+        "%Hungary%",
+        "%Frank%",
+        "%Amato%",
+        "actress"
+      ],
+      [
+        "(associate producer)",
+        "[us]",
+        "%DVD%",
+        "%2005%",
+        "%Danny%",
+        "%Silvera%",
+        "producer"
+      ],
+      [
+        "(executive producer)",
+        "[us]",
+        "%USA%",
+        "%7%",
+        "%Silvera%",
+        "%Uschi%",
+        "producer"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%9%",
+        "%8%",
+        "%i%",
+        "%t%",
+        "actor"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%w%",
+        "%V%",
+        "%D%",
+        "%C%",
+        "actor"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(USA)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%V%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(associate producer)",
+        "[us]",
+        "%DVD%",
+        "%association%",
+        "%Santoro%",
+        "%Cummings%",
+        "producer"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(presents)%",
+        "%(USA)%",
+        "%W%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%A%",
+        "%V%",
+        "%e%",
+        "%,%",
+        "producer"
+      ],
+      [
+        "(associate producer)",
+        "[be]",
+        "%i%",
+        "%2005%",
+        "%D%",
+        "%Kiley%",
+        "producer"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(co-production)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%M%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(presents)%",
+        "%(USA)%",
+        "B%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(VHS)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "L%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(production accountant)",
+        "[au]",
+        "%s%",
+        "%9%",
+        "%t%",
+        "%L%",
+        "miscellaneous crew"
+      ],
+      [
+        "(voice: English version)",
+        "[de]",
+        "%(worldwide)%",
+        "%(USA)%",
+        "%L%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(production assistant)",
+        "[us]",
+        "%USA%",
+        "%r%",
+        "%Bob%",
+        "%Jes\u00c3\u00bas%",
+        "miscellaneous crew"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(worldwide)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "B%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(USA)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%P%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[de]",
+        "%(co-production)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "H%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%A%",
+        "%S%",
+        "%u%",
+        "%K%",
+        "actor"
+      ],
+      [
+        "(assistant producer)",
+        "[fr]",
+        "%)%",
+        "%a%",
+        "%,%",
+        "%h%",
+        "producer"
+      ],
+      [
+        "(location manager)",
+        "[ar]",
+        "%D%",
+        "%2%",
+        "%a%",
+        "%P%",
+        "miscellaneous crew"
+      ],
+      [
+        "(uncredited)",
+        "[fr]",
+        "%)%",
+        "%u%",
+        "%e%",
+        "%i%",
+        "actor"
+      ],
+      [
+        "(uncredited)",
+        "[de]",
+        "%V%",
+        "%e%",
+        "%H%",
+        "%h%",
+        "actor"
+      ],
+      [
+        "(co-producer)",
+        "[us]",
+        "%USA%",
+        "%p%",
+        "%Charles%",
+        "%W%",
+        "producer"
+      ],
+      [
+        "(production assistant) (uncredited)",
+        "[de]",
+        "%c%",
+        "%1%",
+        "%y%",
+        "%B%",
+        "miscellaneous crew"
+      ],
+      [
+        "(voice)",
+        "[nl]",
+        "%(theatrical)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "B%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(associate producer)",
+        "[us]",
+        "%DVD%",
+        "%a%",
+        "%Amato%",
+        "%Franco%",
+        "producer"
+      ],
+      [
+        "(associate producer)",
+        "[us]",
+        "%worldwide%",
+        "%DVD%",
+        "%Armand%",
+        "%Vickers%",
+        "producer"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(co-production)%",
+        "%(USA)%",
+        "%G%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(200%)%",
+        "%(USA)%",
+        "%B%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(assistant accountant)",
+        "[us]",
+        "%s%",
+        "%c%",
+        "%c%",
+        "%u%",
+        "miscellaneous crew"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(VHS)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "A%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%USA%",
+        "%2010%",
+        "%King%",
+        "%Dominique%",
+        "producer"
+      ],
+      [
+        "(voice)",
+        "[nl]",
+        "%(200%)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "B%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice: English version)",
+        "[ru]",
+        "%(theatrical)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%R%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%e%",
+        "%r%",
+        "%l%",
+        "%h%",
+        "composer"
+      ],
+      [
+        "(first assistant accountant)",
+        "[de]",
+        "%y%",
+        "%-%",
+        "%p%",
+        "%u%",
+        "miscellaneous crew"
+      ],
+      [
+        "(voice)",
+        "[jp]",
+        "%D%",
+        "%r%",
+        "%,%",
+        "%r%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(USA)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%L%",
+        "%Yu%",
+        "actor"
+      ],
+      [
+        "(producer)",
+        "[de]",
+        "%DVD%",
+        "%association%",
+        "%Savage%",
+        "%Esther%",
+        "producer"
+      ],
+      [
+        "(producer)",
+        "[se]",
+        "%in%",
+        "%USA%",
+        "%o%",
+        "%Uschi%",
+        "producer"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(200%)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "M%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(producer)",
+        "[es]",
+        "%2001%",
+        "%2003%",
+        "%Michael%",
+        "%Albert%",
+        "producer"
+      ],
+      [
+        "(producer)",
+        "[ru]",
+        "%(%",
+        "%w%",
+        "%s%",
+        "%o%",
+        "producer"
+      ],
+      [
+        "(assistant production coordinator)",
+        "[nl]",
+        "%(%",
+        "%u%",
+        "%L%",
+        "%e%",
+        "miscellaneous crew"
+      ],
+      [
+        "(production assistant)",
+        "[us]",
+        "%USA%",
+        "%2012%",
+        "%Kenny%",
+        "%Hagai%",
+        "miscellaneous crew"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(theatrical)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "Z%",
+        "%Yu%",
+        "actor"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(200%)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%T%",
+        "%Yu%",
+        "actor"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(2006)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%I%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%USA%",
+        "%2005%",
+        "%de%",
+        "%Gage%",
+        "producer"
+      ],
+      [
+        "(uncredited)",
+        "[dk]",
+        "%D%",
+        "%V%",
+        "%n%",
+        "%g%",
+        "actor"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%USA%",
+        "%Hungary%",
+        "%Donald%",
+        "%Tara%",
+        "actor"
+      ],
+      [
+        "(location scout) (uncredited)",
+        "[us]",
+        "%h%",
+        "%i%",
+        "%,%",
+        "%P%",
+        "miscellaneous crew"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(theatrical)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "K%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(VHS)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "M%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(story)",
+        "[ph]",
+        "%)%",
+        "%1%",
+        "%p%",
+        "%e%",
+        "writer"
+      ],
+      [
+        "(co-producer)",
+        "[gb]",
+        "%V%",
+        "%s%",
+        "%l%",
+        "%S%",
+        "producer"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%with%",
+        "%2005%",
+        "%Wayne%",
+        "%Paula%",
+        "producer"
+      ],
+      [
+        "(producer)",
+        "[de]",
+        "%)%",
+        "%e%",
+        "%s%",
+        "%Y%",
+        "producer"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%)%",
+        "%H%",
+        "%l%",
+        "%e%",
+        "actor"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%with%",
+        "%2011%",
+        "%Herb%",
+        "%Jon%",
+        "producer"
+      ],
+      [
+        "(producer)",
+        "[fi]",
+        "%t%",
+        "%9%",
+        "%B%",
+        "%D%",
+        "producer"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%by%",
+        "%in%",
+        "%Claudia%",
+        "%Donald%",
+        "actress"
+      ],
+      [
+        "(co-producer)",
+        "[hu]",
+        "%n%",
+        "%l%",
+        "%,%",
+        "%a%",
+        "producer"
+      ],
+      [
+        "(archive footage)",
+        "[us]",
+        "%S%",
+        "%in%",
+        "%Holland%",
+        "%Defrancesca%",
+        "actor"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(2006)%",
+        "%(USA)%",
+        "%A%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(executive producer)",
+        "[us]",
+        "%r%",
+        "%in%",
+        "%Aaron%",
+        "%Roger%",
+        "producer"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%o%",
+        "%USA%",
+        "%Frank%",
+        "%Aime%",
+        "producer"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(2007)%",
+        "%(USA)%",
+        "%G%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(theatrical)%",
+        "%(USA)%",
+        "R%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(2006)%",
+        "%(USA)%",
+        "N%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(associate producer)",
+        "[de]",
+        "%2009%",
+        "%2008%",
+        "%o%",
+        "%Albert%",
+        "producer"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(2006)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%E%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%DVD%",
+        "%Hungary%",
+        "%Albert%",
+        "%Fawn%",
+        "producer"
+      ],
+      [
+        "(production assistant) (uncredited)",
+        "[us]",
+        "%o%",
+        "%-%",
+        "%t%",
+        "%a%",
+        "miscellaneous crew"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(co-production)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "B%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(VHS)%",
+        "%(USA)%",
+        "%F%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(Japan)%",
+        "%(USA)%",
+        "A%",
+        "%Yu%",
+        "actor"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(200%)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%S%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%2004%",
+        "%n%",
+        "%R%",
+        "%Kimson%",
+        "producer"
+      ],
+      [
+        "(writer)",
+        "[us]",
+        "%1989%",
+        "%2005%",
+        "%Dough%",
+        "%Rose%",
+        "writer"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(co-production)%",
+        "%(USA)%",
+        "%K%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[nl]",
+        "%(2007)%",
+        "%(USA)%",
+        "G%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%Philippines%",
+        "%USA%",
+        "%Robert%",
+        "%Azaria%",
+        "producer"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%USA%",
+        "%TV%",
+        "%Armand%",
+        "%D%",
+        "producer"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(worldwide)%",
+        "%(USA)%",
+        "B%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[jp]",
+        "%(VHS)%",
+        "%(USA)%",
+        "%G%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(USA)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%C%",
+        "%Yu%",
+        "actor"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%i%",
+        "%o%",
+        "%l%",
+        "%e%",
+        "actor"
+      ],
+      [
+        "(executive producer)",
+        "[us]",
+        "%TV%",
+        "%with%",
+        "%Franco%",
+        "%Sal%",
+        "producer"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(presents)%",
+        "%(USA)%",
+        "%A%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(200%)%",
+        "%(USA)%",
+        "%Y%",
+        "%Yu%",
+        "actor"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(200%)%",
+        "%(USA)%",
+        "%A%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(uncredited)",
+        "[es]",
+        "%V%",
+        "%S%",
+        "%,%",
+        "%e%",
+        "actor"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(USA)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "L%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(also archive footage)",
+        "[de]",
+        "%9%",
+        "%t%",
+        "%n%",
+        "%,%",
+        "actress"
+      ],
+      [
+        "(adr loop group)",
+        "[br]",
+        "%)%",
+        "%t%",
+        "%o%",
+        "%s%",
+        "miscellaneous crew"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%in%",
+        "%DVD%",
+        "%Frank%",
+        "%Meer%",
+        "actor"
+      ],
+      [
+        "(associate producer)",
+        "[us]",
+        "%d%",
+        "%2%",
+        "%s%",
+        "%i%",
+        "producer"
+      ],
+      [
+        "(archive footage)",
+        "[us]",
+        "%9%",
+        "%d%",
+        "%,%",
+        "%r%",
+        "actor"
+      ],
+      [
+        "(story)",
+        "[ph]",
+        "%s%",
+        "%0%",
+        "%t%",
+        "%J%",
+        "writer"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%USA%",
+        "%2011%",
+        "%Albert%",
+        "%Paulsen%",
+        "actor"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(theatrical)%",
+        "%(USA)%",
+        "%E%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(associate producer)",
+        "[us]",
+        "%USA%",
+        "%Hungary%",
+        "%Friedman%",
+        "%Barker%",
+        "producer"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(theatrical)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%I%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%VHS%",
+        "%TV%",
+        "%Parker%",
+        "%Tony%",
+        "writer"
+      ],
+      [
+        "(archive footage)",
+        "[nl]",
+        "%2%",
+        "%6%",
+        "%e%",
+        "%W%",
+        "actor"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(worldwide)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "E%",
+        "%Yu%",
+        "actor"
+      ],
+      [
+        "(production assistant) (uncredited)",
+        "[us]",
+        "%s%",
+        "%w%",
+        "%a%",
+        "%n%",
+        "miscellaneous crew"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(VHS)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "J%",
+        "%Yu%",
+        "actor"
+      ],
+      [
+        "(executive producer)",
+        "[us]",
+        "%t%",
+        "%2002%",
+        "%Lee%",
+        "%S%",
+        "producer"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%5%",
+        "%e%",
+        "%,%",
+        "%l%",
+        "actor"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(200%)%",
+        "%(USA)%",
+        "M%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(Blu-ray)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%S%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(production secretary)",
+        "[gb]",
+        "%t%",
+        "%s%",
+        "%y%",
+        "%a%",
+        "miscellaneous crew"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%VHS%",
+        "%the%",
+        "%Brooks%",
+        "%Armand%",
+        "writer"
+      ],
+      [
+        "(screenplay)",
+        "[cz]",
+        "%i%",
+        "%u%",
+        "%k%",
+        "%o%",
+        "writer"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(co-production)%",
+        "%(USA)%",
+        "G%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(production assistant)",
+        "[us]",
+        "%2009%",
+        "%1912%",
+        "%Godfrey%",
+        "%Albert%",
+        "miscellaneous crew"
+      ],
+      [
+        "(associate producer)",
+        "[us]",
+        "%TV%",
+        "%association%",
+        "%D%",
+        "%Le\u00c3\u00b3n%",
+        "producer"
+      ],
+      [
+        "(writer)",
+        "[us]",
+        "%media%",
+        "%2004%",
+        "%Holland%",
+        "%Frank%",
+        "writer"
+      ],
+      [
+        "(voice)",
+        "[hu]",
+        "%o%",
+        "%2004%",
+        "%Lee%",
+        "%Silvera%",
+        "actor"
+      ],
+      [
+        "(executive producer)",
+        "[be]",
+        "%a%",
+        "%e%",
+        "%e%",
+        "%s%",
+        "producer"
+      ],
+      [
+        "(screenplay)",
+        "[de]",
+        "%e%",
+        "%a%",
+        "%r%",
+        "%s%",
+        "writer"
+      ],
+      [
+        "(writer)",
+        "[us]",
+        "%USA%",
+        "%TV%",
+        "%Jes\u00c3\u00bas%",
+        "%Jammot%",
+        "writer"
+      ],
+      [
+        "(writer)",
+        "[br]",
+        "%DVD%",
+        "%USA%",
+        "%t%",
+        "%Dobkowitz%",
+        "writer"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(USA)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "A%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(Japan)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%U%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(executive producer)",
+        "[us]",
+        "%USA%",
+        "%special%",
+        "%Tom%",
+        "%Serbes%",
+        "producer"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%)%",
+        "%v%",
+        "%o%",
+        "%H%",
+        "actor"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(worldwide)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "C%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%USA%",
+        "%1995%",
+        "%Frank%",
+        "%Armand%",
+        "producer"
+      ],
+      [
+        "(archive footage)",
+        "[us]",
+        "%DVD%",
+        "%ray%",
+        "%Franco%",
+        "%Mary%",
+        "actor"
+      ],
+      [
+        "(producer)",
+        "[us]",
+        "%s%",
+        "%2009%",
+        "%J%",
+        "%Jes\u00c3\u00bas%",
+        "producer"
+      ],
+      [
+        "(uncredited)",
+        "[us]",
+        "%H%",
+        "%?%",
+        "%L%",
+        "%d%",
+        "actress"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(2006)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "K%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice)",
+        "[us]",
+        "%(worldwide)%",
+        "%(USA)%",
+        "D%",
+        "%Yu%",
+        "actress"
+      ],
+      [
+        "(voice: English version)",
+        "[us]",
+        "%(co-production)%",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "R%",
+        "%Yu%",
+        "actress"
+      ]
+    ]
+  }
+}

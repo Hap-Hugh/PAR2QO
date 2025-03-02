@@ -1,0 +1,1557 @@
+{
+  "1-0": {
+    "query": "SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year\n FROM company_type AS ct,\n info_type AS it,\n movie_companies AS mc,\n movie_info_idx AS mi_idx,\n title AS t\n WHERE ct.id = mc.company_type_id\n AND t.id = mc.movie_id\n AND t.id = mi_idx.movie_id\n AND mc.movie_id = mi_idx.movie_id\n AND it.id = mi_idx.info_type_id\n AND ct.kind = '@param0'\n AND it.info = '@param1'\n AND mc.note NOT LIKE '@param2'\n AND (mc.note LIKE '@param3' OR mc.note LIKE '@param4');",
+    "predicates": [
+      {
+        "alias": "ct",
+        "column": "kind",
+        "operator": "=",
+        "data_type": "text",
+        "table": "company_type",
+        "join_tables": [
+          "movie_companies"
+        ],
+        "join_tables_alias": [
+          "mc"
+        ],
+        "join_tables_column": [
+          [
+            "note"
+          ]
+        ],
+        "join_conditions": [
+          "ct.id = mc.company_type_id"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "it",
+        "column": "info",
+        "operator": "=",
+        "data_type": "text",
+        "table": "info_type",
+        "join_tables": [
+          "movie_info_idx"
+        ],
+        "join_tables_alias": [
+          "mi_idx"
+        ],
+        "join_tables_column": [
+          []
+        ],
+        "join_conditions": [
+          "it.id = mi_idx.info_type_id"
+        ],
+        "left_or_right": [
+          "l"
+        ]
+      },
+      {
+        "alias": "mc",
+        "column": "note",
+        "operator": "NOT LIKE",
+        "data_type": "text",
+        "table": "movie_companies",
+        "join_tables": [
+          "company_type",
+          "title",
+          "movie_info_idx"
+        ],
+        "join_tables_alias": [
+          "ct",
+          "t",
+          "mi_idx"
+        ],
+        "join_tables_column": [
+          [
+            "kind"
+          ],
+          [],
+          []
+        ],
+        "join_conditions": [
+          "ct.id = mc.company_type_id",
+          "t.id = mc.movie_id",
+          "mc.movie_id = mi_idx.movie_id"
+        ],
+        "left_or_right": [
+          "both",
+          "l",
+          "l"
+        ]
+      },
+      {
+        "alias": "mc",
+        "column": "note",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "movie_companies",
+        "join_tables": [
+          "company_type",
+          "title",
+          "movie_info_idx"
+        ],
+        "join_tables_alias": [
+          "ct",
+          "t",
+          "mi_idx"
+        ],
+        "join_tables_column": [
+          [
+            "kind"
+          ],
+          [],
+          []
+        ],
+        "join_conditions": [
+          "ct.id = mc.company_type_id",
+          "t.id = mc.movie_id",
+          "mc.movie_id = mi_idx.movie_id"
+        ],
+        "left_or_right": [
+          "both",
+          "l",
+          "l"
+        ]
+      },
+      {
+        "alias": "mc",
+        "column": "note",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "movie_companies",
+        "join_tables": [
+          "company_type",
+          "title",
+          "movie_info_idx"
+        ],
+        "join_tables_alias": [
+          "ct",
+          "t",
+          "mi_idx"
+        ],
+        "join_tables_column": [
+          [
+            "kind"
+          ],
+          [],
+          []
+        ],
+        "join_conditions": [
+          "ct.id = mc.company_type_id",
+          "t.id = mc.movie_id",
+          "mc.movie_id = mi_idx.movie_id"
+        ],
+        "left_or_right": [
+          "both",
+          "l",
+          "l"
+        ]
+      }
+    ],
+    "params": [
+      [
+        "distributors",
+        "rating",
+        "%e%",
+        "%i%",
+        "%t%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(Blu-ray)%",
+        "%(2007)%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%o%",
+        "%F%",
+        "%(%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(Blu-ray)%",
+        "%(co-production)%"
+      ],
+      [
+        "distributors",
+        "bottom 10 rank",
+        "%2006%",
+        "%t%",
+        "%in%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%2012%",
+        "%Dominion%",
+        "%Down%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%m%",
+        "%)%",
+        "%m%"
+      ],
+      [
+        "production companies",
+        "bottom 10 rank",
+        "%2010%",
+        "%DVD%",
+        "%a%"
+      ],
+      [
+        "distributors",
+        "bottom 10 rank",
+        "%DVD%",
+        "%production%",
+        "%r%"
+      ],
+      [
+        "production companies",
+        "votes distribution",
+        "%USA%",
+        "%i%",
+        "%association%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%Independent%",
+        "%media%",
+        "%all%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%v%",
+        "%)%",
+        "%a%"
+      ],
+      [
+        "production companies",
+        "votes distribution",
+        "%with%",
+        "%Hungary%",
+        "%USA%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(USA)%",
+        "%(worldwide)%"
+      ],
+      [
+        "production companies",
+        "votes distribution",
+        "%2004%",
+        "%2009%",
+        "%co%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%D%",
+        "%r%",
+        "%a%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(Japan)%",
+        "%(France)%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%2009%",
+        "%media%",
+        "%association%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%TV%",
+        "%e%",
+        "%2012%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%a%",
+        "%co%",
+        "%USA%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%)%",
+        "%a%",
+        "%e%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%in%",
+        "%1976%",
+        "%DVD%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(worldwide)%",
+        "%(200%)%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%2005%",
+        "%DVD%",
+        "%association%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%co%",
+        "%DVD%",
+        "%production%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(co-production)%",
+        "%(VHS)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(co-production)%",
+        "%(Japan)%"
+      ],
+      [
+        "distributors",
+        "bottom 10 rank",
+        "%producer%",
+        "%production%",
+        "%t%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%s%",
+        "%2010%",
+        "%DVD%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%r%",
+        "%1%",
+        "%T%"
+      ],
+      [
+        "production companies",
+        "votes distribution",
+        "%)%",
+        "%t%",
+        "%)%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%DVD%",
+        "%media%",
+        "%USA%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%1%",
+        "%l%",
+        "%a%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(theatrical)%",
+        "%(200%)%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%(USA)%",
+        "%(France)%",
+        "%(2007)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(VHS)%",
+        "%(co-production)%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%w%",
+        "%)%",
+        "%i%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%Universal%",
+        "%Republic%",
+        "%2008%"
+      ],
+      [
+        "distributors",
+        "bottom 10 rank",
+        "%2009%",
+        "%2006%",
+        "%TV%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%DVD%",
+        "%USA%",
+        "%in%"
+      ],
+      [
+        "production companies",
+        "votes distribution",
+        "%co%",
+        "%p%",
+        "%as%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%a%",
+        "%t%",
+        "%s%"
+      ],
+      [
+        "production companies",
+        "votes distribution",
+        "%)%",
+        "%(%",
+        "%m%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(theatrical)%",
+        "%(200%)%"
+      ],
+      [
+        "production companies",
+        "top 250 rank",
+        "%e%",
+        "%with%",
+        "%S%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%(USA)%",
+        "%(200%)%",
+        "%(Japan)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(worldwide)%",
+        "%(France)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(2006)%",
+        "%(200%)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(theatrical)%",
+        "%(co-production)%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%5%",
+        "%H%",
+        "%T%"
+      ],
+      [
+        "production companies",
+        "top 250 rank",
+        "%2009%",
+        "%USA%",
+        "%a%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(worldwide)%",
+        "%(co-production)%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%production%",
+        "%1955%",
+        "%USA%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%H%",
+        "%e%",
+        "%t%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(France)%",
+        "%(Japan)%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%co%",
+        "%DVD%",
+        "%media%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%i%",
+        "%(%",
+        "%1%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%co%",
+        "%association%",
+        "%1997%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%USA%",
+        "%co%",
+        "%2011%"
+      ],
+      [
+        "production companies",
+        "top 250 rank",
+        "%i%",
+        "%s%",
+        "%p%"
+      ],
+      [
+        "production companies",
+        "votes distribution",
+        "%b%",
+        "%h%",
+        "%h%"
+      ],
+      [
+        "production companies",
+        "bottom 10 rank",
+        "%production%",
+        "%USA%",
+        "%co%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%e%",
+        "%p%",
+        "%co%"
+      ],
+      [
+        "distributors",
+        "bottom 10 rank",
+        "%2005%",
+        "%2009%",
+        "%o%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%n%",
+        "%e%",
+        "%n%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%?%",
+        "%)%",
+        "%S%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(co-production)%",
+        "%(worldwide)%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%with%",
+        "%worldwide%",
+        "%production%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(theatrical)%",
+        "%(2007)%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%f%",
+        "%(%",
+        "%f%"
+      ],
+      [
+        "production companies",
+        "bottom 10 rank",
+        "%production%",
+        "%a%",
+        "%USA%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(worldwide)%",
+        "%(co-production)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(presents)%",
+        "%(Japan)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(200%)%",
+        "%(France)%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%D%",
+        "%d%",
+        "%(%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(co-production)%",
+        "%(Blu-ray)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%2011%",
+        "%DVD%",
+        "%as%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(co-production)%",
+        "%(worldwide)%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(USA)%",
+        "%(theatrical)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(Japan)%",
+        "%(presents)%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%e%",
+        "%)%",
+        "%a%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%)%",
+        "%a%",
+        "%i%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%2%",
+        "%T%",
+        "%2%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%a%",
+        "%i%",
+        "%e%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%N%",
+        "%h%",
+        "%T%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%co%",
+        "%in%",
+        "%i%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%7%",
+        "%(%",
+        "%c%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(co-production)%",
+        "%(Japan)%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%2010%",
+        "%2009%",
+        "%e%"
+      ],
+      [
+        "production companies",
+        "votes distribution",
+        "%VHS%",
+        "%Hungary%",
+        "%DVD%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%(USA)%",
+        "%(co-production)%",
+        "%(VHS)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(co-production)%",
+        "%(France)%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%7%",
+        "%h%",
+        "%0%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(worldwide)%",
+        "%(presents)%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%i%",
+        "%2008%",
+        "%USA%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(200%)%",
+        "%(VHS)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(USA)%",
+        "%(Japan)%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%U%",
+        "%)%",
+        "%S%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%n%",
+        "%e%",
+        "%(%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%e%",
+        "%o%",
+        "%8%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(worldwide)%",
+        "%(Japan)%"
+      ],
+      [
+        "production companies",
+        "top 250 rank",
+        "%USA%",
+        "%with%",
+        "%association%"
+      ],
+      [
+        "distributors",
+        "bottom 10 rank",
+        "%as%",
+        "%2012%",
+        "%n%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(2007)%",
+        "%(200%)%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%TV%",
+        "%2008%",
+        "%v%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%o%",
+        "%?%",
+        "%a%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%M%",
+        "%)%",
+        "%(%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%1996%",
+        "%production%",
+        "%2006%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(Japan)%",
+        "%(USA)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(USA)%",
+        "%(Japan)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(theatrical)%",
+        "%(200%)%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%USA%",
+        "%association%",
+        "%1914%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%U%",
+        "%U%",
+        "%7%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%2005%",
+        "%TV%",
+        "%co%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%e%",
+        "%t%",
+        "%i%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(USA)%",
+        "%(worldwide)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(co-production)%",
+        "%(presents)%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%0%",
+        "%e%",
+        "%b%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%H%",
+        "%5%",
+        "%(%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%Switzerland%",
+        "%2011%",
+        "%production%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%m%",
+        "%)%",
+        "%2%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%4%",
+        "%(%",
+        "%r%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%n%",
+        "%co%",
+        "%USA%"
+      ],
+      [
+        "production companies",
+        "votes distribution",
+        "%(%",
+        "%o%",
+        "%r%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%2007%",
+        "%Germany%",
+        "%TV%"
+      ],
+      [
+        "production companies",
+        "votes distribution",
+        "%e%",
+        "%s%",
+        "%s%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%with%",
+        "%production%",
+        "%USA%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(2006)%",
+        "%(200%)%"
+      ],
+      [
+        "production companies",
+        "top 250 rank",
+        "%DVD%",
+        "%2009%",
+        "%in%"
+      ],
+      [
+        "production companies",
+        "top 250 rank",
+        "%2007%",
+        "%co%",
+        "%segment%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(Japan)%",
+        "%(worldwide)%"
+      ],
+      [
+        "distributors",
+        "bottom 10 rank",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(co-production)%",
+        "%(USA)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(2006)%",
+        "%(worldwide)%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%production%",
+        "%s%",
+        "%a%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(USA)%",
+        "%(co-production)%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%in%",
+        "%production%",
+        "%a%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%e%",
+        "%2%",
+        "%(%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(theatrical)%",
+        "%(2007)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(200%)%",
+        "%(worldwide)%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%(USA)%",
+        "%(co-production)%",
+        "%(Japan)%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(co-production)%",
+        "%(2006)%"
+      ],
+      [
+        "production companies",
+        "votes distribution",
+        "%DVD%",
+        "%in%",
+        "%USA%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%USA%",
+        "%DVD%",
+        "%1978%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(Japan)%",
+        "%(co-production)%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(Japan)%",
+        "%(200%)%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%USA%",
+        "%media%",
+        "%sp%"
+      ],
+      [
+        "production companies",
+        "top 250 rank",
+        "%2005%",
+        "%TV%",
+        "%USA%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(Blu-ray)%",
+        "%(France)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(worldwide)%",
+        "%(VHS)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(theatrical)%",
+        "%(Japan)%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%1%",
+        "%)%",
+        "%)%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%production%",
+        "%i%",
+        "%USA%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(presents)%",
+        "%(worldwide)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(France)%",
+        "%(200%)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(worldwide)%",
+        "%(France)%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%o%",
+        "%)%",
+        "%-%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(USA)%",
+        "%(theatrical)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%o%",
+        "%(%",
+        "%e%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%i%",
+        "%)%",
+        "%r%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%o%",
+        "%production%",
+        "%A%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%a%",
+        "%z%",
+        "%l%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%0%",
+        "%0%",
+        "%e%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%t%",
+        "%c%",
+        "%(%"
+      ],
+      [
+        "distributors",
+        "bottom 10 rank",
+        "%2001%",
+        "%DVD%",
+        "%2008%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(worldwide)%",
+        "%(France)%"
+      ],
+      [
+        "distributors",
+        "bottom 10 rank",
+        "%n%",
+        "%TV%",
+        "%USA%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%(USA)%",
+        "%(200%)%",
+        "%(presents)%"
+      ],
+      [
+        "distributors",
+        "bottom 10 rank",
+        "%with%",
+        "%2009%",
+        "%YLE%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%e%",
+        "%''%",
+        "%)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(worldwide)%",
+        "%(2006)%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%n%",
+        "%o%",
+        "%T%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(200%)%",
+        "%(2007)%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%2006%",
+        "%production%",
+        "%r%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%2%",
+        "%)%",
+        "%3%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(co-production)%",
+        "%(USA)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(theatrical)%",
+        "%(Blu-ray)%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%e%",
+        "%9%",
+        "%)%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%2005%",
+        "%i%",
+        "%TV%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%i%",
+        "%h%",
+        "%)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(Japan)%",
+        "%(200%)%"
+      ],
+      [
+        "distributors",
+        "votes distribution",
+        "%with%",
+        "%2009%",
+        "%production%"
+      ],
+      [
+        "production companies",
+        "bottom 10 rank",
+        "%production%",
+        "%2006%",
+        "%as%"
+      ],
+      [
+        "distributors",
+        "bottom 10 rank",
+        "%co%",
+        "%association%",
+        "%2008%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%Artcraft%",
+        "%worldwide%",
+        "%media%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%0%",
+        "%t%",
+        "%t%"
+      ],
+      [
+        "distributors",
+        "rating",
+        "%2%",
+        "%e%",
+        "%l%"
+      ],
+      [
+        "production companies",
+        "bottom 10 rank",
+        "%media%",
+        "%with%",
+        "%t%"
+      ],
+      [
+        "distributors",
+        "top 250 rank",
+        "%e%",
+        "%in%",
+        "%USA%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(co-production)%",
+        "%(2007)%"
+      ],
+      [
+        "production companies",
+        "votes",
+        "%(USA)%",
+        "%(presents)%",
+        "%(200%)%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%TV%",
+        "%2005%",
+        "%USA%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%d%",
+        "%)%",
+        "%(%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(VHS)%",
+        "%(USA)%"
+      ],
+      [
+        "distributors",
+        "bottom 10 rank",
+        "%in%",
+        "%a%",
+        "%production%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%USA%",
+        "%production%",
+        "%2006%"
+      ],
+      [
+        "production companies",
+        "votes distribution",
+        "%co%",
+        "%release%",
+        "%1998%"
+      ],
+      [
+        "distributors",
+        "votes",
+        "%5%",
+        "%2%",
+        "%U%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(USA)%",
+        "%(theatrical)%",
+        "%(worldwide)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(co-production)%",
+        "%(theatrical)%"
+      ],
+      [
+        "production companies",
+        "rating",
+        "%(as Metro-Goldwyn-Mayer Pictures)%",
+        "%(worldwide)%",
+        "%(Blu-ray)%"
+      ]
+    ]
+  }
+}

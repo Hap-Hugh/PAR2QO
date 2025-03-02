@@ -1,0 +1,2401 @@
+query,plan_id,plan_content
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%character%'
+ AND mi.info IN ('During the house fire scene, ''Kirk Cameron (I)'' (qv), in a real Albany FD engine, pressed the transmit button on the radio while giving the size-up of the fire. Other Albany FD units began responding, not knowing that it was part of the movie.', 'A Story of the Heartbreaks...Behind the Big Breaks!', 'Frederick Lannington: So you''re quite sure of your feelings? I mean, you know, sometimes people get... carried away, come to their senses again with a jolt.::Dr. Jeff Cameron: Mr. Lannington, I wanna marry your daughter.::Frederick Lannington: I wish you''d stop calling her my daughter. She happens to be my wife!', '''David Lynch (I)'' (qv) said he has only recently (2002) realized what subconsciously inspired the film: the ''O.J. Simpson'' (qv) trial. He said that the trial was a major influence on his mind during the stage of writing this script, which deals with a man who killed his wife. Curiously enough, Lynch cast ''Robert Blake (I)'' (qv) to play the Mystery Man, who is a major character in the film - years later, Blake would be put on trial for killing his own wife.', '[the little wolves are about to bake the pigs in a pie]::Fifer Pig, Fiddler Pig: You''ll be sorry when your pop gets back and we ain''t here.::Three Little Wolves: Ha! We''ll be sorry.')
+ AND t.production_year > 1943;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%u%'
+ AND mi.info IN ('OFM:35 mm', 'Drama', '-', '-', '-')
+ AND t.production_year > 1915;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'English', 'English')
+ AND t.production_year > 2009;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%independent%'
+ AND mi.info IN ('English', 'Color', 'English', 'English', 'Color')
+ AND t.production_year > 1957;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('Comedy', 'PCS:Spherical', 'Comedy', 'PCS:Spherical', 'Black and White')
+ AND t.production_year > 2012;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%independent%'
+ AND mi.info IN ('RAT:1.33 : 1', 'Drama', 'Color', 'Color', 'PFM:35 mm')
+ AND t.production_year > 1987;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%in%'
+ AND mi.info IN ('Mono', 'Mono', 'Mono', 'Mono', 'Mono')
+ AND t.production_year > 2005;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%in%'
+ AND mi.info IN ('USA', 'Color', 'Color', 'English', 'USA')
+ AND t.production_year > 2008;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('English', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 1946;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%name%'
+ AND mi.info IN ('Black and White', 'Black and White', 'PCS:Spherical', 'Black and White', 'PCS:Spherical')
+ AND t.production_year > 1997;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%nudity%'
+ AND mi.info IN ('Color', 'USA', 'English', 'Color', 'Color')
+ AND t.production_year > 2004;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('USA', 'Color', 'Color', 'Short', 'USA')
+ AND t.production_year > 2006;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Short', 'Color', 'USA', 'English', 'Short')
+ AND t.production_year > 1965;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%character%'
+ AND mi.info IN ('Short', 'RAT:1.33 : 1', 'Black and White', 'Documentary', 'Short')
+ AND t.production_year > 1997;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%tamil%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 2006;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 1993;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Color', 'RAT:16:9 HD', 'Color', 'USA', 'Short')
+ AND t.production_year > 2015;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('USA', 'Color', 'Color', 'Color', 'USA')
+ AND t.production_year > 1936;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('English', 'English', 'Color', 'Color', 'English')
+ AND t.production_year > 1993;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%independent%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 1969;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%nudity%'
+ AND mi.info IN ('-', '-', 'OFM:35 mm', 'OFM:35 mm', 'OFM:35 mm')
+ AND t.production_year > 2007;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Silent', 'Color', 'OFM:35 mm', 'OFM:35 mm', 'PCS:Spherical')
+ AND t.production_year > 2003;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Color', 'Color', 'USA', 'USA', 'Short')
+ AND t.production_year > 2009;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%independent%'
+ AND mi.info IN ('PCS:Spherical', 'Black and White', 'Comedy', 'Comedy', 'Comedy')
+ AND t.production_year > 1987;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('The six-part series, which pits two teams of varying backgrounds - artists, rocket scientists, animatronic specialists, engineers and even your average Joes - against each other to build an elaborate chain reaction contraption on a massive scale. The teams are provided with identical sets of tools and materials and given five days to complete a series of mechanisms based on a specific theme. Per the network, ""refined mechanical movements, pyrotechnics and large-scale destruction are encouraged."" At the end of the the five days, Savage and Hyneman are joined by a new guest judge to review the installations and pick a winner.', 'Mexico:13 September 1979', 'In the golden fringe of a far off galaxy, an alien planet teems with exotic life. Twiggy creatures rush to an ominous volcano and rub their bodies against its glittering surface, enticing the volcano to awaken and spray its gooey chaos across this furry world. A collaboration between Michael Mallis and Mikey McParlane, MFA candidates in Film, Video, New Media & Animation at the School of the Art Institute of Chicago, Love Puddles is a collision of B movie beauty and camp splendor.', 'Argentina:1 February 1946', 'It''s the same old routine, you get up, go to work, come home, go to bed. It''s the same whether you''re a secretary or a hitman. Or so this hitman thinks ...')
+ AND t.production_year > 1931;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('Comedy', 'PCS:Spherical', 'PCS:Spherical', 'Comedy', 'Comedy')
+ AND t.production_year > 2005;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('English', 'Color', 'English', 'English', 'English')
+ AND t.production_year > 1932;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%father%'
+ AND mi.info IN ('-', '-', 'Drama', '-', 'OFM:35 mm')
+ AND t.production_year > 2004;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%bare%'
+ AND mi.info IN ('PCS:Spherical', 'Comedy', 'Comedy', 'PCS:Spherical', 'Black and White')
+ AND t.production_year > 2004;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%p%'
+ AND mi.info IN ('USA', 'USA', 'USA', 'USA', 'USA')
+ AND t.production_year > 1998;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%on%'
+ AND mi.info IN ('Short', 'USA', 'OFM:35 mm', 'Drama', 'PCS:Spherical')
+ AND t.production_year > 1947;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%from%'
+ AND mi.info IN ('Color', 'English', 'English', 'English', 'English')
+ AND t.production_year > 1939;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('Black and White', 'Black and White', 'Comedy', 'PCS:Spherical', 'PCS:Spherical')
+ AND t.production_year > 2002;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%film%'
+ AND mi.info IN ('USA', 'USA', 'USA', 'USA', 'USA')
+ AND t.production_year > 1948;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%novel%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'English', 'Color')
+ AND t.production_year > 1984;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%film%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'English')
+ AND t.production_year > 1990;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%breasts%'
+ AND mi.info IN ('OFM:35 mm', 'Drama', 'OFM:35 mm', 'OFM:35 mm', 'Drama')
+ AND t.production_year > 1907;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%d%'
+ AND mi.info IN ('""Niagra, Niagra"" begins quietly in a drugstore in Poughkeepsie, where Marcie, the film''s disarming heroine, likes to shoplift. She literally crashes into Seth, a quiet outsider, also on a shoplifting spree. Marcie invites Seth to accompany her to Canada to find a black hairstyling head. They set off in Seth''s beat-up station wagon, destined for a toy store in Toronto. While on the road, Marcie confides to Seth that she has Tourette''s syndrome, necessitating a series of detours to liquor stories and pharmacies along the roads of upstate New York.', '[talking about New Mexico compared to New York]::Marcus: And the air? It don''t smell like this shit.::Melena: You remember what the air smelled like from when you were five?::Marcus: No, but I''ve seen pictures and I know it don''t smell like this shit.::Melena: You can''t smell pictures, Marcus.', 'Â£207,684 (UK) (23 September 2007) (281 screens)', 'Armed and Dangerous - Do not approach under any circumstances!', 'Greece:28 May 2007')
+ AND t.production_year > 1979;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Romance', 'UK:15', 'RAT:1.37 : 1', 'UK:15', 'USA:R')
+ AND t.production_year > 2009;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%title%'
+ AND mi.info IN ('English', 'English', 'Color', 'English', 'English')
+ AND t.production_year > 2013;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('Germany:2 September 2003', 'Italy:4 February 1994', 'In British prints, ''Leslie Howard (I)'' (qv) utters the word ""damn"". In American prints he says either ""hang"" or ""confounded"". This was a year before ''David O. Selznick'' (qv) famously tussled with the Hays Office over permission for ''Clark Gable'' (qv) to say ""Frankly, my dear, I don''t give a damn"" at the end of _Gone with the Wind (1939)_ (qv)', 'KÃ¼hn, Heike. ""Fluchtpunkt"". In: ""epd Film"" (Germany), Vol. 11, Iss. 7, 1 July 1994, Pg. 31', 'Boy Named Charlie Brown, A')
+ AND t.production_year > 1996;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%based%'
+ AND mi.info IN ('English', 'English', 'English', 'Color', 'Color')
+ AND t.production_year > 2011;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%d%'
+ AND mi.info IN ('USA', 'English', 'Silent', 'PCS:Spherical', 'PFM:35 mm')
+ AND t.production_year > 1980;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 2006;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 2012;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%l%'
+ AND mi.info IN ('Drama', 'English', 'USA', 'Color', 'Color')
+ AND t.production_year > 2002;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('PFM:35 mm', 'Color', 'USA', 'Drama', 'Color')
+ AND t.production_year > 2008;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Color', 'English', 'Color', 'English', 'English')
+ AND t.production_year > 2006;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%character%'
+ AND mi.info IN ('Netherlands:22 April 2010', 'Â£20,545 (UK) (28 August 2009)', 'UK:31 May 2001', 'The Bundy''s go out to a fancy restaurant to spend a great windfall, an inheritance check for $237 from a late uncle of Peggy''s. But it becomes apparent that the fine dinning in public is not a part of the dysfunctional Bundy lifestyle, which makes matters worse when Al forgets to bring the check.', 'Jackie: [about Miss Crabtree] She smells like a bunch of flowers, all roses and stuff.::Stymie: Like a funeral?::Jackie: No, perfume!')
+ AND t.production_year > 1911;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('USA', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 1972;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%c%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 1966;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%based%'
+ AND mi.info IN ('Color', 'English', 'Color', 'English', 'English')
+ AND t.production_year > 1991;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('Black and White', 'Black and White', 'PCS:Spherical', 'PCS:Spherical', 'Comedy')
+ AND t.production_year > 1924;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%independent%'
+ AND mi.info IN ('English', 'English', 'English', 'Color', 'English')
+ AND t.production_year > 1994;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('English', 'Color', 'Color', 'Color', 'English')
+ AND t.production_year > 1982;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('USA', 'USA', 'USA', 'USA', 'USA')
+ AND t.production_year > 1974;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Hungary:4 October 2006', 'Whether she is yodeling or singing an aria, Jewel puts her own unique blended style into her music. Jewel has managed to put her life''s retrospective into her well-crafted songs, which are influenced by many music genres including rock, pop, country, jazz and classical.', 'Germany:3 November 1925', '''Steve Buscemi'' (qv) and ''Peter Stormare'' (qv) previously starred together in _Fargo (1996)_ (qv) and _The Big Lebowski (1998)_ (qv), then after in _13 Moons (2002)_ (qv). Stormare and ''William Fichtner'' (qv) both star in _""Prison Break"" (2005)_ (qv).', 'France:10 June 2006')
+ AND t.production_year > 1996;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%in%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 2011;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%female%'
+ AND mi.info IN ('USA', 'USA', 'USA', 'USA', 'USA')
+ AND t.production_year > 1988;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%title%'
+ AND mi.info IN ('English', 'English', 'English', 'English', 'English')
+ AND t.production_year > 1993;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%c%'
+ AND mi.info IN ('Mono', 'Mono', 'Mono', 'Mono', 'Mono')
+ AND t.production_year > 1919;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%culture%'
+ AND mi.info IN ('Color', 'USA', 'English', 'USA', 'Comedy')
+ AND t.production_year > 2012;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('Drama', 'English', 'Drama', 'English', 'Drama')
+ AND t.production_year > 2005;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Mono', 'Mono', 'Mono', 'Mono', 'Mono')
+ AND t.production_year > 2008;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('USA', 'Color', 'Color', 'English', 'Short')
+ AND t.production_year > 2008;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('France:19 March 2008', 'PCS:Sony High Definition Video', '$15,788,701 (USA) (18 November 2012)', 'JPY 3,696,473 (Japan) (21 September 2008)', 'USA:23 April 1999')
+ AND t.production_year > 1966;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 1981;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%in%'
+ AND mi.info IN ('USA', 'Color', 'USA', 'USA', 'Color')
+ AND t.production_year > 2005;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 1977;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%figure%'
+ AND mi.info IN ('Comedy', 'Black and White', 'Comedy', 'PCS:Spherical', 'Comedy')
+ AND t.production_year > 2008;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%down%'
+ AND mi.info IN ('Color', 'UK', 'PFM:35 mm', 'Color', 'Short')
+ AND t.production_year > 1997;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%female%'
+ AND mi.info IN ('Mono', 'Mono', 'Mono', 'Mono', 'Mono')
+ AND t.production_year > 1939;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('USA', 'English', 'English', 'Short', 'English')
+ AND t.production_year > 2006;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 1988;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%h%'
+ AND mi.info IN ('USA', 'USA', 'USA', 'USA', 'USA')
+ AND t.production_year > 1999;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%on%'
+ AND mi.info IN ('USA', 'USA', 'USA', 'Color', 'Color')
+ AND t.production_year > 2005;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%title%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 1961;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%name%'
+ AND mi.info IN ('Color', 'English', 'Color', 'English', 'English')
+ AND t.production_year > 1919;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%character%'
+ AND mi.info IN ('Film', 'Film', 'RAT:1.37 : 1', 'Thriller', '12')
+ AND t.production_year > 1969;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Portugal', 'Greece:28 September 2007', 'Carlton, Melbourne, Victoria, Australia', 'Genie: I''m here, I''m here! Let the bells ring out and the banners fly! Feast your eyes on me! It''s too good to be true, but I''m here! I''m here!', 'This ''Roger Corman'' (qv)-produced ""quickie"" was the first directing job for ''Monte Hellman'' (qv).')
+ AND t.production_year > 1995;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%film%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 1953;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('English', 'English', 'English', 'English', 'English')
+ AND t.production_year > 2004;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('USA', 'Color', 'Color', 'USA', 'Color')
+ AND t.production_year > 1934;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Dominican Republic:30 August 2002', 'Sunni Gummi: We lost old Fangface way back there.', 'Germany:104', 'Austria:April 1910', 'Joel Larsen: [about dating Holly] Everyone''s watching us. I feel like Hugh Grant in Notting Hill, taking Julia Roberts to the Oscars.')
+ AND t.production_year > 1994;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%title%'
+ AND mi.info IN ('Francis: I hate Ayn Rand.', 'In every person''s life, there''s a stranger we all know', 'Judy: You use sex to express every emotion except love.', '$16,367 (USA) (20 February 2000) (8 screens)', 'A psychological thriller set in the world of the black market human organ trade. The Harvest Project asks the question: What would you do to save the life of someone you love? By the end of the movie it is apparent that the answer might not be so clear. This is a story about the consequences of desperate actions, of blind greed, and of startling sacrifice.')
+ AND t.production_year > 1986;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('English', 'USA', 'USA', 'USA', 'English')
+ AND t.production_year > 2007;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%h%'
+ AND mi.info IN ('USA', 'Color', 'USA', 'USA', 'English')
+ AND t.production_year > 2009;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%name%'
+ AND mi.info IN ('Color', 'English', 'Color', 'Color', 'Color')
+ AND t.production_year > 1952;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%male%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 1947;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%o%'
+ AND mi.info IN ('-', 'OFM:35 mm', '-', '-', 'Drama')
+ AND t.production_year > 2009;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%d%'
+ AND mi.info IN ('English', 'English', 'Color', 'English', 'Color')
+ AND t.production_year > 1939;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%c%'
+ AND mi.info IN ('Color', 'Color', 'English', 'English', 'Color')
+ AND t.production_year > 1956;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('West Germany:14 June 1972', 'Belgium:9 May 2007', 'West Germany:13 October 1988', 'USA:6 March 1916', 'USA:24 February 1926')
+ AND t.production_year > 2005;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 2012;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%military%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 1959;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('USA', 'USA', 'Color', 'English', 'USA')
+ AND t.production_year > 2008;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%circumcised%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'English', 'English')
+ AND t.production_year > 1960;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Color', 'USA', 'English', 'USA', 'USA')
+ AND t.production_year > 2011;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('-', '-', 'Drama', '-', 'OFM:35 mm')
+ AND t.production_year > 2009;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%film%'
+ AND mi.info IN ('Mono', 'Mono', 'Mono', 'Mono', 'Mono')
+ AND t.production_year > 2007;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('USA', 'USA', 'USA', 'USA', 'USA')
+ AND t.production_year > 1976;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('LAB:Gastown Film Labs Ltd., Vancouver, Canada', 'Australia:26 March 2002', 'Italy:21 April 1982', 'OFM:19 mm', 'The show has only had four directors in its history: ''Dave Wilson (I)'' (qv), ''Paul Miller (I)'' (qv), ''Beth McCarthy-Miller'' (qv) and ''Don Roy King'' (qv)')
+ AND t.production_year > 1996;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Comedy', 'Comedy', 'PCS:Spherical', 'Comedy', 'Black and White')
+ AND t.production_year > 1949;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%novel%'
+ AND mi.info IN ('English', 'USA', 'USA', 'English', 'USA')
+ AND t.production_year > 1936;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%d%'
+ AND mi.info IN ('RAT:1.85 : 1', 'USA:R', 'Dolby Digital', 'USA:R', 'CLV')
+ AND t.production_year > 1985;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%brewster%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'English', 'English')
+ AND t.production_year > 1941;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%g%'
+ AND mi.info IN ('Comedy', 'Comedy', 'Black and White', 'Comedy', 'PCS:Spherical')
+ AND t.production_year > 2013;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Mono', 'Mono', 'Mono', 'Mono', 'Mono')
+ AND t.production_year > 1961;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%nudity%'
+ AND mi.info IN ('English', 'Color', 'English', 'English', 'Color')
+ AND t.production_year > 2009;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%nose%'
+ AND mi.info IN ('Color', 'English', 'USA', 'Short', 'Color')
+ AND t.production_year > 1963;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('English', 'English', 'Color', 'Color', 'Color')
+ AND t.production_year > 1994;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'English', 'English')
+ AND t.production_year > 1947;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Drama', 'English', 'Color', 'USA', 'English')
+ AND t.production_year > 2010;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%t%'
+ AND mi.info IN ('USA', 'USA', 'USA', 'USA', 'USA')
+ AND t.production_year > 2008;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%sex%'
+ AND mi.info IN ('English', 'Color', 'English', 'Color', 'Color')
+ AND t.production_year > 2013;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('CHAR: When viewing his profile Ceth reads Magnum''s ""measurements"". An important one is listed as 15cm, which receives a gasp from Sofia. In reality 15cm is a bit under 6 inches, which is about average.', 'Germany:24 May 1918', 'One of the buildings struck by crashing flying saucers is Union Station, Washington''s main train station. This may have been inspired by a 1953 accident when a runaway passenger train smashed into the station concourse.', 'Hong Kong:14 October 1989', 'If destiny appears tailored made, don''t wear it.')
+ AND t.production_year > 2001;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('USA', 'Color', 'English', 'English', 'Color')
+ AND t.production_year > 2003;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Romance', 'RAT:1.37 : 1', 'Stereo', 'RAT:1.33 : 1', '12')
+ AND t.production_year > 1972;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Black and White', 'Black and White', 'PCS:Spherical', 'Black and White', 'PCS:Spherical')
+ AND t.production_year > 2012;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%in%'
+ AND mi.info IN ('USA', 'USA', 'USA', 'USA', 'USA')
+ AND t.production_year > 2008;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('Color', 'Color', 'English', 'Color', 'English')
+ AND t.production_year > 2007;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%bare%'
+ AND mi.info IN ('Color', 'Color', 'English', 'English', 'Color')
+ AND t.production_year > 1955;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%d%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 1971;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'English')
+ AND t.production_year > 1992;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%in%'
+ AND mi.info IN ('Clay McCord: You know where this Carter is now?::Marshal Simon Fry: No, he was hiding up the line somewhere. He was going to lead me to him. I hate to see him end up a failure.', 'Japan:10 November 2007', 'Japan:3 November 2009', 'Edna Tucker: A man could spend the rest of his life trying to remember what he shouldn''t have said.', 'Samuel Goldwyn Studios - 7200 Santa Monica Boulevard, West Hollywood, California, USA')
+ AND t.production_year > 2002;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%in%'
+ AND mi.info IN ('English', 'English', 'Color', 'English', 'Color')
+ AND t.production_year > 1999;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('$1,001,255 (USA) (28 April 2002) (282 screens)', 'Film producer extraordinaire Bill Cushing interviews two screenwriters with varying consequences. First is Laura Hamill, a soft-spoken idealistic spirit who pitches her short film thesis entitled ''Fish Love''. Second is William S. Guinness, a young, poised and self-assured man who pitches what he believes to be the most daring and original idea in the world.', 'Available on the R2 DVD ''En aften med John & Aage/Huller i suppen''.', 'CAM:Sony HVR-Z1', 'Ben: I should have strangled you in your crib!')
+ AND t.production_year > 2009;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%d%'
+ AND mi.info IN ('Black and White', 'PCS:Spherical', 'Black and White', 'Black and White', 'PCS:Spherical')
+ AND t.production_year > 2010;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('Short', 'UK:15', 'Short', 'Action', 'Crime')
+ AND t.production_year > 2002;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%a%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 2012;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%from%'
+ AND mi.info IN ('Comedy', 'PCS:Spherical', 'Black and White', 'Comedy', 'Black and White')
+ AND t.production_year > 1971;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%w%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 1950;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%relationship%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 2007;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%u%'
+ AND mi.info IN ('''Jim Cummings (I)'' (qv)''s vocal performance of Hondo Ohnaka is patterned after the distinctive speaking style of actor ''Ricardo Montalban'' (qv).', '""Golddiggers 1937"". In: ""Illustrierter Film-Kurier"" (Vienna, Austria), Filmpropaganda Ges.m.b.H., Iss. 1720, July 1937, Pg. 8', 'Canada:24 August 2012', '6,947,582 (Germany) (9 September 2007)', 'CONT: During Izzy''s debut concert, after he douses the crowd with the fire hose, Kirk Cuddy''s guitar has a broken string. Moments later, all six strings on his guitar are intact.')
+ AND t.production_year > 1972;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Drama', 'OFM:35 mm', '-', 'Drama', '-')
+ AND t.production_year > 1921;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Drama', 'Drama', 'Color', 'Color', 'Color')
+ AND t.production_year > 1906;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%d%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 2013;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%name%'
+ AND mi.info IN ('English', 'English', 'English', 'English', 'English')
+ AND t.production_year > 2008;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('USA', 'Color', 'English', 'English', 'Color')
+ AND t.production_year > 1953;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%chested%'
+ AND mi.info IN ('Comedy', 'PCS:Spherical', 'PCS:Spherical', 'Black and White', 'PCS:Spherical')
+ AND t.production_year > 2008;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'English', 'Color')
+ AND t.production_year > 2001;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%relationship%'
+ AND mi.info IN ('English', 'English', 'Color', 'English', 'USA')
+ AND t.production_year > 1974;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%title%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 1988;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Color', 'USA', 'Comedy', 'Black and White', 'OFM:35 mm')
+ AND t.production_year > 1998;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%oral%'
+ AND mi.info IN ('Short', 'USA', 'Drama', 'USA', 'USA')
+ AND t.production_year > 2008;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%independent%'
+ AND mi.info IN ('USA', 'Drama', 'English', 'English', 'Color')
+ AND t.production_year > 1989;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Black and White', 'Silent', 'Comedy', 'Short', 'USA')
+ AND t.production_year > 2006;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%based%'
+ AND mi.info IN ('USA', 'USA', 'USA', 'Color', 'English')
+ AND t.production_year > 2001;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('Film', '12', 'Action', 'Movie', 'Action')
+ AND t.production_year > 2000;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%mini%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 2001;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%character%'
+ AND mi.info IN ('Color', 'English', 'Color', 'English', 'Color')
+ AND t.production_year > 1979;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%w%'
+ AND mi.info IN ('Short', 'English', 'Black and White', 'English', 'Documentary')
+ AND t.production_year > 1990;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('RAT:2.35 : 1', 'Stereo', 'USA:R', 'RAT:1.37 : 1', 'RAT:2.35 : 1')
+ AND t.production_year > 1998;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%character%'
+ AND mi.info IN ('Color', 'USA', 'Color', 'Color', 'USA')
+ AND t.production_year > 1997;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('UK:16 December 1964', '''Joan Chen (I)'' (qv) and ''Cunxin Li'' (qv) share similar experiences in life: both were born in 1961, they were picked at a young age to pursue an artistic career and they both came to the United States in 1981.', 'All the guest stars are identified verbally by qv##nm0333928## as she introduces them. She also mentions the new song ""In Memory of You.""', 'Japan:73', 'Portugal:17 April 1957')
+ AND t.production_year > 1995;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%c%'
+ AND mi.info IN ('Color', 'USA', 'USA', 'USA', 'USA')
+ AND t.production_year > 2004;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%u%'
+ AND mi.info IN ('English', 'Color', 'English', 'Color', 'Color')
+ AND t.production_year > 2005;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%character%'
+ AND mi.info IN ('USA:R', 'Dolby Digital', 'Movie', 'Movie', 'RAT:1.33 : 1')
+ AND t.production_year > 1999;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%d%'
+ AND mi.info IN ('USA', 'English', 'Short', 'Color', 'Color')
+ AND t.production_year > 1983;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%row%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'English')
+ AND t.production_year > 2006;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Color', 'English', 'English', 'Color', 'English')
+ AND t.production_year > 2000;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('English', 'English', 'English', 'Short', 'Color')
+ AND t.production_year > 2008;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%relationship%'
+ AND mi.info IN ('UK:15', 'UK:15', 'USA:R', 'RAT:1.37 : 1', 'RAT:1.37 : 1')
+ AND t.production_year > 2001;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%novel%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 1995;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%i%'
+ AND mi.info IN ('Drama', '-', 'OFM:35 mm', '-', 'Drama')
+ AND t.production_year > 2010;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%film%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 1988;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Color', 'English', 'USA', 'Color', 'Color')
+ AND t.production_year > 2012;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%n%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'English', 'Color')
+ AND t.production_year > 1997;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%title%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'English', 'Color')
+ AND t.production_year > 1998;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('English', 'USA', 'Color', 'USA', 'USA')
+ AND t.production_year > 2005;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('FAKE: When Arlene approaches her kids, her son is looking into the camera, and the daughter looks into the camera when Arlene is picking up her baby.', 'South Africa:20 October 2000', 'Included on Disney''s DVD edition of _The Sword in the Stone (1963)_ (qv).', 'Dr. McCoy: Odd that these people should worship the ''sun''.::Spock: Why, Doctor?::Dr. McCoy: Because, my dear Mister Spock, it is illogical. Rome had no sun worshipers. Why should they parallel Rome in every way except one?', 'In the opening cutscenes, Tommy Vercetti is picked up from Escobar International Airport to make a cocaine deal. This is a reference to a real life cocaine dealer Pablo Escobar who was the richest cocaine trafficker during the 1980s through the early 1990s.')
+ AND t.production_year > 1958;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 2011;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('USA', 'USA', 'USA', 'USA', 'USA')
+ AND t.production_year > 2002;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%film%'
+ AND mi.info IN ('Shot in 12 days summer of 2002', 'Annie: Get up, go to the bathroom, do what you normally do.::Travis Proffitt: Will you squirt us with the hose again?::Annie: That''s up to you.', 'Larry: Listen to me OK, please? I love you David, and I love Sarah, but *individually*. David, together, I think you''re a mess.', 'Victoria and Albert Museum, South Kensington, London, England, UK', 'Desann: Welcome, Kyle Katarn. Welcome to the future.::Kyle Katarn: Your future''s looking pretty grim, Desann.')
+ AND t.production_year > 1958;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Mono', 'Mono', 'Mono', 'Mono', 'Mono')
+ AND t.production_year > 2005;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%court%'
+ AND mi.info IN ('USA', 'English', 'USA', 'Color', 'English')
+ AND t.production_year > 1992;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('Color', 'Color', 'Color', 'Color', 'Color')
+ AND t.production_year > 2011;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('OFM:35 mm', 'Drama', '-', 'OFM:35 mm', '-')
+ AND t.production_year > 1994;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('USA', 'USA', 'English', 'English', 'Color')
+ AND t.production_year > 1998;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('Color', 'English', 'Color', 'Color', 'Color')
+ AND t.production_year > 1999;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('RAT:1.85 : 1', 'Movie', 'Action', 'Romance', 'RAT:1.85 : 1')
+ AND t.production_year > 1995;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%u%'
+ AND mi.info IN ('''Harrison Ford (I)'' (qv) and ''Claude Rains'' (qv) are the most represented actors on the list each starring in four films.', 'Sarah Walker: Well, he made a promise to his sister. Chuck doesn''t want to be a spy and lie about it too.::John Casey: Your boyfriend needs soem big boy pants. He''s a spy. He''s good at it.::Sarah Walker: I know, Casey. You miss him too.::John Casey: WHAT? I don''t miss him.', 'An abortion extortion of epic proportions.', 'USA:30 March 1945', 'Pakistan:22 October 2010')
+ AND t.production_year > 1960;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%e%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 2002;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Mono', 'Mono', 'Mono', 'Mono', 'Mono')
+ AND t.production_year > 1986;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%based%'
+ AND mi.info IN ('Black and White', 'Comedy', 'PCS:Spherical', 'Black and White', 'PCS:Spherical')
+ AND t.production_year > 1972;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%c%'
+ AND mi.info IN ('English', 'Color', 'Color', 'English', 'English')
+ AND t.production_year > 1946;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%character%'
+ AND mi.info IN ('Comedy', 'Comedy', 'Comedy', 'PCS:Spherical', 'PCS:Spherical')
+ AND t.production_year > 2012;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%nudity%'
+ AND mi.info IN ('USA', 'USA', 'USA', 'USA', 'USA')
+ AND t.production_year > 1952;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%s%'
+ AND mi.info IN ('Color', 'OFM:35 mm', 'Color', 'English', 'English')
+ AND t.production_year > 2005;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%in%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 2005;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%h%'
+ AND mi.info IN ('Drama', 'USA', 'Black and White', 'USA', 'USA')
+ AND t.production_year > 1915;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%nudity%'
+ AND mi.info IN ('Short', 'Color', 'Documentary', 'Comedy', 'Color')
+ AND t.production_year > 1987;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%beauty%'
+ AND mi.info IN ('Spain:24 November 2003', 'NTSC', 'Earl: That explains why he rented Memoirs of a Geisha. Man, that was the worst kung fu movie ever!', 'USA:16 October 2008', 'Japan:19 December 1978')
+ AND t.production_year > 1933;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%x%'
+ AND mi.info IN ('PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm', 'PFM:35 mm')
+ AND t.production_year > 1908;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%r%'
+ AND mi.info IN ('Color', 'Color', 'English', 'English', 'English')
+ AND t.production_year > 1998;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%d%'
+ AND mi.info IN ('Color', 'Drama', 'USA', 'Color', 'Comedy')
+ AND t.production_year > 1900;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%name%'
+ AND mi.info IN ('USA', 'English', 'Color', 'English', 'USA')
+ AND t.production_year > 2012;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%d%'
+ AND mi.info IN ('USA', 'Color', 'USA', 'English', 'Color')
+ AND t.production_year > 2016;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%golden%'
+ AND mi.info IN ('Color', 'English', 'English', 'Color', 'English')
+ AND t.production_year > 1995;",22,/*+  SeqScan(mi) SeqScan(mk) SeqScan(t) SeqScan(k) HashJoin(mk t) HashJoin(mk t k) HashJoin(mi mk t k) Leading((mi ((mk t) k))) */
+"SELECT MIN(t.title) AS movie_title
+ FROM random_keyword_1 AS k,
+ random_movie_info_1 AS mi,
+ random_movie_keyword_1 AS mk,
+ random_title_1 AS t
+ WHERE t.id = mi.movie_id
+ AND t.id = mk.movie_id
+ AND mk.movie_id = mi.movie_id
+ AND k.id = mk.keyword_id
+ AND k.keyword LIKE '%character%'
+ AND mi.info IN ('USA', 'USA', 'USA', 'USA', 'USA')
+ AND t.production_year > 1992;",2,/*+  SeqScan(k) IndexScan(mk keyword_id_movie_keyword_random_1) IndexScan(t random_title_1_pkey) IndexScan(mi movie_id_movie_info_random_1) NestLoop(k mk) NestLoop(k mk t) NestLoop(k mk t mi) Leading((((k mk) t) mi)) */

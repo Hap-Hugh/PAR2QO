@@ -1,0 +1,1729 @@
+{
+    "027": {
+        "query": "SELECT min(i_item_id), min(s_state), min(ss_quantity), min(ss_list_price), min(ss_coupon_amt), min(ss_sales_price), min(ss_item_sk), min(ss_ticket_number)\nFROM store_sales,\n     customer_demographics,\n     date_dim,\n     store,\n     item\nWHERE ss_sold_date_sk = d_date_sk\n  AND ss_item_sk = i_item_sk\n  AND ss_store_sk = s_store_sk\n  AND ss_cdemo_sk = cd_demo_sk\n  AND cd_gender = '@param0'\n  AND cd_marital_status = '@param1'\n  AND cd_education_status = '@param2'\n  AND d_year = @param3\n  AND s_state = '@param4'\n  AND i_category = '@param5' ;",
+        "predicates": [
+            {
+                "alias": "",
+                "column": "cd_gender",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_cdemo_sk = cd_demo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_cdemo_sk = cd_demo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_cdemo_sk = cd_demo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "d_year",
+                "operator": "=",
+                "data_type": "int",
+                "table": "date_dim",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_sold_date_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_sold_date_sk = d_date_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "s_state",
+                "operator": "=",
+                "data_type": "text",
+                "table": "store",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_store_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_store_sk = s_store_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "i_category",
+                "operator": "=",
+                "data_type": "text",
+                "table": "item",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_item_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_item_sk = i_item_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            }
+        ],
+        "params": [
+            [
+                "F",
+                "S",
+                "Secondary           ",
+                2000,
+                "MN",
+                "Books                                             "
+            ],
+            [
+                "F",
+                "W",
+                "Primary             ",
+                2001,
+                "SC",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "S",
+                "College             ",
+                2000,
+                "MN",
+                "Electronics                                       "
+            ],
+            [
+                "M",
+                "U",
+                "College             ",
+                2002,
+                "TN",
+                "Music                                             "
+            ],
+            [
+                "M",
+                "D",
+                "2 yr Degree         ",
+                2001,
+                "WV",
+                "Women                                             "
+            ],
+            [
+                "F",
+                "S",
+                "Unknown             ",
+                2000,
+                "TN",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "S",
+                "Unknown             ",
+                2000,
+                "SC",
+                "Music                                             "
+            ],
+            [
+                "M",
+                "D",
+                "Unknown             ",
+                2001,
+                "MN",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "M",
+                "Secondary           ",
+                2002,
+                "WV",
+                "Music                                             "
+            ],
+            [
+                "M",
+                "S",
+                "Advanced Degree     ",
+                1998,
+                "SC",
+                "Electronics                                       "
+            ],
+            [
+                "F",
+                "S",
+                "Primary             ",
+                2003,
+                "TN",
+                "Music                                             "
+            ],
+            [
+                "M",
+                "S",
+                "Unknown             ",
+                2001,
+                "SC",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "S",
+                "2 yr Degree         ",
+                2003,
+                "MN",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "S",
+                "2 yr Degree         ",
+                1998,
+                "WV",
+                "Books                                             "
+            ],
+            [
+                "M",
+                "U",
+                "Primary             ",
+                1998,
+                "MN",
+                "Women                                             "
+            ],
+            [
+                "M",
+                "M",
+                "Unknown             ",
+                2000,
+                "MN",
+                "Children                                          "
+            ],
+            [
+                "F",
+                "U",
+                "Primary             ",
+                2003,
+                "WV",
+                "Electronics                                       "
+            ],
+            [
+                "F",
+                "M",
+                "Advanced Degree     ",
+                1999,
+                "TN",
+                "Shoes                                             "
+            ],
+            [
+                "M",
+                "M",
+                "Unknown             ",
+                1999,
+                "SC",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "W",
+                "2 yr Degree         ",
+                2000,
+                "MN",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "M",
+                "Unknown             ",
+                2003,
+                "GA",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "M",
+                "Secondary           ",
+                2003,
+                "WV",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "S",
+                "Unknown             ",
+                2002,
+                "WV",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "U",
+                "Primary             ",
+                2000,
+                "MN",
+                "Electronics                                       "
+            ],
+            [
+                "M",
+                "M",
+                "Primary             ",
+                2001,
+                "GA",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "U",
+                "4 yr Degree         ",
+                2000,
+                "GA",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "M",
+                "College             ",
+                2001,
+                "GA",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "U",
+                "Unknown             ",
+                2002,
+                "GA",
+                "Electronics                                       "
+            ],
+            [
+                "M",
+                "S",
+                "College             ",
+                2001,
+                "SC",
+                "Books                                             "
+            ],
+            [
+                "M",
+                "S",
+                "Unknown             ",
+                1999,
+                "WV",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "M",
+                "4 yr Degree         ",
+                2000,
+                "SC",
+                "Shoes                                             "
+            ],
+            [
+                "M",
+                "S",
+                "Secondary           ",
+                2003,
+                "GA",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "M",
+                "Unknown             ",
+                2003,
+                "GA",
+                "Music                                             "
+            ],
+            [
+                "M",
+                "S",
+                "Secondary           ",
+                2001,
+                "TN",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "U",
+                "Advanced Degree     ",
+                2002,
+                "TN",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "U",
+                "2 yr Degree         ",
+                2003,
+                "GA",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "M",
+                "Primary             ",
+                2001,
+                "MN",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "D",
+                "Secondary           ",
+                2003,
+                "SC",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "U",
+                "2 yr Degree         ",
+                2000,
+                "MN",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "M",
+                "4 yr Degree         ",
+                2001,
+                "GA",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "U",
+                "Secondary           ",
+                1999,
+                "GA",
+                "Music                                             "
+            ],
+            [
+                "F",
+                "M",
+                "Advanced Degree     ",
+                2001,
+                "WV",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "U",
+                "2 yr Degree         ",
+                2000,
+                "TN",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "S",
+                "Secondary           ",
+                2003,
+                "WV",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "S",
+                "Primary             ",
+                2000,
+                "TN",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "W",
+                "Unknown             ",
+                1999,
+                "MN",
+                "Children                                          "
+            ],
+            [
+                "M",
+                "S",
+                "Secondary           ",
+                2003,
+                "SC",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "M",
+                "Advanced Degree     ",
+                2000,
+                "SC",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "W",
+                "Primary             ",
+                2003,
+                "TN",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "U",
+                "College             ",
+                1998,
+                "MN",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "W",
+                "4 yr Degree         ",
+                2000,
+                "TN",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "U",
+                "Unknown             ",
+                2003,
+                "TN",
+                "Electronics                                       "
+            ],
+            [
+                "M",
+                "U",
+                "2 yr Degree         ",
+                2001,
+                "TN",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "S",
+                "College             ",
+                2001,
+                "TN",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "S",
+                "Secondary           ",
+                1999,
+                "MN",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "S",
+                "2 yr Degree         ",
+                2001,
+                "MN",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "U",
+                "2 yr Degree         ",
+                2001,
+                "TN",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "U",
+                "Secondary           ",
+                2003,
+                "MN",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "W",
+                "Advanced Degree     ",
+                2003,
+                "SC",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "S",
+                "Unknown             ",
+                2002,
+                "SC",
+                "Music                                             "
+            ],
+            [
+                "F",
+                "M",
+                "Unknown             ",
+                2000,
+                "WV",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "U",
+                "Unknown             ",
+                2003,
+                "GA",
+                "Women                                             "
+            ],
+            [
+                "M",
+                "D",
+                "2 yr Degree         ",
+                2000,
+                "GA",
+                "Shoes                                             "
+            ],
+            [
+                "M",
+                "U",
+                "Advanced Degree     ",
+                2001,
+                "TN",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "U",
+                "Unknown             ",
+                2000,
+                "GA",
+                "Children                                          "
+            ],
+            [
+                "F",
+                "W",
+                "Advanced Degree     ",
+                1998,
+                "WV",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "U",
+                "Secondary           ",
+                2003,
+                "TN",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "M",
+                "Secondary           ",
+                1998,
+                "SC",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "M",
+                "Secondary           ",
+                2000,
+                "GA",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "S",
+                "Advanced Degree     ",
+                2001,
+                "GA",
+                "Music                                             "
+            ],
+            [
+                "F",
+                "U",
+                "Secondary           ",
+                2003,
+                "WV",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "S",
+                "2 yr Degree         ",
+                2001,
+                "MN",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "U",
+                "2 yr Degree         ",
+                2003,
+                "GA",
+                "Children                                          "
+            ],
+            [
+                "M",
+                "D",
+                "Primary             ",
+                2001,
+                "MN",
+                "Shoes                                             "
+            ],
+            [
+                "M",
+                "U",
+                "College             ",
+                2001,
+                "WV",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "W",
+                "4 yr Degree         ",
+                2001,
+                "WV",
+                "Children                                          "
+            ],
+            [
+                "M",
+                "S",
+                "Advanced Degree     ",
+                1999,
+                "TN",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "D",
+                "College             ",
+                2002,
+                "MN",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "W",
+                "Unknown             ",
+                1998,
+                "MN",
+                "Women                                             "
+            ],
+            [
+                "F",
+                "S",
+                "Unknown             ",
+                1998,
+                "TN",
+                "Music                                             "
+            ],
+            [
+                "F",
+                "U",
+                "Primary             ",
+                2002,
+                "WV",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "D",
+                "4 yr Degree         ",
+                2001,
+                "GA",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "M",
+                "4 yr Degree         ",
+                1999,
+                "TN",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "U",
+                "Secondary           ",
+                2000,
+                "WV",
+                "Children                                          "
+            ],
+            [
+                "F",
+                "W",
+                "Secondary           ",
+                2003,
+                "TN",
+                "Women                                             "
+            ],
+            [
+                "M",
+                "U",
+                "2 yr Degree         ",
+                1998,
+                "MN",
+                "Books                                             "
+            ],
+            [
+                "F",
+                "W",
+                "Primary             ",
+                1999,
+                "GA",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "D",
+                "2 yr Degree         ",
+                2002,
+                "GA",
+                "Children                                          "
+            ],
+            [
+                "F",
+                "S",
+                "College             ",
+                2003,
+                "WV",
+                "Electronics                                       "
+            ],
+            [
+                "M",
+                "S",
+                "Advanced Degree     ",
+                1999,
+                "TN",
+                "Children                                          "
+            ],
+            [
+                "F",
+                "M",
+                "Secondary           ",
+                2001,
+                "WV",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "W",
+                "Unknown             ",
+                2003,
+                "GA",
+                "Books                                             "
+            ],
+            [
+                "F",
+                "D",
+                "College             ",
+                2000,
+                "GA",
+                "Children                                          "
+            ],
+            [
+                "M",
+                "S",
+                "College             ",
+                2000,
+                "GA",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "M",
+                "4 yr Degree         ",
+                2000,
+                "GA",
+                "Electronics                                       "
+            ],
+            [
+                "F",
+                "S",
+                "Unknown             ",
+                2001,
+                "GA",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "W",
+                "College             ",
+                2003,
+                "MN",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "U",
+                "Secondary           ",
+                2000,
+                "MN",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "U",
+                "Primary             ",
+                2002,
+                "GA",
+                "Women                                             "
+            ],
+            [
+                "M",
+                "S",
+                "College             ",
+                2003,
+                "GA",
+                "Music                                             "
+            ],
+            [
+                "F",
+                "S",
+                "College             ",
+                2002,
+                "GA",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "M",
+                "2 yr Degree         ",
+                2003,
+                "WV",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "S",
+                "4 yr Degree         ",
+                2002,
+                "GA",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "U",
+                "Secondary           ",
+                2000,
+                "MN",
+                "Women                                             "
+            ],
+            [
+                "F",
+                "W",
+                "Unknown             ",
+                2000,
+                "GA",
+                "Shoes                                             "
+            ],
+            [
+                "F",
+                "M",
+                "2 yr Degree         ",
+                1999,
+                "MN",
+                "Children                                          "
+            ],
+            [
+                "F",
+                "D",
+                "College             ",
+                2001,
+                "TN",
+                "Books                                             "
+            ],
+            [
+                "M",
+                "D",
+                "Unknown             ",
+                1999,
+                "GA",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "S",
+                "4 yr Degree         ",
+                2002,
+                "SC",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "U",
+                "Secondary           ",
+                2000,
+                "MN",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "S",
+                "Unknown             ",
+                2003,
+                "SC",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "D",
+                "Unknown             ",
+                1998,
+                "WV",
+                "Music                                             "
+            ],
+            [
+                "F",
+                "S",
+                "Secondary           ",
+                2000,
+                "TN",
+                "Children                                          "
+            ],
+            [
+                "F",
+                "U",
+                "College             ",
+                2003,
+                "TN",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "S",
+                "Unknown             ",
+                2001,
+                "WV",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "W",
+                "Secondary           ",
+                2001,
+                "GA",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "M",
+                "Unknown             ",
+                1998,
+                "MN",
+                "Shoes                                             "
+            ],
+            [
+                "F",
+                "M",
+                "2 yr Degree         ",
+                1998,
+                "GA",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "U",
+                "4 yr Degree         ",
+                1999,
+                "GA",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "S",
+                "Secondary           ",
+                2001,
+                "MN",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "W",
+                "Primary             ",
+                1999,
+                "GA",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "S",
+                "Advanced Degree     ",
+                2001,
+                "GA",
+                "Jewelry                                           "
+            ],
+            [
+                "F",
+                "W",
+                "Secondary           ",
+                2002,
+                "MN",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "M",
+                "Advanced Degree     ",
+                2000,
+                "TN",
+                "Shoes                                             "
+            ],
+            [
+                "F",
+                "D",
+                "College             ",
+                2000,
+                "GA",
+                "Books                                             "
+            ],
+            [
+                "M",
+                "D",
+                "2 yr Degree         ",
+                2001,
+                "MN",
+                "Children                                          "
+            ],
+            [
+                "M",
+                "M",
+                "Primary             ",
+                2003,
+                "SC",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "U",
+                "Unknown             ",
+                2003,
+                "GA",
+                "Music                                             "
+            ],
+            [
+                "M",
+                "U",
+                "2 yr Degree         ",
+                2002,
+                "GA",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "M",
+                "Secondary           ",
+                2001,
+                "GA",
+                "Music                                             "
+            ],
+            [
+                "M",
+                "W",
+                "2 yr Degree         ",
+                2003,
+                "TN",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "D",
+                "2 yr Degree         ",
+                1998,
+                "SC",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "M",
+                "Unknown             ",
+                2001,
+                "MN",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "W",
+                "Unknown             ",
+                2000,
+                "GA",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "S",
+                "Secondary           ",
+                2003,
+                "SC",
+                "Women                                             "
+            ],
+            [
+                "F",
+                "M",
+                "4 yr Degree         ",
+                1998,
+                "MN",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "M",
+                "2 yr Degree         ",
+                2001,
+                "MN",
+                "Women                                             "
+            ],
+            [
+                "F",
+                "U",
+                "Primary             ",
+                2001,
+                "SC",
+                "Jewelry                                           "
+            ],
+            [
+                "F",
+                "U",
+                "College             ",
+                2000,
+                "GA",
+                "Electronics                                       "
+            ],
+            [
+                "M",
+                "M",
+                "2 yr Degree         ",
+                2003,
+                "WV",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "M",
+                "Unknown             ",
+                1999,
+                "GA",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "U",
+                "Secondary           ",
+                1998,
+                "SC",
+                "Books                                             "
+            ],
+            [
+                "M",
+                "M",
+                "4 yr Degree         ",
+                2000,
+                "WV",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "M",
+                "College             ",
+                2003,
+                "GA",
+                "Jewelry                                           "
+            ],
+            [
+                "F",
+                "M",
+                "2 yr Degree         ",
+                2000,
+                "TN",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "M",
+                "2 yr Degree         ",
+                2000,
+                "WV",
+                "Electronics                                       "
+            ],
+            [
+                "M",
+                "U",
+                "Primary             ",
+                2001,
+                "GA",
+                "Children                                          "
+            ],
+            [
+                "M",
+                "D",
+                "2 yr Degree         ",
+                1998,
+                "MN",
+                "Books                                             "
+            ],
+            [
+                "M",
+                "S",
+                "Unknown             ",
+                2003,
+                "TN",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "M",
+                "Primary             ",
+                2002,
+                "GA",
+                "Children                                          "
+            ],
+            [
+                "M",
+                "S",
+                "4 yr Degree         ",
+                2003,
+                "TN",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "D",
+                "2 yr Degree         ",
+                2001,
+                "SC",
+                "Electronics                                       "
+            ],
+            [
+                "F",
+                "M",
+                "College             ",
+                2000,
+                "MN",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "M",
+                "Secondary           ",
+                1999,
+                "MN",
+                "Electronics                                       "
+            ],
+            [
+                "M",
+                "W",
+                "Unknown             ",
+                2001,
+                "TN",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "S",
+                "2 yr Degree         ",
+                2003,
+                "GA",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "S",
+                "Unknown             ",
+                2001,
+                "SC",
+                "Children                                          "
+            ],
+            [
+                "M",
+                "S",
+                "Secondary           ",
+                1998,
+                "MN",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "D",
+                "2 yr Degree         ",
+                2000,
+                "TN",
+                "Music                                             "
+            ],
+            [
+                "M",
+                "U",
+                "4 yr Degree         ",
+                2003,
+                "MN",
+                "Jewelry                                           "
+            ],
+            [
+                "F",
+                "S",
+                "2 yr Degree         ",
+                2000,
+                "WV",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "S",
+                "2 yr Degree         ",
+                2001,
+                "WV",
+                "Home                                              "
+            ],
+            [
+                "F",
+                "D",
+                "Unknown             ",
+                2001,
+                "GA",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "D",
+                "Unknown             ",
+                2001,
+                "SC",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "M",
+                "2 yr Degree         ",
+                2001,
+                "WV",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "U",
+                "2 yr Degree         ",
+                2000,
+                "WV",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "W",
+                "Unknown             ",
+                2003,
+                "MN",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "M",
+                "2 yr Degree         ",
+                2003,
+                "MN",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "M",
+                "Unknown             ",
+                2002,
+                "TN",
+                "Women                                             "
+            ],
+            [
+                "M",
+                "W",
+                "2 yr Degree         ",
+                2002,
+                "GA",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "M",
+                "Primary             ",
+                2001,
+                "GA",
+                "Books                                             "
+            ],
+            [
+                "F",
+                "U",
+                "Unknown             ",
+                2003,
+                "WV",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "S",
+                "Secondary           ",
+                2000,
+                "TN",
+                "Books                                             "
+            ],
+            [
+                "M",
+                "U",
+                "College             ",
+                2000,
+                "MN",
+                "Books                                             "
+            ],
+            [
+                "F",
+                "D",
+                "Unknown             ",
+                2003,
+                "WV",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "U",
+                "2 yr Degree         ",
+                2003,
+                "TN",
+                "Children                                          "
+            ],
+            [
+                "F",
+                "M",
+                "4 yr Degree         ",
+                2000,
+                "GA",
+                "Books                                             "
+            ],
+            [
+                "M",
+                "W",
+                "College             ",
+                2001,
+                "MN",
+                "Electronics                                       "
+            ],
+            [
+                "F",
+                "S",
+                "Primary             ",
+                2003,
+                "GA",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "U",
+                "Advanced Degree     ",
+                2000,
+                "GA",
+                "Men                                               "
+            ],
+            [
+                "M",
+                "W",
+                "Primary             ",
+                2000,
+                "WV",
+                "Shoes                                             "
+            ],
+            [
+                "F",
+                "M",
+                "Advanced Degree     ",
+                2001,
+                "WV",
+                "Children                                          "
+            ],
+            [
+                "M",
+                "W",
+                "2 yr Degree         ",
+                1999,
+                "GA",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "M",
+                "Advanced Degree     ",
+                2001,
+                "WV",
+                "Shoes                                             "
+            ],
+            [
+                "M",
+                "D",
+                "2 yr Degree         ",
+                2001,
+                "GA",
+                "Men                                               "
+            ],
+            [
+                "F",
+                "M",
+                "Advanced Degree     ",
+                2001,
+                "GA",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "D",
+                "2 yr Degree         ",
+                2003,
+                "TN",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "U",
+                "Primary             ",
+                2001,
+                "GA",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "D",
+                "Unknown             ",
+                2001,
+                "WV",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "D",
+                "Primary             ",
+                2001,
+                "SC",
+                "Sports                                            "
+            ],
+            [
+                "F",
+                "U",
+                "Unknown             ",
+                2000,
+                "TN",
+                "Music                                             "
+            ],
+            [
+                "M",
+                "S",
+                "Unknown             ",
+                2001,
+                "GA",
+                "Jewelry                                           "
+            ],
+            [
+                "M",
+                "U",
+                "2 yr Degree         ",
+                2000,
+                "WV",
+                "Music                                             "
+            ],
+            [
+                "M",
+                "S",
+                "Unknown             ",
+                2003,
+                "WV",
+                "Home                                              "
+            ],
+            [
+                "M",
+                "U",
+                "Unknown             ",
+                2003,
+                "GA",
+                "Children                                          "
+            ],
+            [
+                "M",
+                "M",
+                "4 yr Degree         ",
+                2000,
+                "GA",
+                "Sports                                            "
+            ],
+            [
+                "M",
+                "U",
+                "4 yr Degree         ",
+                1998,
+                "MN",
+                "Men                                               "
+            ]
+        ]
+    }
+}

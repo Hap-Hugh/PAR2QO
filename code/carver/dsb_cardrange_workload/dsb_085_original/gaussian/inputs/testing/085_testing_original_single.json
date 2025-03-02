@@ -1,0 +1,263 @@
+{
+    "085": {
+        "query": "SELECT min(ws_quantity) ,\n       min(wr_refunded_cash) ,\n       min(wr_fee) ,\n       min(ws_item_sk) ,\n       min(wr_order_number) ,\n       min(cd1.cd_demo_sk) ,\n       min(cd2.cd_demo_sk)\nFROM web_sales,\n     web_returns,\n     web_page,\n     customer_demographics cd1,\n     customer_demographics cd2,\n     customer_address,\n     date_dim,\n     reason\nWHERE ws_web_page_sk = wp_web_page_sk\n  AND ws_item_sk = wr_item_sk\n  AND ws_order_number = wr_order_number\n  AND ws_sold_date_sk = d_date_sk\n  AND d_year = @param0\n  AND cd1.cd_demo_sk = wr_refunded_cdemo_sk\n  AND cd2.cd_demo_sk = wr_returning_cdemo_sk\n  AND ca_address_sk = wr_refunded_addr_sk\n  AND r_reason_sk = wr_reason_sk\n  AND ((cd1.cd_marital_status = '@param1'\n        AND cd1.cd_marital_status = cd2.cd_marital_status\n        AND cd1.cd_education_status = '@param2'\n        AND cd1.cd_education_status = cd2.cd_education_status\n        AND ws_sales_price BETWEEN 100.00 AND 150.00)\n       OR (cd1.cd_marital_status = '@param3'\n           AND cd1.cd_marital_status = cd2.cd_marital_status\n           AND cd1.cd_education_status = '@param4'\n           AND cd1.cd_education_status = cd2.cd_education_status\n           AND ws_sales_price BETWEEN 50.00 AND 100.00)\n       OR (cd1.cd_marital_status = '@param5'\n           AND cd1.cd_marital_status = cd2.cd_marital_status\n           AND cd1.cd_education_status = '@param6'\n           AND cd1.cd_education_status = cd2.cd_education_status\n           AND ws_sales_price BETWEEN 150.00 AND 200.00))\n  AND ((ca_country = 'United States' AND ca_state in ('@param7')\n        AND ws_net_profit BETWEEN 100 AND 200)\n       OR (ca_country = 'United States' AND ca_state in ('@param8')\n           AND ws_net_profit BETWEEN 150 AND 300)\n       OR (ca_country = 'United States' AND ca_state in ('@param9')\n           AND ws_net_profit BETWEEN 50 AND 250)) ;",
+        "predicates": [
+            {
+                "alias": "",
+                "column": "d_year",
+                "operator": "=",
+                "data_type": "int",
+                "table": "date_dim",
+                "min": 1900,
+                "max": 2100,
+                "join_tables": [
+                    "web_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ws_sold_date_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ws_sold_date_sk = d_date_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "cd1",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd1.cd_demo_sk = wr_refunded_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "cd1",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd1.cd_demo_sk = wr_refunded_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "cd1",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd1.cd_demo_sk = wr_refunded_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "cd1",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd1.cd_demo_sk = wr_refunded_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "cd1",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd1.cd_demo_sk = wr_refunded_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "cd1",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd1.cd_demo_sk = wr_refunded_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ca_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ca_address_sk = wr_refunded_addr_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ca_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ca_address_sk = wr_refunded_addr_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ca_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "web_returns"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "wr_refunded_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ca_address_sk = wr_refunded_addr_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            }
+        ],
+        "params": [
+            [
+                "2002",
+                "D",
+                "Advanced Degree",
+                "S",
+                "4 yr Degree",
+                "W",
+                "Primary",
+                "CA', 'MT', 'VA",
+                "IL', 'SC', 'SD",
+                "MN', 'OR', 'WY"
+            ]
+        ]
+    }
+}

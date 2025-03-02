@@ -1,0 +1,4001 @@
+query,plan_id,plan_content
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[ru]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[ru]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[jp]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[nl]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[nl]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1950;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[jp]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1950;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[jp]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[nl]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[de]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[de]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2008;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2008;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[jp]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2009;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[jp]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2008;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1950;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[ru]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[nl]'
+AND rt.role = 'actress'
+AND t.production_year > 2009;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[jp]'
+AND rt.role = 'actress'
+AND t.production_year > 1950;",59,/*+  SeqScan(mc) SeqScan(cn) IndexOnlyScan(ct company_type_pkey) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(chn char_name_pkey) SeqScan(rt) HashJoin(mc cn) NestLoop(mc cn ct) NestLoop(mc cn ct t) NestLoop(mc cn ct t ci) NestLoop(mc cn ct t ci chn) HashJoin(mc cn ct t ci chn rt) Leading(((((((mc cn) ct) t) ci) chn) rt)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[nl]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[ru]'
+AND rt.role = 'actor'
+AND t.production_year > 2008;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[nl]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[nl]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[jp]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[ru]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2008;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[ru]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 1990;",59,/*+  SeqScan(mc) SeqScan(cn) IndexOnlyScan(ct company_type_pkey) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(chn char_name_pkey) SeqScan(rt) HashJoin(mc cn) NestLoop(mc cn ct) NestLoop(mc cn ct t) NestLoop(mc cn ct t ci) NestLoop(mc cn ct t ci chn) HashJoin(mc cn ct t ci chn rt) Leading(((((((mc cn) ct) t) ci) chn) rt)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1950;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[de]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",59,/*+  SeqScan(mc) SeqScan(cn) IndexOnlyScan(ct company_type_pkey) IndexScan(t title_pkey) IndexScan(ci movie_id_cast_info) IndexScan(chn char_name_pkey) SeqScan(rt) HashJoin(mc cn) NestLoop(mc cn ct) NestLoop(mc cn ct t) NestLoop(mc cn ct t ci) NestLoop(mc cn ct t ci chn) HashJoin(mc cn ct t ci chn rt) Leading(((((((mc cn) ct) t) ci) chn) rt)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2009;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1950;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[jp]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2009;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[jp]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actor'
+AND t.production_year > 2005;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 1990;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2010;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(uncredited)%'
+AND ci.note LIKE '%(voice)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
+"SELECT MIN(chn.name) AS uncredited_voiced_character, MIN(t.title) AS russian_movie
+FROM char_name AS chn,
+ cast_info AS ci,
+ company_name AS cn,
+ company_type AS ct,
+ movie_companies AS mc,
+ role_type AS rt,
+ title AS t
+WHERE t.id = mc.movie_id
+ AND t.id = ci.movie_id
+ AND ci.movie_id = mc.movie_id
+ AND chn.id = ci.person_role_id
+ AND rt.id = ci.role_id
+ AND cn.id = mc.company_id
+ AND ct.id = mc.company_type_id
+AND ci.note LIKE '%(voice)%'
+AND ci.note LIKE '%(uncredited)%'
+AND cn.country_code = '[us]'
+AND rt.role = 'actress'
+AND t.production_year > 2000;",0,/*+  SeqScan(ci) IndexScan(chn char_name_pkey) SeqScan(rt) IndexScan(t title_pkey) IndexScan(mc movie_id_movie_companies) IndexScan(cn company_name_pkey) IndexOnlyScan(ct company_type_pkey) NestLoop(ci chn) HashJoin(ci chn rt) NestLoop(ci chn rt t) NestLoop(ci chn rt t mc) NestLoop(ci chn rt t mc cn) NestLoop(ci chn rt t mc cn ct) Leading(((((((ci chn) rt) t) mc) cn) ct)) */
