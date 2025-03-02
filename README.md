@@ -2,10 +2,9 @@
 
 
 
-This is the GitHub repository for PAR2QO's submission. The full version paper is: [par2qo.pdf](https://github.com/Hap-Hugh/PAR2QO/par2qo.pdf)
+This is the GitHub repository for PAR2QO's submission. The full version paper is: [par2qo.pdf](https://github.com/Hap-Hugh/PAR2QO/blob/main/par2qo.pdf)
 
 This repository contains the code and resources for **PAR2QO**, a system for **Parametric Penalty-Aware Robust Query Optimization**. PAR2QO integrates robust plan selection into **Parametric Query Optimization (PQO)** to enhance both efficiency and stability. 
-
 
 
 
