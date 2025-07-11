@@ -1,0 +1,1520 @@
+{
+  "13-0": {
+    "query": "SELECT MIN(mi.info) AS release_date, MIN(miidx.info) AS rating, MIN(t.title) AS german_movie\nFROM company_name AS cn,\n   company_type AS ct,\n   info_type AS it,\n   info_type AS it2,\n   kind_type AS kt,\n   movie_companies AS mc,\n   movie_info AS mi,\n   movie_info_idx AS miidx,\n   title AS t\nWHERE mi.movie_id = t.id\nAND it2.id = mi.info_type_id\nAND kt.id = t.kind_id\nAND mc.movie_id = t.id\nAND cn.id = mc.company_id\nAND ct.id = mc.company_type_id\nAND miidx.movie_id = t.id\nAND it.id = miidx.info_type_id\nAND mi.movie_id = miidx.movie_id\nAND mi.movie_id = mc.movie_id\nAND miidx.movie_id = mc.movie_id\nAND cn.country_code = '@param0'\nAND ct.kind = '@param1'\nAND it.info = '@param2'\nAND it2.info = '@param3'\nAND kt.kind = '@param4';",
+    "predicates": [
+      {
+        "alias": "cn",
+        "column": "country_code",
+        "operator": "=",
+        "data_type": "text",
+        "table": "company_name",
+        "join_tables_alias": [
+          "mc"
+        ],
+        "join_tables": [
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "cn.id = mc.company_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "ct",
+        "column": "kind",
+        "operator": "=",
+        "data_type": "text",
+        "table": "company_type",
+        "join_tables_alias": [
+          "mc"
+        ],
+        "join_tables": [
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "ct.id = mc.company_type_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "it",
+        "column": "info",
+        "operator": "=",
+        "data_type": "text",
+        "table": "info_type",
+        "join_tables_alias": [
+          "miidx"
+        ],
+        "join_tables": [
+          "movie_info_idx"
+        ],
+        "join_conditions": [
+          "it.id = miidx.info_type_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "it",
+        "original_alias": "it2",
+        "column": "info",
+        "operator": "=",
+        "data_type": "text",
+        "table": "info_type",
+        "join_tables_alias": [
+          "mi"
+        ],
+        "join_tables": [
+          "movie_info"
+        ],
+        "join_conditions": [
+          "it.id = mi.info_type_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "kt",
+        "column": "kind",
+        "operator": "=",
+        "data_type": "text",
+        "table": "kind_type",
+        "join_tables_alias": [
+          "t"
+        ],
+        "join_tables": [
+          "title"
+        ],
+        "join_conditions": [
+          "kt.id = t.kind_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      }
+    ],
+    "params": [
+      [
+        "[za]",
+        "distributors",
+        "rating",
+        "printed media reviews",
+        "tv series"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[kr]",
+        "distributors",
+        "rating",
+        "certificates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "top 250 rank",
+        "countries",
+        "movie"
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "votes",
+        "genres",
+        "episode"
+      ],
+      [
+        "[jp]",
+        "distributors",
+        "votes distribution",
+        "LD supplement",
+        "tv movie"
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "votes",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[de]",
+        "production companies",
+        "votes",
+        "countries",
+        "episode"
+      ],
+      [
+        "[gb]",
+        "production companies",
+        "votes",
+        "genres",
+        "episode"
+      ],
+      [
+        "[mk]",
+        "distributors",
+        "votes",
+        "certificates",
+        "tv series"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "video movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "rating",
+        "countries",
+        "episode"
+      ],
+      [
+        "[cz]",
+        "distributors",
+        "votes",
+        "novel",
+        "video movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "rating",
+        "genres",
+        "tv movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "genres",
+        "video movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "release dates",
+        "tv series"
+      ],
+      [
+        "[at]",
+        "distributors",
+        "rating",
+        "trivia",
+        "tv series"
+      ],
+      [
+        "[de]",
+        "distributors",
+        "rating",
+        "countries",
+        "tv movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "budget",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[fr]",
+        "distributors",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[cn]",
+        "production companies",
+        "votes",
+        "filming dates",
+        "video movie"
+      ],
+      [
+        "[lv]",
+        "production companies",
+        "votes distribution",
+        "crazy credits",
+        "movie"
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "votes",
+        "genres",
+        "movie"
+      ],
+      [
+        "[gr]",
+        "production companies",
+        "votes",
+        "taglines",
+        "video movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[iq]",
+        "distributors",
+        "rating",
+        "budget",
+        "movie"
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "bottom 10 rank",
+        "countries",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "video movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "votes",
+        "countries",
+        "movie"
+      ],
+      [
+        "[nz]",
+        "production companies",
+        "votes",
+        "plot",
+        "tv movie"
+      ],
+      [
+        "[bh]",
+        "production companies",
+        "rating",
+        "weekend gross",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "video game"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "countries",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "bottom 10 rank",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[aw]",
+        "distributors",
+        "rating",
+        "printed media reviews",
+        "movie"
+      ],
+      [
+        "[gb]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "votes",
+        "countries",
+        "episode"
+      ],
+      [
+        "[id]",
+        "distributors",
+        "votes",
+        "countries",
+        "episode"
+      ],
+      [
+        "[jp]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[ge]",
+        "production companies",
+        "votes",
+        "genres",
+        "movie"
+      ],
+      [
+        "[sa]",
+        "production companies",
+        "votes",
+        "color info",
+        "movie"
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "release dates",
+        "tv movie"
+      ],
+      [
+        "[fr]",
+        "distributors",
+        "rating",
+        "countries",
+        "video game"
+      ],
+      [
+        "[am]",
+        "production companies",
+        "votes",
+        "languages",
+        "movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "votes",
+        "genres",
+        "tv movie"
+      ],
+      [
+        "[de]",
+        "distributors",
+        "bottom 10 rank",
+        "genres",
+        "movie"
+      ],
+      [
+        "[de]",
+        "production companies",
+        "votes",
+        "countries",
+        "movie"
+      ],
+      [
+        "[vn]",
+        "distributors",
+        "rating",
+        "admissions",
+        "movie"
+      ],
+      [
+        "[ee]",
+        "production companies",
+        "votes distribution",
+        "interviews",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[tr]",
+        "distributors",
+        "rating",
+        "novel",
+        "tv movie"
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "rating",
+        "genres",
+        "video movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "top 250 rank",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[de]",
+        "production companies",
+        "votes",
+        "filming dates",
+        "video movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[es]",
+        "production companies",
+        "rating",
+        "plot",
+        "video movie"
+      ],
+      [
+        "[sg]",
+        "distributors",
+        "rating",
+        "quotes",
+        "video game"
+      ],
+      [
+        "[cr]",
+        "distributors",
+        "votes distribution",
+        "languages",
+        "tv series"
+      ],
+      [
+        "[aw]",
+        "production companies",
+        "votes",
+        "LD disc size",
+        "movie"
+      ],
+      [
+        "[qa]",
+        "production companies",
+        "votes",
+        "filming dates",
+        "movie"
+      ],
+      [
+        "[gb]",
+        "production companies",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[ca]",
+        "distributors",
+        "rating",
+        "color info",
+        "video game"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "budget",
+        "movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "rating",
+        "release dates",
+        "episode"
+      ],
+      [
+        "[sk]",
+        "distributors",
+        "rating",
+        "countries",
+        "episode"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "countries",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[jp]",
+        "distributors",
+        "rating",
+        "color info",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "genres",
+        "movie"
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "rating",
+        "countries",
+        "tv series"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[cz]",
+        "distributors",
+        "votes distribution",
+        "languages",
+        "video game"
+      ],
+      [
+        "[sk]",
+        "production companies",
+        "votes distribution",
+        "opening weekend",
+        "movie"
+      ],
+      [
+        "[gr]",
+        "distributors",
+        "votes distribution",
+        "LD picture format",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "votes",
+        "countries",
+        "episode"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[de]",
+        "distributors",
+        "votes",
+        "genres",
+        "episode"
+      ],
+      [
+        "[bf]",
+        "distributors",
+        "votes",
+        "languages",
+        "movie"
+      ],
+      [
+        "[cshh]",
+        "distributors",
+        "votes distribution",
+        "LD subtitles",
+        "movie"
+      ],
+      [
+        "[de]",
+        "production companies",
+        "rating",
+        "countries",
+        "tv series"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[jp]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[by]",
+        "production companies",
+        "rating",
+        "release dates",
+        "tv movie"
+      ],
+      [
+        "[pr]",
+        "production companies",
+        "rating",
+        "tech info",
+        "tv series"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "episode"
+      ],
+      [
+        "[np]",
+        "production companies",
+        "votes distribution",
+        "tech info",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[de]",
+        "production companies",
+        "rating",
+        "LD additional information",
+        "movie"
+      ],
+      [
+        "[ar]",
+        "distributors",
+        "top 250 rank",
+        "LD sound encoding",
+        "movie"
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "votes",
+        "countries",
+        "movie"
+      ],
+      [
+        "[se]",
+        "production companies",
+        "votes distribution",
+        "LD analog right",
+        "movie"
+      ],
+      [
+        "[ru]",
+        "production companies",
+        "rating",
+        "LD language",
+        "movie"
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "rating",
+        "release dates",
+        "video game"
+      ],
+      [
+        "[bg]",
+        "distributors",
+        "votes",
+        "color info",
+        "video game"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "budget",
+        "episode"
+      ],
+      [
+        "[br]",
+        "distributors",
+        "votes distribution",
+        "taglines",
+        "movie"
+      ],
+      [
+        "[ddde]",
+        "production companies",
+        "rating",
+        "release dates",
+        "tv movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "countries",
+        "movie"
+      ],
+      [
+        "[de]",
+        "distributors",
+        "rating",
+        "genres",
+        "tv movie"
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "rating",
+        "release dates",
+        "episode"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "bottom 10 rank",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[mt]",
+        "distributors",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[br]",
+        "production companies",
+        "rating",
+        "genres",
+        "episode"
+      ],
+      [
+        "[uy]",
+        "distributors",
+        "votes",
+        "filming dates",
+        "tv series"
+      ],
+      [
+        "[jp]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[nl]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[gb]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[fr]",
+        "distributors",
+        "top 250 rank",
+        "budget",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[de]",
+        "production companies",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[lb]",
+        "distributors",
+        "rating",
+        "production process protocol",
+        "tv series"
+      ],
+      [
+        "[gb]",
+        "production companies",
+        "votes",
+        "release dates",
+        "episode"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "countries",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "bottom 10 rank",
+        "countries",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[ge]",
+        "production companies",
+        "votes",
+        "runtimes",
+        "tv series"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[ro]",
+        "distributors",
+        "rating",
+        "sound mix",
+        "tv series"
+      ],
+      [
+        "[in]",
+        "production companies",
+        "rating",
+        "interviews",
+        "tv series"
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "votes",
+        "genres",
+        "video movie"
+      ],
+      [
+        "[in]",
+        "production companies",
+        "votes",
+        "adaption",
+        "movie"
+      ],
+      [
+        "[suhh]",
+        "production companies",
+        "top 250 rank",
+        "tech info",
+        "movie"
+      ],
+      [
+        "[es]",
+        "production companies",
+        "rating",
+        "goofs",
+        "video movie"
+      ],
+      [
+        "[il]",
+        "production companies",
+        "rating",
+        "budget",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "episode"
+      ],
+      [
+        "[de]",
+        "production companies",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "rating",
+        "release dates",
+        "episode"
+      ],
+      [
+        "[uy]",
+        "production companies",
+        "votes",
+        "plot",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[za]",
+        "distributors",
+        "votes",
+        "other literature",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[no]",
+        "distributors",
+        "votes",
+        "genres",
+        "video movie"
+      ],
+      [
+        "[mx]",
+        "distributors",
+        "votes distribution",
+        "genres",
+        "video game"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[suhh]",
+        "production companies",
+        "votes",
+        "countries",
+        "episode"
+      ],
+      [
+        "[cr]",
+        "distributors",
+        "rating",
+        "release dates",
+        "episode"
+      ],
+      [
+        "[ee]",
+        "production companies",
+        "votes distribution",
+        "admissions",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[ci]",
+        "distributors",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[pt]",
+        "distributors",
+        "rating",
+        "release dates",
+        "video movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[de]",
+        "distributors",
+        "rating",
+        "LD digital sound",
+        "movie"
+      ],
+      [
+        "[at]",
+        "production companies",
+        "votes distribution",
+        "production dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "votes",
+        "countries",
+        "episode"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "rating",
+        "countries",
+        "episode"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[gb]",
+        "production companies",
+        "votes",
+        "release dates",
+        "movie"
+      ],
+      [
+        "[al]",
+        "production companies",
+        "rating",
+        "genres",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "rating",
+        "countries",
+        "movie"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "rating",
+        "countries",
+        "tv series"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "votes",
+        "release dates",
+        "video game"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "votes",
+        "release dates",
+        "episode"
+      ],
+      [
+        "[co]",
+        "distributors",
+        "top 250 rank",
+        "LD certification",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "bottom 10 rank",
+        "countries",
+        "movie"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "bottom 10 rank",
+        "countries",
+        "movie"
+      ],
+      [
+        "[nl]",
+        "production companies",
+        "rating",
+        "release dates",
+        "movie"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,2740 @@
+{
+  "100": {
+    "query": "SELECT min(item1.i_item_sk),\n    min(item2.i_item_sk),\n    min(s1.ss_ticket_number),\n    min(s1.ss_item_sk)\nFROM item AS item1,\nitem AS item2,\nstore_sales AS s1,\nstore_sales AS s2,\ndate_dim,\ncustomer,\ncustomer_address,\ncustomer_demographics\nWHERE\nitem1.i_item_sk < item2.i_item_sk\nAND s1.ss_ticket_number = s2.ss_ticket_number\nAND s1.ss_item_sk = item1.i_item_sk and s2.ss_item_sk = item2.i_item_sk\nAND s1.ss_customer_sk = c_customer_sk\nand c_current_addr_sk = ca_address_sk\nand c_current_cdemo_sk = cd_demo_sk\nAND d_year between @param0 and @param0 + 1\nand d_date_sk = s1.ss_sold_date_sk\nand item1.i_category in ('@param1')\nand item2.i_manager_id between @param2 and @param3\nand cd_marital_status = '@param4'\nand cd_education_status = '@param5'\nand s1.ss_list_price between @param6 and @param7\nand s2.ss_list_price between @param8 and @param9\n;",
+    "predicates": [
+      {
+        "alias": "",
+        "column": "d_year",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "date_dim",
+        "min": 1900,
+        "max": 2100,
+        "join_tables": [
+          "store_sales"
+        ],
+        "join_tables_alias": [
+          "s1"
+        ],
+        "join_tables_column": [
+          [
+            "ss_sold_date_sk"
+          ]
+        ],
+        "join_conditions": [
+          "d_date_sk = s1.ss_sold_date_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "item1",
+        "column": "i_category",
+        "operator": "IN",
+        "data_type": "text",
+        "table": "item",
+        "join_tables": [
+          "item",
+          "store_sales"
+        ],
+        "join_tables_alias": [
+          "item2",
+          "s1"
+        ],
+        "join_tables_column": [
+          [
+            "i_item_sk"
+          ],
+          [
+            "ss_item_sk"
+          ]
+        ],
+        "join_conditions": [
+          "item1.i_item_sk < item2.i_item_sk",
+          "s1.ss_item_sk = item1.i_item_sk "
+        ],
+        "left_or_right": [
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "item2",
+        "column": "i_manager_id",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "item",
+        "min": 1,
+        "max": 100,
+        "join_tables": [
+          "item",
+          "store_sales"
+        ],
+        "join_tables_alias": [
+          "item1",
+          "s2"
+        ],
+        "join_tables_column": [
+          [
+            "i_item_sk"
+          ],
+          [
+            "ss_item_sk"
+          ]
+        ],
+        "join_conditions": [
+          "item1.i_item_sk < item2.i_item_sk",
+          "s2.ss_item_sk = item2.i_item_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "item2",
+        "column": "i_manager_id",
+        "operator": "<=",
+        "data_type": "int",
+        "table": "item",
+        "min": 1,
+        "max": 100,
+        "join_tables": [
+          "item",
+          "store_sales"
+        ],
+        "join_tables_alias": [
+          "item1",
+          "s2"
+        ],
+        "join_tables_column": [
+          [
+            "i_item_sk"
+          ],
+          [
+            "ss_item_sk"
+          ]
+        ],
+        "join_conditions": [
+          "item1.i_item_sk < item2.i_item_sk",
+          "s2.ss_item_sk = item2.i_item_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cd_marital_status",
+        "operator": "=",
+        "data_type": "text",
+        "table": "customer_demographics",
+        "join_tables": [
+          "customer"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "c_current_cdemo_sk"
+          ]
+        ],
+        "join_conditions": [
+          "c_current_cdemo_sk = cd_demo_sk"
+        ],
+        "left_or_right": [
+          "l"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cd_education_status",
+        "operator": "=",
+        "data_type": "text",
+        "table": "customer_demographics",
+        "join_tables": [
+          "customer"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "c_current_cdemo_sk"
+          ]
+        ],
+        "join_conditions": [
+          "c_current_cdemo_sk = cd_demo_sk"
+        ],
+        "left_or_right": [
+          "l"
+        ]
+      },
+      {
+        "alias": "s1",
+        "column": "ss_list_price",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "store_sales",
+        "min": 1,
+        "max": 300,
+        "join_tables": [
+          "store_sales",
+          "item",
+          "customer",
+          "date_dim"
+        ],
+        "join_tables_alias": [
+          "s2",
+          "item1",
+          "",
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "ss_ticket_number"
+          ],
+          [
+            "i_item_sk"
+          ],
+          [
+            "c_customer_sk"
+          ],
+          [
+            "d_date_sk"
+          ]
+        ],
+        "join_conditions": [
+          "s1.ss_ticket_number = s2.ss_ticket_number",
+          "s1.ss_item_sk = item1.i_item_sk ",
+          "s1.ss_customer_sk = c_customer_sk",
+          "d_date_sk = s1.ss_sold_date_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "l",
+          "both"
+        ]
+      },
+      {
+        "alias": "s1",
+        "column": "ss_list_price",
+        "operator": "<=",
+        "data_type": "int",
+        "table": "store_sales",
+        "min": 1,
+        "max": 300,
+        "join_tables": [
+          "store_sales",
+          "item",
+          "customer",
+          "date_dim"
+        ],
+        "join_tables_alias": [
+          "s2",
+          "item1",
+          "",
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "ss_ticket_number"
+          ],
+          [
+            "i_item_sk"
+          ],
+          [
+            "c_customer_sk"
+          ],
+          [
+            "d_date_sk"
+          ]
+        ],
+        "join_conditions": [
+          "s1.ss_ticket_number = s2.ss_ticket_number",
+          "s1.ss_item_sk = item1.i_item_sk ",
+          "s1.ss_customer_sk = c_customer_sk",
+          "d_date_sk = s1.ss_sold_date_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "l",
+          "both"
+        ]
+      },
+      {
+        "alias": "s2",
+        "column": "ss_list_price",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "store_sales",
+        "min": 1,
+        "max": 300,
+        "join_tables": [
+          "store_sales",
+          "item"
+        ],
+        "join_tables_alias": [
+          "s1",
+          "item2"
+        ],
+        "join_tables_column": [
+          [
+            "ss_ticket_number"
+          ],
+          [
+            "i_item_sk"
+          ]
+        ],
+        "join_conditions": [
+          "s1.ss_ticket_number = s2.ss_ticket_number",
+          "s2.ss_item_sk = item2.i_item_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "s2",
+        "column": "ss_list_price",
+        "operator": "<=",
+        "data_type": "int",
+        "table": "store_sales",
+        "min": 1,
+        "max": 300,
+        "join_tables": [
+          "store_sales",
+          "item"
+        ],
+        "join_tables_alias": [
+          "s1",
+          "item2"
+        ],
+        "join_tables_column": [
+          [
+            "ss_ticket_number"
+          ],
+          [
+            "i_item_sk"
+          ]
+        ],
+        "join_conditions": [
+          "s1.ss_ticket_number = s2.ss_ticket_number",
+          "s2.ss_item_sk = item2.i_item_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both"
+        ]
+      }
+    ],
+    "params": [
+      [
+        "1999",
+        "Children', 'Home', 'Men",
+        "9",
+        "28",
+        "S",
+        "Advanced Degree",
+        "140",
+        "154",
+        "140",
+        "154"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Home",
+        "9",
+        "28",
+        "S",
+        "Unknown",
+        "171",
+        "185",
+        "171",
+        "185"
+      ],
+      [
+        "1998",
+        "Children', 'Men', 'Music",
+        "41",
+        "60",
+        "W",
+        "College",
+        "175",
+        "189",
+        "175",
+        "189"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Women",
+        "49",
+        "68",
+        "W",
+        "Primary",
+        "161",
+        "175",
+        "161",
+        "175"
+      ],
+      [
+        "1998",
+        "Electronics', 'Jewelry', 'Women",
+        "53",
+        "72",
+        "D",
+        "College",
+        "252",
+        "266",
+        "252",
+        "266"
+      ],
+      [
+        "1998",
+        "Electronics', 'Home', 'Women",
+        "72",
+        "91",
+        "W",
+        "Advanced Degree",
+        "43",
+        "57",
+        "43",
+        "57"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Men",
+        "81",
+        "100",
+        "D",
+        "4 yr Degree",
+        "63",
+        "77",
+        "63",
+        "77"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Jewelry",
+        "28",
+        "47",
+        "W",
+        "Advanced Degree",
+        "44",
+        "58",
+        "44",
+        "58"
+      ],
+      [
+        "1998",
+        "Electronics', 'Jewelry', 'Women",
+        "30",
+        "49",
+        "M",
+        "Advanced Degree",
+        "75",
+        "89",
+        "75",
+        "89"
+      ],
+      [
+        "1998",
+        "Books', 'Jewelry', 'Women",
+        "72",
+        "91",
+        "D",
+        "4 yr Degree",
+        "20",
+        "34",
+        "20",
+        "34"
+      ],
+      [
+        "2000",
+        "Home', 'Jewelry', 'Shoes",
+        "44",
+        "63",
+        "S",
+        "4 yr Degree",
+        "25",
+        "39",
+        "25",
+        "39"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Home",
+        "73",
+        "92",
+        "S",
+        "Primary",
+        "161",
+        "175",
+        "161",
+        "175"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Jewelry",
+        "81",
+        "100",
+        "D",
+        "4 yr Degree",
+        "120",
+        "134",
+        "120",
+        "134"
+      ],
+      [
+        "1999",
+        "Books', 'Electronics', 'Women",
+        "62",
+        "81",
+        "D",
+        "4 yr Degree",
+        "137",
+        "151",
+        "137",
+        "151"
+      ],
+      [
+        "1999",
+        "Children', 'Jewelry', 'Women",
+        "80",
+        "99",
+        "D",
+        "College",
+        "55",
+        "69",
+        "55",
+        "69"
+      ],
+      [
+        "2000",
+        "Electronics', 'Jewelry', 'Sports",
+        "23",
+        "42",
+        "D",
+        "Primary",
+        "241",
+        "255",
+        "241",
+        "255"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Jewelry",
+        "79",
+        "98",
+        "D",
+        "Advanced Degree",
+        "59",
+        "73",
+        "59",
+        "73"
+      ],
+      [
+        "2000",
+        "Home', 'Men', 'Women",
+        "22",
+        "41",
+        "D",
+        "Unknown",
+        "75",
+        "89",
+        "75",
+        "89"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Women",
+        "36",
+        "55",
+        "D",
+        "Advanced Degree",
+        "44",
+        "58",
+        "44",
+        "58"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Home",
+        "30",
+        "49",
+        "D",
+        "Primary",
+        "64",
+        "78",
+        "64",
+        "78"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Jewelry",
+        "76",
+        "95",
+        "W",
+        "Advanced Degree",
+        "105",
+        "119",
+        "105",
+        "119"
+      ],
+      [
+        "1998",
+        "Children', 'Jewelry', 'Men",
+        "80",
+        "99",
+        "D",
+        "Advanced Degree",
+        "181",
+        "195",
+        "181",
+        "195"
+      ],
+      [
+        "1998",
+        "Books', 'Children', 'Jewelry",
+        "81",
+        "100",
+        "U",
+        "4 yr Degree",
+        "29",
+        "43",
+        "29",
+        "43"
+      ],
+      [
+        "2000",
+        "Children', 'Home', 'Jewelry",
+        "15",
+        "34",
+        "D",
+        "College",
+        "51",
+        "65",
+        "51",
+        "65"
+      ],
+      [
+        "2000",
+        "Books', 'Children', 'Electronics",
+        "81",
+        "100",
+        "W",
+        "Advanced Degree",
+        "62",
+        "76",
+        "62",
+        "76"
+      ],
+      [
+        "1999",
+        "Books', 'Home', 'Women",
+        "73",
+        "92",
+        "D",
+        "Primary",
+        "136",
+        "150",
+        "136",
+        "150"
+      ],
+      [
+        "2000",
+        "Electronics', 'Home', 'Men",
+        "81",
+        "100",
+        "S",
+        "College",
+        "143",
+        "157",
+        "143",
+        "157"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "28",
+        "47",
+        "M",
+        "College",
+        "166",
+        "180",
+        "166",
+        "180"
+      ],
+      [
+        "2000",
+        "Electronics', 'Men', 'Women",
+        "3",
+        "22",
+        "D",
+        "Advanced Degree",
+        "201",
+        "215",
+        "201",
+        "215"
+      ],
+      [
+        "1999",
+        "Books', 'Children', 'Home",
+        "43",
+        "62",
+        "M",
+        "Advanced Degree",
+        "286",
+        "300",
+        "286",
+        "300"
+      ],
+      [
+        "1998",
+        "Children', 'Jewelry', 'Men",
+        "68",
+        "87",
+        "D",
+        "Advanced Degree",
+        "70",
+        "84",
+        "70",
+        "84"
+      ],
+      [
+        "1998",
+        "Books', 'Children', 'Jewelry",
+        "17",
+        "36",
+        "M",
+        "4 yr Degree",
+        "51",
+        "65",
+        "51",
+        "65"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Music",
+        "81",
+        "100",
+        "D",
+        "Advanced Degree",
+        "175",
+        "189",
+        "175",
+        "189"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Men",
+        "43",
+        "62",
+        "D",
+        "Advanced Degree",
+        "108",
+        "122",
+        "108",
+        "122"
+      ],
+      [
+        "1999",
+        "Electronics', 'Jewelry', 'Women",
+        "64",
+        "83",
+        "W",
+        "College",
+        "3",
+        "17",
+        "3",
+        "17"
+      ],
+      [
+        "1999",
+        "Home', 'Sports', 'Women",
+        "81",
+        "100",
+        "S",
+        "Primary",
+        "9",
+        "23",
+        "9",
+        "23"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Home",
+        "81",
+        "100",
+        "D",
+        "2 yr Degree",
+        "27",
+        "41",
+        "27",
+        "41"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Jewelry",
+        "73",
+        "92",
+        "D",
+        "4 yr Degree",
+        "236",
+        "250",
+        "236",
+        "250"
+      ],
+      [
+        "1998",
+        "Electronics', 'Jewelry', 'Women",
+        "23",
+        "42",
+        "D",
+        "4 yr Degree",
+        "180",
+        "194",
+        "180",
+        "194"
+      ],
+      [
+        "2000",
+        "Books', 'Children', 'Men",
+        "81",
+        "100",
+        "W",
+        "Advanced Degree",
+        "183",
+        "197",
+        "183",
+        "197"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Women",
+        "16",
+        "35",
+        "D",
+        "4 yr Degree",
+        "238",
+        "252",
+        "238",
+        "252"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Jewelry",
+        "18",
+        "37",
+        "M",
+        "4 yr Degree",
+        "177",
+        "191",
+        "177",
+        "191"
+      ],
+      [
+        "2000",
+        "Electronics', 'Home', 'Women",
+        "100",
+        "119",
+        "D",
+        "Primary",
+        "3",
+        "17",
+        "3",
+        "17"
+      ],
+      [
+        "1998",
+        "Jewelry', 'Men', 'Women",
+        "25",
+        "44",
+        "M",
+        "Primary",
+        "40",
+        "54",
+        "40",
+        "54"
+      ],
+      [
+        "1998",
+        "Electronics', 'Jewelry', 'Women",
+        "3",
+        "22",
+        "D",
+        "Primary",
+        "190",
+        "204",
+        "190",
+        "204"
+      ],
+      [
+        "2000",
+        "Electronics', 'Jewelry', 'Men",
+        "33",
+        "52",
+        "M",
+        "Advanced Degree",
+        "87",
+        "101",
+        "87",
+        "101"
+      ],
+      [
+        "1999",
+        "Children', 'Home', 'Women",
+        "81",
+        "100",
+        "W",
+        "Advanced Degree",
+        "166",
+        "180",
+        "166",
+        "180"
+      ],
+      [
+        "1998",
+        "Electronics', 'Home', 'Men",
+        "6",
+        "25",
+        "D",
+        "Advanced Degree",
+        "153",
+        "167",
+        "153",
+        "167"
+      ],
+      [
+        "1999",
+        "Children', 'Jewelry', 'Women",
+        "72",
+        "91",
+        "D",
+        "College",
+        "90",
+        "104",
+        "90",
+        "104"
+      ],
+      [
+        "1998",
+        "Children', 'Jewelry', 'Women",
+        "67",
+        "86",
+        "D",
+        "2 yr Degree",
+        "199",
+        "213",
+        "199",
+        "213"
+      ],
+      [
+        "1998",
+        "Children', 'Jewelry', 'Women",
+        "69",
+        "88",
+        "S",
+        "Advanced Degree",
+        "162",
+        "176",
+        "162",
+        "176"
+      ],
+      [
+        "1999",
+        "Books', 'Children', 'Women",
+        "100",
+        "119",
+        "S",
+        "4 yr Degree",
+        "194",
+        "208",
+        "194",
+        "208"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Home",
+        "33",
+        "52",
+        "D",
+        "4 yr Degree",
+        "87",
+        "101",
+        "87",
+        "101"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Jewelry",
+        "7",
+        "26",
+        "D",
+        "4 yr Degree",
+        "201",
+        "215",
+        "201",
+        "215"
+      ],
+      [
+        "2000",
+        "Children', 'Jewelry', 'Men",
+        "73",
+        "92",
+        "D",
+        "Unknown",
+        "17",
+        "31",
+        "17",
+        "31"
+      ],
+      [
+        "2000",
+        "Jewelry', 'Music', 'Women",
+        "9",
+        "28",
+        "D",
+        "Primary",
+        "134",
+        "148",
+        "134",
+        "148"
+      ],
+      [
+        "2000",
+        "Children', 'Jewelry', 'Music",
+        "16",
+        "35",
+        "M",
+        "Advanced Degree",
+        "103",
+        "117",
+        "103",
+        "117"
+      ],
+      [
+        "2000",
+        "Children', 'Jewelry', 'Women",
+        "41",
+        "60",
+        "W",
+        "Primary",
+        "172",
+        "186",
+        "172",
+        "186"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Women",
+        "41",
+        "60",
+        "D",
+        "Advanced Degree",
+        "227",
+        "241",
+        "227",
+        "241"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Women",
+        "5",
+        "24",
+        "S",
+        "Advanced Degree",
+        "38",
+        "52",
+        "38",
+        "52"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Jewelry",
+        "48",
+        "67",
+        "M",
+        "College",
+        "131",
+        "145",
+        "131",
+        "145"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Women",
+        "56",
+        "75",
+        "S",
+        "Advanced Degree",
+        "165",
+        "179",
+        "165",
+        "179"
+      ],
+      [
+        "1999",
+        "Children', 'Jewelry', 'Sports",
+        "81",
+        "100",
+        "S",
+        "College",
+        "182",
+        "196",
+        "182",
+        "196"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Jewelry",
+        "45",
+        "64",
+        "S",
+        "4 yr Degree",
+        "194",
+        "208",
+        "194",
+        "208"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Home",
+        "42",
+        "61",
+        "D",
+        "Advanced Degree",
+        "58",
+        "72",
+        "58",
+        "72"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Jewelry",
+        "80",
+        "99",
+        "D",
+        "College",
+        "210",
+        "224",
+        "210",
+        "224"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "14",
+        "33",
+        "D",
+        "4 yr Degree",
+        "122",
+        "136",
+        "122",
+        "136"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "72",
+        "91",
+        "W",
+        "Primary",
+        "136",
+        "150",
+        "136",
+        "150"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Women",
+        "33",
+        "52",
+        "W",
+        "Advanced Degree",
+        "53",
+        "67",
+        "53",
+        "67"
+      ],
+      [
+        "2000",
+        "Home', 'Men', 'Women",
+        "48",
+        "67",
+        "W",
+        "Advanced Degree",
+        "120",
+        "134",
+        "120",
+        "134"
+      ],
+      [
+        "2000",
+        "Books', 'Children', 'Jewelry",
+        "49",
+        "68",
+        "W",
+        "Unknown",
+        "30",
+        "44",
+        "30",
+        "44"
+      ],
+      [
+        "2000",
+        "Electronics', 'Jewelry', 'Women",
+        "9",
+        "28",
+        "D",
+        "Advanced Degree",
+        "160",
+        "174",
+        "160",
+        "174"
+      ],
+      [
+        "2000",
+        "Books', 'Home', 'Women",
+        "6",
+        "25",
+        "D",
+        "Advanced Degree",
+        "26",
+        "40",
+        "26",
+        "40"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Home",
+        "37",
+        "56",
+        "D",
+        "4 yr Degree",
+        "7",
+        "21",
+        "7",
+        "21"
+      ],
+      [
+        "1998",
+        "Books', 'Children', 'Jewelry",
+        "73",
+        "92",
+        "M",
+        "Advanced Degree",
+        "236",
+        "250",
+        "236",
+        "250"
+      ],
+      [
+        "1999",
+        "Books', 'Electronics', 'Jewelry",
+        "81",
+        "100",
+        "S",
+        "College",
+        "19",
+        "33",
+        "19",
+        "33"
+      ],
+      [
+        "2000",
+        "Children', 'Home', 'Jewelry",
+        "46",
+        "65",
+        "W",
+        "Advanced Degree",
+        "172",
+        "186",
+        "172",
+        "186"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Jewelry",
+        "24",
+        "43",
+        "W",
+        "Advanced Degree",
+        "229",
+        "243",
+        "229",
+        "243"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Jewelry",
+        "78",
+        "97",
+        "W",
+        "College",
+        "70",
+        "84",
+        "70",
+        "84"
+      ],
+      [
+        "1998",
+        "Home', 'Jewelry', 'Sports",
+        "62",
+        "81",
+        "M",
+        "Advanced Degree",
+        "68",
+        "82",
+        "68",
+        "82"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Men",
+        "45",
+        "64",
+        "W",
+        "College",
+        "124",
+        "138",
+        "124",
+        "138"
+      ],
+      [
+        "2000",
+        "Electronics', 'Home', 'Women",
+        "58",
+        "77",
+        "W",
+        "Advanced Degree",
+        "164",
+        "178",
+        "164",
+        "178"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Men",
+        "57",
+        "76",
+        "D",
+        "Advanced Degree",
+        "116",
+        "130",
+        "116",
+        "130"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Home",
+        "81",
+        "100",
+        "M",
+        "4 yr Degree",
+        "213",
+        "227",
+        "213",
+        "227"
+      ],
+      [
+        "1999",
+        "Children', 'Home', 'Men",
+        "49",
+        "68",
+        "W",
+        "Advanced Degree",
+        "20",
+        "34",
+        "20",
+        "34"
+      ],
+      [
+        "1998",
+        "Jewelry', 'Shoes', 'Women",
+        "81",
+        "100",
+        "D",
+        "College",
+        "210",
+        "224",
+        "210",
+        "224"
+      ],
+      [
+        "1999",
+        "Electronics', 'Jewelry', 'Women",
+        "81",
+        "100",
+        "W",
+        "College",
+        "31",
+        "45",
+        "31",
+        "45"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Jewelry",
+        "81",
+        "100",
+        "S",
+        "4 yr Degree",
+        "149",
+        "163",
+        "149",
+        "163"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Men",
+        "56",
+        "75",
+        "D",
+        "Primary",
+        "221",
+        "235",
+        "221",
+        "235"
+      ],
+      [
+        "2000",
+        "Books', 'Electronics', 'Home",
+        "48",
+        "67",
+        "D",
+        "Advanced Degree",
+        "12",
+        "26",
+        "12",
+        "26"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Home",
+        "28",
+        "47",
+        "M",
+        "Advanced Degree",
+        "106",
+        "120",
+        "106",
+        "120"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Jewelry",
+        "69",
+        "88",
+        "M",
+        "Primary",
+        "174",
+        "188",
+        "174",
+        "188"
+      ],
+      [
+        "1999",
+        "Children', 'Jewelry', 'Sports",
+        "81",
+        "100",
+        "D",
+        "4 yr Degree",
+        "142",
+        "156",
+        "142",
+        "156"
+      ],
+      [
+        "1998",
+        "Electronics', 'Jewelry', 'Women",
+        "81",
+        "100",
+        "D",
+        "Advanced Degree",
+        "126",
+        "140",
+        "126",
+        "140"
+      ],
+      [
+        "2000",
+        "Books', 'Electronics', 'Women",
+        "14",
+        "33",
+        "S",
+        "4 yr Degree",
+        "123",
+        "137",
+        "123",
+        "137"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Jewelry",
+        "54",
+        "73",
+        "U",
+        "4 yr Degree",
+        "173",
+        "187",
+        "173",
+        "187"
+      ],
+      [
+        "2000",
+        "Electronics', 'Jewelry', 'Women",
+        "7",
+        "26",
+        "W",
+        "Advanced Degree",
+        "80",
+        "94",
+        "80",
+        "94"
+      ],
+      [
+        "1998",
+        "Books', 'Children', 'Electronics",
+        "60",
+        "79",
+        "M",
+        "4 yr Degree",
+        "116",
+        "130",
+        "116",
+        "130"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Women",
+        "81",
+        "100",
+        "W",
+        "Primary",
+        "3",
+        "17",
+        "3",
+        "17"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Women",
+        "26",
+        "45",
+        "D",
+        "4 yr Degree",
+        "62",
+        "76",
+        "62",
+        "76"
+      ],
+      [
+        "1998",
+        "Children', 'Jewelry', 'Women",
+        "30",
+        "49",
+        "D",
+        "4 yr Degree",
+        "213",
+        "227",
+        "213",
+        "227"
+      ],
+      [
+        "1999",
+        "Books', 'Jewelry', 'Men",
+        "36",
+        "55",
+        "W",
+        "2 yr Degree",
+        "146",
+        "160",
+        "146",
+        "160"
+      ],
+      [
+        "1998",
+        "Books', 'Electronics', 'Women",
+        "34",
+        "53",
+        "S",
+        "4 yr Degree",
+        "137",
+        "151",
+        "137",
+        "151"
+      ],
+      [
+        "2000",
+        "Books', 'Electronics', 'Jewelry",
+        "81",
+        "100",
+        "D",
+        "Advanced Degree",
+        "25",
+        "39",
+        "25",
+        "39"
+      ],
+      [
+        "1999",
+        "Children', 'Home', 'Jewelry",
+        "81",
+        "100",
+        "D",
+        "Advanced Degree",
+        "215",
+        "229",
+        "215",
+        "229"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Jewelry",
+        "30",
+        "49",
+        "D",
+        "College",
+        "87",
+        "101",
+        "87",
+        "101"
+      ],
+      [
+        "1998",
+        "Electronics', 'Jewelry', 'Men",
+        "32",
+        "51",
+        "W",
+        "College",
+        "50",
+        "64",
+        "50",
+        "64"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Jewelry",
+        "20",
+        "39",
+        "D",
+        "College",
+        "118",
+        "132",
+        "118",
+        "132"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "69",
+        "88",
+        "U",
+        "4 yr Degree",
+        "7",
+        "21",
+        "7",
+        "21"
+      ],
+      [
+        "1999",
+        "Children', 'Jewelry', 'Women",
+        "28",
+        "47",
+        "W",
+        "Primary",
+        "73",
+        "87",
+        "73",
+        "87"
+      ],
+      [
+        "2000",
+        "Electronics', 'Home', 'Jewelry",
+        "36",
+        "55",
+        "D",
+        "College",
+        "150",
+        "164",
+        "150",
+        "164"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Jewelry",
+        "81",
+        "100",
+        "D",
+        "4 yr Degree",
+        "84",
+        "98",
+        "84",
+        "98"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Jewelry",
+        "81",
+        "100",
+        "D",
+        "College",
+        "241",
+        "255",
+        "241",
+        "255"
+      ],
+      [
+        "1999",
+        "Books', 'Children', 'Women",
+        "8",
+        "27",
+        "W",
+        "College",
+        "98",
+        "112",
+        "98",
+        "112"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Home",
+        "81",
+        "100",
+        "M",
+        "Advanced Degree",
+        "63",
+        "77",
+        "63",
+        "77"
+      ],
+      [
+        "1998",
+        "Books', 'Children', 'Women",
+        "36",
+        "55",
+        "D",
+        "4 yr Degree",
+        "244",
+        "258",
+        "244",
+        "258"
+      ],
+      [
+        "1998",
+        "Books', 'Electronics', 'Women",
+        "80",
+        "99",
+        "S",
+        "Primary",
+        "251",
+        "265",
+        "251",
+        "265"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "58",
+        "77",
+        "D",
+        "Primary",
+        "286",
+        "300",
+        "286",
+        "300"
+      ],
+      [
+        "2000",
+        "Electronics', 'Jewelry', 'Women",
+        "27",
+        "46",
+        "S",
+        "College",
+        "266",
+        "280",
+        "266",
+        "280"
+      ],
+      [
+        "2000",
+        "Books', 'Children', 'Jewelry",
+        "5",
+        "24",
+        "W",
+        "College",
+        "275",
+        "289",
+        "275",
+        "289"
+      ],
+      [
+        "1998",
+        "Electronics', 'Jewelry', 'Sports",
+        "30",
+        "49",
+        "M",
+        "Advanced Degree",
+        "77",
+        "91",
+        "77",
+        "91"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "51",
+        "70",
+        "D",
+        "Unknown",
+        "81",
+        "95",
+        "81",
+        "95"
+      ],
+      [
+        "2000",
+        "Electronics', 'Jewelry', 'Men",
+        "36",
+        "55",
+        "W",
+        "Advanced Degree",
+        "152",
+        "166",
+        "152",
+        "166"
+      ],
+      [
+        "1999",
+        "Home', 'Men', 'Women",
+        "19",
+        "38",
+        "W",
+        "Primary",
+        "85",
+        "99",
+        "85",
+        "99"
+      ],
+      [
+        "2000",
+        "Children', 'Jewelry', 'Women",
+        "51",
+        "70",
+        "S",
+        "Primary",
+        "61",
+        "75",
+        "61",
+        "75"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "81",
+        "100",
+        "D",
+        "2 yr Degree",
+        "93",
+        "107",
+        "93",
+        "107"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "81",
+        "100",
+        "W",
+        "Advanced Degree",
+        "169",
+        "183",
+        "169",
+        "183"
+      ],
+      [
+        "2000",
+        "Books', 'Electronics', 'Women",
+        "12",
+        "31",
+        "D",
+        "College",
+        "181",
+        "195",
+        "181",
+        "195"
+      ],
+      [
+        "1999",
+        "Books', 'Children', 'Women",
+        "40",
+        "59",
+        "D",
+        "College",
+        "186",
+        "200",
+        "186",
+        "200"
+      ],
+      [
+        "2000",
+        "Children', 'Jewelry', 'Women",
+        "15",
+        "34",
+        "D",
+        "College",
+        "6",
+        "20",
+        "6",
+        "20"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Jewelry",
+        "81",
+        "100",
+        "S",
+        "Advanced Degree",
+        "12",
+        "26",
+        "12",
+        "26"
+      ],
+      [
+        "2000",
+        "Books', 'Children', 'Electronics",
+        "35",
+        "54",
+        "D",
+        "College",
+        "125",
+        "139",
+        "125",
+        "139"
+      ],
+      [
+        "1998",
+        "Children', 'Men', 'Women",
+        "14",
+        "33",
+        "W",
+        "2 yr Degree",
+        "53",
+        "67",
+        "53",
+        "67"
+      ],
+      [
+        "2000",
+        "Electronics', 'Men', 'Shoes",
+        "27",
+        "46",
+        "U",
+        "Advanced Degree",
+        "248",
+        "262",
+        "248",
+        "262"
+      ],
+      [
+        "2000",
+        "Books', 'Children', 'Electronics",
+        "59",
+        "78",
+        "W",
+        "College",
+        "143",
+        "157",
+        "143",
+        "157"
+      ],
+      [
+        "1999",
+        "Children', 'Home', 'Jewelry",
+        "54",
+        "73",
+        "S",
+        "Advanced Degree",
+        "155",
+        "169",
+        "155",
+        "169"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "24",
+        "43",
+        "D",
+        "Advanced Degree",
+        "80",
+        "94",
+        "80",
+        "94"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Jewelry",
+        "60",
+        "79",
+        "S",
+        "Primary",
+        "117",
+        "131",
+        "117",
+        "131"
+      ],
+      [
+        "1998",
+        "Books', 'Electronics', 'Men",
+        "9",
+        "28",
+        "W",
+        "Primary",
+        "60",
+        "74",
+        "60",
+        "74"
+      ],
+      [
+        "1998",
+        "Electronics', 'Jewelry', 'Women",
+        "57",
+        "76",
+        "M",
+        "Primary",
+        "254",
+        "268",
+        "254",
+        "268"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "44",
+        "63",
+        "D",
+        "4 yr Degree",
+        "55",
+        "69",
+        "55",
+        "69"
+      ],
+      [
+        "1999",
+        "Children', 'Men', 'Women",
+        "32",
+        "51",
+        "D",
+        "4 yr Degree",
+        "96",
+        "110",
+        "96",
+        "110"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Jewelry",
+        "81",
+        "100",
+        "W",
+        "College",
+        "86",
+        "100",
+        "86",
+        "100"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Women",
+        "59",
+        "78",
+        "S",
+        "4 yr Degree",
+        "10",
+        "24",
+        "10",
+        "24"
+      ],
+      [
+        "2000",
+        "Books', 'Children', 'Electronics",
+        "27",
+        "46",
+        "W",
+        "2 yr Degree",
+        "217",
+        "231",
+        "217",
+        "231"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "66",
+        "85",
+        "W",
+        "Primary",
+        "174",
+        "188",
+        "174",
+        "188"
+      ],
+      [
+        "1998",
+        "Books', 'Electronics', 'Home",
+        "42",
+        "61",
+        "M",
+        "Advanced Degree",
+        "122",
+        "136",
+        "122",
+        "136"
+      ],
+      [
+        "2000",
+        "Books', 'Jewelry', 'Men",
+        "14",
+        "33",
+        "D",
+        "Advanced Degree",
+        "95",
+        "109",
+        "95",
+        "109"
+      ],
+      [
+        "2000",
+        "Children', 'Jewelry', 'Women",
+        "13",
+        "32",
+        "W",
+        "Unknown",
+        "122",
+        "136",
+        "122",
+        "136"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Jewelry",
+        "23",
+        "42",
+        "W",
+        "Advanced Degree",
+        "177",
+        "191",
+        "177",
+        "191"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Music",
+        "1",
+        "20",
+        "D",
+        "4 yr Degree",
+        "101",
+        "115",
+        "101",
+        "115"
+      ],
+      [
+        "1999",
+        "Books', 'Children', 'Electronics",
+        "60",
+        "79",
+        "W",
+        "2 yr Degree",
+        "8",
+        "22",
+        "8",
+        "22"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Jewelry",
+        "59",
+        "78",
+        "W",
+        "Advanced Degree",
+        "21",
+        "35",
+        "21",
+        "35"
+      ],
+      [
+        "1999",
+        "Children', 'Jewelry', 'Men",
+        "33",
+        "52",
+        "W",
+        "Primary",
+        "186",
+        "200",
+        "186",
+        "200"
+      ],
+      [
+        "1999",
+        "Children', 'Home', 'Jewelry",
+        "31",
+        "50",
+        "S",
+        "Advanced Degree",
+        "64",
+        "78",
+        "64",
+        "78"
+      ],
+      [
+        "1999",
+        "Children', 'Jewelry', 'Women",
+        "72",
+        "91",
+        "M",
+        "4 yr Degree",
+        "104",
+        "118",
+        "104",
+        "118"
+      ],
+      [
+        "1998",
+        "Books', 'Electronics', 'Men",
+        "27",
+        "46",
+        "D",
+        "4 yr Degree",
+        "233",
+        "247",
+        "233",
+        "247"
+      ],
+      [
+        "1998",
+        "Books', 'Children', 'Home",
+        "14",
+        "33",
+        "W",
+        "Primary",
+        "4",
+        "18",
+        "4",
+        "18"
+      ],
+      [
+        "1998",
+        "Books', 'Electronics', 'Jewelry",
+        "14",
+        "33",
+        "W",
+        "Advanced Degree",
+        "258",
+        "272",
+        "258",
+        "272"
+      ],
+      [
+        "1998",
+        "Home', 'Jewelry', 'Men",
+        "28",
+        "47",
+        "M",
+        "Advanced Degree",
+        "130",
+        "144",
+        "130",
+        "144"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Women",
+        "25",
+        "44",
+        "D",
+        "College",
+        "128",
+        "142",
+        "128",
+        "142"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Women",
+        "51",
+        "70",
+        "W",
+        "Primary",
+        "91",
+        "105",
+        "91",
+        "105"
+      ],
+      [
+        "1999",
+        "Children', 'Home', 'Women",
+        "43",
+        "62",
+        "S",
+        "4 yr Degree",
+        "13",
+        "27",
+        "13",
+        "27"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Jewelry",
+        "33",
+        "52",
+        "D",
+        "4 yr Degree",
+        "128",
+        "142",
+        "128",
+        "142"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Women",
+        "19",
+        "38",
+        "D",
+        "4 yr Degree",
+        "50",
+        "64",
+        "50",
+        "64"
+      ],
+      [
+        "1999",
+        "Electronics', 'Jewelry', 'Shoes",
+        "81",
+        "100",
+        "D",
+        "Primary",
+        "99",
+        "113",
+        "99",
+        "113"
+      ],
+      [
+        "1998",
+        "Books', 'Jewelry', 'Women",
+        "31",
+        "50",
+        "W",
+        "Advanced Degree",
+        "175",
+        "189",
+        "175",
+        "189"
+      ],
+      [
+        "1999",
+        "Books', 'Children', 'Men",
+        "59",
+        "78",
+        "D",
+        "Primary",
+        "26",
+        "40",
+        "26",
+        "40"
+      ],
+      [
+        "1999",
+        "Children', 'Jewelry', 'Women",
+        "4",
+        "23",
+        "D",
+        "4 yr Degree",
+        "96",
+        "110",
+        "96",
+        "110"
+      ],
+      [
+        "1998",
+        "Books', 'Children', 'Electronics",
+        "44",
+        "63",
+        "D",
+        "Unknown",
+        "17",
+        "31",
+        "17",
+        "31"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Jewelry",
+        "46",
+        "65",
+        "S",
+        "Unknown",
+        "188",
+        "202",
+        "188",
+        "202"
+      ],
+      [
+        "2000",
+        "Books', 'Electronics', 'Jewelry",
+        "72",
+        "91",
+        "D",
+        "Advanced Degree",
+        "23",
+        "37",
+        "23",
+        "37"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Women",
+        "57",
+        "76",
+        "W",
+        "College",
+        "21",
+        "35",
+        "21",
+        "35"
+      ],
+      [
+        "1999",
+        "Children', 'Home', 'Jewelry",
+        "1",
+        "20",
+        "W",
+        "Advanced Degree",
+        "119",
+        "133",
+        "119",
+        "133"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Women",
+        "47",
+        "66",
+        "W",
+        "Advanced Degree",
+        "176",
+        "190",
+        "176",
+        "190"
+      ],
+      [
+        "1998",
+        "Children', 'Electronics', 'Jewelry",
+        "81",
+        "100",
+        "D",
+        "4 yr Degree",
+        "124",
+        "138",
+        "124",
+        "138"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Home",
+        "81",
+        "100",
+        "W",
+        "College",
+        "81",
+        "95",
+        "81",
+        "95"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Jewelry",
+        "18",
+        "37",
+        "W",
+        "Advanced Degree",
+        "94",
+        "108",
+        "94",
+        "108"
+      ],
+      [
+        "1999",
+        "Books', 'Electronics', 'Home",
+        "1",
+        "20",
+        "M",
+        "4 yr Degree",
+        "15",
+        "29",
+        "15",
+        "29"
+      ],
+      [
+        "2000",
+        "Children', 'Jewelry', 'Women",
+        "43",
+        "62",
+        "S",
+        "4 yr Degree",
+        "25",
+        "39",
+        "25",
+        "39"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Jewelry",
+        "8",
+        "27",
+        "D",
+        "Advanced Degree",
+        "176",
+        "190",
+        "176",
+        "190"
+      ],
+      [
+        "2000",
+        "Men', 'Music', 'Women",
+        "79",
+        "98",
+        "D",
+        "4 yr Degree",
+        "74",
+        "88",
+        "74",
+        "88"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Women",
+        "81",
+        "100",
+        "W",
+        "Primary",
+        "96",
+        "110",
+        "96",
+        "110"
+      ],
+      [
+        "1999",
+        "Books', 'Children', 'Jewelry",
+        "50",
+        "69",
+        "D",
+        "4 yr Degree",
+        "162",
+        "176",
+        "162",
+        "176"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Jewelry",
+        "3",
+        "22",
+        "W",
+        "Primary",
+        "164",
+        "178",
+        "164",
+        "178"
+      ],
+      [
+        "2000",
+        "Electronics', 'Home', 'Women",
+        "48",
+        "67",
+        "D",
+        "Advanced Degree",
+        "33",
+        "47",
+        "33",
+        "47"
+      ],
+      [
+        "1998",
+        "Children', 'Home', 'Women",
+        "20",
+        "39",
+        "M",
+        "4 yr Degree",
+        "11",
+        "25",
+        "11",
+        "25"
+      ],
+      [
+        "1999",
+        "Books', 'Electronics', 'Jewelry",
+        "81",
+        "100",
+        "D",
+        "Advanced Degree",
+        "112",
+        "126",
+        "112",
+        "126"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Home",
+        "81",
+        "100",
+        "U",
+        "4 yr Degree",
+        "63",
+        "77",
+        "63",
+        "77"
+      ],
+      [
+        "1998",
+        "Home', 'Jewelry', 'Women",
+        "77",
+        "96",
+        "D",
+        "Unknown",
+        "216",
+        "230",
+        "216",
+        "230"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Jewelry",
+        "25",
+        "44",
+        "D",
+        "Primary",
+        "223",
+        "237",
+        "223",
+        "237"
+      ],
+      [
+        "1999",
+        "Electronics', 'Jewelry', 'Women",
+        "12",
+        "31",
+        "W",
+        "Advanced Degree",
+        "102",
+        "116",
+        "102",
+        "116"
+      ],
+      [
+        "1998",
+        "Home', 'Jewelry', 'Music",
+        "81",
+        "100",
+        "W",
+        "Advanced Degree",
+        "181",
+        "195",
+        "181",
+        "195"
+      ],
+      [
+        "1999",
+        "Children', 'Electronics', 'Women",
+        "74",
+        "93",
+        "W",
+        "Advanced Degree",
+        "220",
+        "234",
+        "220",
+        "234"
+      ],
+      [
+        "1998",
+        "Jewelry', 'Men', 'Women",
+        "27",
+        "46",
+        "M",
+        "Primary",
+        "112",
+        "126",
+        "112",
+        "126"
+      ],
+      [
+        "1999",
+        "Electronics', 'Home', 'Women",
+        "16",
+        "35",
+        "W",
+        "Advanced Degree",
+        "109",
+        "123",
+        "109",
+        "123"
+      ],
+      [
+        "2000",
+        "Electronics', 'Men', 'Sports",
+        "23",
+        "42",
+        "D",
+        "College",
+        "101",
+        "115",
+        "101",
+        "115"
+      ],
+      [
+        "2000",
+        "Children', 'Electronics', 'Home",
+        "81",
+        "100",
+        "D",
+        "College",
+        "141",
+        "155",
+        "141",
+        "155"
+      ],
+      [
+        "1998",
+        "Books', 'Home', 'Women",
+        "18",
+        "37",
+        "S",
+        "Primary",
+        "182",
+        "196",
+        "182",
+        "196"
+      ],
+      [
+        "1998",
+        "Electronics', 'Home', 'Jewelry",
+        "42",
+        "61",
+        "D",
+        "Primary",
+        "70",
+        "84",
+        "70",
+        "84"
+      ]
+    ]
+  }
+}

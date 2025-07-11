@@ -1,0 +1,2425 @@
+{
+    "013": {
+        "query": "select min(ss_quantity)\n       ,min(ss_ext_sales_price)\n       ,min(ss_ext_wholesale_cost)\n       ,min(ss_ext_wholesale_cost)\n from store_sales\n     ,store\n     ,customer_demographics\n     ,household_demographics\n     ,customer_address\n     ,date_dim\n where s_store_sk = ss_store_sk\n and  ss_sold_date_sk = d_date_sk and d_year = 2001\n and((ss_hdemo_sk=hd_demo_sk\n  and cd_demo_sk = ss_cdemo_sk\n  and cd_marital_status = '@param0'\n  and cd_education_status = '@param1'\n  and ss_sales_price between 100.00 and 150.00\n  and hd_dep_count = 3\n     )or\n     (ss_hdemo_sk=hd_demo_sk\n  and cd_demo_sk = ss_cdemo_sk\n  and cd_marital_status = '@param2'\n  and cd_education_status = '@param3'\n  and ss_sales_price between 50.00 and 100.00\n  and hd_dep_count = 1\n     ) or\n     (ss_hdemo_sk=hd_demo_sk\n  and cd_demo_sk = ss_cdemo_sk\n  and cd_marital_status = '@param4'\n  and cd_education_status = '@param5'\n  and ss_sales_price between 150.00 and 200.00\n  and hd_dep_count = 1\n     ))\n and((ss_addr_sk = ca_address_sk\n  and ca_country = 'United States'\n  and ca_state in ('@param6')\n  and ss_net_profit between 100 and 200\n     ) or\n     (ss_addr_sk = ca_address_sk\n  and ca_country = 'United States'\n  and ca_state in ('@param7')\n  and ss_net_profit between 150 and 300\n     ) or\n     (ss_addr_sk = ca_address_sk\n  and ca_country = 'United States'\n  and ca_state in ('@param8')\n  and ss_net_profit between 50 and 250\n     ))\n;",
+        "predicates": [
+            {
+                "alias": "",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd_demo_sk = ss_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd_demo_sk = ss_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd_demo_sk = ss_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd_demo_sk = ss_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_marital_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd_demo_sk = ss_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cd_education_status",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_demographics",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_cdemo_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cd_demo_sk = ss_cdemo_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ca_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_addr_sk = ca_address_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ca_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_addr_sk = ca_address_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ca_state",
+                "operator": "IN",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "store_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "ss_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ss_addr_sk = ca_address_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            }
+        ],
+        "params": [
+            [
+                "M",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "D",
+                "Primary",
+                "IL', 'TX', 'UT",
+                "AR', 'CO', 'TX",
+                "CO', 'GA', 'SD"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "M",
+                "Advanced Degree",
+                "FL', 'NE', 'OK",
+                "IN', 'KS', 'VA",
+                "IA', 'VT', 'WA"
+            ],
+            [
+                "D",
+                "Primary",
+                "W",
+                "4 yr Degree",
+                "W",
+                "College",
+                "PA', 'VA', 'WA",
+                "OH', 'OK', 'VA",
+                "IA', 'MO', 'TX"
+            ],
+            [
+                "W",
+                "Unknown",
+                "S",
+                "Unknown",
+                "D",
+                "Advanced Degree",
+                "FL', 'GA', 'IL",
+                "IA', 'MT', 'NE",
+                "IN', 'KY', 'MD"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "CO', 'MS', 'OK",
+                "GA', 'KS', 'OR",
+                "IN', 'SD', 'TX"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "W",
+                "College",
+                "S",
+                "4 yr Degree",
+                "MN', 'OH', 'SD",
+                "AL', 'MO', 'TX",
+                "GA', 'NM', 'SD"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "GA', 'ND', 'TX",
+                "OH', 'OK', 'SD",
+                "IN', 'MI', 'WI"
+            ],
+            [
+                "S",
+                "Advanced Degree",
+                "D",
+                "College",
+                "W",
+                "Unknown",
+                "LA', 'MO', 'ND",
+                "CO', 'GA', 'MI",
+                "GA', 'NY', 'OK"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "M",
+                "4 yr Degree",
+                "W",
+                "College",
+                "GA', 'PA', 'TX",
+                "AL', 'ND', 'NE",
+                "GA', 'IA', 'NY"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "ID', 'MT', 'WI",
+                "IA', 'IN', 'NY",
+                "NE', 'NY', 'VA"
+            ],
+            [
+                "M",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "D",
+                "Primary",
+                "CA', 'MT', 'SC",
+                "FL', 'IA', 'PA",
+                "IL', 'MN', 'TN"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "W",
+                "College",
+                "W",
+                "4 yr Degree",
+                "SC', 'TX', 'VA",
+                "FL', 'KS', 'VT",
+                "IN', 'KY', 'TX"
+            ],
+            [
+                "D",
+                "Primary",
+                "M",
+                "4 yr Degree",
+                "W",
+                "College",
+                "ME', 'MI', 'TN",
+                "IA', 'NC', 'NJ",
+                "LA', 'MS', 'TX"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "S",
+                "4 yr Degree",
+                "W",
+                "College",
+                "AL', 'SC', 'TN",
+                "IA', 'NE', 'WY",
+                "AR', 'GA', 'ND"
+            ],
+            [
+                "W",
+                "Unknown",
+                "W",
+                "2 yr Degree",
+                "D",
+                "Advanced Degree",
+                "GA', 'MO', 'MT",
+                "GA', 'KY', 'MS",
+                "GA', 'IA', 'VA"
+            ],
+            [
+                "D",
+                "Secondary",
+                "S",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "KS', 'NE', 'NJ",
+                "AZ', 'MN', 'TX",
+                "GA', 'MT', 'NM"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "IL', 'ME', 'VA",
+                "SD', 'WA', 'WI",
+                "MT', 'OK', 'TN"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "S",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "OK', 'PA', 'TX",
+                "GA', 'TN', 'TX",
+                "ID', 'LA', 'TX"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "M",
+                "2 yr Degree",
+                "D",
+                "College",
+                "GA', 'MO', 'OH",
+                "MO', 'NE', 'PA",
+                "AL', 'IN', 'TX"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "S",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "MI', 'SD', 'TX",
+                "KY', 'MI', 'WI",
+                "LA', 'MI', 'NC"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "W",
+                "College",
+                "MT', 'OH', 'VA",
+                "IL', 'TN', 'TX",
+                "MN', 'NJ', 'TX"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "U",
+                "Primary",
+                "D",
+                "College",
+                "TN', 'TX', 'VA",
+                "AK', 'IA', 'OH",
+                "ID', 'MS', 'NM"
+            ],
+            [
+                "D",
+                "Primary",
+                "D",
+                "College",
+                "D",
+                "College",
+                "IL', 'KY', 'TX",
+                "AK', 'MS', 'MT",
+                "SC', 'TN', 'TX"
+            ],
+            [
+                "D",
+                "Secondary",
+                "W",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "SD', 'TX', 'VA",
+                "NJ', 'OK', 'TX",
+                "IA', 'LA', 'VA"
+            ],
+            [
+                "D",
+                "Primary",
+                "D",
+                "College",
+                "W",
+                "Advanced Degree",
+                "GA', 'IN', 'WA",
+                "KS', 'KY', 'OH",
+                "OR', 'PA', 'TX"
+            ],
+            [
+                "M",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "ID', 'KS', 'TX",
+                "MI', 'MN', 'NE",
+                "GA', 'TX', 'VA"
+            ],
+            [
+                "S",
+                "College",
+                "S",
+                "Advanced Degree",
+                "W",
+                "College",
+                "LA', 'WA', 'WI",
+                "MO', 'OH', 'TX",
+                "KY', 'SD', 'WI"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "M",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "AK', 'MO', 'OH",
+                "MN', 'TN', 'VA",
+                "MS', 'OH', 'OK"
+            ],
+            [
+                "M",
+                "Primary",
+                "D",
+                "College",
+                "W",
+                "4 yr Degree",
+                "FL', 'MS', 'PA",
+                "GA', 'IA', 'TN",
+                "IL', 'ND', 'TX"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "M",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "MO', 'NE', 'PA",
+                "LA', 'OR', 'WV",
+                "IL', 'MO', 'NY"
+            ],
+            [
+                "W",
+                "Primary",
+                "D",
+                "Primary",
+                "W",
+                "Primary",
+                "NM', 'NY', 'VA",
+                "AZ', 'CA', 'TX",
+                "TN', 'TX', 'WV"
+            ],
+            [
+                "D",
+                "Primary",
+                "D",
+                "Advanced Degree",
+                "D",
+                "College",
+                "AL', 'ND', 'SC",
+                "AL', 'KY', 'TX",
+                "IL', 'KS', 'SC"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "FL', 'LA', 'VA",
+                "CA', 'KY', 'PA",
+                "FL', 'ID', 'MN"
+            ],
+            [
+                "D",
+                "College",
+                "W",
+                "Advanced Degree",
+                "D",
+                "College",
+                "FL', 'IN', 'TX",
+                "NC', 'OH', 'PA",
+                "GA', 'MS', 'PA"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "W",
+                "College",
+                "D",
+                "College",
+                "IA', 'ID', 'SD",
+                "NC', 'NY', 'OK",
+                "MD', 'TN', 'WY"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "MI', 'MS', 'NV",
+                "CA', 'KY', 'TX",
+                "NE', 'SD', 'VA"
+            ],
+            [
+                "W",
+                "Primary",
+                "S",
+                "4 yr Degree",
+                "W",
+                "Primary",
+                "AL', 'OR', 'SC",
+                "CO', 'SC', 'VA",
+                "CA', 'FL', 'MS"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "S",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "FL', 'KS', 'SC",
+                "AZ', 'CT', 'MN",
+                "CO', 'IL', 'MS"
+            ],
+            [
+                "M",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "W",
+                "Unknown",
+                "MI', 'OH', 'VA",
+                "ID', 'NC', 'OR",
+                "FL', 'ID', 'VA"
+            ],
+            [
+                "W",
+                "Primary",
+                "D",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "IN', 'KY', 'WI",
+                "AR', 'TN', 'TX",
+                "IL', 'KY', 'SD"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "MN', 'UT', 'VA",
+                "GA', 'KY', 'OR",
+                "NE', 'TN', 'TX"
+            ],
+            [
+                "D",
+                "2 yr Degree",
+                "S",
+                "4 yr Degree",
+                "D",
+                "2 yr Degree",
+                "AR', 'MO', 'OH",
+                "CA', 'MO', 'TX",
+                "OH', 'TN', 'TX"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "FL', 'ID', 'SC",
+                "AL', 'MS', 'NY",
+                "CO', 'NJ', 'TX"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "W",
+                "College",
+                "D",
+                "4 yr Degree",
+                "AL', 'KS', 'MO",
+                "CA', 'SD', 'TN",
+                "IA', 'MT', 'NC"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "AR', 'IL', 'MO",
+                "IN', 'MT', 'PA",
+                "GA', 'NC', 'TX"
+            ],
+            [
+                "S",
+                "Primary",
+                "D",
+                "Primary",
+                "S",
+                "Primary",
+                "OH', 'OK', 'TN",
+                "KY', 'OR', 'VA",
+                "FL', 'IA', 'WV"
+            ],
+            [
+                "D",
+                "2 yr Degree",
+                "D",
+                "College",
+                "M",
+                "2 yr Degree",
+                "OH', 'PA', 'UT",
+                "IA', 'IN', 'TN",
+                "KS', 'OK', 'SD"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "S",
+                "Advanced Degree",
+                "MS', 'TX', 'WY",
+                "FL', 'KS', 'WV",
+                "AK', 'MD', 'SC"
+            ],
+            [
+                "D",
+                "Unknown",
+                "W",
+                "2 yr Degree",
+                "S",
+                "4 yr Degree",
+                "CA', 'FL', 'MT",
+                "FL', 'TX', 'WI",
+                "MS', 'MT', 'WV"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "M",
+                "4 yr Degree",
+                "W",
+                "Primary",
+                "AL', 'OK', 'WI",
+                "MI', 'OK', 'VA",
+                "AL', 'SC', 'WI"
+            ],
+            [
+                "S",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "S",
+                "4 yr Degree",
+                "AR', 'IL', 'MI",
+                "GA', 'MN', 'MT",
+                "GA', 'KY', 'TX"
+            ],
+            [
+                "M",
+                "4 yr Degree",
+                "W",
+                "College",
+                "W",
+                "Advanced Degree",
+                "KS', 'OH', 'TX",
+                "GA', 'TX', 'VA",
+                "FL', 'SD', 'TX"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "D",
+                "Primary",
+                "IN', 'MN', 'TX",
+                "GA', 'IA', 'ND",
+                "MI', 'NY', 'TX"
+            ],
+            [
+                "M",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "MI', 'SD', 'TN",
+                "MI', 'ND', 'TX",
+                "MI', 'MN', 'WY"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "D",
+                "Unknown",
+                "AL', 'IA', 'NE",
+                "GA', 'MS', 'OH",
+                "IL', 'MI', 'WI"
+            ],
+            [
+                "W",
+                "Primary",
+                "M",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "MI', 'MO', 'TX",
+                "GA', 'ID', 'MI",
+                "KS', 'ND', 'OH"
+            ],
+            [
+                "S",
+                "Primary",
+                "D",
+                "College",
+                "W",
+                "Advanced Degree",
+                "SC', 'TN', 'WY",
+                "GA', 'TX', 'WY",
+                "IN', 'KY', 'MN"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "M",
+                "Primary",
+                "D",
+                "Advanced Degree",
+                "FL', 'IL', 'TX",
+                "MI', 'PA', 'TX",
+                "IN', 'TN', 'VA"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "S",
+                "4 yr Degree",
+                "MO', 'NE', 'OH",
+                "AR', 'ND', 'NV",
+                "NE', 'WI', 'WY"
+            ],
+            [
+                "D",
+                "College",
+                "W",
+                "Advanced Degree",
+                "M",
+                "Primary",
+                "NY', 'OK', 'TX",
+                "MI', 'VA', 'WY",
+                "IA', 'KY', 'NC"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "W",
+                "College",
+                "W",
+                "Advanced Degree",
+                "IL', 'MO', 'TX",
+                "IA', 'PA', 'TX",
+                "MN', 'PA', 'VA"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "D",
+                "Primary",
+                "S",
+                "College",
+                "CA', 'SC', 'WY",
+                "KY', 'ND', 'VT",
+                "KY', 'NY', 'WV"
+            ],
+            [
+                "D",
+                "Primary",
+                "D",
+                "College",
+                "W",
+                "Advanced Degree",
+                "GA', 'MO', 'TX",
+                "CA', 'SC', 'TX",
+                "ME', 'ND', 'OK"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "AR', 'NY', 'PA",
+                "AR', 'NY', 'TX",
+                "CO', 'MA', 'OK"
+            ],
+            [
+                "D",
+                "College",
+                "W",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "MI', 'MO', 'TX",
+                "FL', 'PA', 'WY",
+                "KY', 'OK', 'TX"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "S",
+                "College",
+                "S",
+                "College",
+                "IA', 'KS', 'MN",
+                "ID', 'UT', 'WI",
+                "CO', 'IN', 'MS"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "M",
+                "Advanced Degree",
+                "KY', 'MS', 'WI",
+                "NC', 'NH', 'VA",
+                "KS', 'TN', 'TX"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "W",
+                "College",
+                "W",
+                "4 yr Degree",
+                "AL', 'FL', 'NJ",
+                "IA', 'KY', 'WI",
+                "GA', 'KY', 'SC"
+            ],
+            [
+                "W",
+                "College",
+                "W",
+                "College",
+                "D",
+                "Advanced Degree",
+                "AR', 'CA', 'IN",
+                "CA', 'MN', 'WV",
+                "AR', 'MT', 'OH"
+            ],
+            [
+                "D",
+                "Unknown",
+                "W",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "GA', 'NC', 'NE",
+                "GA', 'KS', 'MS",
+                "GA', 'NC', 'VA"
+            ],
+            [
+                "M",
+                "College",
+                "D",
+                "4 yr Degree",
+                "U",
+                "4 yr Degree",
+                "IN', 'MI', 'WY",
+                "IN', 'TN', 'TX",
+                "MI', 'NC', 'PA"
+            ],
+            [
+                "D",
+                "Primary",
+                "W",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "AR', 'CA', 'SD",
+                "AR', 'LA', 'SD",
+                "KY', 'MO', 'WI"
+            ],
+            [
+                "D",
+                "Primary",
+                "D",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "IA', 'NE', 'OK",
+                "NC', 'OR', 'WI",
+                "IN', 'MI', 'OK"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "W",
+                "Unknown",
+                "M",
+                "Primary",
+                "CA', 'MD', 'UT",
+                "IN', 'KS', 'NV",
+                "GA', 'ND', 'OK"
+            ],
+            [
+                "D",
+                "Primary",
+                "D",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "AK', 'CA', 'TX",
+                "KS', 'TX', 'VT",
+                "MD', 'MI', 'TX"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "W",
+                "College",
+                "M",
+                "Primary",
+                "GA', 'OH', 'TX",
+                "IN', 'OH', 'PA",
+                "SD', 'TX', 'WI"
+            ],
+            [
+                "D",
+                "College",
+                "D",
+                "4 yr Degree",
+                "S",
+                "4 yr Degree",
+                "CT', 'MT', 'VT",
+                "NY', 'OK', 'TX",
+                "GA', 'MN', 'OH"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "M",
+                "Primary",
+                "W",
+                "Advanced Degree",
+                "FL', 'SD', 'TX",
+                "AR', 'IN', 'KS",
+                "GA', 'IN', 'MO"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "S",
+                "Primary",
+                "D",
+                "Unknown",
+                "AR', 'CO', 'MS",
+                "MD', 'MI', 'MS",
+                "KS', 'ND', 'OH"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "KS', 'MD', 'OK",
+                "NC', 'NE', 'TN",
+                "GA', 'MI', 'NE"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "OK', 'SC', 'VA",
+                "MI', 'NJ', 'TX",
+                "NM', 'TX', 'VA"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "D",
+                "Unknown",
+                "D",
+                "Primary",
+                "AL', 'IL', 'TX",
+                "IL', 'KY', 'NE",
+                "AR', 'CO', 'MS"
+            ],
+            [
+                "M",
+                "4 yr Degree",
+                "D",
+                "Primary",
+                "W",
+                "College",
+                "MS', 'OR', 'VA",
+                "MT', 'OH', 'VA",
+                "AK', 'NV', 'NY"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "S",
+                "Advanced Degree",
+                "M",
+                "4 yr Degree",
+                "AL', 'IL', 'VA",
+                "MN', 'SC', 'TX",
+                "CA', 'NC', 'TX"
+            ],
+            [
+                "M",
+                "Advanced Degree",
+                "D",
+                "College",
+                "D",
+                "Primary",
+                "FL', 'MN', 'OK",
+                "CO', 'IA', 'PA",
+                "NM', 'OK', 'WA"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "AR', 'MN', 'OK",
+                "IA', 'IN', 'MI",
+                "IA', 'MI', 'OR"
+            ],
+            [
+                "D",
+                "2 yr Degree",
+                "D",
+                "Primary",
+                "W",
+                "4 yr Degree",
+                "CA', 'MN', 'NM",
+                "GA', 'NC', 'OR",
+                "NC', 'PA', 'SC"
+            ],
+            [
+                "D",
+                "College",
+                "D",
+                "College",
+                "D",
+                "4 yr Degree",
+                "AK', 'IL', 'OK",
+                "HI', 'OK', 'TX",
+                "MI', 'OR', 'VA"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "S",
+                "Advanced Degree",
+                "W",
+                "Primary",
+                "AZ', 'NM', 'WI",
+                "LA', 'NM', 'TN",
+                "KS', 'NE', 'SD"
+            ],
+            [
+                "S",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "IL', 'MI', 'VA",
+                "CA', 'ID', 'NM",
+                "NY', 'OH', 'VA"
+            ],
+            [
+                "S",
+                "College",
+                "W",
+                "4 yr Degree",
+                "W",
+                "2 yr Degree",
+                "AL', 'KY', 'OK",
+                "CA', 'IN', 'MO",
+                "AR', 'ND', 'TN"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "W",
+                "College",
+                "CA', 'OR', 'TN",
+                "MO', 'TX', 'WY",
+                "GA', 'OR', 'TX"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "AR', 'ME', 'MN",
+                "ID', 'IL', 'WI",
+                "FL', 'NE', 'TX"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "IN', 'NE', 'NY",
+                "OH', 'TX', 'UT",
+                "AL', 'IA', 'WI"
+            ],
+            [
+                "D",
+                "Primary",
+                "W",
+                "4 yr Degree",
+                "W",
+                "Primary",
+                "MS', 'NM', 'TX",
+                "GA', 'IN', 'MN",
+                "MN', 'MS', 'TX"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "M",
+                "Advanced Degree",
+                "LA', 'MD', 'NM",
+                "TX', 'WI', 'WV",
+                "IL', 'NE', 'OH"
+            ],
+            [
+                "M",
+                "College",
+                "W",
+                "College",
+                "W",
+                "4 yr Degree",
+                "IA', 'KS', 'MI",
+                "MI', 'MS', 'OH",
+                "OH', 'VA', 'WI"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "M",
+                "4 yr Degree",
+                "M",
+                "College",
+                "FL', 'GA', 'WV",
+                "AL', 'IA', 'IN",
+                "FL', 'PA', 'VT"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "W",
+                "Primary",
+                "AR', 'SC', 'TX",
+                "CA', 'MI', 'WY",
+                "AZ', 'MI', 'SC"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "W",
+                "Primary",
+                "W",
+                "4 yr Degree",
+                "AK', 'OH', 'UT",
+                "MI', 'MN', 'OH",
+                "AL', 'KY', 'TX"
+            ],
+            [
+                "M",
+                "Advanced Degree",
+                "W",
+                "Primary",
+                "D",
+                "4 yr Degree",
+                "GA', 'KS', 'TX",
+                "IA', 'SD', 'TX",
+                "AL', 'FL', 'WI"
+            ],
+            [
+                "W",
+                "Primary",
+                "W",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "IL', 'KY', 'NE",
+                "KY', 'MO', 'MS",
+                "FL', 'IN', 'OH"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "W",
+                "Secondary",
+                "GA', 'NC', 'NE",
+                "AR', 'GA', 'IL",
+                "IN', 'MS', 'NC"
+            ],
+            [
+                "D",
+                "Primary",
+                "D",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "NY', 'TN', 'WI",
+                "KS', 'MO', 'TX",
+                "FL', 'IN', 'LA"
+            ],
+            [
+                "S",
+                "2 yr Degree",
+                "D",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "AR', 'NE', 'VA",
+                "IL', 'LA', 'WI",
+                "IA', 'IL', 'NE"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "W",
+                "College",
+                "D",
+                "Primary",
+                "MS', 'TX', 'WI",
+                "CA', 'GA', 'ID",
+                "MI', 'RI', 'VT"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "D",
+                "College",
+                "ND', 'NY', 'OK",
+                "GA', 'MO', 'TX",
+                "AL', 'CA', 'CO"
+            ],
+            [
+                "D",
+                "Primary",
+                "D",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "ID', 'IN', 'OK",
+                "IN', 'NE', 'VA",
+                "IN', 'OH', 'OR"
+            ],
+            [
+                "M",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "W",
+                "Primary",
+                "IL', 'NE', 'TX",
+                "UT', 'VA', 'WV",
+                "GA', 'KY', 'TX"
+            ],
+            [
+                "W",
+                "Primary",
+                "W",
+                "Primary",
+                "M",
+                "Advanced Degree",
+                "IL', 'MD', 'MO",
+                "MI', 'NC', 'OR",
+                "AR', 'ND', 'OH"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "GA', 'IN', 'NC",
+                "MS', 'NH', 'TX",
+                "GA', 'NE', 'TN"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "ME', 'MS', 'NM",
+                "IA', 'IN', 'NY",
+                "AR', 'NE', 'TX"
+            ],
+            [
+                "S",
+                "4 yr Degree",
+                "D",
+                "College",
+                "W",
+                "Advanced Degree",
+                "IL', 'OH', 'VT",
+                "KS', 'NE', 'WI",
+                "KS', 'LA', 'VA"
+            ],
+            [
+                "D",
+                "Unknown",
+                "S",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "NM', 'PA', 'TX",
+                "AR', 'NC', 'NH",
+                "KY', 'MS', 'NC"
+            ],
+            [
+                "W",
+                "Unknown",
+                "U",
+                "Advanced Degree",
+                "S",
+                "Advanced Degree",
+                "MO', 'NY', 'VT",
+                "IN', 'KS', 'TX",
+                "GA', 'TX', 'WI"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "CA', 'IA', 'UT",
+                "GA', 'IL', 'OR",
+                "IN', 'MN', 'WI"
+            ],
+            [
+                "D",
+                "College",
+                "W",
+                "Primary",
+                "D",
+                "Advanced Degree",
+                "CO', 'KY', 'MO",
+                "KY', 'SD', 'TX",
+                "IN', 'MI', 'WI"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "S",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "MS', 'TN', 'VA",
+                "CA', 'FL', 'ND",
+                "KY', 'MN', 'VT"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "D",
+                "Unknown",
+                "GA', 'IN', 'TX",
+                "IA', 'MN', 'MT",
+                "KS', 'ME', 'TX"
+            ],
+            [
+                "W",
+                "College",
+                "D",
+                "College",
+                "W",
+                "Advanced Degree",
+                "MT', 'OH', 'VA",
+                "AR', 'MI', 'MT",
+                "CO', 'GA', 'KS"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "D",
+                "Unknown",
+                "GA', 'KY', 'PA",
+                "FL', 'NY', 'WI",
+                "AL', 'AR', 'GA"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "M",
+                "4 yr Degree",
+                "S",
+                "Primary",
+                "CA', 'GA', 'WI",
+                "IL', 'MT', 'TN",
+                "AR', 'IL', 'MI"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "S",
+                "Primary",
+                "U",
+                "Secondary",
+                "NC', 'OH', 'WV",
+                "IL', 'IN', 'NV",
+                "ND', 'TX', 'WA"
+            ],
+            [
+                "D",
+                "Primary",
+                "D",
+                "Advanced Degree",
+                "D",
+                "College",
+                "MO', 'OK', 'VA",
+                "MI', 'NC', 'TX",
+                "MA', 'TN', 'VA"
+            ],
+            [
+                "S",
+                "4 yr Degree",
+                "M",
+                "4 yr Degree",
+                "D",
+                "College",
+                "KY', 'MO', 'NC",
+                "AR', 'FL', 'VA",
+                "AR', 'MO', 'MT"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "D",
+                "Primary",
+                "S",
+                "Primary",
+                "ID', 'NV', 'OK",
+                "AL', 'AR', 'IL",
+                "MD', 'NC', 'TX"
+            ],
+            [
+                "S",
+                "Advanced Degree",
+                "D",
+                "Primary",
+                "W",
+                "Advanced Degree",
+                "KY', 'NV', 'VA",
+                "FL', 'IN', 'TX",
+                "AL', 'TX', 'WV"
+            ],
+            [
+                "S",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "W",
+                "Primary",
+                "MS', 'NY', 'SC",
+                "IL', 'ME', 'UT",
+                "IN', 'TN', 'TX"
+            ],
+            [
+                "S",
+                "Advanced Degree",
+                "D",
+                "College",
+                "D",
+                "Advanced Degree",
+                "OH', 'PA', 'WI",
+                "GA', 'SC', 'WY",
+                "GA', 'OK', 'SD"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "S",
+                "4 yr Degree",
+                "SD', 'UT', 'VA",
+                "GA', 'IL', 'NY",
+                "CO', 'IN', 'TX"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "AR', 'NM', 'SD",
+                "IN', 'OR', 'TX",
+                "AZ', 'ID', 'PA"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "W",
+                "Primary",
+                "FL', 'GA', 'WV",
+                "MO', 'MS', 'VT",
+                "KS', 'MO', 'TX"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "W",
+                "2 yr Degree",
+                "MN', 'MO', 'TX",
+                "AL', 'MN', 'TX",
+                "MN', 'MT', 'SD"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "GA', 'IA', 'MS",
+                "TX', 'WI', 'WV",
+                "CO', 'IN', 'ND"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "S",
+                "Advanced Degree",
+                "AL', 'KS', 'NC",
+                "TX', 'UT', 'VA",
+                "MI', 'NC', 'TX"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "W",
+                "2 yr Degree",
+                "D",
+                "Advanced Degree",
+                "KY', 'NE', 'TX",
+                "GA', 'IA', 'MI",
+                "IA', 'KY', 'TX"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "W",
+                "Primary",
+                "W",
+                "4 yr Degree",
+                "CA', 'IA', 'NV",
+                "MI', 'NE', 'VA",
+                "KS', 'NC', 'OR"
+            ],
+            [
+                "M",
+                "4 yr Degree",
+                "D",
+                "College",
+                "D",
+                "College",
+                "IN', 'TX', 'WI",
+                "GA', 'MT', 'TX",
+                "MN', 'OH', 'TX"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "MO', 'NC', 'SC",
+                "CO', 'IN', 'OK",
+                "FL', 'ND', 'OR"
+            ],
+            [
+                "M",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "M",
+                "Primary",
+                "ID', 'NC', 'NE",
+                "AR', 'KY', 'MI",
+                "AZ', 'MD', 'VA"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "M",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "GA', 'MS', 'NY",
+                "MS', 'NE', 'TX",
+                "KY', 'MS', 'NC"
+            ],
+            [
+                "M",
+                "4 yr Degree",
+                "D",
+                "College",
+                "W",
+                "4 yr Degree",
+                "AL', 'WI', 'WV",
+                "IL', 'ND', 'VA",
+                "AL', 'ND', 'WI"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "U",
+                "College",
+                "KS', 'NE', 'WV",
+                "MI', 'TX', 'VA",
+                "AL', 'NE', 'PA"
+            ],
+            [
+                "W",
+                "Unknown",
+                "D",
+                "4 yr Degree",
+                "S",
+                "4 yr Degree",
+                "GA', 'MA', 'WI",
+                "KS', 'MO', 'WV",
+                "LA', 'ME', 'UT"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "IA', 'NE', 'TX",
+                "GA', 'KS', 'OH",
+                "AL', 'AZ', 'NY"
+            ],
+            [
+                "D",
+                "Unknown",
+                "W",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "MA', 'UT', 'VA",
+                "AL', 'MO', 'SD",
+                "FL', 'OK', 'WV"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "M",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "FL', 'NY', 'SC",
+                "TX', 'UT', 'WY",
+                "IA', 'LA', 'MA"
+            ],
+            [
+                "D",
+                "Primary",
+                "D",
+                "4 yr Degree",
+                "M",
+                "4 yr Degree",
+                "MO', 'VT', 'WI",
+                "IL', 'MO', 'PA",
+                "OH', 'SD', 'WV"
+            ],
+            [
+                "M",
+                "4 yr Degree",
+                "M",
+                "Primary",
+                "D",
+                "Advanced Degree",
+                "MN', 'NM', 'TX",
+                "AL', 'OH', 'VA",
+                "FL', 'MA', 'MO"
+            ],
+            [
+                "S",
+                "4 yr Degree",
+                "W",
+                "College",
+                "W",
+                "Advanced Degree",
+                "NC', 'NY', 'PA",
+                "NH', 'OK', 'SC",
+                "KS', 'NV', 'TX"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "W",
+                "Unknown",
+                "M",
+                "Advanced Degree",
+                "ME', 'VA', 'WI",
+                "ME', 'MS', 'OH",
+                "LA', 'OR', 'PA"
+            ],
+            [
+                "M",
+                "2 yr Degree",
+                "D",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "MN', 'MT', 'TX",
+                "GA', 'MD', 'OK",
+                "GA', 'ID', 'MI"
+            ],
+            [
+                "W",
+                "College",
+                "D",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "AL', 'FL', 'NV",
+                "KY', 'NE', 'TX",
+                "NC', 'NE', 'PA"
+            ],
+            [
+                "S",
+                "Primary",
+                "W",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "MI', 'OK', 'PA",
+                "IL', 'KS', 'TX",
+                "FL', 'GA', 'NE"
+            ],
+            [
+                "M",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "GA', 'MO', 'OR",
+                "NV', 'PA', 'TX",
+                "ME', 'MT', 'NY"
+            ],
+            [
+                "W",
+                "Unknown",
+                "W",
+                "Primary",
+                "M",
+                "4 yr Degree",
+                "CA', 'FL', 'SC",
+                "KS', 'NC', 'NV",
+                "AL', 'AR', 'NH"
+            ],
+            [
+                "S",
+                "4 yr Degree",
+                "S",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "MN', 'ND', 'TX",
+                "MI', 'NC', 'NY",
+                "KY', 'NM', 'TX"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "S",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "AR', 'TX', 'WA",
+                "MD', 'NC', 'WV",
+                "IN', 'MI', 'MN"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "S",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "FL', 'SD', 'TX",
+                "CO', 'MO', 'UT",
+                "MN', 'OK', 'TX"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "W",
+                "Primary",
+                "D",
+                "College",
+                "AL', 'MT', 'WV",
+                "NC', 'OR', 'VT",
+                "FL', 'MN', 'NY"
+            ],
+            [
+                "S",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "MI', 'TX', 'WY",
+                "GA', 'TX', 'VA",
+                "AL', 'MN', 'TN"
+            ],
+            [
+                "M",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "LA', 'MN', 'MS",
+                "GA', 'MS', 'TN",
+                "CO', 'MN', 'VA"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "S",
+                "College",
+                "W",
+                "College",
+                "GA', 'OH', 'WI",
+                "AL', 'MT', 'OR",
+                "IA', 'LA', 'NM"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "W",
+                "2 yr Degree",
+                "D",
+                "4 yr Degree",
+                "CO', 'PA', 'TX",
+                "GA', 'MT', 'NC",
+                "GA', 'MI', 'TX"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "NE', 'NM', 'SC",
+                "IN', 'MI', 'WI",
+                "FL', 'MO', 'UT"
+            ],
+            [
+                "D",
+                "College",
+                "W",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "MT', 'TX', 'VA",
+                "IL', 'PA', 'SC",
+                "KY', 'NC', 'SD"
+            ],
+            [
+                "D",
+                "College",
+                "D",
+                "Unknown",
+                "W",
+                "Advanced Degree",
+                "IL', 'TX', 'VA",
+                "GA', 'ID', 'WA",
+                "AR', 'ID', 'VT"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "M",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "CA', 'ND', 'PA",
+                "NE', 'TX', 'VA",
+                "GA', 'MN', 'WI"
+            ],
+            [
+                "M",
+                "4 yr Degree",
+                "W",
+                "College",
+                "D",
+                "4 yr Degree",
+                "GA', 'IL', 'ND",
+                "AL', 'GA', 'IA",
+                "MO', 'VA', 'WV"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "D",
+                "College",
+                "W",
+                "Advanced Degree",
+                "CO', 'IN', 'MN",
+                "GA', 'IL', 'TX",
+                "IL', 'MO', 'WI"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "S",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "IL', 'NJ', 'SD",
+                "ID', 'MI', 'NC",
+                "CA', 'IA', 'OH"
+            ],
+            [
+                "M",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "KY', 'TX', 'UT",
+                "CA', 'UT', 'VA",
+                "KS', 'MI', 'PA"
+            ],
+            [
+                "W",
+                "2 yr Degree",
+                "M",
+                "Advanced Degree",
+                "S",
+                "College",
+                "KS', 'NE', 'TX",
+                "KY', 'NM', 'TX",
+                "AK', 'AL', 'MS"
+            ],
+            [
+                "D",
+                "Primary",
+                "W",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "FL', 'KY', 'MO",
+                "OK', 'OR', 'WV",
+                "GA', 'NC', 'TX"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "IL', 'IN', 'TX",
+                "HI', 'IL', 'IN",
+                "KS', 'OK', 'TX"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "M",
+                "Unknown",
+                "KS', 'NE', 'SD",
+                "NC', 'NE', 'OH",
+                "MN', 'NV', 'TX"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "IA', 'ID', 'MI",
+                "GA', 'IL', 'MO",
+                "TX', 'VT', 'WV"
+            ],
+            [
+                "D",
+                "4 yr Degree",
+                "W",
+                "College",
+                "W",
+                "College",
+                "CA', 'MO', 'TX",
+                "FL', 'IA', 'MN",
+                "IN', 'MD', 'UT"
+            ],
+            [
+                "W",
+                "Primary",
+                "W",
+                "4 yr Degree",
+                "W",
+                "College",
+                "IN', 'KY', 'MI",
+                "AL', 'IN', 'ND",
+                "MN', 'ND', 'TX"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "D",
+                "Primary",
+                "CO', 'MO', 'TX",
+                "AL', 'MI', 'TX",
+                "AL', 'KY', 'SD"
+            ],
+            [
+                "S",
+                "Advanced Degree",
+                "D",
+                "Primary",
+                "W",
+                "Advanced Degree",
+                "KS', 'MO', 'WV",
+                "IL', 'IN', 'VA",
+                "IA', 'KY', 'NC"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "M",
+                "Primary",
+                "IA', 'TN', 'WV",
+                "GA', 'MI', 'NJ",
+                "CO', 'IN', 'TX"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "IA', 'MI', 'TX",
+                "MI', 'OH', 'SD",
+                "KY', 'MD', 'UT"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "S",
+                "Advanced Degree",
+                "AR', 'IA', 'MS",
+                "IA', 'KS', 'WV",
+                "IA', 'NY', 'WV"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "M",
+                "4 yr Degree",
+                "D",
+                "College",
+                "GA', 'IN', 'MS",
+                "FL', 'IN', 'MN",
+                "SD', 'TN', 'VA"
+            ],
+            [
+                "D",
+                "College",
+                "W",
+                "College",
+                "D",
+                "4 yr Degree",
+                "MI', 'TN', 'WA",
+                "KS', 'SD', 'TX",
+                "KS', 'OH', 'VA"
+            ],
+            [
+                "M",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "AL', 'MN', 'NY",
+                "IA', 'KS', 'MN",
+                "MO', 'OK', 'WI"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "S",
+                "4 yr Degree",
+                "W",
+                "4 yr Degree",
+                "MN', 'WI', 'WY",
+                "GA', 'MN', 'WI",
+                "MI', 'NE', 'UT"
+            ],
+            [
+                "M",
+                "4 yr Degree",
+                "W",
+                "Advanced Degree",
+                "D",
+                "4 yr Degree",
+                "GA', 'IN', 'WI",
+                "IA', 'KY', 'MS",
+                "CO', 'IN', 'MO"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "D",
+                "College",
+                "S",
+                "4 yr Degree",
+                "FL', 'IL', 'NM",
+                "FL', 'IA', 'TX",
+                "AR', 'CA', 'MI"
+            ],
+            [
+                "M",
+                "Primary",
+                "M",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "MD', 'NC', 'NM",
+                "MI', 'VA', 'WI",
+                "KY', 'NJ', 'PA"
+            ],
+            [
+                "S",
+                "4 yr Degree",
+                "D",
+                "Primary",
+                "D",
+                "4 yr Degree",
+                "AZ', 'MD', 'VA",
+                "GA', 'IL', 'TX",
+                "IL', 'MN', 'TX"
+            ],
+            [
+                "D",
+                "Advanced Degree",
+                "W",
+                "Primary",
+                "W",
+                "College",
+                "MN', 'MO', 'WA",
+                "MN', 'MO', 'TX",
+                "IL', 'UT', 'VA"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "W",
+                "4 yr Degree",
+                "M",
+                "Advanced Degree",
+                "AR', 'IL', 'KS",
+                "AK', 'AR', 'MI",
+                "AL', 'MT', 'WI"
+            ],
+            [
+                "W",
+                "Advanced Degree",
+                "M",
+                "Primary",
+                "W",
+                "2 yr Degree",
+                "CO', 'KY', 'NY",
+                "KY', 'MT', 'VA",
+                "FL', 'OH', 'TX"
+            ],
+            [
+                "S",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "S",
+                "4 yr Degree",
+                "GA', 'PA', 'TN",
+                "KS', 'TN', 'WV",
+                "AL', 'MT', 'SD"
+            ],
+            [
+                "M",
+                "4 yr Degree",
+                "D",
+                "4 yr Degree",
+                "W",
+                "College",
+                "IA', 'NC', 'TX",
+                "AL', 'ND', 'WA",
+                "MT', 'ND', 'NM"
+            ],
+            [
+                "D",
+                "College",
+                "M",
+                "College",
+                "W",
+                "Unknown",
+                "AL', 'GA', 'NC",
+                "GA', 'MO', 'OH",
+                "AL', 'MS', 'MT"
+            ],
+            [
+                "W",
+                "4 yr Degree",
+                "D",
+                "Advanced Degree",
+                "W",
+                "Advanced Degree",
+                "MI', 'RI', 'VA",
+                "GA', 'MS', 'SC",
+                "IN', 'KY', 'WY"
+            ],
+            [
+                "D",
+                "Primary",
+                "W",
+                "Advanced Degree",
+                "D",
+                "Advanced Degree",
+                "AR', 'GA', 'IL",
+                "MO', 'PA', 'TX",
+                "KY', 'MN', 'TN"
+            ]
+        ]
+    }
+}

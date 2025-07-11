@@ -1,0 +1,1543 @@
+{
+  "18-0": {
+    "query": "SELECT MIN(mi.info) AS movie_budget, MIN(mi_idx.info) AS movie_votes, MIN(t.title) AS movie_title\nFROM cast_info AS ci,\n   info_type AS it1,\n   info_type AS it2,\n   movie_info AS mi,\n   movie_info_idx AS mi_idx,\n   name AS n,\n   title AS t\nWHERE t.id = mi.movie_id\nAND t.id = mi_idx.movie_id\nAND t.id = ci.movie_id\nAND ci.movie_id = mi.movie_id\nAND ci.movie_id = mi_idx.movie_id\nAND mi.movie_id = mi_idx.movie_id\nAND n.id = ci.person_id\nAND it1.id = mi.info_type_id\nAND it2.id = mi_idx.info_type_id\nAND ci.note IN ('@param0')\nAND it1.info = '@param1'\nAND it2.info = '@param2'\nAND n.gender = '@param3'\nAND n.name LIKE '@param4';",
+    "predicates": [
+      {
+        "alias": "ci",
+        "column": "note",
+        "operator": "IN",
+        "data_type": "text",
+        "table": "cast_info",
+        "join_tables_alias": [
+          "t",
+          "mi",
+          "mi_idx",
+          "n"
+        ],
+        "join_tables": [
+          "title",
+          "movie_info",
+          "movie_info_idx",
+          "name"
+        ],
+        "join_conditions": [
+          "t.id = ci.movie_id",
+          "ci.movie_id = mi.movie_id",
+          "ci.movie_id = mi_idx.movie_id",
+          "n.id = ci.person_id"
+        ],
+        "left_or_right": [
+          "l",
+          "l",
+          "l",
+          "both"
+        ],
+        "join_tables_column": [
+          [],
+          [],
+          [],
+          [
+            "gender",
+            "name"
+          ]
+        ]
+      },
+      {
+        "alias": "it",
+        "original_alias": "it1",
+        "column": "info",
+        "operator": "=",
+        "data_type": "text",
+        "table": "info_type",
+        "join_tables_alias": [
+          "mi"
+        ],
+        "join_tables": [
+          "movie_info"
+        ],
+        "join_conditions": [
+          "it.id = mi.info_type_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "it",
+        "original_alias": "it2",
+        "column": "info",
+        "operator": "=",
+        "data_type": "text",
+        "table": "info_type",
+        "join_tables_alias": [
+          "mi_idx"
+        ],
+        "join_tables": [
+          "movie_info_idx"
+        ],
+        "join_conditions": [
+          "it.id = mi_idx.info_type_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "n",
+        "column": "gender",
+        "operator": "=",
+        "data_type": "text",
+        "table": "name",
+        "join_tables_alias": [
+          "ci"
+        ],
+        "join_tables": [
+          "cast_info"
+        ],
+        "join_conditions": [
+          "n.id = ci.person_id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "note"
+          ]
+        ]
+      },
+      {
+        "alias": "n",
+        "column": "name",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "name",
+        "join_tables_alias": [
+          "ci"
+        ],
+        "join_tables": [
+          "cast_info"
+        ],
+        "join_conditions": [
+          "n.id = ci.person_id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "note"
+          ]
+        ]
+      }
+    ],
+    "params": [
+      [
+        "(voice)', '(as Vilya Morelle)', '(as Dr. David Page)', '(as Rinnen Roland)', '(as Jacob Bresler)",
+        "sound mix",
+        "votes distribution",
+        "f",
+        "%a%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "genres",
+        "rating",
+        "f",
+        "C%"
+      ],
+      [
+        "(uncredited)', '(as John M. Scurti)', '(laser recording)', '(hotel liaison)', '(as Mike Kallio)",
+        "gross",
+        "votes distribution",
+        "m",
+        "%t%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "votes",
+        "m",
+        "%Downey%Robert%"
+      ],
+      [
+        "(writer)', '(associate producer)', '(associate producer)', '(writer)', '(writer)",
+        "release dates",
+        "votes distribution",
+        "m",
+        "%Maurice%"
+      ],
+      [
+        "(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)",
+        "release dates",
+        "rating",
+        "m",
+        "%Roger%"
+      ],
+      [
+        "(segment \"Egavaros, egahazis/Fire! Fire!\")', '(as Michele Kidd)', '(as Nicole Lorayne)', '(episode 6) (1992)', '(as Alan Marlo)",
+        "tech info",
+        "rating",
+        "m",
+        "%S%"
+      ],
+      [
+        "(uncredited)', '(executive producer)', '(as Michelle Harrison)', '(utility)', '(voice)",
+        "genres",
+        "bottom 10 rank",
+        "f",
+        "%Smith%"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "countries",
+        "votes",
+        "m",
+        "%Jim%"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "release dates",
+        "rating",
+        "f",
+        "%Jim%"
+      ],
+      [
+        "(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)",
+        "release dates",
+        "votes",
+        "m",
+        "%Larson%"
+      ],
+      [
+        "(teleplay)', '(as ary Iskak)', '(research advice)', '(as Katrin Gebelin)', '(deaf consultant)",
+        "tech info",
+        "votes",
+        "m",
+        "%i%"
+      ],
+      [
+        "(writer)', '(writer)', '(voice)', '(voice)', '(voice)",
+        "genres",
+        "top 250 rank",
+        "m",
+        "%Steve%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "rating",
+        "m",
+        "J%"
+      ],
+      [
+        "(writer)', '(voice)', '(voice)', '(writer)', '(voice)",
+        "genres",
+        "votes distribution",
+        "m",
+        "%Aaron%"
+      ],
+      [
+        "(uncredited)', '(as Jessica Fine)', '(data optimization)', '(as Chris Simis)', '(as Joe Jauch)",
+        "sound mix",
+        "votes",
+        "f",
+        "%a%"
+      ],
+      [
+        "(producer)', '(executive producer)",
+        "countries",
+        "rating",
+        "m",
+        "X%"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "genres",
+        "votes",
+        "m",
+        "%Bradley%"
+      ],
+      [
+        "(production assistant)', '(production assistant)', '(production assistant)', '(executive producer)', '(executive producer)",
+        "release dates",
+        "votes",
+        "m",
+        "%Frank%"
+      ],
+      [
+        "(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)",
+        "release dates",
+        "votes distribution",
+        "m",
+        "%J%"
+      ],
+      [
+        "(as Patrick Smith)', '(as Holly Woodstar)', '(stand-in: Katja)', '(as Dave Wasson)', '(as Lew Foster)",
+        "LD year",
+        "rating",
+        "m",
+        "%m%"
+      ],
+      [
+        "(co-executive producer)', '(written by)', '(co-producer)', '(production coordinator)', '(supervising producer)",
+        "countries",
+        "votes distribution",
+        "f",
+        "%MacFarlane%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "rating",
+        "m",
+        "G%"
+      ],
+      [
+        "(executive producer)', '(2005)', '(production assistant)', '(uncredited)', '(as Ioannis Ioannidis)",
+        "countries",
+        "votes",
+        "m",
+        "%Judge%"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "release dates",
+        "votes distribution",
+        "m",
+        "%Gary%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "genres",
+        "rating",
+        "m",
+        "%M%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "countries",
+        "rating",
+        "m",
+        "%X%"
+      ],
+      [
+        "(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)",
+        "countries",
+        "votes",
+        "m",
+        "%Jared%"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "countries",
+        "votes distribution",
+        "f",
+        "%Bradley%"
+      ],
+      [
+        "(as Ted Smith)', '(as Lee Kwok Lun)', '(Aged 2)', '(as HelloGoodbye)', '(as Boris Konecny)",
+        "production process protocol",
+        "rating",
+        "m",
+        "%''%"
+      ],
+      [
+        "(wrangler gang boss)', '(at age 5)', '(as Nelda Fahmy)', '(as Aggy)', '(as Harve Selsby)",
+        "budget",
+        "rating",
+        "m",
+        "%,%"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "genres",
+        "votes",
+        "f",
+        "%Timothy%"
+      ],
+      [
+        "(scenes deleted)', '(as Lord Burgess)', '(Cape Cod)', '(novel \"Psyche\")', '(as Eileen Baker)",
+        "opening weekend",
+        "votes distribution",
+        "m",
+        "%r%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "top 250 rank",
+        "f",
+        "A%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "m",
+        "%V%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "votes",
+        "f",
+        "%C%"
+      ],
+      [
+        "(uncredited)', '(as Stolle)', '(Vice President)', '(episodes 5, 7)', '(as Sacha Nikolic)",
+        "taglines",
+        "rating",
+        "m",
+        "%e%"
+      ],
+      [
+        "(archive footage)', '(written by)', '(co-producer)', '(written by)', '(written by)",
+        "release dates",
+        "votes",
+        "m",
+        "%Yu%"
+      ],
+      [
+        "(supervising producer)', '(script supervisor)', '(co-executive producer)', '(creator)', '(production coordinator)",
+        "genres",
+        "votes distribution",
+        "f",
+        "%Griffin%"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "genres",
+        "votes distribution",
+        "m",
+        "%Soares%"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "release dates",
+        "rating",
+        "m",
+        "%Bruckheimer%"
+      ],
+      [
+        "(uncredited)', '(as Arthur Cheeney)', '(as Diane Fisher)', '(as Sandu Gruia)', '(as Carding Santos)",
+        "LD video standard",
+        "votes distribution",
+        "f",
+        "%n%"
+      ],
+      [
+        "(as Kohn Eugene)', '(as Luke Wright)', '(as Rosa Clar\u00c3\u00a0)', '(as Pachi Damos)', '(as DJ Muggs)",
+        "languages",
+        "votes",
+        "m",
+        "%u%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "countries",
+        "rating",
+        "m",
+        "%Y%"
+      ],
+      [
+        "(voice)', '(head writer)', '(voice)', '(executive producer)', '(head writer)",
+        "budget",
+        "votes distribution",
+        "m",
+        "%Hank%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "countries",
+        "rating",
+        "m",
+        "%G%"
+      ],
+      [
+        "(voice)', '(voice) (uncredited)', '(voice: English version)",
+        "budget",
+        "rating",
+        "m",
+        "%S%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "votes",
+        "m",
+        "%J%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "countries",
+        "rating",
+        "f",
+        "%W%"
+      ],
+      [
+        "(producer)', '(garage assistant)', '(as Mark Eliot)', '(as Jamie Hook)', '(as Seb\u00c3\u00b5k Kl\u00c3\u00a1ra)",
+        "genres",
+        "votes distribution",
+        "m",
+        "%,%"
+      ],
+      [
+        "(executive producer)', '(executive producer)', '(voice)', '(voice)', '(voice)",
+        "release dates",
+        "votes",
+        "f",
+        "%Armand%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "m",
+        "D%"
+      ],
+      [
+        "(production associate)', '(actors director)', '(writer)', '(writer)', '(executive producer)",
+        "genres",
+        "rating",
+        "m",
+        "%Kenny%"
+      ],
+      [
+        "(\"Guerrieri della notte\")', '(as Anwar Husein)', '(as Brewster Twins)', '(as Allan Weeks)', '(as Ky\u00c3\u00b4ko Tsuruno)",
+        "locations",
+        "votes distribution",
+        "m",
+        "%l%"
+      ],
+      [
+        "(voice)', '(voice) (uncredited)', '(voice: English version)",
+        "countries",
+        "rating",
+        "f",
+        "%S%"
+      ],
+      [
+        "(senior associate producer)', '(executive producer)', '(executive producer)', '(production coordinator)', '(voice)",
+        "genres",
+        "top 250 rank",
+        "m",
+        "%Stanton%"
+      ],
+      [
+        "(Sushi Shop)', '(as Frau Sterr)', '(as Joseph Mallory)', '(as Frederick Solm)', '(Brati''s father)",
+        "countries",
+        "votes",
+        "m",
+        "%O%"
+      ],
+      [
+        "(writer)', '(writer)', '(associate producer)', '(writer)', '(associate producer)",
+        "release dates",
+        "top 250 rank",
+        "f",
+        "%L%"
+      ],
+      [
+        "(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)",
+        "release dates",
+        "votes",
+        "m",
+        "%Rudy%"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "genres",
+        "votes distribution",
+        "m",
+        "%Fox%"
+      ],
+      [
+        "(voice) (uncredited)', '(as John Fernan)', '(as Jasmine Rose)', '(as Sabina Caren)', '(as E. Dalmases)",
+        "printed media reviews",
+        "votes distribution",
+        "m",
+        "%m%"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "genres",
+        "votes distribution",
+        "m",
+        "%Steve%"
+      ],
+      [
+        "(writer)', '(associate producer)', '(writer)', '(associate producer)', '(associate producer)",
+        "countries",
+        "votes",
+        "m",
+        "%Barrie%"
+      ],
+      [
+        "(assistant: Ms. Nora Ephron)', '(writer)', '(uncredited)', '(voice-over director)', '(as La Uni\u00c3\u00b3n) (archive footage)",
+        "countries",
+        "votes distribution",
+        "m",
+        "%Frank%"
+      ],
+      [
+        "(assistant choreographer)', '(as Anne Taskinen)', '(as Charlie Chiodo)', '(stand-in: Flynn)', '(as Franck Roussel)",
+        "plot",
+        "votes",
+        "f",
+        "%i%"
+      ],
+      [
+        "(as Sova) (also as Payushchie Trusy)', '(as Michele Wolff)', '(as Diane Adderly)', '(as Tim Brennan)', '(as Michel Parrier)",
+        "tech info",
+        "votes distribution",
+        "f",
+        "%a%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "m",
+        "Z%"
+      ],
+      [
+        "(executive producer)', '(executive producer)', '(production assistant)', '(production assistant)', '(production assistant)",
+        "countries",
+        "rating",
+        "f",
+        "%Michael%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "genres",
+        "votes",
+        "m",
+        "E%"
+      ],
+      [
+        "(dancer)', '(as I.Persayev)', '(Scared Person #2)', '(Fu Gong Gwan)', '(as The Go-Go''s)",
+        "sound mix",
+        "rating",
+        "f",
+        "%a%"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "budget",
+        "top 250 rank",
+        "m",
+        "%Michael%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "genres",
+        "rating",
+        "m",
+        "%Downey%Robert%"
+      ],
+      [
+        "(producer)', '(executive producer)",
+        "release dates",
+        "rating",
+        "m",
+        "%X%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "genres",
+        "rating",
+        "f",
+        "P%"
+      ],
+      [
+        "(uncredited)', '(Rupa''s mother)', '(as Iwan Mosjukin)', '(segment \"Goldie\")', '(as Tony Zanlungo)",
+        "quotes",
+        "rating",
+        "m",
+        "%e%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "genres",
+        "rating",
+        "m",
+        "I%"
+      ],
+      [
+        "(voice)', '(executive producer)', '(executive producer)', '(voice)', '(writer)",
+        "budget",
+        "votes distribution",
+        "m",
+        "%Friedman%"
+      ],
+      [
+        "(voice)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "votes",
+        "f",
+        "K%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "rating",
+        "m",
+        "%D%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "votes",
+        "m",
+        "%Z%"
+      ],
+      [
+        "(uncredited)', '(1995-1996, 1997-)', '(as Tina Tedeschi)', '(as Bianka Arden)', '(as Dr. Anna Pous)",
+        "production dates",
+        "rating",
+        "f",
+        "%y%"
+      ],
+      [
+        "(uncredited)', '(Wonky Whistle)', '(as Vasile Grigore)', '(as Dilip Basu)', '(as Chas Wagenheim)",
+        "countries",
+        "votes",
+        "m",
+        "%y%"
+      ],
+      [
+        "(puppet fabricator)', '(as Franke Hughes)', '(as Frank Anore)', '(as Wai Liu)', '(as Charlotte Wynn)",
+        "runtimes",
+        "votes",
+        "f",
+        "%u%"
+      ],
+      [
+        "(play)', '(1999-2000, 2001)', '(as Welles Phargoe)', '(as Gabriel Swann)', '(as Ben Huissman)",
+        "color info",
+        "rating",
+        "m",
+        "%e%"
+      ],
+      [
+        "(uncredited)', '(Michel)', '(Cowboy)', '(as DJ Neil)', '(as Val Biscoglio)",
+        "gross",
+        "votes",
+        "f",
+        "%r%"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(writer)",
+        "genres",
+        "rating",
+        "f",
+        "%Dan%"
+      ],
+      [
+        "(uncredited)', '(as Mortimer Lodge)', '(as Cy Thompson)', '(seasons 3-4)', '(as Johnny V)",
+        "countries",
+        "rating",
+        "m",
+        "%s%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "genres",
+        "rating",
+        "m",
+        "%L%"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "genres",
+        "rating",
+        "f",
+        "%Jemima%"
+      ],
+      [
+        "(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)",
+        "genres",
+        "votes",
+        "m",
+        "%Paulsen%"
+      ],
+      [
+        "(voice)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "m",
+        "%Z%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "countries",
+        "rating",
+        "f",
+        "B%"
+      ],
+      [
+        "(segment \"Mukha\")', '(remix) (2003)', '(non-sexual role)', '(novel Verter)', '(as Maya It\u00c3\u00b4)",
+        "color info",
+        "votes distribution",
+        "f",
+        "%l%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "f",
+        "E%"
+      ],
+      [
+        "(adprom manager)', '(writer)', '(voice)', '(actors director)', '(voice)",
+        "genres",
+        "votes",
+        "f",
+        "%Aaron%"
+      ],
+      [
+        "(voice)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "votes",
+        "f",
+        "L%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "f",
+        "B%"
+      ],
+      [
+        "(executive producer)', '(as Dee Summer)', '(as Mark Curtis)', '(as Hui-Chi Chiu)', '(as Paul J. Darby)",
+        "locations",
+        "rating",
+        "m",
+        "%,%"
+      ],
+      [
+        "(writer)', '(as Brittany Berry)', '(as Van Mattimore)', '(as Santosh Jadhav)', '(as Phil Simms)",
+        "tech info",
+        "votes",
+        "m",
+        "%F%"
+      ],
+      [
+        "(on-set interviews)', '(as Nicole Garduno)', '(as Barry M. Lando)', '(as Richard Dahm)', '(as Indriati Iskak)",
+        "languages",
+        "rating",
+        "m",
+        "%n%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "m",
+        "B%"
+      ],
+      [
+        "(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)",
+        "release dates",
+        "rating",
+        "m",
+        "%Christian%"
+      ],
+      [
+        "(associate producer)', '(writer)', '(associate producer)', '(writer)', '(writer)",
+        "genres",
+        "bottom 10 rank",
+        "f",
+        "%J%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "rating",
+        "m",
+        "%E%"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "genres",
+        "votes",
+        "m",
+        "%Roberts%"
+      ],
+      [
+        "(Ricky The Rocket)', '(as Tom Donachie)', '(# 2) (1995-1996)', '(as Marianne Mosa)', '(3 episodes 2000)",
+        "gross",
+        "rating",
+        "m",
+        "%n%"
+      ],
+      [
+        "(as Claudio Faeh)', '(as Subhi Raj)', '(#1) (1990-1992)', '(Final Incarnate)', '(as I. Ungureanu)",
+        "quotes",
+        "votes distribution",
+        "m",
+        "%d%"
+      ],
+      [
+        "(actors director)', '(as David P\u00c3\u00a9rez)', '(executive producer)', '(writer)', '(voice)",
+        "genres",
+        "rating",
+        "m",
+        "%Sean%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "f",
+        "%G%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "f",
+        "V%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "genres",
+        "rating",
+        "m",
+        "B%"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "countries",
+        "rating",
+        "f",
+        "%Glenn%"
+      ],
+      [
+        "(A-Team)', '(as Chan Chi Keung)', '(as Jeffery Scott)', '(as Scubaboy)', '(as Matsoe Matsoe)",
+        "runtimes",
+        "votes distribution",
+        "m",
+        "%f%"
+      ],
+      [
+        "(producer)', '(voice)', '(producer)', '(writer)', '(writer)",
+        "genres",
+        "rating",
+        "m",
+        "%Cartwright%"
+      ],
+      [
+        "(body double: Sterling Knight'')', '(Aand''s Uncle)', '(as Tilman Wolff)', '(as Henney)', '(as Bowd J. Beal)",
+        "plot",
+        "rating",
+        "m",
+        "%,%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "f",
+        "J%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "m",
+        "%Q%"
+      ],
+      [
+        "(assistant: Mr. Wick)', '(as Jodie Meares)', '(as Wilhelm Lund)', '(black & white art)', '(as Sartaj Garewal)",
+        "LD video standard",
+        "votes distribution",
+        "f",
+        "%i%"
+      ],
+      [
+        "(assistant to producer)', '(written by) (1991)', '(as Vajda L\u00c3\u00a1szl\u00c3\u00b3)', '(as Sarisino)', '(as Otto Mellis)",
+        "filming dates",
+        "votes",
+        "f",
+        "%e%"
+      ],
+      [
+        "(voice)', '(executive producer)', '(creator)', '(executive producer)', '(voice)",
+        "genres",
+        "top 250 rank",
+        "m",
+        "%Jeff%"
+      ],
+      [
+        "(screenplay) (as Suso)', '(as Wena Basco)', '(as Rachael Ryan)', '(as El Porreto)', '(chief engineer)",
+        "color info",
+        "votes",
+        "f",
+        "%i%"
+      ],
+      [
+        "(voice: Japanese Version)', '(sound poem \"Che\")', '(as Prof Bob Brown)', '(as Anthea Wyndham)', '(puppeteer: Zeppy)",
+        "tech info",
+        "votes",
+        "m",
+        "%s%"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "countries",
+        "rating",
+        "m",
+        "%Griffin%"
+      ],
+      [
+        "(stand-in)', '(as Maxwell Dees)', '(as Toni Piz\u00c3\u00a1)', '(as Walter Stumvol)', '(as Fong Yie)",
+        "goofs",
+        "rating",
+        "m",
+        "%M%"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "countries",
+        "top 250 rank",
+        "m",
+        "%Andy%"
+      ],
+      [
+        "(stills intern) (uncredited)', '(TV cameraman)', '(as Padma Chohan)', '(as Richard Rod)', '(as T. Rymaryova)",
+        "mpaa",
+        "rating",
+        "m",
+        "%m%"
+      ],
+      [
+        "(voice)', '(executive producer)', '(child acting coach)', '(executive producer)', '(consulting producer)",
+        "budget",
+        "rating",
+        "m",
+        "%Trey%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "genres",
+        "rating",
+        "f",
+        "%L%"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "release dates",
+        "rating",
+        "m",
+        "%Stanislav%"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "release dates",
+        "rating",
+        "m",
+        "%Albers%"
+      ],
+      [
+        "(voice)', '(voice) (uncredited)', '(voice: English version)",
+        "genres",
+        "votes",
+        "f",
+        "%G%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "rating",
+        "m",
+        "%S%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "votes",
+        "f",
+        "%P%"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "release dates",
+        "votes",
+        "f",
+        "%Bradley%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "m",
+        "A%"
+      ],
+      [
+        "(associate producer)', '(associate producer)', '(associate producer)', '(associate producer)', '(associate producer)",
+        "countries",
+        "votes",
+        "m",
+        "%Dee%"
+      ],
+      [
+        "(voice)', '(principal: One PR)', '(shaman)', '(as Samuli Edelman)', '(as A. Kamenkova)",
+        "languages",
+        "votes distribution",
+        "m",
+        "%a%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "genres",
+        "rating",
+        "m",
+        "%C%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "rating",
+        "m",
+        "S%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "genres",
+        "rating",
+        "f",
+        "%N%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "rating",
+        "m",
+        "G%"
+      ],
+      [
+        "(writer)', '(writer)', '(associate producer)', '(associate producer)', '(writer)",
+        "countries",
+        "rating",
+        "f",
+        "%Craig%"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "genres",
+        "votes",
+        "m",
+        "%Geoff%"
+      ],
+      [
+        "(voice)', '(voice) (uncredited)', '(voice: English version)",
+        "budget",
+        "rating",
+        "m",
+        "O%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "countries",
+        "top 250 rank",
+        "m",
+        "%An%"
+      ],
+      [
+        "(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)",
+        "countries",
+        "votes distribution",
+        "f",
+        "%Dee%"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "release dates",
+        "votes distribution",
+        "f",
+        "%Mike%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "countries",
+        "rating",
+        "m",
+        "%I%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "genres",
+        "rating",
+        "m",
+        "%X%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "m",
+        "A%"
+      ],
+      [
+        "(as Andrew Meredith)', '(song \"Loot Gayi\")', '(as Axelle Grelet)', '(as Root Login)', '(as Mary McCann)",
+        "languages",
+        "votes distribution",
+        "m",
+        "%l%"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "genres",
+        "rating",
+        "m",
+        "%Parker%"
+      ],
+      [
+        "(producer)', '(executive producer)",
+        "budget",
+        "rating",
+        "f",
+        "%T%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "votes",
+        "f",
+        "%Q%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "countries",
+        "rating",
+        "f",
+        "F%"
+      ],
+      [
+        "(written by)', '(as Niya)', '(as A. Baturin)', '(as Yang Shu Hsi)', '(play \"The Women\")",
+        "alternate versions",
+        "votes distribution",
+        "m",
+        "%i%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "genres",
+        "rating",
+        "m",
+        "%Downey%Robert%"
+      ],
+      [
+        "(executive producer)', '(as V. Artemov)', '(as Cody Milo)', '(as Vanessa Cowan)', '(as Nick O''Dell)",
+        "certificates",
+        "votes distribution",
+        "f",
+        "%e%"
+      ],
+      [
+        "(caterer)', '(as George Romero)', '(as Monique La Rue)', '(Hit Man 1)', '(as PJ Avellana)",
+        "sound mix",
+        "votes distribution",
+        "m",
+        "%a%"
+      ],
+      [
+        "(executive producer)', '(executive producer)', '(voice)', '(voice)', '(voice)",
+        "genres",
+        "rating",
+        "f",
+        "%Jim%"
+      ],
+      [
+        "(uncredited)', '(as Margot Depard)', '(as Nataly Szep)', '(as N.Pazhitnov)', '(as Hally Hammond)",
+        "locations",
+        "rating",
+        "m",
+        "%a%"
+      ],
+      [
+        "(producer: studio interviews)', '(stand-in: \"Kate\")', '(as Zina Dean)', '(as Kitty Moffat)', '(as Andy Basore)",
+        "weekend gross",
+        "rating",
+        "f",
+        "%W%"
+      ],
+      [
+        "(uncredited)', '(as Haraszhy Mici)', '(as Yuyito)', '(as Hao Liu)', '(as Irma Gonzalez)",
+        "sound mix",
+        "votes",
+        "f",
+        "%g%"
+      ],
+      [
+        "(production assistant)', '(production assistant)', '(executive producer)', '(executive producer)', '(executive producer)",
+        "release dates",
+        "votes",
+        "m",
+        "%Mike%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "countries",
+        "rating",
+        "m",
+        "%Downey%Robert%"
+      ],
+      [
+        "(creator)', '(co-executive producer)', '(co-executive producer)', '(script supervisor)', '(archive footage)",
+        "countries",
+        "votes distribution",
+        "f",
+        "%Armand%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "votes",
+        "m",
+        "J%"
+      ],
+      [
+        "(voice)', '(voice)', '(writer)', '(writer)', '(stage manager)",
+        "genres",
+        "votes",
+        "m",
+        "%Victor%"
+      ],
+      [
+        "(business & legal affairs: Galafilm)', '(as Opalyn Foster)', '(web department)', '(as Thomas Brooke)', '(as Nela Congiu)",
+        "taglines",
+        "votes distribution",
+        "m",
+        "%c%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "countries",
+        "votes",
+        "m",
+        "%Angel%"
+      ],
+      [
+        "(as Peeya Rai Choudhuri)', '(music & songs by)', '(as Kurt Craven)', '(as Buford Hayes)', '(as Brian Monahan)",
+        "runtimes",
+        "votes",
+        "f",
+        "%C%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "top 250 rank",
+        "m",
+        "D%"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "countries",
+        "top 250 rank",
+        "m",
+        "%Roger%"
+      ],
+      [
+        "(2006)', '(clearance support)', '(F\u00c3\u00b8rste Offer)', '(as Demia Moore)', '(as Lisa Gerber)",
+        "plot",
+        "votes distribution",
+        "m",
+        "%i%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "m",
+        "%B%"
+      ],
+      [
+        "(voice)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "m",
+        "R%"
+      ],
+      [
+        "(production secretary)', '(as George Aguilar)', '(as Phi Phi O''Hara)', '(as Ry\u00c3\u00b4ko \u00c3\u0094tani)', '(The Wild Ratz)",
+        "runtimes",
+        "rating",
+        "f",
+        "%,%"
+      ],
+      [
+        "(executive producer)', '(voice)', '(voice)', '(executive producer)', '(executive producer)",
+        "release dates",
+        "votes distribution",
+        "f",
+        "%Harry%"
+      ],
+      [
+        "(script supervisor)', '(as Sparky Mizzro)', '(book \"Myra\")', '(as Narma Ya)', '(as Carlos Caetano)",
+        "weekend gross",
+        "votes",
+        "f",
+        "%B%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "rating",
+        "m",
+        "N%"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "countries",
+        "rating",
+        "m",
+        "%Erik%"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "countries",
+        "rating",
+        "m",
+        "%Bennett%"
+      ],
+      [
+        "(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)",
+        "genres",
+        "rating",
+        "m",
+        "%Paulsen%"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "countries",
+        "rating",
+        "m",
+        "%Roger%"
+      ],
+      [
+        "(archive footage) (uncredited)', '(Scene''s Deleted)', '(as Yulia Volkova)', '(as E. Goryachij)', '(as Anna Sah\u00c3\u00ban)",
+        "copyright holder",
+        "rating",
+        "f",
+        "%a%"
+      ],
+      [
+        "(segment \"Homecoming Day\")', '(as Chrystal Lowe)', '(as Kh. Braun)', '(as L. Gaziyeva)', '(as Kirka Babitsin)",
+        "countries",
+        "votes distribution",
+        "f",
+        "%W%"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "release dates",
+        "votes",
+        "m",
+        "%Bennett%"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "genres",
+        "votes distribution",
+        "f",
+        "%Armand%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "f",
+        "C%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "release dates",
+        "rating",
+        "f",
+        "%S%"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "genres",
+        "top 250 rank",
+        "m",
+        "%Merv%"
+      ],
+      [
+        "(as Gorji Obadiah)', '(as John Jacquet)', '(as Jo\u00c3\u00a9 Prestia)', '(as Francis Cox)', '(as Star Chandler)",
+        "tech info",
+        "votes distribution",
+        "m",
+        "%G%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "countries",
+        "rating",
+        "f",
+        "Y%"
+      ],
+      [
+        "(associate producer)', '(associate producer)', '(associate producer)', '(associate producer)', '(associate producer)",
+        "genres",
+        "rating",
+        "m",
+        "%Stewart%"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "release dates",
+        "top 250 rank",
+        "f",
+        "%Roger%"
+      ],
+      [
+        "(associate producer)', '(associate producer)', '(writer)', '(associate producer)', '(associate producer)",
+        "genres",
+        "votes distribution",
+        "f",
+        "%Rob%"
+      ],
+      [
+        "(as Miss Lani)', '(1991,1994)', '(as Arsh)', '(as Mirajker)', '(as Stephen Windon)",
+        "goofs",
+        "rating",
+        "f",
+        "%n%"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "genres",
+        "rating",
+        "m",
+        "X%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "release dates",
+        "rating",
+        "f",
+        "O%"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "genres",
+        "rating",
+        "m",
+        "T%"
+      ]
+    ]
+  }
+}

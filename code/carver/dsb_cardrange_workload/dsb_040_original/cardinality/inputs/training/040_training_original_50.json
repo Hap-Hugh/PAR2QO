@@ -1,0 +1,666 @@
+{
+    "040": {
+        "query": "SELECT min(w_state) ,\n       min(i_item_id) ,\n       min(cs_item_sk) ,\n       min(cs_order_number) ,\n       min(cr_item_sk) ,\n       min(cr_order_number)\nFROM catalog_sales\nLEFT OUTER JOIN catalog_returns ON (cs_order_number = cr_order_number\n                                    AND cs_item_sk = cr_item_sk) ,warehouse ,\n                                                                  item ,\n                                                                  date_dim\nWHERE i_item_sk = cs_item_sk\n  AND cs_warehouse_sk = w_warehouse_sk\n  AND cs_sold_date_sk = d_date_sk\n  AND d_date > (CAST ('@param0' AS date) - interval '30 day') \n  AND d_date < (CAST ('@param0' AS date) + interval '30 day')\n  AND i_category = '@param1'\n  AND i_manager_id > @param2 \n  AND i_manager_id < @param3\n  AND cs_wholesale_cost > @param4\n  AND cs_wholesale_cost < @param5\n  AND cr_reason_sk = @param6 ;",
+        "predicates": [
+            {
+                "alias": "",
+                "column": "d_date",
+                "operator": ">",
+                "data_type": "text",
+                "table": "date_dim",
+                "join_tables": [
+                    "catalog_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "cs_sold_date_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "cs_sold_date_sk = d_date_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "i_category",
+                "operator": "=",
+                "data_type": "text",
+                "table": "item",
+                "join_tables": [
+                    "catalog_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "cs_item_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "i_item_sk = cs_item_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "i_manager_id",
+                "operator": ">",
+                "data_type": "int",
+                "table": "item",
+                "join_tables": [
+                    "catalog_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "cs_item_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "i_item_sk = cs_item_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "i_manager_id",
+                "operator": "<",
+                "data_type": "int",
+                "table": "item",
+                "join_tables": [
+                    "catalog_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "cs_item_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "i_item_sk = cs_item_sk"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cs_wholesale_cost",
+                "operator": ">",
+                "data_type": "int",
+                "table": "catalog_sales",
+                "join_tables": [
+                    "catalog_returns",
+                    "item",
+                    "warehouse",
+                    "date_dim"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "cr_order_number",
+                        "cr_item_sk"
+                    ],
+                    [
+                        "i_item_sk"
+                    ],
+                    [
+                        "w_warehouse_sk"
+                    ],
+                    [
+                        "d_date_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "LEFT OUTER JOIN catalog_returns ON (cs_order_number = cr_order_number AND cs_item_sk = cr_item_sk)",
+                    "i_item_sk = cs_item_sk",
+                    "cs_warehouse_sk = w_warehouse_sk",
+                    "cs_sold_date_sk = d_date_sk"
+                ],
+                "left_or_right": [
+                    "both",
+                    "both",
+                    "l",
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cs_wholesale_cost",
+                "operator": "<",
+                "data_type": "int",
+                "table": "catalog_sales",
+                "join_tables": [
+                    "catalog_returns",
+                    "item",
+                    "warehouse",
+                    "date_dim"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "cr_order_number",
+                        "cr_item_sk"
+                    ],
+                    [
+                        "i_item_sk"
+                    ],
+                    [
+                        "w_warehouse_sk"
+                    ],
+                    [
+                        "d_date_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "LEFT OUTER JOIN catalog_returns ON (cs_order_number = cr_order_number AND cs_item_sk = cr_item_sk)",
+                    "i_item_sk = cs_item_sk",
+                    "cs_warehouse_sk = w_warehouse_sk",
+                    "cs_sold_date_sk = d_date_sk"
+                ],
+                "left_or_right": [
+                    "both",
+                    "both",
+                    "l",
+                    "both"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "cr_reason_sk",
+                "operator": "=",
+                "data_type": "int",
+                "table": "catalog_returns",
+                "join_tables": [
+                    "catalog_sales"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "cs_order_number",
+                        "cs_item_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "RIGHT OUTER JOIN catalog_sales ON (cs_order_number = cr_order_number AND cs_item_sk = cr_item_sk)"
+                ],
+                "left_or_right": [
+                    "both"
+                ]
+            }
+        ],
+        "params": [
+            [
+                "2003-02-21",
+                "Shoes                                             ",
+                38,
+                50,
+                6,
+                100,
+                18
+            ],
+            [
+                "2000-05-04",
+                "Shoes                                             ",
+                20,
+                35,
+                73,
+                79,
+                2
+            ],
+            [
+                "2003-04-06",
+                "Home                                              ",
+                38,
+                52,
+                11,
+                79,
+                1
+            ],
+            [
+                "1999-12-11",
+                "Music                                             ",
+                3,
+                80,
+                11,
+                100,
+                3
+            ],
+            [
+                "1998-12-11",
+                "Shoes                                             ",
+                46,
+                66,
+                27,
+                53,
+                5
+            ],
+            [
+                "2000-03-24",
+                "Jewelry                                           ",
+                38,
+                43,
+                11,
+                79,
+                11
+            ],
+            [
+                "1998-01-28",
+                "Home                                              ",
+                23,
+                61,
+                11,
+                68,
+                20
+            ],
+            [
+                "1999-09-16",
+                "Electronics                                       ",
+                44,
+                81,
+                27,
+                58,
+                1
+            ],
+            [
+                "1998-05-13",
+                "Jewelry                                           ",
+                52,
+                85,
+                11,
+                53,
+                4
+            ],
+            [
+                "1999-09-26",
+                "Shoes                                             ",
+                68,
+                87,
+                32,
+                89,
+                26
+            ],
+            [
+                "2003-02-04",
+                "Home                                              ",
+                22,
+                57,
+                1,
+                100,
+                12
+            ],
+            [
+                "1999-04-10",
+                "Jewelry                                           ",
+                52,
+                68,
+                11,
+                79,
+                12
+            ],
+            [
+                "2000-03-10",
+                "Electronics                                       ",
+                37,
+                88,
+                27,
+                53,
+                4
+            ],
+            [
+                "1999-03-29",
+                "Jewelry                                           ",
+                49,
+                100,
+                11,
+                94,
+                13
+            ],
+            [
+                "2002-04-05",
+                "Men                                               ",
+                37,
+                79,
+                27,
+                94,
+                9
+            ],
+            [
+                "1999-10-16",
+                "Jewelry                                           ",
+                42,
+                97,
+                27,
+                53,
+                4
+            ],
+            [
+                "2001-08-04",
+                "Shoes                                             ",
+                5,
+                60,
+                27,
+                79,
+                7
+            ],
+            [
+                "2002-07-31",
+                "Jewelry                                           ",
+                10,
+                41,
+                11,
+                79,
+                2
+            ],
+            [
+                "2001-10-08",
+                "Shoes                                             ",
+                31,
+                76,
+                68,
+                73,
+                7
+            ],
+            [
+                "2002-06-06",
+                "Books                                             ",
+                16,
+                34,
+                63,
+                79,
+                7
+            ],
+            [
+                "2002-07-13",
+                "Sports                                            ",
+                17,
+                95,
+                21,
+                68,
+                2
+            ],
+            [
+                "2002-09-03",
+                "Electronics                                       ",
+                38,
+                71,
+                11,
+                79,
+                33
+            ],
+            [
+                "1999-11-26",
+                "Children                                          ",
+                11,
+                37,
+                11,
+                58,
+                7
+            ],
+            [
+                "2003-04-02",
+                "Jewelry                                           ",
+                40,
+                90,
+                37,
+                42,
+                7
+            ],
+            [
+                "2001-11-01",
+                "Women                                             ",
+                16,
+                65,
+                53,
+                79,
+                4
+            ],
+            [
+                "2001-10-26",
+                "Electronics                                       ",
+                68,
+                86,
+                1,
+                37,
+                21
+            ],
+            [
+                "1999-01-22",
+                "Books                                             ",
+                16,
+                62,
+                53,
+                79,
+                4
+            ],
+            [
+                "1998-12-05",
+                "Home                                              ",
+                53,
+                70,
+                47,
+                53,
+                5
+            ],
+            [
+                "2002-04-15",
+                "Home                                              ",
+                15,
+                71,
+                11,
+                32,
+                22
+            ],
+            [
+                "2003-05-25",
+                "Shoes                                             ",
+                17,
+                68,
+                6,
+                100,
+                6
+            ],
+            [
+                "2003-03-07",
+                "Men                                               ",
+                18,
+                60,
+                21,
+                32,
+                3
+            ],
+            [
+                "2001-09-27",
+                "Books                                             ",
+                38,
+                60,
+                53,
+                68,
+                3
+            ],
+            [
+                "2001-11-04",
+                "Jewelry                                           ",
+                66,
+                89,
+                63,
+                79,
+                2
+            ],
+            [
+                "2003-04-18",
+                "Home                                              ",
+                45,
+                100,
+                32,
+                100,
+                4
+            ],
+            [
+                "2001-10-26",
+                "Books                                             ",
+                7,
+                44,
+                11,
+                53,
+                12
+            ],
+            [
+                "2002-04-18",
+                "Electronics                                       ",
+                10,
+                28,
+                16,
+                79,
+                11
+            ],
+            [
+                "2003-03-01",
+                "Books                                             ",
+                37,
+                52,
+                11,
+                73,
+                31
+            ],
+            [
+                "2003-02-14",
+                "Home                                              ",
+                2,
+                40,
+                11,
+                16,
+                18
+            ],
+            [
+                "2002-03-29",
+                "Jewelry                                           ",
+                23,
+                79,
+                21,
+                32,
+                5
+            ],
+            [
+                "2003-03-13",
+                "Electronics                                       ",
+                21,
+                34,
+                21,
+                68,
+                34
+            ],
+            [
+                "1999-01-14",
+                "Books                                             ",
+                86,
+                97,
+                53,
+                89,
+                18
+            ],
+            [
+                "2000-12-28",
+                "Electronics                                       ",
+                2,
+                28,
+                16,
+                27,
+                8
+            ],
+            [
+                "1999-11-28",
+                "Children                                          ",
+                3,
+                72,
+                21,
+                68,
+                11
+            ],
+            [
+                "2003-05-04",
+                "Jewelry                                           ",
+                34,
+                55,
+                16,
+                42,
+                4
+            ],
+            [
+                "2001-07-12",
+                "Home                                              ",
+                36,
+                100,
+                63,
+                94,
+                27
+            ],
+            [
+                "2001-04-28",
+                "Jewelry                                           ",
+                17,
+                93,
+                79,
+                100,
+                5
+            ],
+            [
+                "1999-01-06",
+                "Jewelry                                           ",
+                30,
+                100,
+                16,
+                37,
+                1
+            ],
+            [
+                "1999-11-01",
+                "Jewelry                                           ",
+                35,
+                47,
+                53,
+                89,
+                34
+            ],
+            [
+                "2001-10-26",
+                "Books                                             ",
+                23,
+                67,
+                89,
+                100,
+                34
+            ],
+            [
+                "2001-05-14",
+                "Shoes                                             ",
+                37,
+                48,
+                53,
+                63,
+                8
+            ]
+        ]
+    }
+}

@@ -1,0 +1,1578 @@
+{
+  "5-0": {
+    "query": "SELECT MIN(t.title) AS typical_european_movie\n FROM company_type AS ct,\n info_type AS it,\n movie_companies AS mc,\n movie_info AS mi,\n title AS t\n WHERE t.id = mi.movie_id\n AND t.id = mc.movie_id\n AND mc.movie_id = mi.movie_id\n AND ct.id = mc.company_type_id\n AND it.id = mi.info_type_id\n AND ct.kind = '@param0'\n AND mc.note LIKE '@param1'\n AND mc.note LIKE '@param2'\n AND mi.info IN ('@param3')\n AND t.production_year > @param4;",
+    "predicates": [
+      {
+        "alias": "ct",
+        "column": "kind",
+        "operator": "=",
+        "data_type": "text",
+        "table": "company_type",
+        "join_tables_alias": [
+          "mc"
+        ],
+        "join_tables": [
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "ct.id = mc.company_type_id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "note"
+          ]
+        ]
+      },
+      {
+        "alias": "mc",
+        "column": "note",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "movie_companies",
+        "join_tables_alias": [
+          "t",
+          "mi",
+          "ct"
+        ],
+        "join_tables": [
+          "title",
+          "movie_info",
+          "company_type"
+        ],
+        "join_conditions": [
+          "t.id = mc.movie_id",
+          "mc.movie_id = mi.movie_id",
+          "ct.id = mc.company_type_id"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "production_year"
+          ],
+          [
+            "info"
+          ],
+          [
+            "kind"
+          ]
+        ]
+      },
+      {
+        "alias": "mc",
+        "column": "note",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "movie_companies",
+        "join_tables_alias": [
+          "t",
+          "mi",
+          "ct"
+        ],
+        "join_tables": [
+          "title",
+          "movie_info",
+          "company_type"
+        ],
+        "join_conditions": [
+          "t.id = mc.movie_id",
+          "mc.movie_id = mi.movie_id",
+          "ct.id = mc.company_type_id"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "production_year"
+          ],
+          [
+            "info"
+          ],
+          [
+            "kind"
+          ]
+        ]
+      },
+      {
+        "alias": "mi",
+        "column": "info",
+        "operator": "IN",
+        "data_type": "text",
+        "table": "movie_info",
+        "join_tables_alias": [
+          "t",
+          "mc",
+          "it"
+        ],
+        "join_tables": [
+          "title",
+          "movie_companies",
+          "info_type"
+        ],
+        "join_conditions": [
+          "t.id = mi.movie_id",
+          "mc.movie_id = mi.movie_id",
+          "it.id = mi.info_type_id"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "l"
+        ],
+        "join_tables_column": [
+          [
+            "production_year"
+          ],
+          [
+            "note"
+          ],
+          []
+        ]
+      },
+      {
+        "alias": "t",
+        "column": "production_year",
+        "operator": ">",
+        "data_type": "int",
+        "table": "title",
+        "min": 1880,
+        "max": 2019,
+        "join_tables_alias": [
+          "mi",
+          "mc"
+        ],
+        "join_tables": [
+          "movie_info",
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "t.id = mi.movie_id",
+          "t.id = mc.movie_id"
+        ],
+        "left_or_right": [
+          "both",
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "info"
+          ],
+          [
+            "note"
+          ]
+        ]
+      }
+    ],
+    "params": [
+      [
+        "production companies",
+        "%a%",
+        "%h%",
+        "FAKE: When Ariel is doing her practice test for the PSAT, question #44 reads: \"A father is three times as old as his son. After fifteen years, the father will be twice as old as his son''s age at that time. Therefore, the father''s current age is?\" Although the correct answer is 45, the five choices given are: \"A)4 B)8 C)16 D)32 E)64\"', '12371', 'Georgia:4 June 2012', '11323 LV', 'Sri Lanka:1970",
+        2008
+      ],
+      [
+        "production companies",
+        "%(worldwide)%",
+        "%(2006)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%)%",
+        "%r%",
+        "80', 'India:5 July 2013', 'USA:7 April 1968', 'MET:3648 m', '62,172 (Hungary)",
+        2007
+      ],
+      [
+        "distributors",
+        "%(200%)%",
+        "%(theatrical)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2010"
+      ],
+      [
+        "distributors",
+        "%theatrical%",
+        "%DVD%",
+        "PCS:Spherical', 'Color', 'Color', 'Color', '-",
+        1927
+      ],
+      [
+        "distributors",
+        "%2012%",
+        "%USA%",
+        "Silent', 'UK', 'Documentary', 'Documentary', 'UK",
+        2013
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%T%",
+        "Somsen, Miguel. \"Vida\". In: \"O Independente\" (Portugal), 29 July 1994, (WNP)', 'Spain:18 March 2006', 'France:28 June 1989', 'Brian Iannone', 'USA:10 October 2007",
+        1993
+      ],
+      [
+        "distributors",
+        "%DVD%",
+        "%worldwide%",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        2009
+      ],
+      [
+        "distributors",
+        "%with%",
+        "%TV%",
+        "English', 'English', 'English', 'English', 'English",
+        1998
+      ],
+      [
+        "distributors",
+        "%in%",
+        "%TV%",
+        "English', 'English', 'English', 'English', 'English",
+        1999
+      ],
+      [
+        "distributors",
+        "%TV%",
+        "%r%",
+        "Drama', 'Color', 'Color', 'English', 'Color",
+        2012
+      ],
+      [
+        "production companies",
+        "%n%",
+        "%c%",
+        "139', '13 March 1938 - ?', 'USA:25 March 1928', 'Spain:25 March 1971', 'UK:2 April 1945",
+        2004
+      ],
+      [
+        "production companies",
+        "%USA%",
+        "%in%",
+        "English', 'USA', 'USA', 'English', 'USA",
+        1992
+      ],
+      [
+        "production companies",
+        "%(2006)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2005"
+      ],
+      [
+        "production companies",
+        "%2009%",
+        "%2012%",
+        "Color', 'Color', 'Color', 'English', 'English",
+        2002
+      ],
+      [
+        "distributors",
+        "%t%",
+        "%l%",
+        "Cassandra: So I figured they would have sent you to a special school by now.::Roland: [smirks] This IS a special school.', 'UK:7 July 1993', 'Canada:23 June 1967', 'USA:1 August 1910', 'Genius Monkeys [us]",
+        2003
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(worldwide)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "1950"
+      ],
+      [
+        "distributors",
+        "%TV%",
+        "%as%",
+        "Color', 'Color', 'Color', 'Color', 'Color",
+        1988
+      ],
+      [
+        "distributors",
+        "%with%",
+        "%2008%",
+        "Color', 'Color', 'Color', 'Color', 'Color",
+        1979
+      ],
+      [
+        "production companies",
+        "%in%",
+        "%association%",
+        "English', 'Color', 'English', 'Mono', 'PFM:35 mm",
+        1926
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%2%",
+        "Icheb: [looking at his tricorder readings after B''lanna becomes disoriented] I''m detecting another lifesign.::Seven of Nine: [looking around engineering] Where?::Icheb: Inside Lieutenant Torres, it might be a parasite.::Seven of Nine: [tapping her comm badge to contact the doctor] Seven of Nine to the doctor, I will be accompanying Lieutenant Torres to sickbay.::The Doctor: What''s wrong?::Seven of Nine: I believe she''s pregnant.', 'USA:25 June 2001', 'Sweden:123', 'France:12 May 2000', 'USA:1 November 1916",
+        1994
+      ],
+      [
+        "distributors",
+        "%TV%",
+        "%USA%",
+        "Color', 'USA', 'Short', 'Color', 'Color",
+        1976
+      ],
+      [
+        "distributors",
+        "%(theatrical)%",
+        "%(worldwide)%",
+        "Drama', 'Horror",
+        "2005"
+      ],
+      [
+        "distributors",
+        "%all%",
+        "%TV%",
+        "Color', 'PCS:Spherical', 'English', 'English', 'OFM:35 mm",
+        2000
+      ],
+      [
+        "production companies",
+        "%TV%",
+        "%USA%",
+        "Color', 'Color', 'English', 'English', 'English",
+        2011
+      ],
+      [
+        "distributors",
+        "%(200%)%",
+        "%(theatrical)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "production companies",
+        "%(co-production)%",
+        "%(presents)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "production companies",
+        "%all%",
+        "%in%",
+        "English', 'Color', 'English', 'Color', 'English",
+        2003
+      ],
+      [
+        "distributors",
+        "%2005%",
+        "%USA%",
+        "Color', 'Color', 'Color', 'Color', 'Color",
+        2008
+      ],
+      [
+        "distributors",
+        "%i%",
+        "%0%",
+        "UK:26 October 2008', 'Darbu, Norway', 'Soviet Union:65-66', 'Veteli, Finland', 'China:1983",
+        2007
+      ],
+      [
+        "distributors",
+        "%n%",
+        "%i%",
+        "Rated R for bloody violence and language', 'Poland:6 March 2003', 'USA:31 March 1997', '$800,000', 'Bulgaria:20",
+        2009
+      ],
+      [
+        "production companies",
+        "%with%",
+        "%i%",
+        "Finland:19 January 1951', 'Greece:20 October 1988', '[Jet tries to help Alice recapture her canary]::Jet Cosgrave: Easy. Don''t stampede the livestock.', 'Kalinin, Anatoli. \"Tsygan\"', 'CREW: After the train scene when June is in the hotel room a crew member is visible in the mirror above the bed.",
+        2005
+      ],
+      [
+        "distributors",
+        "%)%",
+        "%D%",
+        "Music', '$3,900', 'Spain:30 April 1965', 'USA:1915', 'Brazil:39",
+        1982
+      ],
+      [
+        "production companies",
+        "%(worldwide)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "1990"
+      ],
+      [
+        "production companies",
+        "%(2006)%",
+        "%(worldwide)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%(200%)%",
+        "%(Japan)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2010"
+      ],
+      [
+        "distributors",
+        "%)%",
+        "%)%",
+        "MET:615 m', 'Finland:12 May 1988', 'Japan:26 July 1955', 'Jeremy Hanke', 'Cheetah",
+        1914
+      ],
+      [
+        "distributors",
+        "%2005%",
+        "%USA%",
+        "RAT:1.33 : 1', 'Mono', 'Drama', 'Black and White', 'Mono",
+        1974
+      ],
+      [
+        "distributors",
+        "%n%",
+        "%with%",
+        "Color', 'USA', 'Color', 'Color', 'RAT:1.33 : 1",
+        1966
+      ],
+      [
+        "distributors",
+        "%worldwide%",
+        "%TV%",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        1968
+      ],
+      [
+        "distributors",
+        "%USA%",
+        "%t%",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        1973
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%b%",
+        "Portugal:14 January 1977', 'Finland:16 May 1965', 'T\u00c3\u00aates \u00c3\u00a0 Tartes!', '$316,000', 'Kopperl, Texas, USA",
+        1971
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%a%",
+        "Dom Cobb is able to use his unique skills to his advantage - he can enter people''s minds through their dreams and thereby learn their secrets. He is a thief for hire but Japanese businessman Mr. Saito has a somewhat different proposition for him. He wants Cobb to enter the mind of Robert Fischer Jr., who is about to inherit his father''s massive business empire, to plant a simple notion: to break-up his father''s conglomerate and sell it off. In return, Saito will make it possible for Cobb to freely return to the US where he is currently wanted by the police. Cobb accepts and assembles his team with a plan to plant the idea deep in Fisher''s mind by generating a series of dreams within dreams so that he eventually thinks he came up with the idea himself. As the intended deception grows ever more complex, Cobb has to deal with his own emotions and feelings of guilt, which are projecting themselves into the dreamspace. Cobb has to deal with the eventual question of what is real and what is only a dream.', 'USA:1 March 2005', '1,313,582 (Germany)', 'USA:7 November 2012', 'JPY 1,500,000",
+        2009
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(co-production)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "2000"
+      ],
+      [
+        "production companies",
+        "%Canada%",
+        "%in%",
+        "Color', 'Color', 'Color', 'Color', 'Color",
+        2008
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(co-production)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "2000"
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(2006)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2005"
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(worldwide)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "1990"
+      ],
+      [
+        "distributors",
+        "%(France)%",
+        "%(co-production)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "2010"
+      ],
+      [
+        "distributors",
+        "%a%",
+        "%)%",
+        "$282,949 (USA) (26 October 1986) (387 screens)', 'USA:25 June 1910', 'France:24 July 1976', '10,198,000 (France)', 'Japan:29 March 1968",
+        1985
+      ],
+      [
+        "distributors",
+        "%media%",
+        "%association%",
+        "USA', 'Color', 'English', 'RAT:1.33 : 1', 'OFM:35 mm",
+        1981
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(2007)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%DVD%",
+        "%2009%",
+        "PFM:35 mm', 'OFM:35 mm', 'Drama', 'RAT:1.33 : 1', 'PFM:35 mm",
+        2010
+      ],
+      [
+        "distributors",
+        "%)%",
+        "%9%",
+        "CONT: When Robin first meets Richard the Lionheart, the position of Robin''s bow changes. From one angle, Robin has his arm extended and the bow is away from his body. From the reverse angle, Robin has his arm close to his body and the bow is being held in both hands.', 'Norway:8 April 2000', 'UK:26 August 1968', 'UK:17 July 1967', 'France:5 May 2007",
+        1937
+      ],
+      [
+        "production companies",
+        "%(co-production)%",
+        "%(presents)%",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "1950"
+      ],
+      [
+        "production companies",
+        "%association%",
+        "%TV%",
+        "USA', 'USA', 'Color', 'USA', 'USA",
+        1927
+      ],
+      [
+        "distributors",
+        "%a%",
+        "%(%",
+        "$867,838 (USA) (4 September 2011)', 'MET:1894 m', 'Finland:10 May 2000', 'UK:80', 'Canada:6 July 2012",
+        2009
+      ],
+      [
+        "production companies",
+        "%co%",
+        "%2011%",
+        "English', 'USA', 'Color', 'English', 'USA",
+        1986
+      ],
+      [
+        "distributors",
+        "%1956%",
+        "%A%",
+        "English', 'Color', 'French', 'English', 'English",
+        2009
+      ],
+      [
+        "production companies",
+        "%2000%",
+        "%association%",
+        "Color', 'English', 'English', 'Color', 'Color",
+        1933
+      ],
+      [
+        "distributors",
+        "%l%",
+        "%0%",
+        "UK:17 November 2006', 'Macedonia:98', 'USA:24 October 1948', 'France:18 June 1996', 'Filmed in 2002.",
+        2005
+      ],
+      [
+        "distributors",
+        "%USA%",
+        "%2012%",
+        "English', 'English', 'Color', 'English', 'English",
+        2010
+      ],
+      [
+        "distributors",
+        "%USA%",
+        "%with%",
+        "Color', 'Color', 'Color', 'Color', 'Color",
+        2010
+      ],
+      [
+        "production companies",
+        "%in%",
+        "%USA%",
+        "USA', 'Color', 'Color', 'Drama', 'English",
+        1918
+      ],
+      [
+        "distributors",
+        "%V%",
+        "%(%",
+        "\u00c2\u00a9 COPYRIGHT MCMLXXIII BY UNIVERSAL PICTURES ALL RIGHTS RESERVED', 'UK:68', 'UK:24 November 1948', 'Israel:July 2005', '15 November 2010 -",
+        1972
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%(%",
+        "$176,255,885 (USA) (13 July 1997)', 'France:11 July 1969', 'UK:22 May 1987', 'UK:19 March 1911', 'Czechoslovakia:1965",
+        1996
+      ],
+      [
+        "production companies",
+        "%(2006)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "1950"
+      ],
+      [
+        "distributors",
+        "%theatrical%",
+        "%association%",
+        "Drama', 'English', 'USA', 'English', 'Short",
+        1951
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(co-production)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%D%",
+        "%2%",
+        "FAKE: In one of the beginning scenes when they are all aboard the small, corporate jet, they are pulling maneuvers that well exceed the maximum load factor of any passenger jet aircraft.', 'Canada:7:48', 'Now it can be told.', 'UK:8 May 2002', '4453",
+        2008
+      ],
+      [
+        "distributors",
+        "%s%",
+        "%Canada%",
+        "English', 'Color', 'Color', 'Color', 'English",
+        2001
+      ],
+      [
+        "production companies",
+        "%(2007)%",
+        "%(200%)%",
+        "Drama', 'Horror",
+        "1990"
+      ],
+      [
+        "distributors",
+        "%(200%)%",
+        "%(worldwide)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%(2007)%",
+        "%(worldwide)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "2009"
+      ],
+      [
+        "distributors",
+        "%n%",
+        "%l%",
+        "Venice Canals, Venice, Los Angeles, California, USA', 'MET:3776 m', 'leonard, hugh', 'Finland:1 July 1929', 'Ireland:58",
+        1962
+      ],
+      [
+        "distributors",
+        "%(France)%",
+        "%(200%)%",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%n%",
+        "%DVD%",
+        "Color', 'USA', 'OFM:35 mm', 'USA', 'Mono",
+        1977
+      ],
+      [
+        "production companies",
+        "%(2007)%",
+        "%(200%)%",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "2005"
+      ],
+      [
+        "production companies",
+        "%(co-production)%",
+        "%(presents)%",
+        "Germany', 'German",
+        "1950"
+      ],
+      [
+        "distributors",
+        "%(Blu-ray)%",
+        "%(worldwide)%",
+        "Drama', 'Horror', 'Western', 'Family",
+        "2010"
+      ],
+      [
+        "distributors",
+        "%0%",
+        "%(%",
+        "CONT: In the motel room, the morning after Griffin''s death, Marsh is showing Box a video clip in Windows Media Player. The main blue icon in the toolbar is a \"play\" button, instead of a \"pause\" button, which it should be if Media Player is currently playing back a clip.', 'USA:9 February 1940', 'USA:23 August 1937', 'Austria:8 July 1988', 'Ein Tzurim, Israel",
+        2007
+      ],
+      [
+        "distributors",
+        "%l%",
+        "%a%",
+        "Germany', 'West Germany:161', 'Spain:17 May 1955', '\u00e2\u0082\u00ac 13,300', 'Poland:19 June 1973",
+        2006
+      ],
+      [
+        "distributors",
+        "%l%",
+        "%a%",
+        "Rip-Roaring Action! (original poster)', 'Spain:14 March 1927', 'Canada:12 June 2004', 'USA:12 June 1922', '63407",
+        1945
+      ],
+      [
+        "distributors",
+        "%)%",
+        "%)%",
+        "Hicks: Drake, we are LEAVING!', 'UK:2 April 1945', 'PLFEB 34291', '1002-80', 'USA:8 March 1966",
+        1985
+      ],
+      [
+        "distributors",
+        "%4%",
+        "%0%",
+        "RAT:1.85 : 1', 'Italy:April 1918', 'UK:24 February 1999', 'London, Robby. (BK)', '$5,520",
+        1976
+      ],
+      [
+        "distributors",
+        "%in%",
+        "%with%",
+        "English', 'English', 'French', 'English', 'Color",
+        2012
+      ],
+      [
+        "distributors",
+        "%)%",
+        "%0%",
+        "SciFi Channel''s commercials about the miniseries included a scene showing a Viper coming out of lightspeed toward a planetary body. This was actually taken from a cut scene from the Xbox videogame, \"Battlestar Galactica.\" The Vipers in the miniseries have no FTL drives.', 'Mexico:17 May 2002', 'USA:4 June 1981', 'UK:23 October 1996', 'Finland:97",
+        2002
+      ],
+      [
+        "distributors",
+        "%(France)%",
+        "%(VHS)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%TV%",
+        "%worldwide%",
+        "RAT:1.33 : 1', 'PFM:35 mm', 'PFM:35 mm', 'Mono', 'OFM:35 mm",
+        1983
+      ],
+      [
+        "distributors",
+        "%i%",
+        "%in%",
+        "USA', 'USA', 'English', 'English', 'USA",
+        1959
+      ],
+      [
+        "production companies",
+        "%(2007)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "1950"
+      ],
+      [
+        "production companies",
+        "%(2007)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "2005"
+      ],
+      [
+        "distributors",
+        "%a%",
+        "%n%",
+        "Puerto Rico', 'USA:March 1915', 'USA:17 March 1960', 'UK:30 April 1963', '4248",
+        1962
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(2007)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2005"
+      ],
+      [
+        "distributors",
+        "%2006%",
+        "%Luxembourg%",
+        "Color', 'Color', 'Color', '-', 'English",
+        2003
+      ],
+      [
+        "distributors",
+        "%(2007)%",
+        "%(theatrical)%",
+        "Germany', 'German', 'USA', 'American",
+        "2005"
+      ],
+      [
+        "distributors",
+        "%(Japan)%",
+        "%(2006)%",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "1990"
+      ],
+      [
+        "distributors",
+        "%l%",
+        "%t%",
+        "210,005 (Germany) (18 August 2002)', 'He''s got heart', 'Romania:6 June 2003', 'Teenage Beauties', 'Spain:5 March 2000",
+        2001
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%)%",
+        "Argentina:13', '14 May 2004 - ?', 'Show #5143', 'Brazil:1 April 1998', 'Portugal:March 1990",
+        2001
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%A%",
+        "Comedy', 'USA:6 May 1924', '$300,044 (Mexico)', 'Sweden:4 June 1968', '8,240 (Hungary)",
+        2008
+      ],
+      [
+        "distributors",
+        "%(Japan)%",
+        "%(2007)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%USA%",
+        "%with%",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        1949
+      ],
+      [
+        "distributors",
+        "%association%",
+        "%media%",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        1988
+      ],
+      [
+        "production companies",
+        "%(presents)%",
+        "%(co-production)%",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "1950"
+      ],
+      [
+        "distributors",
+        "%in%",
+        "%TV%",
+        "Documentary', 'UK', 'Comedy', 'Comedy', 'UK",
+        2004
+      ],
+      [
+        "distributors",
+        "%H%",
+        "%2%",
+        "\u00c2\u00a379,470 (UK) (24 June 2001) (118 screens)', 'Norway:22 July 2004', '- December 1912', '3654', 'Canada:1 June 2006",
+        2000
+      ],
+      [
+        "distributors",
+        "%)%",
+        "%(%",
+        "CREW: The crew is reflected in the red balloon by the hospital bed.', 'Japan:26 April 1987', '$1,233,000', 'China:8 August 2006', 'Portugal:4 May 1942",
+        1999
+      ],
+      [
+        "distributors",
+        "%TV%",
+        "%with%",
+        "Color', 'PFM:35 mm', 'English', 'English', 'Color",
+        2010
+      ],
+      [
+        "distributors",
+        "%(worldwide)%",
+        "%(VHS)%",
+        "Horror', 'Thriller",
+        "1990"
+      ],
+      [
+        "production companies",
+        "%(co-production)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "2000"
+      ],
+      [
+        "production companies",
+        "%(worldwide)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "2005"
+      ],
+      [
+        "distributors",
+        "%association%",
+        "%USA%",
+        "USA', 'Color', 'Color', 'Color', 'USA",
+        2007
+      ],
+      [
+        "production companies",
+        "%)%",
+        "%a%",
+        "CONT: When the band is playing Chattanooga Choo Choo, the bass player goes back and forth wearing sunglasses, then regular glasses.', '1995 Warner Bros.', '1990 - 1990', 'Italy:19 March 1948', 'USA:7 July 1999",
+        1953
+      ],
+      [
+        "distributors",
+        "%Denmark%",
+        "%USA%",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        2011
+      ],
+      [
+        "distributors",
+        "%V%",
+        "%)%",
+        "Venice, Veneto, Italy', '$1,275,999 (USA)', 'USA:May 1958', '1995 - 1996', 'France:15 July 1921",
+        1972
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(2007)%",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "1990"
+      ],
+      [
+        "distributors",
+        "%(France)%",
+        "%(200%)%",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%0%",
+        "%D%",
+        "Marty Claridge: I have to stay for the right reasons::Clark Davis: Stay because I love you. I love you!::Marty Claridge: Maybe I should stay because I love *you*.', 'UK:1 August 1996', 'UK:6 August 1986', 'Brazil:4 April 2008', 'UK:5 June 1988",
+        2002
+      ],
+      [
+        "distributors",
+        "%t%",
+        "%i%",
+        "CONT: The young woman in the water pit goes from holding a nubby horned baby goat to holding a lamb (without nubs), then to holding a baby goat again.', 'Mexico:1 June 1945', 'Germany:9 July 1937', 'China:19 June 2003', 'UK:8 August 1998",
+        2000
+      ],
+      [
+        "distributors",
+        "%2008%",
+        "%DVD%",
+        "French', 'English', 'English', 'France', 'France",
+        2011
+      ],
+      [
+        "distributors",
+        "%l%",
+        "%(%",
+        "CONT: During the sequence when Claire is in the tub supposedly unable to move, her head is higher and lower in relation to the back edge of the tub in different shots.', 'Anals!', 'Denmark:8 May 2010', 'CAD 115,000', '6590",
+        1999
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%U%",
+        "''Dennis Hopper'' (qv) and ''Jack Nicholson (I)'' (qv) - huge fans of Italian director ''Michelangelo Antonioni'' (qv) - invited their idol to the first screening of their film. Antonioni was sufficiently impressed to cast Nicholson in his next feature film, _Professione: reporter (1975)_ (qv).', 'UK:21 April 1991', 'March 2010 - ?', 'Denmark:22', 'USA:16 July 1957",
+        1968
+      ],
+      [
+        "distributors",
+        "%DVD%",
+        "%all%",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        1916
+      ],
+      [
+        "distributors",
+        "%n%",
+        "%t%",
+        "Midtown, Los Angeles, California, USA', 'Taiwan:25 May 1979', 'Spain:30 July 2002', 'USA:18 August 1937', '$670,774 (USA)",
+        1990
+      ],
+      [
+        "production companies",
+        "%p%",
+        "%TV%",
+        "Color', 'USA', 'English', 'USA', 'USA",
+        1988
+      ],
+      [
+        "distributors",
+        "%c%",
+        "%t%",
+        "East Germany:15', 'USA:September 1953', 'USA:11 April 1932', 'UK:31 October 2007', 'Passage to India, A",
+        1967
+      ],
+      [
+        "production companies",
+        "%3%",
+        "%with%",
+        "Color', 'English', 'English', 'Color', 'Color",
+        1991
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(worldwide)%",
+        "USA', 'America",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%DVD%",
+        "%TV%",
+        "PFM:35 mm', 'Mono', 'Black and White', 'PFM:35 mm', 'Mono",
+        1969
+      ],
+      [
+        "distributors",
+        "%Turkey%",
+        "%1987%",
+        "USA', 'Color', 'English', 'Color', 'USA",
+        1979
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(2007)%",
+        "Drama', 'Horror",
+        "1950"
+      ],
+      [
+        "distributors",
+        "%(USA)%",
+        "%(Blu-ray)%",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%(2006)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2010"
+      ],
+      [
+        "distributors",
+        "%2012%",
+        "%theatrical%",
+        "RAT:1.33 : 1', 'OFM:35 mm', 'Mono', 'PFM:35 mm', 'RAT:1.33 : 1",
+        1942
+      ],
+      [
+        "production companies",
+        "%(co-production)%",
+        "%(presents)%",
+        "Horror', 'Thriller",
+        "2005"
+      ],
+      [
+        "distributors",
+        "%TV%",
+        "%worldwide%",
+        "English', 'USA', 'PCS:Spherical', 'PCS:Spherical', 'USA",
+        1954
+      ],
+      [
+        "distributors",
+        "%2%",
+        "%2%",
+        "$15,007,991 (USA)', 'Behave or Beware', '$10,017,322 (USA)', 'Spain:15 March 1987', 'AUD 350",
+        2004
+      ],
+      [
+        "production companies",
+        "%(co-production)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "1950"
+      ],
+      [
+        "distributors",
+        "%(worldwide)%",
+        "%(USA)%",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "2000"
+      ],
+      [
+        "production companies",
+        "%(2006)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "2000"
+      ],
+      [
+        "production companies",
+        "%(worldwide)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%2007%",
+        "%USA%",
+        "Color', 'English', 'English', 'Color', 'Color",
+        1923
+      ],
+      [
+        "distributors",
+        "%f%",
+        "%worldwide%",
+        "USA', 'English', 'Color', 'USA', 'English",
+        1919
+      ],
+      [
+        "production companies",
+        "%(2007)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2005"
+      ],
+      [
+        "production companies",
+        "%(worldwide)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%edition%",
+        "%worldwide%",
+        "French', 'USA', 'Color', 'Color', 'Color",
+        1923
+      ],
+      [
+        "distributors",
+        "%DVD%",
+        "%c%",
+        "Color', 'Color', 'Color', 'Color', 'Color",
+        1964
+      ],
+      [
+        "distributors",
+        "%(co-production)%",
+        "%(France)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "2005"
+      ],
+      [
+        "distributors",
+        "%(Japan)%",
+        "%(200%)%",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "1990"
+      ],
+      [
+        "distributors",
+        "%(2007)%",
+        "%(Japan)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "1990"
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%9%",
+        "UK:21 January 1965', 'France:4 March 1958', 'MET:2026.9 m', 'The Price of Glory', 'Serbia:1 April 1995",
+        1963
+      ],
+      [
+        "production companies",
+        "%in%",
+        "%with%",
+        "Black and White', 'PFM:35 mm', 'OFM:35 mm', 'OFM:35 mm', 'Black and White",
+        1995
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(2006)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(worldwide)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(2006)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2005"
+      ],
+      [
+        "distributors",
+        "%e%",
+        "%n%",
+        "Buster: [digging grave of botched abortion victim] What did she die of?::Dr. Wilbur Larch: She died of secrecy. She died of... ignorance. Homer, did you expect to be responsible for their children, you have to give them the right to decide whether or not to have children. Wouldn''t you agree?::Homer: I''m not excepting people to be responsible enough to control themselves to begin with.', 'Sogndal, Norway', 'Israel:2 April 2009', 'South Korea:145', 'UK:18 May 2013",
+        1998
+      ],
+      [
+        "distributors",
+        "%(Japan)%",
+        "%(VHS)%",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "1990"
+      ],
+      [
+        "distributors",
+        "%U%",
+        "%A%",
+        "10 June 1939 - 11 July 1939', 'MET:1,561.50 m', 'Italy:29 July 1970', '$ 49.95', 'Japan:23 July 2000",
+        1938
+      ],
+      [
+        "distributors",
+        "%2%",
+        "%2%",
+        "[last lines]::Fireman John Gage: Anita!', 'UK:1 February 1960', 'USA:3 April 1980', 'UK:6 September 2006', 'What''s YOUR tactic?",
+        1971
+      ],
+      [
+        "distributors",
+        "%USA%",
+        "%all%",
+        "Color', 'Comedy', 'PFM:35 mm', 'Color', 'English",
+        2009
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%D%",
+        "Church of the Holy Cross, Gilling East, North Yorkshire, England, UK', 'USA:7:40', 'UK:9 June 1953', 'Norway:3 April 1972', 'France:10 June 2013",
+        2009
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%)%",
+        "''Channing Tatum'' (qv) broke his nose during one of the fight scenes.', 'Listen carefully...', 'USA:6 February 1928', 'UK:6 August 1930', 'UK:22 May 1968",
+        2008
+      ],
+      [
+        "distributors",
+        "%1%",
+        "%(%",
+        "Sharon Wetherby, a friend of the kids, invites them to her family''s estate for the weekend. But then the kids find Sharon''s Uncle Stewart at the Kingston estate, aged by the ghost of Elias Kingston, who threatens to do the same to the rest of the family if the Wetherby fortune isn''t turned over to him by morning.', 'Italy:March 1996', 'MET:1837.64 m', 'India:3 April 2011', 'Turkey:1 April 1994",
+        1968
+      ],
+      [
+        "distributors",
+        "%USA%",
+        "%co%",
+        "PCS:Spherical', 'UK', 'PCS:Spherical', 'Silent', 'UK",
+        1966
+      ],
+      [
+        "production companies",
+        "%(worldwide)%",
+        "%(200%)%",
+        "Germany', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "production companies",
+        "%media%",
+        "%association%",
+        "USA', 'Color', 'Color', 'English', 'English",
+        2006
+      ],
+      [
+        "production companies",
+        "%(presents)%",
+        "%(co-production)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "2000"
+      ],
+      [
+        "production companies",
+        "%USA%",
+        "%f%",
+        "Color', 'Color', 'Color', 'Color', 'Color",
+        1977
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%U%",
+        "Ireland:17 November 2008', 'USA:13:30', 'Brussells, Belgium', '6032', 'Hungary:109",
+        2005
+      ],
+      [
+        "production companies",
+        "%(co-production)%",
+        "%(200%)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%)%",
+        "%e%",
+        "Norway:11', 'Malibu Productions', 'UK:17 May 1961', '312,967 (Spain)', 'UK:27 July 1965",
+        1996
+      ],
+      [
+        "distributors",
+        "%(Blu-ray)%",
+        "%(200%)%",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "2005"
+      ],
+      [
+        "production companies",
+        "%production%",
+        "%TV%",
+        "English', 'Color', 'Color', 'Color', 'Color",
+        1987
+      ],
+      [
+        "distributors",
+        "%)%",
+        "%i%",
+        "UK:31 December 1967', 'MET:2648.40 m', 'Japan:24 March 1995', 'UK:25 June 1974', 'ML 102430",
+        1966
+      ],
+      [
+        "production companies",
+        "%(2006)%",
+        "%(worldwide)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "2005"
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(worldwide)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "1990"
+      ],
+      [
+        "distributors",
+        "%1%",
+        "%l%",
+        "''Diane Keaton'' (qv) based much of her portrayal of Kay Adams on ''Francis Ford Coppola'' (qv)''s wife, ''Eleanor Coppola'' (qv).', 'Finland:12 May 2009', 'France:15 May 1946', 'Mexico:October 1897', 'FRF 110,000,000",
+        1971
+      ],
+      [
+        "production companies",
+        "%as%",
+        "%USA%",
+        "Color', 'English', 'Short', 'Short', 'Color",
+        2010
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%)%",
+        "Norway:18', '\u00c2\u00a91994 Warner Bros.', 'India:4 May 2012', 'Belarus:April 2009', 'USA:19 June 1957",
+        1977
+      ],
+      [
+        "distributors",
+        "%(2007)%",
+        "%(2006)%",
+        "Horror', 'Thriller",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%a%",
+        "%association%",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        2007
+      ],
+      [
+        "distributors",
+        "%DVD%",
+        "%2012%",
+        "Color', 'Color', 'Color', 'English', 'Color",
+        1935
+      ],
+      [
+        "distributors",
+        "%association%",
+        "%theatrical%",
+        "English', 'Color', 'English', 'Color', 'Short",
+        2010
+      ],
+      [
+        "distributors",
+        "%USA%",
+        "%association%",
+        "Color', 'Short', 'Short', 'USA', 'Short",
+        2008
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%)%",
+        "Poland:b.o.', 'Japan:21 March 1975', '6472', 'They Will Find You.', 'Japan:30 March 1962",
+        2001
+      ],
+      [
+        "distributors",
+        "%A%",
+        "%u%",
+        "Germany:22 March 2001', 'Finland:12 May 2009', 'France:9 June 2003', 'Kenya:26 June 2011', '$19,000,000 (USA)",
+        1958
+      ],
+      [
+        "distributors",
+        "%association%",
+        "%2007%",
+        "French', 'USA', 'English', 'English', 'USA",
+        1984
+      ],
+      [
+        "distributors",
+        "%2005%",
+        "%2008%",
+        "English', 'RAT:1.33 : 1', 'OFM:35 mm', 'Color', 'PFM:35 mm",
+        2005
+      ],
+      [
+        "distributors",
+        "%(theatrical)%",
+        "%(Blu-ray)%",
+        "USA', 'America",
+        "2000"
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(co-production)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%with%",
+        "%i%",
+        "English', 'English', 'English', 'English', 'English",
+        2001
+      ],
+      [
+        "distributors",
+        "%(%",
+        "%9%",
+        "Norway:16', '$86,300,000 (USA)', 'USA:9 August 1977', 'Z Productions', 'Czech Republic:54",
+        1967
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(co-production)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%with%",
+        "%TV%",
+        "English', 'English', 'English', 'English', 'English",
+        1936
+      ],
+      [
+        "distributors",
+        "%2010%",
+        "%production%",
+        "Color', 'Color', 'USA', 'Short', 'English",
+        1961
+      ],
+      [
+        "distributors",
+        "%run%",
+        "%p%",
+        "Color', 'Color', 'Color', 'Color', 'Color",
+        2006
+      ],
+      [
+        "distributors",
+        "%D%",
+        "%u%",
+        "FACT: Common sense will tell you that when somebody is performing an operation (say, an open heart surgery, or more specifically, in the film they''re performing an operation to stimulate the patient''s brain) the doctor(s) will get blood on them. Amazingly, Dr. Cortner comes out of the operation room spotless, as do the other doctors and nurses as well as the patient.', 'USA:17 April 1940', 'May 1985 -', 'USA:20 January 1956', 'UK:30 January 1966",
+        1961
+      ],
+      [
+        "distributors",
+        "%(2007)%",
+        "%(Japan)%",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "2005"
+      ],
+      [
+        "production companies",
+        "%(200%)%",
+        "%(worldwide)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2000"
+      ],
+      [
+        "distributors",
+        "%(2006)%",
+        "%(USA)%",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "2010"
+      ]
+    ]
+  }
+}

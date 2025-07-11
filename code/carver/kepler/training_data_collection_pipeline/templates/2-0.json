@@ -1,0 +1,31 @@
+{
+    "2-0": {
+        "query": "SELECT MIN(t.title) AS movie_title\n FROM company_name AS cn,\n keyword AS k,\n movie_companies AS mc,\n movie_keyword AS mk,\n title AS t\n WHERE cn.id = mc.company_id\n AND mc.movie_id = t.id\n AND t.id = mk.movie_id\n AND mk.keyword_id = k.id\n AND mc.movie_id = mk.movie_id\n AND cn.country_code = '@param0'\n AND k.keyword = '@param1';",
+        "predicates": [
+            {
+                "alias": "cn",
+                "column": "country_code",
+                "operator": "=",
+                "data_type": "text",
+                "table": "company_name",
+                "join_tables": ["movie_companies"],
+                "join_tables_alias": ["mc"],
+                "join_tables_column": ["company_id"],
+                "join_conditions": ["cn.id = mc.company_id"],
+                "left_or_right": ["l"]
+            },
+            {
+                "alias": "k",
+                "column": "keyword",
+                "operator": "=",
+                "data_type": "text",
+                "table": "keyword",
+                "join_tables": ["movie_keyword"],
+                "join_tables_alias": ["mk"],
+                "join_tables_column": ["keyword_id"],
+                "join_conditions": ["mk.keyword_id = k.id"],
+                "left_or_right": "l"
+            }
+        ]
+    }
+}

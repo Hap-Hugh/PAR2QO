@@ -1,0 +1,737 @@
+{
+  "018": {
+    "query": "SELECT min(i_item_id),\n       min(ca_country),\n       min(ca_state),\n       min(ca_county),\n       min(cs_quantity),\n       min(cs_list_price),\n       min(cs_coupon_amt),\n       min(cs_sales_price),\n       min(cs_net_profit),\n       min(c_birth_year),\n       min(cd_dep_count)\n FROM catalog_sales,\n     customer_demographics,\n     customer,\n     customer_address,\n     date_dim,\n     item\nWHERE cs_sold_date_sk = d_date_sk\n  AND cs_item_sk = i_item_sk\n  AND cs_bill_cdemo_sk = cd_demo_sk\n  AND cs_bill_customer_sk = c_customer_sk\n  AND cd_gender = '@param0'\n  AND cd_education_status = '@param1'\n  AND c_current_addr_sk = ca_address_sk\n  AND d_year = @param2\n  AND c_birth_month = @param3\n  AND ca_state in ('@param4')\n  AND cs_wholesale_cost BETWEEN @param5 AND @param6 \n  AND i_category = '@param7' ;",
+    "predicates": [
+      {
+        "alias": "",
+        "column": "cd_gender",
+        "operator": "=",
+        "data_type": "text",
+        "table": "customer_demographics",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_bill_cdemo_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_bill_cdemo_sk = cd_demo_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cd_education_status",
+        "operator": "=",
+        "data_type": "text",
+        "table": "customer_demographics",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_bill_cdemo_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_bill_cdemo_sk = cd_demo_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "d_year",
+        "operator": "=",
+        "data_type": "int",
+        "table": "date_dim",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_sold_date_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_sold_date_sk = d_date_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "c_birth_month",
+        "operator": "=",
+        "data_type": "int",
+        "table": "customer",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_bill_customer_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_bill_customer_sk = c_customer_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "ca_state",
+        "operator": "IN",
+        "data_type": "text",
+        "table": "customer_address",
+        "join_tables": [
+          "customer"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "c_current_addr_sk"
+          ]
+        ],
+        "join_conditions": [
+          "c_current_addr_sk = ca_address_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cs_wholesale_cost",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "catalog_sales",
+        "join_tables": [
+          "date_dim",
+          "item",
+          "customer_demographics",
+          "customer"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "d_date_sk"
+          ],
+          [
+            "i_item_sk"
+          ],
+          [
+            "cd_demo_sk"
+          ],
+          [
+            "c_customer_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_sold_date_sk = d_date_sk",
+          "cs_item_sk = i_item_sk",
+          "cs_bill_cdemo_sk = cd_demo_sk",
+          "cs_bill_customer_sk = c_customer_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cs_wholesale_cost",
+        "operator": "<=",
+        "data_type": "int",
+        "table": "catalog_sales",
+        "join_tables": [
+          "date_dim",
+          "item",
+          "customer_demographics",
+          "customer"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "d_date_sk"
+          ],
+          [
+            "i_item_sk"
+          ],
+          [
+            "cd_demo_sk"
+          ],
+          [
+            "c_customer_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_sold_date_sk = d_date_sk",
+          "cs_item_sk = i_item_sk",
+          "cs_bill_cdemo_sk = cd_demo_sk",
+          "cs_bill_customer_sk = c_customer_sk"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "both",
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "i_category",
+        "operator": "=",
+        "data_type": "text",
+        "table": "item",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_item_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_item_sk = i_item_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      }
+    ],
+    "params": [
+      [
+        "M",
+        "2 yr Degree         ",
+        2003,
+        1,
+        "OH', 'TX', 'ID",
+        6,
+        47,
+        "Electronics                                       "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        1998,
+        10,
+        "NV', 'OH', 'ND",
+        1,
+        89,
+        "Home                                              "
+      ],
+      [
+        "M",
+        "College             ",
+        2000,
+        8,
+        "IN', 'MO', 'TX",
+        27,
+        42,
+        "Books                                             "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2002,
+        11,
+        "TX', 'IA', 'OH",
+        21,
+        68,
+        "Home                                              "
+      ],
+      [
+        "M",
+        "Unknown             ",
+        1999,
+        8,
+        "CO', 'CO', 'CO",
+        11,
+        27,
+        "Jewelry                                           "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        1998,
+        7,
+        "NC', 'GA', 'CA",
+        6,
+        21,
+        "Books                                             "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2003,
+        11,
+        "SC', 'ND', 'WV",
+        21,
+        58,
+        "Children                                          "
+      ],
+      [
+        "M",
+        "Unknown             ",
+        1998,
+        1,
+        "GA', 'GA', 'CA",
+        27,
+        94,
+        "Electronics                                       "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2003,
+        12,
+        "MI', 'TX', 'TX",
+        1,
+        32,
+        "Home                                              "
+      ],
+      [
+        "M",
+        "Unknown             ",
+        2001,
+        8,
+        "NE', 'TX', 'NY",
+        47,
+        68,
+        "Home                                              "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        1999,
+        8,
+        "GA', 'IN', 'MO",
+        1,
+        89,
+        "Children                                          "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2003,
+        12,
+        "WI', 'OH', 'MO",
+        53,
+        89,
+        "Jewelry                                           "
+      ],
+      [
+        "F",
+        "College             ",
+        2000,
+        1,
+        "NE', 'WV', 'NC",
+        1,
+        63,
+        "Men                                               "
+      ],
+      [
+        "M",
+        "Unknown             ",
+        1999,
+        1,
+        "VA', 'VA', 'VA",
+        21,
+        84,
+        "Home                                              "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        1998,
+        10,
+        "IA', 'GA', 'WI",
+        27,
+        47,
+        "Jewelry                                           "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        1998,
+        6,
+        "TN', 'OH', 'NY",
+        58,
+        89,
+        "Men                                               "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2002,
+        12,
+        "NC', 'TX', 'TN",
+        79,
+        100,
+        "Electronics                                       "
+      ],
+      [
+        "M",
+        "4 yr Degree         ",
+        2000,
+        11,
+        "FL', 'IA', 'UT",
+        11,
+        27,
+        "Children                                          "
+      ],
+      [
+        "M",
+        "4 yr Degree         ",
+        2003,
+        11,
+        "MO', 'CA', 'MO",
+        27,
+        37,
+        "Jewelry                                           "
+      ],
+      [
+        "M",
+        "College             ",
+        2001,
+        9,
+        "KY', 'AL', 'NV",
+        21,
+        37,
+        "Electronics                                       "
+      ],
+      [
+        "M",
+        "College             ",
+        1998,
+        4,
+        "LA', 'IN', 'VA",
+        27,
+        63,
+        "Home                                              "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2001,
+        10,
+        "GA', 'NE', 'VA",
+        21,
+        32,
+        "Shoes                                             "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        1999,
+        9,
+        "CA', 'IN', 'IN",
+        73,
+        100,
+        "Men                                               "
+      ],
+      [
+        "M",
+        "4 yr Degree         ",
+        2001,
+        8,
+        "CO', 'ND', 'KY",
+        89,
+        100,
+        "Electronics                                       "
+      ],
+      [
+        "M",
+        "Unknown             ",
+        2003,
+        4,
+        "CO', 'CO', 'VA",
+        27,
+        79,
+        "Women                                             "
+      ],
+      [
+        "M",
+        "Unknown             ",
+        1998,
+        10,
+        "NC', 'NC', 'CA",
+        47,
+        79,
+        "Children                                          "
+      ],
+      [
+        "M",
+        "Unknown             ",
+        1998,
+        1,
+        "NY', 'TX', 'IL",
+        27,
+        47,
+        "Home                                              "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2003,
+        10,
+        "GA', 'GA', 'WV",
+        27,
+        73,
+        "Sports                                            "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2000,
+        2,
+        "GA', 'OH', 'IL",
+        16,
+        73,
+        "Home                                              "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        1998,
+        4,
+        "MI', 'IA', 'KY",
+        11,
+        84,
+        "Jewelry                                           "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2001,
+        8,
+        "VA', 'CO', 'VA",
+        73,
+        79,
+        "Children                                          "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2002,
+        10,
+        "IL', 'PA', 'NM",
+        73,
+        89,
+        "Books                                             "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2003,
+        8,
+        "TX', 'WV', 'CA",
+        1,
+        1,
+        "Books                                             "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2002,
+        8,
+        "VA', 'VA', 'CO",
+        16,
+        94,
+        "Shoes                                             "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2000,
+        8,
+        "CO', 'VA', 'VA",
+        21,
+        84,
+        "Jewelry                                           "
+      ],
+      [
+        "M",
+        "4 yr Degree         ",
+        2002,
+        9,
+        "AL', 'IL', 'IA",
+        47,
+        89,
+        "Books                                             "
+      ],
+      [
+        "M",
+        "Unknown             ",
+        2003,
+        12,
+        "MS', 'AR', 'MT",
+        16,
+        100,
+        "Jewelry                                           "
+      ],
+      [
+        "M",
+        "Unknown             ",
+        2002,
+        12,
+        "IA', 'KS', 'NY",
+        37,
+        89,
+        "Jewelry                                           "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2000,
+        10,
+        "NM', 'VA', 'SD",
+        16,
+        42,
+        "Children                                          "
+      ],
+      [
+        "F",
+        "2 yr Degree         ",
+        2002,
+        1,
+        "FL', 'OH', 'NY",
+        11,
+        94,
+        "Men                                               "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2003,
+        10,
+        "MS', 'MI', 'TX",
+        16,
+        63,
+        "Jewelry                                           "
+      ],
+      [
+        "M",
+        "4 yr Degree         ",
+        1998,
+        1,
+        "NC', 'SC', 'IA",
+        16,
+        79,
+        "Shoes                                             "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2003,
+        9,
+        "ND', 'CA', 'NC",
+        53,
+        68,
+        "Electronics                                       "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2001,
+        11,
+        "OR', 'MI', 'KY",
+        6,
+        42,
+        "Jewelry                                           "
+      ],
+      [
+        "F",
+        "2 yr Degree         ",
+        2001,
+        11,
+        "GA', 'GA', 'FL",
+        6,
+        27,
+        "Electronics                                       "
+      ],
+      [
+        "M",
+        "Unknown             ",
+        2001,
+        10,
+        "GA', 'NC', 'CA",
+        16,
+        73,
+        "Women                                             "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        1999,
+        8,
+        "MS', 'VA', 'TX",
+        16,
+        27,
+        "Sports                                            "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        1998,
+        4,
+        "IN', 'IN', 'CA",
+        37,
+        94,
+        "Jewelry                                           "
+      ],
+      [
+        "M",
+        "2 yr Degree         ",
+        2003,
+        2,
+        "IL', 'AL', 'UT",
+        21,
+        79,
+        "Electronics                                       "
+      ],
+      [
+        "M",
+        "College             ",
+        2003,
+        8,
+        "OH', 'SD', 'NE",
+        73,
+        89,
+        "Shoes                                             "
+      ]
+    ]
+  }
+}

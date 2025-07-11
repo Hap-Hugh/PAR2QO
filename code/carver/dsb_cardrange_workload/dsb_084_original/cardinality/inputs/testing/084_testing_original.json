@@ -1,0 +1,857 @@
+{
+    "084": {
+        "query": "SELECT min(c_customer_id),\n       min(sr_ticket_number),\n       min(sr_item_sk)\nFROM customer ,\n     customer_address ,\n     customer_demographics ,\n     household_demographics ,\n     income_band ,\n     store_returns\nWHERE ca_city = '@param0'\n  AND c_current_addr_sk = ca_address_sk\n  AND ib_lower_bound >= @param1\n  AND ib_upper_bound <= @param1 + 50000\n  AND ib_income_band_sk = hd_income_band_sk\n  AND cd_demo_sk = c_current_cdemo_sk\n  AND hd_demo_sk = c_current_hdemo_sk\n  AND sr_cdemo_sk = cd_demo_sk ;",
+        "predicates": [
+            {
+                "alias": "",
+                "column": "ca_city",
+                "operator": "=",
+                "data_type": "text",
+                "table": "customer_address",
+                "join_tables": [
+                    "customer"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "c_current_addr_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "c_current_addr_sk = ca_address_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            },
+            {
+                "alias": "",
+                "column": "ib_lower_bound",
+                "operator": ">=",
+                "data_type": "int",
+                "table": "income_band",
+                "join_tables": [
+                    "household_demographics"
+                ],
+                "join_tables_alias": [
+                    ""
+                ],
+                "join_tables_column": [
+                    [
+                        "hd_income_band_sk"
+                    ]
+                ],
+                "join_conditions": [
+                    "ib_income_band_sk = hd_income_band_sk"
+                ],
+                "left_or_right": [
+                    "l"
+                ]
+            }
+        ],
+        "params": [
+            [
+                "Cold Spring",
+                170001
+            ],
+            [
+                "Lake Forest",
+                110001
+            ],
+            [
+                "Darlington",
+                130001
+            ],
+            [
+                "Fairmount",
+                120001
+            ],
+            [
+                "Gladstone",
+                90001
+            ],
+            [
+                "Mount Zion",
+                190001
+            ],
+            [
+                "Sherwood Forest",
+                140001
+            ],
+            [
+                "Sherwood Forest",
+                110001
+            ],
+            [
+                "Sherwood Forest",
+                60001
+            ],
+            [
+                "Leesville",
+                70001
+            ],
+            [
+                "Sidney",
+                170001
+            ],
+            [
+                "Evergreen",
+                110001
+            ],
+            [
+                "Cottonwood",
+                160001
+            ],
+            [
+                "Whispering Pines",
+                120001
+            ],
+            [
+                "Northwood",
+                0
+            ],
+            [
+                "Northwood",
+                100001
+            ],
+            [
+                "Sherwood Forest",
+                50001
+            ],
+            [
+                "Hope",
+                170001
+            ],
+            [
+                "Watkins",
+                150001
+            ],
+            [
+                "Woodville",
+                60001
+            ],
+            [
+                "Ridgeville",
+                0
+            ],
+            [
+                "Northwood",
+                150001
+            ],
+            [
+                "Sherwood Forest",
+                120001
+            ],
+            [
+                "Summerfield",
+                160001
+            ],
+            [
+                "Gray",
+                70001
+            ],
+            [
+                "Hilltop",
+                180001
+            ],
+            [
+                "Northwood",
+                90001
+            ],
+            [
+                "Omega",
+                60001
+            ],
+            [
+                "Russellville",
+                90001
+            ],
+            [
+                "Northwood",
+                90001
+            ],
+            [
+                "Northwood",
+                50001
+            ],
+            [
+                "West Point",
+                180001
+            ],
+            [
+                "Gray",
+                10001
+            ],
+            [
+                "Eldorado",
+                50001
+            ],
+            [
+                "Northwood",
+                180001
+            ],
+            [
+                "Stratford",
+                90001
+            ],
+            [
+                "Yorktown",
+                60001
+            ],
+            [
+                "Redland",
+                110001
+            ],
+            [
+                "Clark",
+                10001
+            ],
+            [
+                "Saint Paul",
+                130001
+            ],
+            [
+                "Forest Grove",
+                80001
+            ],
+            [
+                "Chestnut Grove",
+                130001
+            ],
+            [
+                "Wildwood",
+                50001
+            ],
+            [
+                "Warsaw",
+                160001
+            ],
+            [
+                "Northwood",
+                130001
+            ],
+            [
+                "Northwood",
+                120001
+            ],
+            [
+                "Saint Clair",
+                60001
+            ],
+            [
+                "Milan",
+                40001
+            ],
+            [
+                "Cottonwood",
+                50001
+            ],
+            [
+                "Sherwood Forest",
+                0
+            ],
+            [
+                "Fernwood",
+                80001
+            ],
+            [
+                "Forest Hills",
+                80001
+            ],
+            [
+                "Sherwood Forest",
+                170001
+            ],
+            [
+                "Redland",
+                130001
+            ],
+            [
+                "Huntington",
+                90001
+            ],
+            [
+                "Harrison",
+                120001
+            ],
+            [
+                "Avalon",
+                130001
+            ],
+            [
+                "Mountain View",
+                160001
+            ],
+            [
+                "Sherwood Forest",
+                130001
+            ],
+            [
+                "Byron",
+                130001
+            ],
+            [
+                "Forestville",
+                140001
+            ],
+            [
+                "Carlisle",
+                90001
+            ],
+            [
+                "Northwood",
+                100001
+            ],
+            [
+                "Sherwood Forest",
+                30001
+            ],
+            [
+                "West Point",
+                140001
+            ],
+            [
+                "Gray",
+                120001
+            ],
+            [
+                "Mount Zion",
+                60001
+            ],
+            [
+                "Northwood",
+                20001
+            ],
+            [
+                "Kirkland",
+                110001
+            ],
+            [
+                "Dixie",
+                100001
+            ],
+            [
+                "Northwood",
+                180001
+            ],
+            [
+                "Sherwood Forest",
+                0
+            ],
+            [
+                "Northwood",
+                90001
+            ],
+            [
+                "Spring Creek",
+                160001
+            ],
+            [
+                "Argyle",
+                30001
+            ],
+            [
+                "Northwood",
+                80001
+            ],
+            [
+                "Unity",
+                170001
+            ],
+            [
+                "Maysville",
+                150001
+            ],
+            [
+                "Nelson",
+                50001
+            ],
+            [
+                "Sand Hill",
+                130001
+            ],
+            [
+                "Redland",
+                20001
+            ],
+            [
+                "Chesterfield",
+                110001
+            ],
+            [
+                "Sherwood Forest",
+                20001
+            ],
+            [
+                "Happy Valley",
+                160001
+            ],
+            [
+                "Northwood",
+                50001
+            ],
+            [
+                "Sherwood Forest",
+                100001
+            ],
+            [
+                "Plainfield",
+                130001
+            ],
+            [
+                "Pleasant Ridge",
+                170001
+            ],
+            [
+                "Union City",
+                70001
+            ],
+            [
+                "Sherwood Forest",
+                0
+            ],
+            [
+                "Mount Carmel",
+                90001
+            ],
+            [
+                "Mount Zion",
+                180001
+            ],
+            [
+                "Northwood",
+                140001
+            ],
+            [
+                "Rutland",
+                160001
+            ],
+            [
+                "Northwood",
+                110001
+            ],
+            [
+                "Chelsea",
+                60001
+            ],
+            [
+                "Northwood",
+                190001
+            ],
+            [
+                "Mineral Springs",
+                150001
+            ],
+            [
+                "Sheridan",
+                130001
+            ],
+            [
+                "Sherwood Forest",
+                50001
+            ],
+            [
+                "Lakeview",
+                170001
+            ],
+            [
+                "Woodville",
+                160001
+            ],
+            [
+                "Howard",
+                130001
+            ],
+            [
+                "Northwood",
+                170001
+            ],
+            [
+                "Waterloo",
+                70001
+            ],
+            [
+                "Mount Zion",
+                180001
+            ],
+            [
+                "Rankin",
+                120001
+            ],
+            [
+                "Waterloo",
+                110001
+            ],
+            [
+                "Canton",
+                160001
+            ],
+            [
+                "Redland",
+                190001
+            ],
+            [
+                "Avalon",
+                160001
+            ],
+            [
+                "Appleton",
+                120001
+            ],
+            [
+                "Barnes",
+                160001
+            ],
+            [
+                "Wheeler",
+                130001
+            ],
+            [
+                "Mount Zion",
+                70001
+            ],
+            [
+                "Wilson",
+                50001
+            ],
+            [
+                "Fisher",
+                10001
+            ],
+            [
+                "Mount Zion",
+                60001
+            ],
+            [
+                "Flatwoods",
+                20001
+            ],
+            [
+                "Enon",
+                180001
+            ],
+            [
+                "Murphy",
+                20001
+            ],
+            [
+                "Cottonwood",
+                180001
+            ],
+            [
+                "Eden",
+                160001
+            ],
+            [
+                "Oakville",
+                40001
+            ],
+            [
+                "Northwood",
+                80001
+            ],
+            [
+                "Sherwood Forest",
+                180001
+            ],
+            [
+                "Prospect",
+                160001
+            ],
+            [
+                "Gray",
+                10001
+            ],
+            [
+                "Rocky Point",
+                160001
+            ],
+            [
+                "Chesterfield",
+                90001
+            ],
+            [
+                "Northwood",
+                140001
+            ],
+            [
+                "Lake City",
+                20001
+            ],
+            [
+                "Monterey",
+                190001
+            ],
+            [
+                "Richland",
+                120001
+            ],
+            [
+                "Sherwood Forest",
+                80001
+            ],
+            [
+                "Elmwood",
+                60001
+            ],
+            [
+                "Montrose",
+                170001
+            ],
+            [
+                "Waverly",
+                0
+            ],
+            [
+                "Northwood",
+                30001
+            ],
+            [
+                "Northwood",
+                190001
+            ],
+            [
+                "Silver Creek",
+                130001
+            ],
+            [
+                "Pine Valley",
+                10001
+            ],
+            [
+                "Pinehurst",
+                70001
+            ],
+            [
+                "Meadowbrook",
+                170001
+            ],
+            [
+                "Northwood",
+                190001
+            ],
+            [
+                "Cottonwood",
+                80001
+            ],
+            [
+                "Mount Zion",
+                120001
+            ],
+            [
+                "Russellville",
+                180001
+            ],
+            [
+                "Sherwood Forest",
+                80001
+            ],
+            [
+                "Big Springs",
+                50001
+            ],
+            [
+                "Forestville",
+                50001
+            ],
+            [
+                "Arcadia",
+                180001
+            ],
+            [
+                "Grandview",
+                90001
+            ],
+            [
+                "Brookside",
+                140001
+            ],
+            [
+                "Sherwood Forest",
+                40001
+            ],
+            [
+                "Northwood",
+                0
+            ],
+            [
+                "Sherwood Forest",
+                40001
+            ],
+            [
+                "Sherwood Forest",
+                70001
+            ],
+            [
+                "Langdon",
+                100001
+            ],
+            [
+                "Sherwood Forest",
+                120001
+            ],
+            [
+                "Clearwater",
+                80001
+            ],
+            [
+                "Sherwood Forest",
+                70001
+            ],
+            [
+                "Sherwood Forest",
+                90001
+            ],
+            [
+                "Northwood",
+                110001
+            ],
+            [
+                "Northwood",
+                130001
+            ],
+            [
+                "Blair",
+                120001
+            ],
+            [
+                "Elizabeth",
+                0
+            ],
+            [
+                "Sherwood Forest",
+                110001
+            ],
+            [
+                "Northwood",
+                100001
+            ],
+            [
+                "Lewisville",
+                10001
+            ],
+            [
+                "Ferguson",
+                160001
+            ],
+            [
+                "Creston",
+                40001
+            ],
+            [
+                "Locust Grove",
+                100001
+            ],
+            [
+                "Sherwood Forest",
+                10001
+            ],
+            [
+                "Zion",
+                140001
+            ],
+            [
+                "Tyler",
+                180001
+            ],
+            [
+                "Saint Clair",
+                170001
+            ],
+            [
+                "Pinehurst",
+                20001
+            ],
+            [
+                "Peru",
+                160001
+            ],
+            [
+                "Harrison",
+                40001
+            ],
+            [
+                "Rankin",
+                40001
+            ],
+            [
+                "Poplar Grove",
+                20001
+            ],
+            [
+                "Northwood",
+                20001
+            ],
+            [
+                "Twin Lakes",
+                90001
+            ],
+            [
+                "Woodruff",
+                190001
+            ],
+            [
+                "Highland Park",
+                50001
+            ],
+            [
+                "Redland",
+                110001
+            ],
+            [
+                "Northwood",
+                190001
+            ],
+            [
+                "Sherwood Forest",
+                60001
+            ],
+            [
+                "Crystal Springs",
+                10001
+            ],
+            [
+                "Rockford",
+                90001
+            ],
+            [
+                "Union Hill",
+                50001
+            ],
+            [
+                "Ellsworth",
+                110001
+            ],
+            [
+                "Sherwood Forest",
+                170001
+            ],
+            [
+                "Happy Valley",
+                0
+            ],
+            [
+                "Northwood",
+                180001
+            ],
+            [
+                "Mount Zion",
+                190001
+            ],
+            [
+                "Sherwood Forest",
+                120001
+            ],
+            [
+                "Prospect",
+                140001
+            ],
+            [
+                "Green Valley",
+                140001
+            ]
+        ]
+    }
+}

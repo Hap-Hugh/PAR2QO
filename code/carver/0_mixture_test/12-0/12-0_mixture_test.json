@@ -1,0 +1,2265 @@
+{
+  "12-0": {
+    "query": "SELECT MIN(cn.name) AS movie_company, MIN(mi_idx.info) AS rating, MIN(t.title) AS drama_horror_movie\nFROM company_name AS cn,\n company_type AS ct,\n info_type AS it1,\n info_type AS it2,\n movie_companies AS mc,\n movie_info AS mi,\n movie_info_idx AS mi_idx,\n title AS t\nWHERE t.id = mi.movie_id\n AND t.id = mi_idx.movie_id\n AND mi.info_type_id = it1.id\n AND mi_idx.info_type_id = it2.id\n AND t.id = mc.movie_id\n AND ct.id = mc.company_type_id\n AND cn.id = mc.company_id\n AND mc.movie_id = mi.movie_id\n AND mc.movie_id = mi_idx.movie_id\n AND mi.movie_id = mi_idx.movie_id\nAND cn.country_code = '@param0'\nAND ct.kind = '@param1'\nAND it1.info = '@param2'\nAND it2.info = '@param3'\nAND mi.info IN ('@param4')\nAND mi_idx.info > '@param5'\nAND t.production_year BETWEEN @param6 AND @param7;",
+    "predicates": [
+      {
+        "alias": "cn",
+        "column": "country_code",
+        "operator": "=",
+        "data_type": "text",
+        "table": "company_name",
+        "join_tables_alias": [
+          "mc"
+        ],
+        "join_tables": [
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "cn.id = mc.company_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "ct",
+        "column": "kind",
+        "operator": "=",
+        "data_type": "text",
+        "table": "company_type",
+        "join_tables_alias": [
+          "mc"
+        ],
+        "join_tables": [
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "ct.id = mc.company_type_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "it",
+        "original_alias": "it1",
+        "column": "info",
+        "operator": "=",
+        "data_type": "text",
+        "table": "info_type",
+        "join_tables_alias": [
+          "mi"
+        ],
+        "join_tables": [
+          "movie_info"
+        ],
+        "join_conditions": [
+          "mi.info_type_id = it.id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "info"
+          ]
+        ]
+      },
+      {
+        "alias": "it",
+        "original_alias": "it2",
+        "column": "info",
+        "operator": "=",
+        "data_type": "text",
+        "table": "info_type",
+        "join_tables_alias": [
+          "mi_idx"
+        ],
+        "join_tables": [
+          "movie_info_idx"
+        ],
+        "join_conditions": [
+          "mi_idx.info_type_id = it.id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "info"
+          ]
+        ]
+      },
+      {
+        "alias": "mi",
+        "column": "info",
+        "operator": "IN",
+        "data_type": "text",
+        "table": "movie_info",
+        "join_tables_alias": [
+          "t",
+          "it",
+          "mc",
+          "mi_idx"
+        ],
+        "join_tables": [
+          "title",
+          "info_type",
+          "movie_companies",
+          "movie_info_idx"
+        ],
+        "join_conditions": [
+          "t.id = mi.movie_id",
+          "mi.info_type_id = it.id",
+          "mc.movie_id = mi.movie_id",
+          "mi.movie_id = mi_idx.movie_id"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "l",
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "production_year"
+          ],
+          [
+            "info"
+          ],
+          [],
+          [
+            "info"
+          ]
+        ]
+      },
+      {
+        "alias": "mi_idx",
+        "column": "info",
+        "operator": ">",
+        "data_type": "text",
+        "table": "movie_info_idx",
+        "join_tables_alias": [
+          "t",
+          "it",
+          "mc",
+          "mi"
+        ],
+        "join_tables": [
+          "title",
+          "info_type",
+          "movie_companies",
+          "movie_info"
+        ],
+        "join_conditions": [
+          "t.id = mi_idx.movie_id",
+          "mi_idx.info_type_id = it.id",
+          "mc.movie_id = mi_idx.movie_id",
+          "mi.movie_id = mi_idx.movie_id"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "l",
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "production_year"
+          ],
+          [
+            "info"
+          ],
+          [],
+          [
+            "info"
+          ]
+        ]
+      },
+      {
+        "alias": "t",
+        "column": "production_year",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "title",
+        "min": 1880,
+        "max": 2019,
+        "join_tables_alias": [
+          "mi",
+          "mi_idx",
+          "mc"
+        ],
+        "join_tables": [
+          "movie_info",
+          "movie_info_idx",
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "t.id = mi.movie_id",
+          "t.id = mi_idx.movie_id",
+          "t.id = mc.movie_id"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "l"
+        ],
+        "join_tables_column": [
+          [
+            "info"
+          ],
+          [
+            "info"
+          ],
+          []
+        ]
+      },
+      {
+        "alias": "t",
+        "column": "production_year",
+        "operator": "<=",
+        "data_type": "int",
+        "table": "title",
+        "min": 1880,
+        "max": 2019,
+        "join_tables_alias": [
+          "mi",
+          "mi_idx",
+          "mc"
+        ],
+        "join_tables": [
+          "movie_info",
+          "movie_info_idx",
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "t.id = mi.movie_id",
+          "t.id = mi_idx.movie_id",
+          "t.id = mc.movie_id"
+        ],
+        "left_or_right": [
+          "both",
+          "both",
+          "l"
+        ],
+        "join_tables_column": [
+          [
+            "info"
+          ],
+          [
+            "info"
+          ],
+          []
+        ]
+      }
+    ],
+    "params": [
+      [
+        "[fi]",
+        "distributors",
+        "certificates",
+        "rating",
+        "South Korea:All', 'To Catch a Killer', 'Lombardy, Italy', 'Brazil:6 March 2010', 'Hey ho, Let''s go!",
+        "6.6",
+        1903,
+        2017
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Germany', 'German",
+        "8.0",
+        "1990",
+        "2010"
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "certificates",
+        "votes distribution",
+        "Finland:K-16', 'USA:18 May 1984', '16334', 'UK:22 July 1969', 'Canada:9 June 1983",
+        "..01131001",
+        1948,
+        1966
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "7.0",
+        "1990",
+        "2010"
+      ],
+      [
+        "[de]",
+        "distributors",
+        "countries",
+        "votes",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "7.4",
+        1908,
+        2019
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "votes",
+        "Mono', 'OFM:35 mm', 'Black and White', 'Drama', 'Black and White",
+        "6.1",
+        1990,
+        2010
+      ],
+      [
+        "[fr]",
+        "distributors",
+        "release dates",
+        "votes",
+        "USA:4 June 1955', 'USA:22 August 1996', 'USA:17 January 1915', 'Finland:27 May 2002', 'France:31 May 2006",
+        "1322",
+        1891,
+        2009
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "genres",
+        "rating",
+        "USA', 'USA', 'English', 'Color', 'Short",
+        "8",
+        1985,
+        2000
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "votes",
+        "Color', 'OFM:35 mm', 'Color', 'Short', 'Mono",
+        "17",
+        2004,
+        2008
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "genres",
+        "rating",
+        "Comedy', 'PCS:Spherical', 'Documentary', 'Silent', 'UK",
+        "6.4",
+        2000,
+        2005
+      ],
+      [
+        "[fr]",
+        "distributors",
+        "genres",
+        "rating",
+        "USA', 'OFM:35 mm', 'USA', 'USA', 'Documentary",
+        "...1302.0.",
+        1979,
+        2013
+      ],
+      [
+        "[us]",
+        "production companies",
+        "runtimes",
+        "rating",
+        "30', '6533', 'Italy:6 June 2009', 'Germany:30 May 1993', 'Taiwan:8 July 2005",
+        "6.2",
+        1935,
+        1978
+      ],
+      [
+        "[de]",
+        "distributors",
+        "genres",
+        "votes",
+        "Mono', 'Drama', 'Black and White', 'Drama', 'Mono",
+        "6.6",
+        1932,
+        2008
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "9.0",
+        "2000",
+        "2014"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "countries",
+        "rating",
+        "USA', 'Color', 'English', 'Drama', 'USA",
+        "6.3",
+        1970,
+        2001
+      ],
+      [
+        "[gb]",
+        "production companies",
+        "tech info",
+        "votes distribution",
+        "RAT:1.37 : 1', 'Hungary:7 June 1978', 'Brazil:58', 'Japan:14 June 2011', 'USA:25 January 1984",
+        "0000002211",
+        1880,
+        1983
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Drama', 'Horror', 'Western', 'Family",
+        "8.0",
+        "1990",
+        "2010"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "rating",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        "15",
+        1991,
+        1998
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "genres",
+        "votes",
+        "Color', 'Mono', 'USA', 'PFM:35 mm', 'Drama",
+        "5",
+        2002,
+        2009
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Black and White', 'Black and White', 'Drama', 'Drama', 'Drama",
+        "5.1",
+        1989,
+        2010
+      ],
+      [
+        "[fr]",
+        "distributors",
+        "release dates",
+        "rating",
+        "New Zealand:25 December 2003', 'USA:22 August 1971', 'Japan:14 April 1951', '$21,633', 'Denmark:6 July 1970",
+        "6.6",
+        2002,
+        2008
+      ],
+      [
+        "[bg]",
+        "production companies",
+        "genres",
+        "rating",
+        "Black and White', 'Black and White', 'Drama', 'Drama', 'Black and White",
+        "475",
+        1997,
+        2004
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "6.5",
+        "2000",
+        "2014"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "votes",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        "8",
+        1971,
+        1985
+      ],
+      [
+        "[fr]",
+        "distributors",
+        "genres",
+        "votes",
+        "Black and White', 'Black and White', 'Mono', 'Drama', 'Black and White",
+        "7",
+        1994,
+        1995
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "5.0",
+        "2010",
+        "2014"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "bottom 10 rank",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "8.0",
+        "1950",
+        "2005"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "countries",
+        "votes",
+        "PCS:Spherical', 'Silent', 'UK', 'PCS:Spherical', 'Comedy",
+        "5",
+        1992,
+        1999
+      ],
+      [
+        "[nl]",
+        "production companies",
+        "countries",
+        "rating",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "6.5",
+        1947,
+        2005
+      ],
+      [
+        "[us]",
+        "distributors",
+        "countries",
+        "rating",
+        "Liechtenstein', 'Japan:30 May 2011', 'He''s My Girl', 'Norway:4 March 2004', 'There was a secret!",
+        "5.3",
+        1944,
+        2019
+      ],
+      [
+        "[us]",
+        "distributors",
+        "countries",
+        "votes",
+        "USA', 'USA:5 June 1930', 'France:2006', '6979', 'Belgium:2 May 2009",
+        "9",
+        1935,
+        2005
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "genres",
+        "rating",
+        "RAT:1.33 : 1', 'Short', 'Short', 'Comedy', 'Short",
+        "5",
+        1998,
+        2009
+      ],
+      [
+        "[au]",
+        "distributors",
+        "tech info",
+        "rating",
+        "PFM:35 mm', 'Spain:24 July 1998', 'Sweden:20 May 1978', 'Eternal Now, LLC', 'India:9 May 1936",
+        "6.4",
+        1923,
+        1976
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "6.5",
+        "1990",
+        "2005"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "6.0",
+        "2000",
+        "2008"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "votes",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "6.5",
+        "2000",
+        "2010"
+      ],
+      [
+        "[gb]",
+        "production companies",
+        "release dates",
+        "votes",
+        "Finland:23 May 2002', 'USA:10 October 2002', 'Canada:13 May 2004', '$11,336,986 (USA)', 'Germany:June 1925",
+        "296",
+        1978,
+        2020
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "genres",
+        "votes",
+        "OFM:35 mm', 'USA', 'Drama', 'Color', 'Mono",
+        "8",
+        1929,
+        1936
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "rating",
+        "Mono', 'Black and White', 'Drama', 'Black and White', 'Drama",
+        "8",
+        1915,
+        1918
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "votes",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        "5",
+        1967,
+        2008
+      ],
+      [
+        "[de]",
+        "distributors",
+        "countries",
+        "votes",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "6.4",
+        1970,
+        1992
+      ],
+      [
+        "[jp]",
+        "distributors",
+        "certificates",
+        "votes",
+        "Canada:G', 'UK:19 May 1968', 'Ireland:4 May 1978', 'Mexico:6 June 1997', 'Japan:12 June 1931",
+        "149",
+        1973,
+        2014
+      ],
+      [
+        "[fi]",
+        "distributors",
+        "sound mix",
+        "votes",
+        "SDDS', '3560', '$1,575,000', 'Serbia:6 May 2011', '3,587,569 (Germany)",
+        "36017",
+        1892,
+        2019
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "7.0",
+        "1950",
+        "2008"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "votes",
+        "Drama', 'PFM:35 mm', 'Drama', 'Black and White', 'OFM:35 mm",
+        "5.6",
+        1913,
+        2012
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Germany', 'German', 'USA', 'American",
+        "6.0",
+        "2005",
+        "2010"
+      ],
+      [
+        "[ru]",
+        "production companies",
+        "countries",
+        "votes",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "9.0",
+        "2005",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "votes",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "7.0",
+        "1990",
+        "2008"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "votes",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "8.0",
+        "2005",
+        "2015"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "countries",
+        "rating",
+        "UK', 'UK:June 1972', 'Brazil:96', 'Japan:October 1996', '$4,050,000 (USA)",
+        "6.7",
+        1931,
+        1991
+      ],
+      [
+        "[fr]",
+        "distributors",
+        "release dates",
+        "rating",
+        "Casanova: You could have been the best Kate. I may be going crazy here, didn''t I warn you about breaking the rules?::Dr. Kate McTiernan: [whiny] I''m sorry.::Casanova: [mimicking Kate] I''m sorry. I''m sorry.::Dr. Kate McTiernan: I''ll do anything you want.::Casanova: What? What did you say?::Dr. Kate McTiernan: I said I''ll do anything you want.::Casanova: O I know you will.', '[Mr. Briggs starts a reel-to-reel tape player as a black-and-white film is projected on the movie theater''s screen]::Voice on Tape: Good evening, Mr. Briggs. This is Anton Cardinal Vossek who, despite being 80 years of age and physically infirm, is nonetheless the acknowledged leader of his country''s freedom movement. The government torts whose overthrow Cardinal Vossek is working has arrested him, preparatory to a trial before a people''s court which is certain to convict him. He''s being held for interrogation on the top floor of this building: Seravno prison, which is located immediately adjacent to the city''s main park. Seravno prison is considered the most impregnable in Eastern Europe. No escape has ever been made from it. Mr. Briggs, your mission - should you decide to accept it - would be to rescue Cardinal Vossek. As always, should you or any of your IM Force be caught or killed, the Secretary will disavow any knowledge of your actions. In any event, please dispose of this tape recording as directed.::[Mr. Briggs removes the tape reel from the player and drops it into a copper ashtray with a red substance in it. The tape suddenly bursts into flames]', '$29,647,689 (USA) (18 April 1999)', 'USA:27 June 1990', 'USA:26 October 2001",
+        "6.6",
+        1936,
+        1999
+      ],
+      [
+        "[jp]",
+        "production companies",
+        "countries",
+        "votes",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "6.0",
+        "2000",
+        "2014"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "English', 'OFM:35 mm', 'USA', 'Short', 'English",
+        "8",
+        1970,
+        1990
+      ],
+      [
+        "[us]",
+        "production companies",
+        "LD picture format",
+        "votes distribution",
+        "Pan & Scan', 'Japan:April 1961', 'Turkey:6 April 1970', 'USA:2 October 1912', 'Spain:December 1981",
+        "0000012211",
+        1919,
+        1996
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "5.0",
+        "2009",
+        "2010"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "rating",
+        "Comedy', 'UK', 'Documentary', 'Silent', 'Documentary",
+        "..0...0403",
+        1996,
+        2001
+      ],
+      [
+        "[jp]",
+        "distributors",
+        "release dates",
+        "rating",
+        "Japan:7 July 2005', 'Egypt:13 April 2005', 'Italy:28 June 2003', 'Lumijoki, Finland', 'UK:30 August 1956",
+        "7.2",
+        1963,
+        2017
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "rating",
+        "Comedy', 'PCS:Spherical', '-', '-', 'Short",
+        "5.7",
+        1961,
+        1993
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "genres",
+        "votes",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        "...3.32..2",
+        2003,
+        2006
+      ],
+      [
+        "[de]",
+        "production companies",
+        "countries",
+        "votes",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "5",
+        2002,
+        2011
+      ],
+      [
+        "[ar]",
+        "distributors",
+        "release dates",
+        "rating",
+        "Peru:7 November 2002', 'UK:1 July 1947', 'Sweden:8 March 1965', '177,087 (Sweden)', 'USA:28 January 1958",
+        "6.0",
+        1914,
+        2010
+      ],
+      [
+        "[fr]",
+        "distributors",
+        "countries",
+        "votes",
+        "USA', 'Short', 'Color', 'English', 'English",
+        "7.8",
+        1968,
+        1992
+      ],
+      [
+        "[us]",
+        "distributors",
+        "countries",
+        "rating",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "9",
+        1922,
+        1980
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "rating",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        "7.2",
+        2005,
+        2010
+      ],
+      [
+        "[de]",
+        "production companies",
+        "locations",
+        "votes distribution",
+        "Munich, Bavaria, Germany', 'Bangladesh:1977', '- 25 September 1998', 'Chincha, Peru', 'MET:892 m",
+        "00020000.0",
+        1950,
+        2014
+      ],
+      [
+        "[de]",
+        "production companies",
+        "languages",
+        "rating",
+        "German', 'USA:5 May 1920', 'UK:7 October 1952', 'USA:October 1994', 'UK:4 March 1984",
+        "5.6",
+        1916,
+        1984
+      ],
+      [
+        "[nl]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "6.5",
+        "2008",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "votes",
+        "English', 'Short', 'USA', 'Short', 'Short",
+        "8.1",
+        1936,
+        1966
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Germany', 'German",
+        "7.0",
+        "2005",
+        "2015"
+      ],
+      [
+        "[de]",
+        "production companies",
+        "runtimes",
+        "votes",
+        "Germany:85', 'Gary Chin', 'Sweden:31 May 1985', 'USA:January 1995', 'Country",
+        "23",
+        1889,
+        1992
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "genres",
+        "votes",
+        "Drama', 'Short', 'USA', 'USA', 'PFM:35 mm",
+        "6.5",
+        2002,
+        2007
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Drama', 'Horror', 'Western', 'Family",
+        "8.0",
+        "2010",
+        "2014"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Germany', 'German', 'USA', 'American",
+        "8.0",
+        "2000",
+        "2005"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "votes",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "8.0",
+        "2000",
+        "2008"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "color info",
+        "votes",
+        "Color', 'Lebanon:29 May 2008', 'November 1998 -', '$16,036,534 (USA)', 'PILA-1277",
+        "73",
+        1977,
+        2010
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "5.0",
+        "1990",
+        "2014"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "votes",
+        "USA', 'English', 'Color', 'English', 'USA",
+        "8.1",
+        1991,
+        2001
+      ],
+      [
+        "[us]",
+        "distributors",
+        "countries",
+        "votes",
+        "Bulgaria",
+        "7.0",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "USA', 'America",
+        "7.0",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "9.0",
+        "2000",
+        "2008"
+      ],
+      [
+        "[gr]",
+        "distributors",
+        "genres",
+        "votes distribution",
+        "Thriller', 'Japan:31 March 2006', '582,212 (Spain)', 'Brazil:7 April 1956', '39,325 (Sweden)",
+        "30010.0001",
+        1933,
+        2015
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "languages",
+        "votes",
+        "French', 'UK:11 March 1986', 'UK:18 June 1982', '- 16 May 2012', 'Italy:4 May 2012",
+        "515",
+        1961,
+        2016
+      ],
+      [
+        "[gb]",
+        "production companies",
+        "release dates",
+        "votes distribution",
+        "Turkey:29 May 2009', 'China:21 June 2008', '8340', 'You Have No Way Out', 'Japan:31 July 2010",
+        "0000022100",
+        1968,
+        2014
+      ],
+      [
+        "[us]",
+        "distributors",
+        "languages",
+        "votes",
+        "Italian', 'Kuvaelma', 'MET:2282 m', 'Japan:27 June 2004', 'Canada:2 May 1981",
+        "33339",
+        1937,
+        1988
+      ],
+      [
+        "[de]",
+        "production companies",
+        "color info",
+        "votes",
+        "Color', 'DEM 375,000', 'USA:2 April 1936', 'Belgium:8 July 2011', 'USA:April 1924",
+        "24992",
+        1912,
+        2008
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "rating",
+        "Black and White', 'Drama', 'Mono', 'English', 'Comedy",
+        "7.4",
+        1934,
+        2011
+      ],
+      [
+        "[de]",
+        "production companies",
+        "locations",
+        "rating",
+        "Marrakech, Morocco', 'HPR.TV \u00c2\u00a92011', 'USA:30 October 1982', 'ML 103848', 'MET:4378 m",
+        "4.1",
+        1924,
+        2013
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "6.5",
+        "2000",
+        "2007"
+      ],
+      [
+        "[de]",
+        "production companies",
+        "genres",
+        "rating",
+        "Drama', 'RAT:1.33 : 1', 'Short', 'Drama', 'Black and White",
+        "5.4",
+        1965,
+        1993
+      ],
+      [
+        "[pt]",
+        "production companies",
+        "genres",
+        "votes distribution",
+        "USA', 'Drama', 'USA', 'USA', 'Drama",
+        "6.4",
+        1954,
+        1985
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "6.0",
+        "1990",
+        "2010"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "countries",
+        "bottom 10 rank",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "8.0",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "votes distribution",
+        "Taiwan', '\u00c2\u00a32,423,107 (UK)', 'India:28 April 2006', 'Spain:8 April 1993', 'USA:22 January 1944",
+        "0000001222",
+        1989,
+        2019
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "votes",
+        "Drama', 'Horror",
+        "8.0",
+        "2000",
+        "2015"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Black and White', 'Mono', 'PFM:35 mm', 'Drama', 'PFM:35 mm",
+        "11",
+        2003,
+        2011
+      ],
+      [
+        "[ru]",
+        "production companies",
+        "genres",
+        "rating",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "7.0",
+        "2009",
+        "2014"
+      ],
+      [
+        "[nl]",
+        "distributors",
+        "genres",
+        "rating",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "5.0",
+        "2009",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "languages",
+        "rating",
+        "English', 'MET:298.40 m', 'PCS:Omniavision', 'Father Hood', '2 April 1973 - ?",
+        "7.7",
+        1974,
+        2013
+      ],
+      [
+        "[us]",
+        "production companies",
+        "release dates",
+        "votes",
+        "Estonia:11 July 2003', 'USA:30 April 1935', 'Spain:26 July 2013', 'USA:July 1982', 'MET:287.45 m",
+        "19200",
+        1951,
+        2003
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "votes",
+        "Drama', 'Italy:January 2002', 'Chile:30 April 2009', 'WDR \u00c2\u00a92011', 'Hanoi, Vietnam",
+        "224",
+        1898,
+        2019
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Drama', 'Horror', 'Western', 'Family",
+        "8.0",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "countries",
+        "votes",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "6.8",
+        2003,
+        2011
+      ],
+      [
+        "[cn]",
+        "distributors",
+        "countries",
+        "rating",
+        "USA', 'English', 'Color', 'English', 'English",
+        "6",
+        1976,
+        2012
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2.0",
+        "2000",
+        "2010"
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "genres",
+        "votes distribution",
+        "RAT:1.85 : 1', 'Stereo', 'Silent', 'Dolby Digital', 'Documentary",
+        "6.8",
+        1976,
+        1995
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "votes",
+        "USA', 'Japan:95', 'April 2014 - ?', 'War is a Bitch', 'USA:28 October 1973",
+        "16",
+        1880,
+        2002
+      ],
+      [
+        "[it]",
+        "distributors",
+        "tech info",
+        "votes distribution",
+        "PFM:35 mm', 'UK:16 August 2001', 'Talas, Kyrgyzstan', 'UK:9 February 1956', 'Finland:23 May 2008",
+        "0000012201",
+        1984,
+        2012
+      ],
+      [
+        "[de]",
+        "distributors",
+        "genres",
+        "votes",
+        "Documentary', 'Stereo', 'Documentary', 'Documentary', 'Stereo",
+        "23",
+        2006,
+        2012
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Drama', 'Horror', 'Western', 'Family",
+        "8.0",
+        "1990",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "votes",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "8.0",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "9.0",
+        "1990",
+        "2010"
+      ],
+      [
+        "[de]",
+        "production companies",
+        "genres",
+        "rating",
+        "Silent', 'Comedy', 'PCS:Spherical', 'Documentary', 'PCS:Spherical",
+        "15",
+        1964,
+        1966
+      ],
+      [
+        "[us]",
+        "production companies",
+        "sound mix",
+        "votes",
+        "Mono', 'Hungary:5 May 2013', 'USA:15 August 1993', 'MET:94.02 m', 'Peru:16 May 2013",
+        "10",
+        1938,
+        2000
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "countries",
+        "votes",
+        "USA', 'Color', 'USA', 'USA', 'English",
+        "5",
+        1963,
+        2007
+      ],
+      [
+        "[us]",
+        "distributors",
+        "color info",
+        "votes",
+        "Color', 'Spain:8 March 2011', 'Canada:4 April 1992', 'USA:24 July 2005', 'Brazil:October 1998",
+        "51",
+        1992,
+        2010
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "7.0",
+        "1990",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Bulgaria",
+        "6.5",
+        "1950",
+        "2008"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "tech info",
+        "rating",
+        "OFM:35 mm', 'LAB:Evasion Digital', 'UK:2 November 1992', 'CAM:Canon EOS 60D', 'France:16 June 1975",
+        "5.4",
+        1915,
+        1966
+      ],
+      [
+        "[us]",
+        "production companies",
+        "runtimes",
+        "votes distribution",
+        "Germany:24', 'UK:5 September 1951', 'Bulgaria:June 2011', 'No one wins alone', 'Germany:6 June 2000",
+        "0000012311",
+        1888,
+        2019
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "UK', 'PCS:Spherical', 'PCS:Spherical', 'UK', 'Comedy",
+        "5.7",
+        1999,
+        2008
+      ],
+      [
+        "[us]",
+        "distributors",
+        "sound mix",
+        "rating",
+        "Stereo', 'MET:1294.18 m', 'LD 65922', 'Gangelin, Paul', 'Spain:4 June 1983",
+        "6.0",
+        1894,
+        2016
+      ],
+      [
+        "[de]",
+        "distributors",
+        "release dates",
+        "rating",
+        "Germany:4 October 2012', 'USA:5 January 1998', 'Japan:18 July 2011', 'UK:14 August 1968', 'Studio Moraine [us]",
+        "3.6",
+        1908,
+        2016
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "votes",
+        "RAT:1.33 : 1', 'Comedy', '-', 'Comedy', 'Short",
+        "8",
+        2001,
+        2012
+      ],
+      [
+        "[fr]",
+        "distributors",
+        "release dates",
+        "votes distribution",
+        "Ireland:5 December 2003', 'Sweden:18 May 1955', 'ESP 5,443 (Spain)', 'USA:10 May 1913', 'Italy:28 May 1973",
+        "0000022101",
+        1942,
+        2019
+      ],
+      [
+        "[cz]",
+        "production companies",
+        "genres",
+        "rating",
+        "Short', 'RAT:1.33 : 1', 'Comedy', 'RAT:1.33 : 1', 'Short",
+        "5",
+        1960,
+        1970
+      ],
+      [
+        "[nl]",
+        "distributors",
+        "locations",
+        "votes",
+        "Mira Loma Detention Center, Lancaster, California, USA', 'Spain:30 March 1976', 'Japan:15 April 1919', '3374', 'USA:23 April 1953",
+        "197314",
+        1895,
+        2011
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "votes",
+        "English', 'USA', 'Short', 'English', 'USA",
+        "0000023100",
+        1913,
+        2004
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "8.0",
+        "1990",
+        "2010"
+      ],
+      [
+        "[ru]",
+        "distributors",
+        "countries",
+        "votes",
+        "Color', 'USA', 'Color', 'Color', 'USA",
+        "7.0",
+        2004,
+        2007
+      ],
+      [
+        "[de]",
+        "distributors",
+        "countries",
+        "rating",
+        "Dolby Digital', 'Dolby Digital', 'RAT:1.85 : 1', 'Documentary', 'UK",
+        "6.9",
+        2004,
+        2013
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "6.5",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "votes",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "8.0",
+        "1990",
+        "2007"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Germany', 'German",
+        "7.0",
+        "2005",
+        "2010"
+      ],
+      [
+        "[kh]",
+        "production companies",
+        "genres",
+        "votes",
+        "-', '-', '-', 'RAT:1.33 : 1', 'Short",
+        "6",
+        1960,
+        2004
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Germany', 'German', 'USA', 'American",
+        "2.0",
+        "1990",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "votes",
+        "Short', 'USA', 'Short', 'Color', 'USA",
+        "6.9",
+        1979,
+        2012
+      ],
+      [
+        "[it]",
+        "production companies",
+        "genres",
+        "votes distribution",
+        "Drama', 'Dettelbach, Germany', 'France:23 June 2001', '$31,223,000 (USA)', 'UK:25 July 1928",
+        "..00112002",
+        1934,
+        2014
+      ],
+      [
+        "[de]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "5.0",
+        "2000",
+        "2005"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "8.0",
+        "2000",
+        "2014"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "votes",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "6.0",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "6.0",
+        "2005",
+        "2010"
+      ],
+      [
+        "[gb]",
+        "distributors",
+        "genres",
+        "votes",
+        "Black and White', 'Drama', 'Black and White', 'Drama', 'Mono",
+        "23",
+        1976,
+        1978
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "votes",
+        "-', '-', 'PCS:Spherical', 'Comedy', 'RAT:1.33 : 1",
+        "20",
+        1979,
+        1993
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "8.0",
+        "2005",
+        "2008"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "top 250 rank",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "7.0",
+        "1990",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "7.5",
+        1954,
+        2008
+      ],
+      [
+        "[gb]",
+        "production companies",
+        "countries",
+        "votes distribution",
+        "Color', 'USA', 'Color', 'English', 'USA",
+        "6.6",
+        1968,
+        1989
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Germany', 'German', 'USA', 'American",
+        "8.0",
+        "1990",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "2.0",
+        "2000",
+        "2014"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Germany', 'German', 'USA', 'American",
+        "7.0",
+        "2000",
+        "2008"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "color info",
+        "votes distribution",
+        "Color', 'Russia:1 April 2008', 'UK:June 2013', '2,000 (Colombia)', '20 November 1906 -",
+        "5100000000",
+        1924,
+        2012
+      ],
+      [
+        "[eg]",
+        "distributors",
+        "genres",
+        "votes",
+        "USA', 'Color', 'Color', 'Drama', 'Short",
+        "3.8",
+        1989,
+        2005
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "5.0",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "6.5",
+        "1950",
+        "2005"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "6.0",
+        "2005",
+        "2008"
+      ],
+      [
+        "[it]",
+        "distributors",
+        "release dates",
+        "votes",
+        "West Germany:4 April 1988', '1980 - 1981', 'Neal Hutcheson', 'Norway:7 July 2000', 'UK:4 October 2003",
+        "1730",
+        1911,
+        2010
+      ],
+      [
+        "[jp]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "6.0",
+        "1950",
+        "2008"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "certificates",
+        "votes distribution",
+        "Spain:18', 'UK:13 October 1985', 'MET:892 m', 'Portugal:11', 'UK:15 August 2001",
+        "1111100000",
+        1982,
+        2003
+      ],
+      [
+        "[us]",
+        "distributors",
+        "countries",
+        "votes",
+        "USA', 'Spain:16 June 1958', '792,172 (Spain)', 'Uruguay:August 2010', 'Mexico:9 March 1978",
+        "14",
+        1957,
+        2017
+      ],
+      [
+        "[de]",
+        "distributors",
+        "countries",
+        "rating",
+        "Silent', 'USA', 'Comedy', 'Comedy', 'Silent",
+        "0000001222",
+        1927,
+        1999
+      ],
+      [
+        "[us]",
+        "distributors",
+        "tech info",
+        "rating",
+        "PFM:35 mm', 'USA:24 January 2009', 'INR 7,820,000', 'Japan:1 June 1978', '9 May 2009 -",
+        "6.5",
+        1928,
+        2010
+      ],
+      [
+        "[jp]",
+        "distributors",
+        "LD language",
+        "votes",
+        "English', '4147', 'UK:3 March 1973', 'Ireland:5 July 1985', 'Italy:9 August 1979",
+        "77745",
+        1976,
+        2015
+      ],
+      [
+        "[us]",
+        "distributors",
+        "tech info",
+        "votes distribution",
+        "PCS:Spherical', 'Italy:23 May 1982', 'Sweden:28 July 2008', 'India:29 April 1977', 'USA:1 June 1948",
+        "0001211000",
+        1943,
+        2003
+      ],
+      [
+        "[de]",
+        "production companies",
+        "genres",
+        "rating",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        "7.1",
+        1991,
+        2011
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "votes",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "7.0",
+        "1990",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "release dates",
+        "votes",
+        "30', 'Japan:12 November 2012', 'Clem Rogers, known as \"the Hanging Judge\" has come to Stone Junction, Kansas in 1889 to preside over the murder trial of Pete Stone, son of town ruler \"Big Tom\" Stone. Things are made more difficult when Rogers learns that Joe Rile, the man who killed his father, is working for Stone. The latter, in an effort to discredit Rogers, has his henchmen leave the unconscious, beaten and half-dressed Ellie Irish in his hotel room. On the day of the trial the town slowly fills fills with strangers, all in black and all hired to fill the courtroom. Stone tells Rogers that everyone in the courtroom is related to someone Rogers has hanged and is armed, and defies Rogers to send his son to the gallows.', 'To kiss . . . or to kill?', 'The shaded Dark Ocean''s undersea master at the end of the episode is Dragomon. He did not appear in the Season 2 episodes after this, but the Dark Ocean reappeared in episode 2.31 \"Opposites Attract\" (episode 2.13 \"His Master''s Voice\").",
+        "15",
+        1982,
+        1999
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "6.0",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "votes",
+        "USA', 'Color', 'Color', 'USA', 'English",
+        "9",
+        1997,
+        2001
+      ],
+      [
+        "[gb]",
+        "production companies",
+        "release dates",
+        "votes",
+        "Spain:1 January 2009', 'UK:11 March 1964', 'UK:October 1900', 'Vaseyvision', '$2,300,000 (USA)",
+        "11697",
+        1900,
+        2009
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Horror', 'Thriller",
+        "7.0",
+        "2005",
+        "2007"
+      ],
+      [
+        "[jp]",
+        "distributors",
+        "release dates",
+        "votes",
+        "Kuwait:14 October 2003', 'Figure 8 is...', 'UK:29 December 1964', 'France:9 May 2009', 'Romania:50",
+        "24458",
+        1997,
+        2006
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "votes",
+        "Germany', 'German', 'USA', 'American",
+        "7.0",
+        "2005",
+        "2014"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "14",
+        1970,
+        2005
+      ],
+      [
+        "[us]",
+        "distributors",
+        "certificates",
+        "votes distribution",
+        "Canada:18A', 'USA:6 October 1979', 'BR/Tresor \u00c3\u0082\u00c2\u00a92011', 'India:5 August 1994', 'USA:4 November 2005",
+        "0000001113",
+        1917,
+        2017
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "8.0",
+        "2000",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "6.5",
+        "1990",
+        "1995"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "sound mix",
+        "votes",
+        "Stereo', 'UK:1952', 'USA:11 October 1963', '2599', 'Norway:May 1998",
+        "11",
+        1950,
+        2014
+      ],
+      [
+        "[fr]",
+        "distributors",
+        "genres",
+        "votes",
+        "Documentary', 'Color', 'Documentary', 'Comedy', 'Comedy",
+        "......4.41",
+        1990,
+        1993
+      ],
+      [
+        "[us]",
+        "distributors",
+        "tech info",
+        "votes",
+        "PFM:35 mm', 'MET:2882 m', 'Berry, France', 'Sweden:31 May 2001', 'Mexico:9 March 2013",
+        "6",
+        1945,
+        1974
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "rating",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "6.0",
+        "2010",
+        "2015"
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "genres",
+        "rating",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        "8",
+        1945,
+        2001
+      ],
+      [
+        "[de]",
+        "production companies",
+        "genres",
+        "votes distribution",
+        "Drama', 'Mono', 'PFM:35 mm', 'Mono', 'Black and White",
+        "10",
+        1984,
+        2007
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "votes",
+        "Silent', 'PCS:Spherical', 'Comedy', 'Comedy', 'UK",
+        "....1320.1",
+        1976,
+        2005
+      ],
+      [
+        "[us]",
+        "distributors",
+        "countries",
+        "rating",
+        "English', 'PFM:35 mm', 'OFM:35 mm', 'USA', 'PFM:35 mm",
+        "..0.013121",
+        2001,
+        2011
+      ],
+      [
+        "[fr]",
+        "distributors",
+        "sound mix",
+        "rating",
+        "SDDS', 'Croatia:8 May 2008', '7000', 'Hessen, Germany', 'Jean de Certeau",
+        "6.6",
+        1964,
+        2020
+      ],
+      [
+        "[us]",
+        "production companies",
+        "certificates",
+        "votes distribution",
+        "UK:A', 'love sucks', 'Japan:6 May 1971', 'AUD 169,853', 'Flawless Deception",
+        "0011210000",
+        1933,
+        2012
+      ],
+      [
+        "[fr]",
+        "production companies",
+        "genres",
+        "votes",
+        "English', 'Short', 'Short', 'USA', 'Color",
+        "23",
+        2004,
+        2009
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Mono', 'PFM:35 mm', 'OFM:35 mm', 'Drama', 'PFM:35 mm",
+        "0...011041",
+        1982,
+        2012
+      ],
+      [
+        "[ru]",
+        "production companies",
+        "countries",
+        "votes",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "8.0",
+        "2005",
+        "2010"
+      ],
+      [
+        "[jp]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "7.0",
+        "2009",
+        "2010"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "rating",
+        "Documentary', 'PCS:Spherical', 'UK', 'Silent', 'UK",
+        "32",
+        1993,
+        2009
+      ],
+      [
+        "[fi]",
+        "distributors",
+        "LD master format",
+        "votes distribution",
+        "Film', 'My America is!', 'Cyprus:January 1997', 'UK:26 April 1955', 'USA:31 January 1953",
+        "0000122100",
+        1946,
+        2015
+      ],
+      [
+        "[us]",
+        "distributors",
+        "genres",
+        "rating",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "2.0",
+        "2010",
+        "2014"
+      ],
+      [
+        "[de]",
+        "distributors",
+        "countries",
+        "votes distribution",
+        "Color', 'Silent', 'USA', 'English', 'Short",
+        "3.7",
+        1979,
+        2007
+      ],
+      [
+        "[de]",
+        "distributors",
+        "countries",
+        "votes",
+        "USA', 'Short', 'English', 'Short', 'Short",
+        "4.5",
+        2004,
+        2005
+      ],
+      [
+        "[lb]",
+        "production companies",
+        "genres",
+        "rating",
+        "Black and White', 'Drama', 'PFM:35 mm', 'PFM:35 mm', 'Mono",
+        "6.8",
+        2000,
+        2008
+      ],
+      [
+        "[us]",
+        "distributors",
+        "locations",
+        "votes",
+        "Georgetown, Texas, USA', 'Mexico:24 May 2010', 'USA:31 March 1911', 'Tbilisi, Georgia', 'SR Studios",
+        "21222",
+        1942,
+        2020
+      ],
+      [
+        "[us]",
+        "production companies",
+        "countries",
+        "rating",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "6.0",
+        "2005",
+        "2010"
+      ],
+      [
+        "[us]",
+        "distributors",
+        "countries",
+        "rating",
+        "Germany', 'German', 'USA', 'American",
+        "7.0",
+        "2010",
+        "2014"
+      ],
+      [
+        "[us]",
+        "production companies",
+        "genres",
+        "votes",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "8.0",
+        "2008",
+        "2010"
+      ]
+    ]
+  }
+}

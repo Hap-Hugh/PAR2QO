@@ -1,0 +1,827 @@
+{
+  "072": {
+    "query": "SELECT min(i_item_sk) ,\n       min(w_warehouse_name) ,\n       min(d1.d_week_seq) ,\n       min(cs_item_sk) ,\n       min(cs_order_number) ,\n       min(inv_item_sk)\nFROM catalog_sales\nJOIN inventory ON (cs_item_sk = inv_item_sk)\nJOIN warehouse ON (w_warehouse_sk=inv_warehouse_sk)\nJOIN item ON (i_item_sk = cs_item_sk)\nJOIN customer_demographics ON (cs_bill_cdemo_sk = cd_demo_sk)\nJOIN household_demographics ON (cs_bill_hdemo_sk = hd_demo_sk)\nJOIN date_dim d1 ON (cs_sold_date_sk = d1.d_date_sk)\nJOIN date_dim d2 ON (inv_date_sk = d2.d_date_sk)\nJOIN date_dim d3 ON (cs_ship_date_sk = d3.d_date_sk)\nLEFT OUTER JOIN promotion ON (cs_promo_sk=p_promo_sk)\nLEFT OUTER JOIN catalog_returns ON (cr_item_sk = cs_item_sk\n                                    AND cr_order_number = cs_order_number)\nWHERE d1.d_week_seq = d2.d_week_seq\n  AND inv_quantity_on_hand < cs_quantity\n  AND d3.d_date > d1.d_date + interval '3 day'\n  AND hd_buy_potential = '@param0'\n  AND d1.d_year = @param1\n  AND cd_marital_status = '@param2'\n  AND cd_dep_count BETWEEN @param3 AND @param4\n  AND i_category IN ('@param5')\n  AND cs_wholesale_cost BETWEEN @param6 AND @param7  ;",
+    "predicates": [
+      {
+        "alias": "",
+        "column": "hd_buy_potential",
+        "operator": "=",
+        "data_type": "text",
+        "table": "household_demographics",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_bill_hdemo_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_bill_hdemo_sk = hd_demo_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "d1",
+        "column": "d_year",
+        "operator": "=",
+        "data_type": "int",
+        "table": "date_dim",
+        "join_tables": [
+          "catalog_sales",
+          "date_dim",
+          "date_dim"
+        ],
+        "join_tables_alias": [
+          "",
+          "d2",
+          "d3"
+        ],
+        "join_tables_column": [
+          [
+            "cs_sold_date_sk"
+          ],
+          [
+            "d_week_seq"
+          ],
+          [
+            "d_date"
+          ]
+        ],
+        "join_conditions": [
+          "cs_sold_date_sk = d1.d_date_sk",
+          "d1.d_week_seq = d2.d_week_seq",
+          "d3.d_date > d1.d_date + interval '3 day'"
+        ],
+        "left_or_right": [
+          "both",
+          "l",
+          "l"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cd_marital_status",
+        "operator": "=",
+        "data_type": "text",
+        "table": "customer_demographics",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_bill_cdemo_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_bill_cdemo_sk = cd_demo_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cd_dep_count",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "customer_demographics",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_bill_cdemo_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_bill_cdemo_sk = cd_demo_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cd_dep_count",
+        "operator": "<=",
+        "data_type": "int",
+        "table": "customer_demographics",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_bill_cdemo_sk"
+          ]
+        ],
+        "join_conditions": [
+          "cs_bill_cdemo_sk = cd_demo_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "i_category",
+        "operator": "IN",
+        "data_type": "text",
+        "table": "item",
+        "join_tables": [
+          "catalog_sales"
+        ],
+        "join_tables_alias": [
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "cs_item_sk"
+          ]
+        ],
+        "join_conditions": [
+          "i_item_sk = cs_item_sk"
+        ],
+        "left_or_right": [
+          "both"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cs_wholesale_cost",
+        "operator": ">=",
+        "data_type": "int",
+        "table": "catalog_sales",
+        "join_tables": [
+          "inventory",
+          "item",
+          "customer_demographics",
+          "household_demographics",
+          "date_dim",
+          "date_dim",
+          "promotion",
+          "catalog_returns"
+        ],
+        "join_tables_alias": [
+          "",
+          "",
+          "",
+          "",
+          "d1",
+          "d3",
+          "",
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "inv_item_sk",
+            "inv_quantity_on_hand"
+          ],
+          [
+            "i_item_sk"
+          ],
+          [
+            "cd_demo_sk"
+          ],
+          [
+            "hd_demo_sk"
+          ],
+          [
+            "d_date_sk"
+          ],
+          [
+            "d_date_sk"
+          ],
+          [
+            "p_promo_sk"
+          ],
+          [
+            "cr_item_sk",
+            "cr_order_number"
+          ]
+        ],
+        "join_conditions": [
+          "cs_item_sk = inv_item_sk AND inv_quantity_on_hand < cs_quantity",
+          "i_item_sk = cs_item_sk",
+          "cs_bill_cdemo_sk = cd_demo_sk",
+          "cs_bill_hdemo_sk = hd_demo_sk",
+          "cs_sold_date_sk = d1.d_date_sk",
+          "cs_ship_date_sk = d3.d_date_sk",
+          "LEFT OUTER JOIN promotion ON (cs_promo_sk=p_promo_sk)",
+          "LEFT OUTER JOIN catalog_returns ON (cr_item_sk = cs_item_sk AND cr_order_number = cs_order_number)"
+        ],
+        "left_or_right": [
+          "l",
+          "both",
+          "both",
+          "both",
+          "both",
+          "l",
+          "l",
+          "l"
+        ]
+      },
+      {
+        "alias": "",
+        "column": "cs_wholesale_cost",
+        "operator": "<=",
+        "data_type": "int",
+        "table": "catalog_sales",
+        "join_tables": [
+          "inventory",
+          "item",
+          "customer_demographics",
+          "household_demographics",
+          "date_dim",
+          "date_dim",
+          "promotion",
+          "catalog_returns"
+        ],
+        "join_tables_alias": [
+          "",
+          "",
+          "",
+          "",
+          "d1",
+          "d3",
+          "",
+          ""
+        ],
+        "join_tables_column": [
+          [
+            "inv_item_sk",
+            "inv_quantity_on_hand"
+          ],
+          [
+            "i_item_sk"
+          ],
+          [
+            "cd_demo_sk"
+          ],
+          [
+            "hd_demo_sk"
+          ],
+          [
+            "d_date_sk"
+          ],
+          [
+            "d_date_sk"
+          ],
+          [
+            "p_promo_sk"
+          ],
+          [
+            "cr_item_sk",
+            "cr_order_number"
+          ]
+        ],
+        "join_conditions": [
+          "cs_item_sk = inv_item_sk AND inv_quantity_on_hand < cs_quantity",
+          "i_item_sk = cs_item_sk",
+          "cs_bill_cdemo_sk = cd_demo_sk",
+          "cs_bill_hdemo_sk = hd_demo_sk",
+          "cs_sold_date_sk = d1.d_date_sk",
+          "cs_ship_date_sk = d3.d_date_sk",
+          "LEFT OUTER JOIN promotion ON (cs_promo_sk=p_promo_sk)",
+          "LEFT OUTER JOIN catalog_returns ON (cr_item_sk = cs_item_sk AND cr_order_number = cs_order_number)"
+        ],
+        "left_or_right": [
+          "l",
+          "both",
+          "both",
+          "both",
+          "both",
+          "l",
+          "l",
+          "l"
+        ]
+      }
+    ],
+    "params": [
+      [
+        "Unknown        ",
+        2001,
+        "M",
+        2,
+        2,
+        "Jewelry                                           ', 'Books                                             ', 'Jewelry                                           ",
+        27,
+        68
+      ],
+      [
+        "Unknown        ",
+        1999,
+        "M",
+        3,
+        6,
+        "Women                                             ', 'Books                                             ', 'Books                                             ",
+        37,
+        47
+      ],
+      [
+        "Unknown        ",
+        1998,
+        "M",
+        0,
+        6,
+        "Shoes                                             ', 'Shoes                                             ', 'Home                                              ",
+        21,
+        58
+      ],
+      [
+        "Unknown        ",
+        1999,
+        "M",
+        2,
+        3,
+        "Shoes                                             ', 'Shoes                                             ', 'Home                                              ",
+        6,
+        53
+      ],
+      [
+        "Unknown        ",
+        2000,
+        "M",
+        2,
+        2,
+        "Women                                             ', 'Jewelry                                           ', 'Women                                             ",
+        47,
+        68
+      ],
+      [
+        "Unknown        ",
+        1998,
+        "S",
+        1,
+        2,
+        "Jewelry                                           ', 'Books                                             ', 'Books                                             ",
+        6,
+        16
+      ],
+      [
+        "Unknown        ",
+        1999,
+        "M",
+        1,
+        1,
+        "Electronics                                       ', 'Electronics                                       ', 'Music                                             ",
+        53,
+        73
+      ],
+      [
+        "Unknown        ",
+        1999,
+        "M",
+        2,
+        2,
+        "Electronics                                       ', 'Shoes                                             ', 'Electronics                                       ",
+        21,
+        47
+      ],
+      [
+        "1001-5000      ",
+        2000,
+        "D",
+        1,
+        2,
+        "Women                                             ', 'Books                                             ', 'Electronics                                       ",
+        21,
+        42
+      ],
+      [
+        "Unknown        ",
+        2002,
+        "M",
+        6,
+        6,
+        "Books                                             ', 'Women                                             ', 'Books                                             ",
+        32,
+        63
+      ],
+      [
+        "1001-5000      ",
+        2002,
+        "M",
+        1,
+        4,
+        "Electronics                                       ', 'Electronics                                       ', 'Shoes                                             ",
+        21,
+        73
+      ],
+      [
+        "Unknown        ",
+        2002,
+        "U",
+        0,
+        5,
+        "Shoes                                             ', 'Electronics                                       ', 'Jewelry                                           ",
+        1,
+        27
+      ],
+      [
+        "Unknown        ",
+        2002,
+        "M",
+        0,
+        3,
+        "Electronics                                       ', 'Music                                             ', 'Sports                                            ",
+        27,
+        94
+      ],
+      [
+        "Unknown        ",
+        2000,
+        "M",
+        1,
+        2,
+        "Home                                              ', 'Home                                              ', 'Shoes                                             ",
+        37,
+        79
+      ],
+      [
+        "Unknown        ",
+        2000,
+        "U",
+        0,
+        0,
+        "Women                                             ', 'Women                                             ', 'Books                                             ",
+        16,
+        42
+      ],
+      [
+        "Unknown        ",
+        2002,
+        "M",
+        1,
+        6,
+        "Jewelry                                           ', 'Jewelry                                           ', 'Shoes                                             ",
+        16,
+        84
+      ],
+      [
+        "501-1000       ",
+        2001,
+        "U",
+        2,
+        4,
+        "Sports                                            ', 'Sports                                            ', 'Women                                             ",
+        16,
+        53
+      ],
+      [
+        "1001-5000      ",
+        2000,
+        "D",
+        3,
+        3,
+        "Home                                              ', 'Home                                              ', 'Home                                              ",
+        47,
+        63
+      ],
+      [
+        "0-500          ",
+        2001,
+        "M",
+        0,
+        6,
+        "Home                                              ', 'Electronics                                       ', 'Shoes                                             ",
+        21,
+        42
+      ],
+      [
+        "Unknown        ",
+        1999,
+        "M",
+        1,
+        1,
+        "Home                                              ', 'Shoes                                             ', 'Home                                              ",
+        68,
+        94
+      ],
+      [
+        "Unknown        ",
+        1998,
+        "M",
+        0,
+        0,
+        "Jewelry                                           ', 'Jewelry                                           ', 'Jewelry                                           ",
+        63,
+        79
+      ],
+      [
+        ">10000         ",
+        2002,
+        "M",
+        1,
+        1,
+        "Shoes                                             ', 'Electronics                                       ', 'Women                                             ",
+        37,
+        94
+      ],
+      [
+        "1001-5000      ",
+        2001,
+        "M",
+        2,
+        3,
+        "Jewelry                                           ', 'Books                                             ', 'Women                                             ",
+        16,
+        79
+      ],
+      [
+        "Unknown        ",
+        2002,
+        "M",
+        1,
+        3,
+        "Books                                             ', 'Women                                             ', 'Books                                             ",
+        32,
+        37
+      ],
+      [
+        "Unknown        ",
+        2002,
+        "M",
+        1,
+        1,
+        "Home                                              ', 'Jewelry                                           ', 'Children                                          ",
+        1,
+        21
+      ],
+      [
+        "Unknown        ",
+        2001,
+        "M",
+        3,
+        6,
+        "Home                                              ', 'Shoes                                             ', 'Home                                              ",
+        47,
+        79
+      ],
+      [
+        "Unknown        ",
+        1998,
+        "U",
+        1,
+        4,
+        "Electronics                                       ', 'Electronics                                       ', 'Electronics                                       ",
+        27,
+        47
+      ],
+      [
+        "Unknown        ",
+        2001,
+        "M",
+        2,
+        3,
+        "Home                                              ', 'Electronics                                       ', 'Electronics                                       ",
+        1,
+        63
+      ],
+      [
+        "Unknown        ",
+        2002,
+        "S",
+        2,
+        2,
+        "Books                                             ', 'Electronics                                       ', 'Women                                             ",
+        21,
+        94
+      ],
+      [
+        "Unknown        ",
+        1998,
+        "M",
+        1,
+        6,
+        "Shoes                                             ', 'Home                                              ', 'Jewelry                                           ",
+        11,
+        73
+      ],
+      [
+        "0-500          ",
+        1999,
+        "U",
+        3,
+        3,
+        "Jewelry                                           ', 'Children                                          ', 'Children                                          ",
+        1,
+        68
+      ],
+      [
+        ">10000         ",
+        1998,
+        "M",
+        2,
+        5,
+        "Electronics                                       ', 'Shoes                                             ', 'Shoes                                             ",
+        16,
+        27
+      ],
+      [
+        ">10000         ",
+        2000,
+        "S",
+        2,
+        2,
+        "Books                                             ', 'Jewelry                                           ', 'Jewelry                                           ",
+        27,
+        100
+      ],
+      [
+        "Unknown        ",
+        2000,
+        "U",
+        0,
+        2,
+        "Shoes                                             ', 'Shoes                                             ', 'Sports                                            ",
+        42,
+        84
+      ],
+      [
+        "Unknown        ",
+        2002,
+        "M",
+        1,
+        6,
+        "Electronics                                       ', 'Electronics                                       ', 'Books                                             ",
+        73,
+        100
+      ],
+      [
+        "Unknown        ",
+        2002,
+        "M",
+        1,
+        2,
+        "Jewelry                                           ', 'Jewelry                                           ', 'Jewelry                                           ",
+        11,
+        27
+      ],
+      [
+        "Unknown        ",
+        2001,
+        "M",
+        2,
+        2,
+        "Shoes                                             ', 'Electronics                                       ', 'Jewelry                                           ",
+        79,
+        94
+      ],
+      [
+        "1001-5000      ",
+        2000,
+        "U",
+        1,
+        2,
+        "Jewelry                                           ', 'Electronics                                       ', 'Jewelry                                           ",
+        27,
+        94
+      ],
+      [
+        "Unknown        ",
+        1998,
+        "M",
+        1,
+        1,
+        "Jewelry                                           ', 'Men                                               ', 'Men                                               ",
+        47,
+        89
+      ],
+      [
+        "Unknown        ",
+        2000,
+        "M",
+        2,
+        4,
+        "Electronics                                       ', 'Men                                               ', 'Sports                                            ",
+        16,
+        53
+      ],
+      [
+        "Unknown        ",
+        1998,
+        "S",
+        0,
+        3,
+        "Children                                          ', 'Jewelry                                           ', 'Children                                          ",
+        11,
+        94
+      ],
+      [
+        "Unknown        ",
+        2002,
+        "M",
+        2,
+        2,
+        "Home                                              ', 'Electronics                                       ', 'Shoes                                             ",
+        47,
+        58
+      ],
+      [
+        "Unknown        ",
+        1998,
+        "M",
+        1,
+        1,
+        "Home                                              ', 'Shoes                                             ', 'Electronics                                       ",
+        11,
+        47
+      ],
+      [
+        ">10000         ",
+        2000,
+        "S",
+        0,
+        2,
+        "Books                                             ', 'Women                                             ', 'Books                                             ",
+        21,
+        73
+      ],
+      [
+        "Unknown        ",
+        1999,
+        "M",
+        2,
+        2,
+        "Children                                          ', 'Children                                          ', 'Electronics                                       ",
+        84,
+        100
+      ],
+      [
+        ">10000         ",
+        2001,
+        "M",
+        1,
+        3,
+        "Electronics                                       ', 'Shoes                                             ', 'Home                                              ",
+        6,
+        73
+      ],
+      [
+        ">10000         ",
+        2002,
+        "M",
+        1,
+        2,
+        "Electronics                                       ', 'Jewelry                                           ', 'Men                                               ",
+        53,
+        73
+      ],
+      [
+        "0-500          ",
+        1999,
+        "U",
+        0,
+        3,
+        "Jewelry                                           ', 'Jewelry                                           ', 'Home                                              ",
+        47,
+        58
+      ],
+      [
+        ">10000         ",
+        2002,
+        "M",
+        1,
+        2,
+        "Home                                              ', 'Home                                              ', 'Electronics                                       ",
+        47,
+        53
+      ],
+      [
+        "Unknown        ",
+        2000,
+        "S",
+        0,
+        3,
+        "Electronics                                       ', 'Shoes                                             ', 'Shoes                                             ",
+        84,
+        100
+      ],
+      [
+        "Unknown        ",
+        1999,
+        "D",
+        1,
+        4,
+        "Jewelry                                           ', 'Electronics                                       ', 'Electronics                                       ",
+        1,
+        16
+      ]
+    ]
+  }
+}

@@ -1,0 +1,3001 @@
+query,plan_id,plan_content
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(2006)%' OR mc.note LIKE '%(VHS)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(USA)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Blu-ray)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(2006)%' OR mc.note LIKE '%(2007)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Blu-ray)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(VHS)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(VHS)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'distributors'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Blu-ray)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'distributors'
+ AND it.info = 'bottom 10 rank'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(presents)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(VHS)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'distributors'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(Blu-ray)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Blu-ray)%' OR mc.note LIKE '%(2007)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(VHS)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(theatrical)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'distributors'
+ AND it.info = 'bottom 10 rank'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(USA)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(2007)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(2006)%' OR mc.note LIKE '%(USA)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'distributors'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Blu-ray)%' OR mc.note LIKE '%(2007)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(theatrical)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(VHS)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(presents)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(VHS)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(presents)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(VHS)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(2007)%' OR mc.note LIKE '%(USA)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(2006)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(2007)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(theatrical)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(VHS)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(VHS)%' OR mc.note LIKE '%(USA)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(Blu-ray)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(2007)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'distributors'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Blu-ray)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(theatrical)%' OR mc.note LIKE '%(Blu-ray)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(2007)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(presents)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(2006)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(VHS)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'distributors'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(2007)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(USA)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(presents)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(VHS)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(2006)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(USA)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(2006)%' OR mc.note LIKE '%(2007)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Blu-ray)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(USA)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Blu-ray)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(presents)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(presents)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(VHS)%' OR mc.note LIKE '%(2007)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(VHS)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Blu-ray)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(2007)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(theatrical)%' OR mc.note LIKE '%(2007)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(VHS)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(Blu-ray)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(2006)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(theatrical)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(Blu-ray)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(theatrical)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(2007)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(VHS)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(Blu-ray)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(2006)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(Blu-ray)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(Blu-ray)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(theatrical)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'distributors'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(presents)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(VHS)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(USA)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(2007)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(theatrical)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'top 250 rank'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'distributors'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(USA)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(VHS)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(VHS)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(theatrical)%' OR mc.note LIKE '%(2007)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'top 250 rank'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(2006)%' OR mc.note LIKE '%(USA)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(VHS)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(Blu-ray)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'distributors'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'distributors'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(2007)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(theatrical)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(VHS)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Blu-ray)%' OR mc.note LIKE '%(USA)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(2006)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(Blu-ray)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(theatrical)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(theatrical)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(Blu-ray)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(2007)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Blu-ray)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(co-production)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(USA)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(worldwide)%' OR mc.note LIKE '%(Japan)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(France)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(presents)%' OR mc.note LIKE '%(worldwide)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(200%)%' OR mc.note LIKE '%(VHS)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(France)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(USA)%'
+ AND (mc.note LIKE '%(Japan)%' OR mc.note LIKE '%(co-production)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'rating'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(Blu-ray)%' OR mc.note LIKE '%(presents)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(presents)%' OR mc.note LIKE '%(2006)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */
+"SELECT MIN(mc.note) AS production_note, MIN(t.title) AS movie_title, MIN(t.production_year) AS movie_year
+ FROM company_type AS ct,
+ info_type AS it,
+ movie_companies AS mc,
+ movie_info_idx AS mi_idx,
+ title AS t
+ WHERE ct.id = mc.company_type_id
+ AND t.id = mc.movie_id
+ AND t.id = mi_idx.movie_id
+ AND mc.movie_id = mi_idx.movie_id
+ AND it.id = mi_idx.info_type_id
+ AND ct.kind = 'production companies'
+ AND it.info = 'votes'
+ AND mc.note NOT LIKE '%(as Metro-Goldwyn-Mayer Pictures)%'
+ AND (mc.note LIKE '%(VHS)%' OR mc.note LIKE '%(200%)%');",15,/*+  SeqScan(mc) SeqScan(ct) IndexScan(mi_idx movie_id_movie_info_idx) IndexScan(it info_type_pkey) IndexScan(t title_pkey) HashJoin(mc ct) NestLoop(mc ct mi_idx) NestLoop(mc ct mi_idx it) NestLoop(mc ct mi_idx it t) Leading(((((mc ct) mi_idx) it) t)) */

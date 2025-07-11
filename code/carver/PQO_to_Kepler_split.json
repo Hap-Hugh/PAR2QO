@@ -1,0 +1,67 @@
+{
+    "@param0": [
+        "SELECT MIN(chn.name) AS voiced_char, MIN(n.name) AS voicing_actress, MIN(t.title) AS voiced_animation\nFROM aka_name AS an,\n    complete_cast AS cc,\n    comp_cast_type AS cct1,\n    comp_cast_type AS cct2,\n    char_name AS chn,\n    cast_info AS ci,\n    company_name AS cn,\n    info_type AS it,\n    info_type AS it3,\n    keyword AS k,\n    movie_companies AS mc,\n    movie_info AS mi,\n    movie_keyword AS mk,\n    name AS n,\n    person_info AS pi,\n    role_type AS rt,\n    title AS t\nWHERE t.id = mi.movie_id\nAND t.id = mc.movie_id\nAND t.id = ci.movie_id\nAND t.id = mk.movie_id\nAND t.id = cc.movie_id\nAND mc.movie_id = ci.movie_id\nAND mc.movie_id = mi.movie_id\nAND mc.movie_id = mk.movie_id\nAND mc.movie_id = cc.movie_id\nAND mi.movie_id = ci.movie_id\nAND mi.movie_id = mk.movie_id\nAND mi.movie_id = cc.movie_id\nAND ci.movie_id = mk.movie_id\nAND ci.movie_id = cc.movie_id\nAND mk.movie_id = cc.movie_id\nAND cn.id = mc.company_id\nAND it.id = mi.info_type_id\nAND n.id = ci.person_id\nAND rt.id = ci.role_id\nAND n.id = an.person_id\nAND ci.person_id = an.person_id\nAND chn.id = ci.person_role_id\nAND n.id = pi.person_id\nAND ci.person_id = pi.person_id\nAND it3.id = pi.info_type_id\nAND k.id = mk.keyword_id\nAND cct1.id = cc.subject_id\nAND cct2.id = cc.status_id\nAND cct1.kind = '",
+        "'\nAND cct2.kind = '"
+    ],
+    "@param1": [
+        "'\nAND cct2.kind = '",
+        "'\nAND chn.name = '"
+    ],
+    "@param2": [
+        "'\nAND chn.name = '",
+        "'\nAND ci.note IN ('"
+    ],
+    "@param3": [
+        "'\nAND ci.note IN ('",
+        "')\nAND cn.country_code = '"
+    ],
+    "@param4": [
+        "')\nAND cn.country_code = '",
+        "'\nAND it.info = '"
+    ],
+    "@param5": [
+        "'\nAND it.info = '",
+        "'\nAND it3.info = '"
+    ],
+    "@param6": [
+        "'\nAND it3.info = '",
+        "'\nAND k.keyword = '"
+    ],
+    "@param7": [
+        "'\nAND k.keyword = '",
+        "'\nAND mi.info IS NOT NULL\nAND (mi.info LIKE '"
+    ],
+    "@param8": [
+        "'\nAND mi.info IS NOT NULL\nAND (mi.info LIKE '",
+        "' OR mi.info LIKE '"
+    ],
+    "@param9": [
+        "' OR mi.info LIKE '",
+        "')\nAND n.gender = '"
+    ],
+    "@param10": [
+        "')\nAND n.gender = '",
+        "'\nAND n.name LIKE '"
+    ],
+    "@param11": [
+        "'\nAND n.name LIKE '",
+        "'\nAND rt.role = '"
+    ],
+    "@param12": [
+        "'\nAND rt.role = '",
+        "'\nAND t.title = '"
+    ],
+    "@param13": [
+        "'\nAND t.title = '",
+        "'\nAND t.production_year BETWEEN "
+    ],
+    "@param14": [
+        "'\nAND t.production_year BETWEEN ",
+        " AND "
+    ],
+    "@param15": [
+        "'\nAND t.production_year BETWEEN ",
+        " AND ",
+        ";"
+    ]
+}

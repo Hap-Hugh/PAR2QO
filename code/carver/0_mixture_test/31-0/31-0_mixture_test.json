@@ -1,0 +1,2027 @@
+{
+  "31-0": {
+    "query": "SELECT MIN(mi.info) AS movie_budget, MIN(mi_idx.info) AS movie_votes, MIN(n.name) AS writer, MIN(t.title) AS violent_liongate_movie\nFROM cast_info AS ci,\n    company_name AS cn,\n    info_type AS it1,\n    info_type AS it2,\n    keyword AS k,\n    movie_companies AS mc,\n    movie_info AS mi,\n    movie_info_idx AS mi_idx,\n    movie_keyword AS mk,\n    name AS n,\n    title AS t\nWHERE t.id = mi.movie_id\nAND t.id = mi_idx.movie_id\nAND t.id = ci.movie_id\nAND t.id = mk.movie_id\nAND t.id = mc.movie_id\nAND ci.movie_id = mi.movie_id\nAND ci.movie_id = mi_idx.movie_id\nAND ci.movie_id = mk.movie_id\nAND ci.movie_id = mc.movie_id\nAND mi.movie_id = mi_idx.movie_id\nAND mi.movie_id = mk.movie_id\nAND mi.movie_id = mc.movie_id\nAND mi_idx.movie_id = mk.movie_id\nAND mi_idx.movie_id = mc.movie_id\nAND mk.movie_id = mc.movie_id\nAND n.id = ci.person_id\nAND it1.id = mi.info_type_id\nAND it2.id = mi_idx.info_type_id\nAND k.id = mk.keyword_id\nAND cn.id = mc.company_id\nAND ci.note IN ('@param0')\nAND cn.name LIKE '@param1'\nAND it1.info = '@param2'\nAND it2.info = '@param3'\nAND k.keyword IN ('@param4')\nAND mi.info IN ('@param5')\nAND n.gender = '@param6';",
+    "predicates": [
+      {
+        "alias": "ci",
+        "column": "note",
+        "operator": "IN",
+        "data_type": "text",
+        "table": "cast_info",
+        "join_tables_alias": [
+          "t",
+          "mi",
+          "mi_idx",
+          "mk",
+          "mc",
+          "n"
+        ],
+        "join_tables": [
+          "title",
+          "movie_info",
+          "movie_info_idx",
+          "movie_keyword",
+          "movie_companies",
+          "name"
+        ],
+        "join_conditions": [
+          "t.id = ci.movie_id",
+          "ci.movie_id = mi.movie_id",
+          "ci.movie_id = mi_idx.movie_id",
+          "ci.movie_id = mk.movie_id",
+          "ci.movie_id = mc.movie_id",
+          "n.id = ci.person_id"
+        ],
+        "left_or_right": [
+          "l",
+          "both",
+          "l",
+          "l",
+          "l",
+          "both"
+        ],
+        "join_tables_column": [
+          [],
+          [
+            "info"
+          ],
+          [],
+          [],
+          [],
+          [
+            "gender"
+          ]
+        ]
+      },
+      {
+        "alias": "cn",
+        "column": "name",
+        "operator": "LIKE",
+        "data_type": "text",
+        "table": "company_name",
+        "join_tables_alias": [
+          "mc"
+        ],
+        "join_tables": [
+          "movie_companies"
+        ],
+        "join_conditions": [
+          "cn.id = mc.company_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "it",
+        "original_alias": "it1",
+        "column": "info",
+        "operator": "=",
+        "data_type": "text",
+        "table": "info_type",
+        "join_tables_alias": [
+          "mi"
+        ],
+        "join_tables": [
+          "movie_info"
+        ],
+        "join_conditions": [
+          "it.id = mi.info_type_id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "info"
+          ]
+        ]
+      },
+      {
+        "alias": "it",
+        "original_alias": "it2",
+        "column": "info",
+        "operator": "=",
+        "data_type": "text",
+        "table": "info_type",
+        "join_tables_alias": [
+          "mi_idx"
+        ],
+        "join_tables": [
+          "movie_info_idx"
+        ],
+        "join_conditions": [
+          "it.id = mi_idx.info_type_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "k",
+        "column": "keyword",
+        "operator": "IN",
+        "data_type": "text",
+        "table": "keyword",
+        "join_tables_alias": [
+          "mk"
+        ],
+        "join_tables": [
+          "movie_keyword"
+        ],
+        "join_conditions": [
+          "k.id = mk.keyword_id"
+        ],
+        "left_or_right": [
+          "l"
+        ],
+        "join_tables_column": [
+          []
+        ]
+      },
+      {
+        "alias": "mi",
+        "column": "info",
+        "operator": "IN",
+        "data_type": "text",
+        "table": "movie_info",
+        "join_tables_alias": [
+          "t",
+          "ci",
+          "mi_idx",
+          "mk",
+          "mc",
+          "it"
+        ],
+        "join_tables": [
+          "title",
+          "cast_info",
+          "movie_info_idx",
+          "movie_keyword",
+          "movie_companies",
+          "info_type"
+        ],
+        "join_conditions": [
+          "t.id = mi.movie_id",
+          "ci.movie_id = mi.movie_id",
+          "mi.movie_id = mi_idx.movie_id",
+          "mi.movie_id = mk.movie_id",
+          "mi.movie_id = mc.movie_id",
+          "it.id = mi.info_type_id"
+        ],
+        "left_or_right": [
+          "l",
+          "both",
+          "l",
+          "l",
+          "l",
+          "both"
+        ],
+        "join_tables_column": [
+          [],
+          [
+            "note"
+          ],
+          [],
+          [],
+          [],
+          [
+            "info"
+          ]
+        ]
+      },
+      {
+        "alias": "n",
+        "column": "gender",
+        "operator": "=",
+        "data_type": "text",
+        "table": "name",
+        "join_tables_alias": [
+          "ci"
+        ],
+        "join_tables": [
+          "cast_info"
+        ],
+        "join_conditions": [
+          "n.id = ci.person_id"
+        ],
+        "left_or_right": [
+          "both"
+        ],
+        "join_tables_column": [
+          [
+            "note"
+          ]
+        ]
+      }
+    ],
+    "params": [
+      [
+        "(set production assistant)', '(1983-1987)', '(as Amada Morado)', '(as Sheila-Maria)', '(as Don T. Maseng)",
+        "%r%",
+        "goofs",
+        "votes",
+        "night-cityscape', 'three-rivers-texas', 'business-corruption', 'gypsy-wagon', 'praying-to-satan",
+        "CONT: As Blake runs into the hospital, he is seen to have a long shotgun with a wooden stock and a silver barrel. However, when he inside, he is seen to have a short black shotgun.', 'UK:30 August 2014', 'NOK 20,000', 'Canada:22:15', '80,259 (Sweden)",
+        "m"
+      ],
+      [
+        "(producer)', '(executive producer)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(production assistant)', '(as Istref Begoli)', '(assistant to dop)', '(as Alla Urazbaeva)', '(as Monifa Brown)",
+        "%n%",
+        "tech info",
+        "votes distribution",
+        "stabbed-in-the-chest', 'satanist', 'television-screen', 'bruised-knee', 'hot-ash",
+        "CAM:IMAX MSM 9802, Hasselblad and Mamiya Lenses', '$69,700,000 (USA)', 'February 1956 -', 'Israel:October 2004', 'Hua, Yu. \"Huozhe\"",
+        "f"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Film%",
+        "countries",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "USA', 'America",
+        "m"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "%Home%",
+        "genres",
+        "top 250 rank",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "Comedy', 'PCS:Spherical', 'PCS:Spherical', 'Comedy', 'PCS:Spherical",
+        "m"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "%ABC%",
+        "genres",
+        "votes distribution",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "UK', 'PCS:Spherical', 'Comedy', 'PCS:Spherical', 'PCS:Spherical",
+        "m"
+      ],
+      [
+        "(assistant football coordinator)', '(stand-in: James)', '(as Daniel Lautrec)', '(weed whacker)', '(as Frances Neal)",
+        "%n%",
+        "quotes",
+        "votes distribution",
+        "swat', 'labrys', 'elyria', 'cinderella-spoof', 'bomb-onboard-plane",
+        "Bruce Wayne: I watched you die.::Ra''s al Ghul: I told you I was immortal.', 'Edge Productions', '$78,000,000', 'ESP 10,731 (Spain)', 'UK:12 July 1976",
+        "f"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%National%",
+        "genres",
+        "votes",
+        "hardcore', 'hardcore', 'hardcore', 'hardcore', 'hardcore",
+        "Drama', 'Drama', 'Mono', 'Drama', 'Drama",
+        "f"
+      ],
+      [
+        "(writer)', '(writer)', '(writer)', '(writer)', '(writer)",
+        "%Film%",
+        "genres",
+        "votes",
+        "based-on-novel', 'independent-film', 'independent-film', 'independent-film', 'based-on-novel",
+        "Short', 'Documentary', 'RAT:1.33 : 1', 'Short', 'Black and White",
+        "m"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "%Broadcasting%",
+        "genres",
+        "votes",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "PFM:35 mm', 'Mono', 'Drama', 'OFM:35 mm', 'OFM:35 mm",
+        "m"
+      ],
+      [
+        "(writer)', '(co-executive producer)', '(associate producer)', '(co-producer)', '(writer)",
+        "%Video%",
+        "genres",
+        "votes distribution",
+        "independent-film', 'independent-film', 'independent-film', 'based-on-novel', 'based-on-novel",
+        "Stereo', 'Dolby Digital', 'Silent', 'RAT:1.85 : 1', 'Documentary",
+        "f"
+      ],
+      [
+        "(location manager)', '(as I. Gedjadze)', '(as Scott Howard)', '(B\u00c3\u00a9ci)', '(as Vl. Peterkov\u00c3\u00a1)",
+        "%s%",
+        "color info",
+        "votes distribution",
+        "shotgun', 'arch', 'internal-medicine', 'magnifying-mirror', 'haggis",
+        "Color', '26 December 1995', 'Spain:12 May 1931', 'Turkey:18 May 2010', 'USA:4 December 2008",
+        "m"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%System%",
+        "countries",
+        "votes distribution",
+        "female-nudity', 'murder', 'murder', 'murder', 'female-nudity",
+        "Short', 'UK', 'UK', 'RAT:1.33 : 1', 'Black and White",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "20th Century Fox%",
+        "countries",
+        "rating",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(executive producer)', '(producer)', '(executive producer)', '(executive producer)', '(executive producer)",
+        "%American%",
+        "genres",
+        "votes",
+        "based-on-novel', 'independent-film', 'based-on-novel', 'independent-film', 'independent-film",
+        "-', 'Short', 'Short', 'Comedy', 'Short",
+        "f"
+      ],
+      [
+        "(uncredited)', '(Voleur)', '(as Jane Mallillin)', '(producer: MTV OY)', '(as Aida Pumarehas)",
+        "%d%",
+        "quotes",
+        "votes distribution",
+        "thief', 'car-sales', 'marital-strife', 'black-schism', 'genetic-disease",
+        "John Blake: I just can''t take it. I mean, nobody will ever know who it was who saved an entire city.::Jim Gordon: They know who it was; it was the Batman.', 'China:12 March 2002', '1807-80', 'UK:16 March 2006', 'Italy:June 2007",
+        "m"
+      ],
+      [
+        "(voice)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "genres",
+        "rating",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "Horror', 'Thriller",
+        "m"
+      ],
+      [
+        "(producer)', '(executive producer)', '(production assistant)', '(executive producer)', '(production assistant)",
+        "%Broadcasting%",
+        "genres",
+        "rating",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "Drama', 'Drama', 'PFM:35 mm', 'Black and White', 'Mono",
+        "m"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(producer)', '(uncredited)",
+        "%American%",
+        "countries",
+        "top 250 rank",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "f"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%Video%",
+        "genres",
+        "votes",
+        "hardcore', 'hardcore', 'hardcore', 'hardcore', 'hardcore",
+        "Black and White', 'Drama', 'Mono', 'Black and White', 'Black and White",
+        "m"
+      ],
+      [
+        "(uncredited)', '(as Bob Yannetti)', '(special gymnast)', '(as Solly Brandt)', '(as Deborah)",
+        "%e%",
+        "release dates",
+        "rating",
+        "tribute', 'arsonist', 'wendy-diamond', 'sponge-bath', 'glue-factory",
+        "Switzerland:25 July 2012', 'Japan:28 July 1925', 'USA:2 August 2004', 'Japan:25 May 1982', '12,172 (Spain)",
+        "f"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%Warner%",
+        "countries",
+        "votes distribution",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "Lionsgate%",
+        "countries",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "m"
+      ],
+      [
+        "(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)",
+        "%Broadcasting%",
+        "countries",
+        "votes",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "m"
+      ],
+      [
+        "(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "revenge', 'family-relationships', 'nudity', 'non-fiction', 'bare-chested-male",
+        "UK', 'Comedy', 'PCS:Spherical', 'Silent', 'Documentary",
+        "f"
+      ],
+      [
+        "(voice)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "countries",
+        "votes",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "m"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%Warner%",
+        "genres",
+        "votes distribution",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "Documentary', 'UK', 'Documentary', 'PCS:Spherical', 'Comedy",
+        "m"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "%Broadcasting%",
+        "countries",
+        "votes",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "m"
+      ],
+      [
+        "(as Lisa Ryall)', '(Danni Lang)', '(as Boi Mart\u00c3\u00adnez)', '(as Wong Cheng Li)', '(as Shawn Elliot)",
+        "%\u00ad%",
+        "LD picture format",
+        "rating",
+        "police-officer-killed', 'weather-model', 'chased-by-dog', 'bug-spray', 'politics-2008",
+        "Letterbox', '382,764 (Spain)', 'Slovakia:March 2003', 'Spain:3 May 2009', 'Hungary:9 June 1989",
+        "f"
+      ],
+      [
+        "(set production assistant)', '(project closer)', '(as Ron Wyatt Jr)', '(as Carl B. Banks)', '(as Kylie)",
+        "%r%",
+        "release dates",
+        "rating",
+        "swat', 'based-on-toy', 'rotting-body', 'muddy-shoes', 'protea-cynaroides",
+        "Serbia:26 July 2012', 'Spain:1 March 1978', 'Mexico:1 March 1980', 'Finland:130', '25 March 1906 -",
+        "m"
+      ],
+      [
+        "(production coordinator)', '(producer)', '(producer)', '(production coordinator)', '(co-producer)",
+        "%Corporation%",
+        "genres",
+        "votes distribution",
+        "hardcore', 'hardcore', 'hardcore', 'hardcore', 'hardcore",
+        "Drama', 'PFM:35 mm', 'Mono', 'Drama', 'RAT:1.33 : 1",
+        "f"
+      ],
+      [
+        "(uncredited)', '(as Erla)', '(medic: Israel)', '(as Nasty Nick)', '(as Anna Mariscal)",
+        "%e%",
+        "release dates",
+        "rating",
+        "police-officer-killed', 'treasury-bonds', 'air-rights', 'mimeograph-machine', 'dene",
+        "Indonesia:20 July 2012', 'USA:29 May 1954', 'East Germany:1961', 'USA:16 May 1958', 'Iran:19 June 1960",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Germany', 'German', 'USA', 'American",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "Lionsgate%",
+        "genres",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "20th Century Fox%",
+        "genres",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "m"
+      ],
+      [
+        "(additional location assistant)', '(shopper buyer)', '(as John Mathews)', '(as Cary)', '(as Rebecca Purdum)",
+        "%P%",
+        "crazy credits",
+        "votes distribution",
+        "shaving', 'licking-boots', 'madcap-models', 'apollo-spacecraft', 'mia-bracelet",
+        "The Batman symbol is made of ice, and cracks as it zooms into the screen.', 'USA:14 July 2009', 'Colombia:8 May 1980', '3918', 'USA:9 July 1995",
+        "m"
+      ],
+      [
+        "(associate producer)', '(associate producer)', '(associate producer)', '(associate producer)', '(associate producer)",
+        "%Pictures%",
+        "countries",
+        "top 250 rank",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "m"
+      ],
+      [
+        "(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)",
+        "%American%",
+        "countries",
+        "top 250 rank",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "UK', 'UK', 'UK', 'RAT:1.33 : 1', 'Stereo",
+        "m"
+      ],
+      [
+        "(production coordinator)', '(co-producer)', '(production coordinator)', '(archive footage)', '(creator)",
+        "%National%",
+        "countries",
+        "votes",
+        "friendship', 'male-nudity', 'father-daughter-relationship', 'revenge', 'bare-breasts",
+        "Mono', 'USA', 'USA', 'PFM:35 mm', 'OFM:35 mm",
+        "m"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%Company%",
+        "countries",
+        "top 250 rank",
+        "based-on-play', 'bare-breasts', 'male-nudity', 'number-in-title', 'police",
+        "UK', 'Comedy', 'UK', 'Comedy', 'Documentary",
+        "m"
+      ],
+      [
+        "(uncredited)', '(as Hui Chi On)', '(as Pierre Franck)', '(as Juan M\u00c2\u00aa Navas)', '(as M. Pertsovskiy)",
+        "%r%",
+        "release dates",
+        "rating",
+        "orphan', 'handshake-deal', 'boot-fetish', 'boxing-bag', 'regal-empress",
+        "Finland:20 July 2012', 'France:9 July 1947', '6454', 'UK:22 June 2004', 'USA:20 June 1960",
+        "m"
+      ],
+      [
+        "(assistant football coordinator)', '(as Edward Call)', '(as Bj\u00c3\u00b6rn Floberg)', '(as Sara Bahr)', '(as Bouvier)",
+        "%s%",
+        "certificates",
+        "votes",
+        "tribute', 'secret-videotape', 'laos', 'boys''-shower-room', 'cult-male-character",
+        "Argentina:13', 'France:4 July 1994', 'France:7 June 1947', 'CAD 25', 'Japan:5 April 1966",
+        "f"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Warner%",
+        "countries",
+        "top 250 rank",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "m"
+      ],
+      [
+        "(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)",
+        "%Home%",
+        "countries",
+        "votes distribution",
+        "murder', 'murder', 'murder', 'murder', 'female-nudity",
+        "Documentary', 'Documentary', 'Comedy', 'UK', 'Silent",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "Twentieth Century Fox%",
+        "genres",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Drama', 'Horror",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "countries",
+        "votes",
+        "superhero', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence', 'magnet', 'web', 'claw', 'laser",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "20th Century Fox%",
+        "genres",
+        "rating",
+        "murder', 'blood', 'gore', 'death', 'female-nudity",
+        "Horror', 'Thriller",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "top 250 rank",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Germany', 'German",
+        "f"
+      ],
+      [
+        "(location assistant) (as Alex Martin)', '(as Matthew Minami)', '(as Peter Capadli)', '(as Frank Strayer)', '(as Ciar\u00c3\u00a1n Hope)",
+        "%e%",
+        "quotes",
+        "rating",
+        "sniper-rifle', 'gelding', 'vacated-title', 'ancient-weapon', 'bed-frame",
+        "Lucius Fox: It has a long uninteresting name. I just took to calling it... The Bat, and yes, Mr. Wayne, it does come in black.', 'Spain:2 March 1982', 'MET:1365.8 m', 'UK:12 December 1979', '424,078 (Germany)",
+        "m"
+      ],
+      [
+        "(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)",
+        "%Corporation%",
+        "genres",
+        "votes distribution",
+        "surrealism', 'love', 'nudity', 'non-fiction', 'male-nudity",
+        "-', 'Drama', 'OFM:35 mm', '-', 'Drama",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "m"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(writer)', '(writer)",
+        "%The%",
+        "genres",
+        "votes",
+        "based-on-novel', 'independent-film', 'independent-film', 'based-on-novel', 'independent-film",
+        "Mono', 'Drama', 'Mono', 'Mono', 'Drama",
+        "m"
+      ],
+      [
+        "(production controller)', '(as Minja Majurec)', '(as Tom Castronova)', '(as Zi-Jun Xiang)', '(as Dougie Squires)",
+        "%x%",
+        "quotes",
+        "votes",
+        "slow-motion-scene', 'human-functionality', 'pretentiousness', 'michael-bubl\u00c3\u00a9', 'runestone",
+        "Harry McKenna: You''re a goddamn machine. You see things. You view people differently than I do, differently than anybody does. But you have a problem, Arthur. You need companionship.::Arthur Bishop: I have you Harry.::Harry McKenna: Oh, then you''re in deeper shit than I thought.', '18 October 1991', 'UK:19 May 1979', 'Filmed in 1961.', 'UK:30 October 1995",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "genres",
+        "rating",
+        "hero', 'martial-arts', 'hand-to-hand-combat",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "m"
+      ],
+      [
+        "(producer)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "%Broadcasting%",
+        "countries",
+        "votes",
+        "based-on-novel', 'based-on-novel', 'independent-film', 'independent-film', 'based-on-novel",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "m"
+      ],
+      [
+        "(as Don Gibb)', '(as Vandisa Guida)', '(as Harry Belmore)', '(as Pablo Ib\u00c3\u00a1\u00c3\u00b1ez)', '(as Pai Piau)",
+        "%c%",
+        "admissions",
+        "rating",
+        "body-landing-on-a-car', 'validation', 'kora', 'taking-off-panties', 'high-school-girl",
+        "425,344 (Netherlands) (31 December 2008)', 'USA:1 August 1974', 'USA:4 February 1920', 'USA:25 January 1922', 'India:13 March 1998",
+        "m"
+      ],
+      [
+        "(associate producer)', '(uncredited)', '(associate producer)', '(uncredited)', '(associate producer)",
+        "%Video%",
+        "countries",
+        "votes distribution",
+        "female-nudity', 'female-nudity', 'female-nudity', 'murder', 'murder",
+        "English', 'USA', 'USA', 'English', 'USA",
+        "m"
+      ],
+      [
+        "(associate producer)', '(production coordinator)', '(associate producer)', '(production coordinator)', '(written by)",
+        "%American%",
+        "countries",
+        "top 250 rank",
+        "female-nudity', 'murder', 'murder', 'murder', 'murder",
+        "Color', 'Color', 'USA', 'USA', 'Color",
+        "m"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "%Inc%",
+        "genres",
+        "top 250 rank",
+        "bare-breasts', 'violence', 'family-relationships', 'blood', 'dog",
+        "Drama', 'Black and White', 'Black and White', 'Black and White', 'Drama",
+        "m"
+      ],
+      [
+        "(location assistant) (as Alex Martin)', '(2001-2002-2005-)', '(as Monique)', '(music) (as Nashad)', '(as Veronica Drake)",
+        "%P%",
+        "tech info",
+        "votes distribution",
+        "secret-door', 'water-lily', 'deleted-scene', 'somerset-england', 'rival-newspaper",
+        "PCS:Panavision', 'USA:13 May 1922', '3,716 (Spain)', 'Japan:21 April 1922', '6500",
+        "m"
+      ],
+      [
+        "(producer)', '(uncredited)', '(producer)', '(producer)', '(producer)",
+        "%Film%",
+        "genres",
+        "rating",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "Comedy', 'Silent', 'Silent', 'UK', 'PCS:Spherical",
+        "m"
+      ],
+      [
+        "(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)",
+        "%NBC%",
+        "countries",
+        "votes",
+        "bare-chested-male', 'dog', 'death', 'violence', 'dog",
+        "OFM:35 mm', 'USA', 'Mono', 'OFM:35 mm', 'PFM:35 mm",
+        "m"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%ABC%",
+        "countries",
+        "rating",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "m"
+      ],
+      [
+        "(assistant football coordinator)', '(as Stacy Martino)', '(master tailor)', '(alias Bob Jones)', '(english version)",
+        "%i%",
+        "goofs",
+        "votes",
+        "shaving', 'station-wagon', 'master-and-slave', 'audible', 'slow-motion",
+        "CONT: During the chase after the trade heist, Bane separates from his henchman and passes Batman on his left side; Batman turns to see him to his right side.', '1066', '15 June 2002 - ?', 'UK:20 December 2001', 'UK:13 August 1952",
+        "f"
+      ],
+      [
+        "(production executive)', '(play \"Fling!\")', '(as Terry Nelson)', '(as Lee Shi-Giei)', '(as Dan Penz)",
+        "%F%",
+        "tech info",
+        "rating",
+        "homosexual', 'two-suitors', 'sentai-adaptation', 'working', 'antarctica",
+        "CAM:Panavision Panaflex Millennium, Panavision Primo Lenses', '26,419 (Sweden)', 'Georgia:23 May 2011', '337,098 (Denmark)', '- 20 November 2011",
+        "m"
+      ],
+      [
+        "(voice)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "genres",
+        "votes",
+        "murder', 'blood', 'gore', 'death', 'female-nudity",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "f"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "%MGM%",
+        "countries",
+        "rating",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "English', 'English', 'USA', 'USA', 'English",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Film%",
+        "countries",
+        "votes",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "f"
+      ],
+      [
+        "(voice)', '(as Deirdre May)', '(as Juan Mora)', '(as Fugative)', '(as Luca Spyder)",
+        "%o%",
+        "tech info",
+        "votes distribution",
+        "standoff', 'anti-propaganda', 'stereogram', '444-days', 'riverside-drive",
+        "RAT:1.33 : 1', 'MET:202.5 m', 'Russia:1919', '$17,550,399 (USA)', '$16,295,774 (USA)",
+        "m"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "%Film%",
+        "countries",
+        "votes distribution",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "countries",
+        "votes",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Germany', 'German",
+        "f"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(location assistant) (as Alex Martin)', '(as Bill West MD)', '(as Charles Garcia)', '(as Kim Christie)', '(as Johan Rab\u00c3\u00a9us)",
+        "%t%",
+        "release dates",
+        "votes distribution",
+        "snow', 'dark-bat', 'desertion', 'widerstand', 'thought-rich",
+        "USA:16 July 2012', 'Kenya:26 May 1997', 'New Zealand:103', 'Chile:1 April 2001', 'UK:1996",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "rating",
+        "sequel', 'revenge', 'based-on-novel",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "f"
+      ],
+      [
+        "(co-producer)', '(co-executive producer)', '(voice: English version)', '(co-executive producer)', '(co-executive producer)",
+        "%NBC%",
+        "countries",
+        "votes",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "genres",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Film%",
+        "genres",
+        "bottom 10 rank",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Horror', 'Thriller",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "20th Century Fox%",
+        "genres",
+        "votes",
+        "sequel', 'revenge', 'based-on-novel",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "m"
+      ],
+      [
+        "(additional location assistant)', '(as Ann Ho)', '(as Tommy B.)', '(as Simon Reira)', '(as Michael Brody)",
+        "%L%",
+        "tech info",
+        "votes distribution",
+        "police-officer-killed', 'circle-of-violence', 'fur-trade-ethics', 'tomorrowland', 'television-writing",
+        "PCS:Panavision Super 70', 'Stephanie Hazel', 'House of Blues', 'USA:21 May 1995', 'USA:20 April 1904",
+        "m"
+      ],
+      [
+        "(medic)', '(video \"Just\")', '(as Jeff Klein)', '(as YoYo)', '(stand-in: \"Jason\")",
+        "%t%",
+        "goofs",
+        "votes",
+        "thief', 'multiple-killing', 'lost-years', 'voter-awareness', 'oak-desk",
+        "CONT: After Bane and his men attack the stock exchange, vehicle crash barriers are deployed on the streets. The one we see deploying has its open side towards the stock exchange. But when Bane and his men leave on their motorcycles, the open sides of the angled crash barriers are pointed away from the exchange allowing Bane to use them as ramps.', 'No Holes Barred!', '13 April 1987 - ?', 'India:3 May 2008', 'Austria:April 1966",
+        "m"
+      ],
+      [
+        "(uncredited)', '(as Sky Paley)', '(as Li Jin Kun)', '(as Paul Boudreau)', '(second engineer)",
+        "%e%",
+        "quotes",
+        "votes distribution",
+        "swat', 'narcotics-anonymous', 'lakai', 'jammed-door', 'buying-a-wife",
+        "[Two traders are getting their shoes shined]::Trader #2: You can''t short the stock because Bruce Wayne goes to a party.::Trader #1: Wayne coming back is change. Change is either good or bad. I pick bad.::Trader #2: On what basis?::Trader #1: I flipped a coin. [They leave, at which point the man shining their shoes reaches into his gym bag and pulls out a submachine gun]', 'Spain:6 March 1986', 'Spain:20 June 2000', 'USA:11 October 1909', 'Spain:15 April 1993",
+        "f"
+      ],
+      [
+        "(uncredited)', '(story) (scenario)', '(sword assistant)', '(as Kuei-ying Lo)', '(as Francis Dubois)",
+        "%t%",
+        "release dates",
+        "rating",
+        "shotgun', 'trombo', 'store-detective', 'jambalaya', 'cartridge",
+        "Iceland:25 July 2012', 'USA:24''10\"', 'UK:15 July 1974', '$98,674', 'MET:3612 m",
+        "m"
+      ],
+      [
+        "(medic)', '(as Kissy DeBolt)', '(as Dave Cadiente)', '(as \u00c3\u0089ric Savin)', '(Nina''s ex)",
+        "%i%",
+        "quotes",
+        "votes distribution",
+        "night-cityscape', 'chop-suey', 'black-wedding-dress', 'edible-panties', 'irritating-voice",
+        "Bane: Why are you here?::Sewer Thug #1: [to Gordon] Answer him!::Bane: [to thug] I was asking you.', 'UK:26 May 1993', 'Run Baby Run!', 'BRL 1', 'Aaron Lambert",
+        "m"
+      ],
+      [
+        "(production assistant)', '(producer)', '(production assistant)', '(producer)', '(production assistant)",
+        "%BBC%",
+        "genres",
+        "top 250 rank",
+        "female-nudity', 'female-nudity', 'murder', 'murder', 'female-nudity",
+        "Film', 'Film', 'USA:Approved', 'Thriller', 'Crime",
+        "m"
+      ],
+      [
+        "(uncredited)', '(as Milivoj Tomic)', '(as V. Yakushev)', '(autumn)', '(as P.K. Chandar)",
+        "%e%",
+        "quotes",
+        "votes distribution",
+        "space-travel', 'hole-to-china', 'watching-a-movie', 'deadly-fall', 'trailer-camp",
+        "Chester Babcock: I''ll never look at another banana split.', 'For the Boys', 'USA:9 April 1922', 'UK:19 March 1994', 'Mexico:24 May 2004",
+        "f"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "Lionsgate%",
+        "genres",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Horror', 'Thriller",
+        "m"
+      ],
+      [
+        "(writer)', '(associate producer)', '(associate producer)', '(associate producer)', '(associate producer)",
+        "%Video%",
+        "genres",
+        "top 250 rank",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "-', 'OFM:35 mm', '-', 'Drama', '-",
+        "m"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%Company%",
+        "countries",
+        "rating",
+        "revenge', 'blood', 'blood', 'surrealism', 'male-nudity",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "20th Century Fox%",
+        "countries",
+        "rating",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "sequel', 'revenge', 'based-on-novel",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "m"
+      ],
+      [
+        "(uncredited)', '(as Samanta Fox)', '(as The Stand-Ins)', '(as Alexander Bao)', '(Jack Ross)",
+        "%n%",
+        "trivia",
+        "votes",
+        "cadaver', 'naming-a-species', 'vacuole', 'groan', 'allenstein-germany",
+        "The nuclear cannon at the end of the film was actually a WWII German Howitzer.', 'The Mad Hatter', 'Italy:9 August 1969', 'France:May 1993', 'USA:7 April 1960",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Film%",
+        "genres",
+        "votes",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "f"
+      ],
+      [
+        "(producer)', '(voice)', '(voice)', '(producer)', '(producer)",
+        "%General%",
+        "genres",
+        "rating",
+        "female-nudity', 'female-nudity', 'murder', 'female-nudity', 'female-nudity",
+        "Documentary', 'UK', 'Comedy', 'UK', 'Comedy",
+        "f"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "hero', 'martial-arts', 'hand-to-hand-combat', 'computer-animated-movie",
+        "Germany', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(production executive)', '(shipping agent)', '(as Kim Pascual)', '(as Brigitta Bui)', '(as Lilian Gray)",
+        "%e%",
+        "quotes",
+        "votes distribution",
+        "gay', 'viva', 'late-fee', 'driving-getaway-car', 'turbot",
+        "Dean: The killer grows a conscience. I''d say that''s a breach of professional ethics, Mr. Bishop.', '12,935 (Spain)', 'UK:1976', 'MET:51.82 m', '14,925 (Sweden)",
+        "m"
+      ],
+      [
+        "(location assistant)', '(as Safia Otokor\u00c3\u00a9)', '(as Gonzalo Suarez)', '(as Ankie Beilke)', '(as Mykle Mariette)",
+        "%d%",
+        "tech info",
+        "votes distribution",
+        "stabbed-in-the-chest', 'animal-virus', 'moses', 'japanese-tsunami', 'partisan",
+        "PCS:Panavision', 'Sz\u00c3\u00b6ts, Istv\u00c3\u00a1n', '2386', 'Japan:17 July 2008', 'Turkey:71",
+        "m"
+      ],
+      [
+        "(assistant football coordinator)', '(P.O.D.)', '(as Anne Renate)', '(as Alberto Catala)', '(as Harry Refn)",
+        "%d%",
+        "release dates",
+        "rating",
+        "warlord', 'waterboarding', 'army-intelligence', 'paper-industry', 'new-teacher",
+        "Argentina:26 July 2012', 'Greece:24 May 2005', 'Slovenia:97', 'USA:22 March 1944', 'UK:23 November 1994",
+        "f"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Film%",
+        "countries",
+        "votes",
+        "superhero', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence', 'magnet', 'web', 'claw', 'laser",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "m"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%Video%",
+        "genres",
+        "votes distribution",
+        "female-nudity', 'murder', 'female-nudity', 'murder', 'murder",
+        "Comedy', 'Documentary', 'Comedy', 'Silent', 'PCS:Spherical",
+        "m"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%Broadcasting%",
+        "countries",
+        "votes distribution",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "PCS:Spherical', 'Silent', 'PCS:Spherical', 'UK', 'Documentary",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "superhero', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence', 'magnet', 'web', 'claw', 'laser",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "f"
+      ],
+      [
+        "(production assistant)', '(producer)', '(executive producer)', '(producer)', '(executive producer)",
+        "%Broadcasting%",
+        "genres",
+        "rating",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "Mono', 'Comedy', 'Mono', 'Comedy', 'Drama",
+        "m"
+      ],
+      [
+        "(as Lisa Ryall)', '(as Ivana)', '(as Dagmar Montag)', '(as Alex Sessa)', '(as Azzdin Bennajr)",
+        "%o%",
+        "LD disc format",
+        "votes distribution",
+        "florida', 'korea', 'tortoise-shell-comb', 'open-mic-night', 'air-canada",
+        "CLV', 'Sweden:7 March 1953', 'It''s out there!', 'USA:13 April 1962', 'USA:12 April 2002",
+        "f"
+      ],
+      [
+        "(production controller)', '(segment \"Blaze\")', '(as Steve Ellis)', '(location truck)', '(as Ian Bleasedale)",
+        "%d%",
+        "tech info",
+        "votes",
+        "underwater-scene', 'hamstring', 'dorset-england', 'oil-well-derrick', 'cathartic",
+        "PCS:Super 35', 'USA:14 May 1950', 'USA:5 July 1949', 'Spain:31 May 2011', 'East Germany:1975",
+        "m"
+      ],
+      [
+        "(uncredited)', '(executive producer)', '(uncredited)', '(executive producer)', '(producer)",
+        "%NBC%",
+        "genres",
+        "votes",
+        "based-on-novel', 'independent-film', 'based-on-novel', 'independent-film', 'independent-film",
+        "USA', 'Color', 'Sweden:15', 'Romance', 'Sweden:15",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "genres",
+        "votes",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "f"
+      ],
+      [
+        "(producer)', '(executive producer)",
+        "%Warner%",
+        "countries",
+        "votes",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Germany', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "superhero', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence', 'magnet', 'web', 'claw', 'laser",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)",
+        "%Film%",
+        "genres",
+        "votes distribution",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "Drama', 'Mono', 'Mono', 'Drama', 'Drama",
+        "f"
+      ],
+      [
+        "(production assistant)', '(1967-2004)', '(as Jerry Espe)', '(producer) (1976)', '(as DM Stuntmen)",
+        "%c%",
+        "release dates",
+        "votes distribution",
+        "thief', 'lizzie-borden', 'justice-department', 'strawberry-social', 'rioting",
+        "Croatia:26 July 2012', 'USA:19 May 1972', 'They''re Just Kids', 'Disturbed', 'Fight for Love",
+        "f"
+      ],
+      [
+        "(writer)', '(writer)', '(writer)', '(writer)', '(writer)",
+        "%Broadcasting%",
+        "countries",
+        "votes distribution",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "m"
+      ],
+      [
+        "(additional location assistant)', '(as Eduardo Sapag)', '(as Mark Bailey)', '(as Mary Madigan)', '(as Joshua Beller)",
+        "%t%",
+        "certificates",
+        "votes",
+        "stock-exchange', 'stepfamily', 'ziggy', 'young-and-dangerous', 'broke-businessman",
+        "Italy:T', 'Austria:21 May 1971', 'UK:6 July 1911', 'LD 32832-2WS', 'UK:24 July 1947",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Film%",
+        "countries",
+        "votes",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "USA', 'America",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(uncredited)', '(as Elena Makowska)', '(as Jamie Campbell)', '(segment \"Enhance\")', '(as Aaro Wichmann)",
+        "%L%",
+        "quotes",
+        "votes distribution",
+        "police-station', 'overpass', 'marriage-custom', 'war-machines', 'testicles-squeezed",
+        "Foley: [preparing to charge Bane''s army with the Gotham Police Department] There''s only one police in this town.', 'Austria:March 2008', 'Italy:23 June 2009', 'Venezuela:1980', '3851",
+        "f"
+      ],
+      [
+        "(uncredited)', '(as Nadia Moore)', '(Nazi war criminal)', '(as Anetta Brown)', '(as Antra Biswas)",
+        "%u%",
+        "certificates",
+        "votes distribution",
+        "national-guard', '90s-music', 'buckeyes', 'getting-dressed', 'funky-music",
+        "Switzerland:14', 'Secrets Kill', 'MET:4203.36 m', 'EE 1046', 'USA:7 March 1983",
+        "m"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "%American%",
+        "countries",
+        "votes",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "Mono', 'OFM:35 mm', 'PFM:35 mm', 'OFM:35 mm', 'USA",
+        "m"
+      ],
+      [
+        "(accounting clerk)', '(as Rina Bourne)', '(as Liz Flores)', '(key lifeguard)', '(as Frazer Coulter)",
+        "%n%",
+        "quotes",
+        "rating",
+        "cement-mixer', 'maranta-plant', 'indian-film', 'killas', 'teddy-boy",
+        "Ray Embrey: So you''ve used the door, the building''s still intact, people are happy you''ve arrived, they feel safe now, there''s an officer there and he''s done a good job, so you might want to tell him he''s done a good job.::Hancock: What the hell did I have to come for Ray if he''s done a good job?', 'Norway:17 July 1998', 'USA:8 February 2014', 'NZD 45,000', 'Mutts Rock!",
+        "m"
+      ],
+      [
+        "(additional location assistant)', '(Asja)', '(as Jesse Jam)', '(as Brandon Garcia)', '(as Jameel Khoury)",
+        "%r%",
+        "goofs",
+        "votes",
+        "shot-to-death', 'elbow', '45-degree-angle', 'zossen-germany', 'clock-radio",
+        "CONT: When Bane''s team blow the tail off the CIA plane there is a solid sheet of hardboard across the opening - from inside the plane it is completely open to the sky.', 'Show #5703', 'MET:2928 m', 'A Blind Perspective', 'USA:8 April 2007",
+        "m"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%Warner%",
+        "genres",
+        "votes",
+        "nudity', 'male-nudity', 'blood', 'anal-sex', 'bare-breasts",
+        "Color', 'English', 'English', 'Color', 'Drama",
+        "m"
+      ],
+      [
+        "(as Don Gibb)', '(as Jimmie Bates)', '(as Ron Dumas)', '(as Craig Morris)', '(as Dr David Petts)",
+        "%t%",
+        "quotes",
+        "votes",
+        "amnesia', 'unschooling', 'anthropomorphic-toy', 'martial-art', 'rubber-mouse",
+        "Hancock: [after seeing a video of himself throwing Walter, the beached whale, back into the ocean, knocking over a sailboat] I don''t even remember that.::Ray Embrey: Yeah. Greenpeace does.::[pause]::Ray Embrey: Walter does.', 'ID 2288 LI', 'USA:25 April 1999', 'ZDF \u00c2\u00a91983', '4-Track Stereo",
+        "m"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "%Path\u00c3\u00a9%",
+        "genres",
+        "votes distribution",
+        "hardcore', 'hardcore', 'hardcore', 'hardcore', 'hardcore",
+        "Drama', 'Drama', 'Black and White', 'RAT:1.33 : 1', 'OFM:35 mm",
+        "f"
+      ],
+      [
+        "(production assistant)', '(as Jay M. Boryea)', '(as C.J. Williams)', '(as J.C. Arnaud)', '(as Tanya Mitskov)",
+        "%i%",
+        "quotes",
+        "rating",
+        "snow', 'tesla-coil', 'potato-plant', 'loud', 'reference-to-yeats",
+        "Alfred: [to Bruce] Remember when you left Gotham? Before all this, before Batman? You were gone seven years. Seven years I waited, hoping that you wouldn''t come back. Every year, I took a holiday. I went to Florence, there''s this cafe, on the banks of the Arno. Every fine evening, I''d sit there and order a Fernet Branca. I had this fantasy, that I would look across the tables and I''d see you there, with a wife and maybe a couple of kids. You wouldn''t say anything to me, nor me to you. But we''d both know that you''d made it, that you were happy. I never wanted you to come back to Gotham. I always knew there was nothing here for you, except pain and tragedy. And I wanted something more for you than that. I still do.', 'Brazil:57', 'USA:29 October 2008', 'Taming Yobbos', 'Peru:24 March 2011",
+        "m"
+      ],
+      [
+        "(supervising producer)', '(director of photography)', '(screenplay)', '(archive footage)', '(script supervisor)",
+        "%Columbia%",
+        "genres",
+        "top 250 rank",
+        "revenge', 'non-fiction', 'husband-wife-relationship', 'blood', 'love",
+        "Comedy', 'PCS:Spherical', 'Comedy', 'Comedy', 'Comedy",
+        "m"
+      ],
+      [
+        "(producer)', '(executive producer)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%CBS%",
+        "genres",
+        "votes distribution",
+        "independent-film', 'independent-film', 'based-on-novel', 'independent-film', 'based-on-novel",
+        "Comedy', 'Black and White', 'PCS:Spherical', 'PCS:Spherical', 'Comedy",
+        "f"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "%Paramount%",
+        "genres",
+        "votes distribution",
+        "independent-film', 'independent-film', 'independent-film', 'based-on-novel', 'based-on-novel",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "rating",
+        "superhero', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence', 'magnet', 'web', 'claw', 'laser",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "f"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "%Broadcasting%",
+        "countries",
+        "votes distribution",
+        "number-in-title', 'dog', 'dog', 'surrealism', 'based-on-play",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "Lionsgate%",
+        "countries",
+        "votes",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "m"
+      ],
+      [
+        "(executive producer)', '(writer)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "%American%",
+        "genres",
+        "rating",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        "m"
+      ],
+      [
+        "(set production assistant)', '(as Nicole Mason)', '(as Wuzzy)', '(as Ilene Wood)', '(video \"Nannou\")",
+        "%r%",
+        "certificates",
+        "votes distribution",
+        "theft', 'faulty-ammunition', 'zonie', 'river-bank', 'trellick-towers",
+        "USA:PG-13', 'Adante Productions', 'The end has come.', 'Denmark:17 May 1993', 'Macedonia:15",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Film%",
+        "countries",
+        "rating",
+        "murder', 'murder-in-title",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "votes",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "USA', 'America",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "rating",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "m"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "%British%",
+        "genres",
+        "votes distribution",
+        "independent-film', 'based-on-novel', 'based-on-novel', 'based-on-novel', 'based-on-novel",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        "m"
+      ],
+      [
+        "(uncredited)', '(voice)', '(production assistant)', '(writer)', '(uncredited)",
+        "%ABC%",
+        "countries",
+        "top 250 rank",
+        "sequel', 'revenge', 'revenge', 'sequel', 'friendship",
+        "RAT:1.85 : 1', 'Dolby Digital', 'UK', 'Documentary', 'UK",
+        "m"
+      ],
+      [
+        "(producer)', '(executive producer)",
+        "Lionsgate%",
+        "countries",
+        "votes",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Film%",
+        "genres",
+        "rating",
+        "murder', 'blood', 'gore', 'death', 'female-nudity",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "f"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "%BBC%",
+        "countries",
+        "votes distribution",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "f"
+      ],
+      [
+        "(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)",
+        "%Broadcasting%",
+        "genres",
+        "votes distribution",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "OFM:35 mm', 'PFM:35 mm', 'USA', 'PFM:35 mm', 'Drama",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "genres",
+        "rating",
+        "sequel', 'revenge', 'based-on-novel",
+        "Horror', 'Thriller",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "hero', 'martial-arts', 'hand-to-hand-combat', 'computer-animated-movie",
+        "Sweden', 'Germany', 'Swedish', 'German",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Film%",
+        "countries",
+        "votes",
+        "superhero', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence', 'magnet', 'web', 'claw', 'laser",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "f"
+      ],
+      [
+        "(location assistant)', '(as Cindy Adra)', '(novel \"Temno\")', '(as Noemi)', '(as Maaku Daarin)",
+        "%a%",
+        "certificates",
+        "votes distribution",
+        "police-officer-killed', 'god-fearing', 'bass-the-singer', 'arkansas-delta', 'shiraz",
+        "Chile:Y7', '3336', '$130,000 (USA)', 'France:6 July 2011', '$1,083,395 (USA)",
+        "m"
+      ],
+      [
+        "(producer)', '(production assistant)', '(producer)', '(production assistant)', '(producer)",
+        "%Broadcasting%",
+        "genres",
+        "votes distribution",
+        "based-on-novel', 'independent-film', 'independent-film', 'based-on-novel', 'independent-film",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        "f"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Warner%",
+        "genres",
+        "rating",
+        "murder', 'murder-in-title",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "votes",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "countries",
+        "votes",
+        "superhero', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence', 'magnet', 'web', 'claw', 'laser",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(location manager)', '(as Paul Aitkin)', '(as Davide Flosi)', '(as Chris Rain)', '(as Li Shou Chi)",
+        "%t%",
+        "goofs",
+        "votes distribution",
+        "writing-on-someone', 'holcomb-kansas', 'mugging', 'high-level-bombing', 'troubled-kids",
+        "CONT: Before the brothers attack Yakavetta in the Prudential you can see the gangster in the blue sweater turn and walk away from the table twice.', 'UK:1 July 2001', 'MET:984 m', '385', 'USA:22 June 2009",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "genres",
+        "rating",
+        "sequel', 'revenge', 'based-on-novel",
+        "Horror', 'Thriller",
+        "f"
+      ],
+      [
+        "(special consultant)', '(as J.C. Dumoutier)', '(as Geoff Vockler)', '(as Kai Lani)', '(as Yogee)",
+        "%e%",
+        "quotes",
+        "votes distribution",
+        "childhood', 'frat-pack', 'tree-creature', 'christian-belief', 'nazi-treasure",
+        "Fanis Iakovides: I was afraid... of the moment of having to leave again.', 'Italy:13 May 2003', 'Italy:7 July 2009', 'Spain:4 June 2013', 'Helene Eggen",
+        "f"
+      ],
+      [
+        "(written by)', '(novel \"Rali\")', '(campus locations)', '(as Sylvia Hoecks)', '(as Wilson Heredia)",
+        "%g%",
+        "languages",
+        "rating",
+        "infection', 'tampere-finland', 'francais', 'tanganyika', 'chatroom",
+        "English', 'Turkey:April 2010', 'Ham. And Mince Pie.', 'USA:13 April 1957', 'Georgy Girl is BIG!",
+        "f"
+      ],
+      [
+        "(writer)', '(voice)', '(writer)', '(writer)', '(writer)",
+        "%Film%",
+        "countries",
+        "votes",
+        "violence', 'death', 'nudity', 'nudity', 'friendship",
+        "Color', 'Color', 'Color', 'USA', 'Color",
+        "m"
+      ],
+      [
+        "(medic)', '(parade supervisor)', '(as Ren\u00c3\u00a9e Mignosa)', '(as Nevena Habic)', '(as Paul Machell)",
+        "%e%",
+        "release dates",
+        "votes distribution",
+        "theft', 'riot-squad', 'commando-mission', 'binge-eating', 'love-hotel",
+        "Bulgaria:27 July 2012', 'Belgium:1 May 2004', 'NPR 110,000', '16 March 2000 - ?', 'Spain:11 May 1964",
+        "m"
+      ],
+      [
+        "(assistant football coordinator)', '(as Eddie Nolan)', '(as B. Svetlov)', '(as Mike Meadows)', '(as Iatrou)",
+        "%n%",
+        "quotes",
+        "votes distribution",
+        "snow', 'arcadia', 'london-1960s', 'guidance-counselor', 'albanian-restaurant",
+        "John Daggett: Can we get some ladies in here?::Catwoman: Careful what you wish for.::[Catwoman attacks Daggett and pins him up against the wall]::Catwoman: What''s the matter, Cat got your tongue?::John Daggett: You dumb bitch.::Catwoman: Nobody ever accused me of being dumb!::John Daggett: You''re dumb; for coming here.::Catwoman: I want what you owe me!', 'Greece:54', 'Hungary:March 1994', 'Italy:13 April 1972', 'UK:24 June 1979",
+        "f"
+      ],
+      [
+        "(production assistant)', '(as Alex Ramirez)', '(as Sue Matthews)', '(as Volodya Shvets)', '(as Shao-hsiang Li)",
+        "%e%",
+        "release dates",
+        "rating",
+        "secret-door', 'ex-actor', 'repayment-of-debt', 'pre-columbian', 'hong-kong-estate",
+        "Malaysia:19 July 2012', 'Finland:16 May 1965', '5959', 'INR 4,260,000', 'UK:7 September 2009",
+        "m"
+      ],
+      [
+        "(producer)', '(production assistant)', '(executive producer)', '(executive producer)', '(producer)",
+        "%Video%",
+        "countries",
+        "votes distribution",
+        "based-on-novel', 'based-on-novel', 'independent-film', 'independent-film', 'based-on-novel",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Film%",
+        "countries",
+        "votes",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "m"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%Video%",
+        "genres",
+        "votes",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "PCS:Spherical', 'Silent', 'PCS:Spherical', 'UK', 'Documentary",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "superhero', 'sequel', 'second-part', 'marvel-comics', 'based-on-comic', 'tv-special', 'fight', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "f"
+      ],
+      [
+        "(production assistant)', '(executive producer)', '(producer)', '(executive producer)', '(production assistant)",
+        "%Columbia%",
+        "genres",
+        "votes",
+        "men''s-restroom', 'reading-brail', 'woman-in-uniform', 'debut-novel', 'makeup-table",
+        "RAT:1.33 : 1', 'RAT:1.33 : 1', 'Comedy', '-', 'Short",
+        "m"
+      ],
+      [
+        "(location assistant) (as Alex Martin)', '(as Nataly Dune)', '(as Isis Wright)', '(Inner Voice)', '(as Chi-Li)",
+        "%d%",
+        "quotes",
+        "votes",
+        "theft', 'map-of-life', 'george-w.-bush-mask', 'paddle-stick', 'guaiacuru-indian",
+        "[Bruce makes the climb]::Blind Prisoner: Deshi basara! Deshi basara!', 'Finland:28 May 2008', '1835', 'Sweden:9 April 1973', 'Mahdia, Tunisia",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Film%",
+        "genres",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "m"
+      ],
+      [
+        "(uncredited)', '(as Muadlet Tibet)', '(as Valery Stetsko)', '(as Gary Richmond)', '(as Sam Mongiello)",
+        "%g%",
+        "release dates",
+        "rating",
+        "tragic-villain', 'common-law-marriage', 'misspelled-word', 'depth-charge', 'welsh-border",
+        "Norway:25 July 2012', 'UK:3 February 2000', 'Japan:4 March 1964', '253,503 (Sweden)', 'Germany:12 May 1941",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "countries",
+        "rating",
+        "hero', 'martial-arts', 'hand-to-hand-combat', 'computer-animated-movie",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "m"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "%ABC%",
+        "genres",
+        "votes distribution",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "-', 'Drama', 'Drama', '-', '-",
+        "f"
+      ],
+      [
+        "(public relations: McDonald & Rutter)', '(as Gordon Milne)', '(as Marcelo Pont)', '(as Robert Sleigh)', '(voice) (as Liz)",
+        "%m%",
+        "gross",
+        "votes distribution",
+        "sexuality', 'hand-guesture', 'non-citizen', 'roof-collapse', 'frankie",
+        "$1,009,634 (USA) (17 October 2004)', 'Extreme Fun!', 'Uncover The Secret', 'Hungary:7 July 2004', '\u00e2\u0082\u00ac 945,000",
+        "f"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "Lionsgate%",
+        "countries",
+        "rating",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "Lionsgate%",
+        "countries",
+        "rating",
+        "sequel', 'revenge', 'based-on-novel",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'English",
+        "f"
+      ],
+      [
+        "(location assistant)', '(as Staci Marcum)', '(Big Guy)', '(1 mes)', '(as Bob Lepucki)",
+        "%c%",
+        "release dates",
+        "rating",
+        "sniper-rifle', 'ivy', 'ski-race', 'blood-under-door', 'sprint-car",
+        "Thailand:19 July 2012', 'BRL 140,000', 'Mexico:16 May 1945', 'USA:22 June 1929', 'USA:8 May 1926",
+        "m"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%ABC%",
+        "countries",
+        "votes",
+        "murder', 'female-nudity', 'murder', 'female-nudity', 'murder",
+        "Documentary', 'UK', 'Documentary', 'UK', 'PCS:Spherical",
+        "m"
+      ],
+      [
+        "(accounting clerk)', '(Mia Domore)', '(as Monica Ortiz)', '(as K\u00c3\u00b4ji Mizukami)', '(as Suzanne Dilber)",
+        "%g%",
+        "quotes",
+        "votes distribution",
+        "defibrillator', 'low-intelligence', 'rocket-plane', 'soul-transmigration', 'pop-stars",
+        "Hancock: You and I...::Mary Embrey: You and I what?::Hancock: ...we''re the same.::Mary Embrey: No. I''m stronger.::Hancock: Really?::Mary Embrey: [smiling] Oh yeah.::Hancock: Who are we?::Mary Embrey: Gods, angels... Different cultures call us by different names. Now all of a sudden it''s superhero.::Hancock: Are there more of us?::Mary Embrey: There were. They all died. It''s just the two of us.', 'South Korea:1979', 'Spain:19 June 1993', 'Helen: Typical.', 'ESP 832,476 (Spain)",
+        "m"
+      ],
+      [
+        "(voice)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "rating",
+        "hero', 'martial-arts', 'hand-to-hand-combat', 'computer-animated-movie",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German",
+        "m"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%Company%",
+        "countries",
+        "votes",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "f"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(archive footage)', '(archive footage)",
+        "%CBS%",
+        "genres",
+        "top 250 rank",
+        "character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title', 'character-name-in-title",
+        "PFM:35 mm', 'Black and White', 'Drama', 'OFM:35 mm', 'OFM:35 mm",
+        "m"
+      ],
+      [
+        "(uncredited)', '(voice)', '(producer)', '(voice)', '(uncredited)",
+        "%American%",
+        "genres",
+        "votes",
+        "bare-chested-male', 'family-relationships', 'dog', 'friendship', 'nudity",
+        "Comedy', 'Comedy', 'Documentary', 'Documentary', 'PCS:Spherical",
+        "m"
+      ],
+      [
+        "(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)",
+        "%American%",
+        "genres",
+        "rating",
+        "independent-film', 'independent-film', 'based-on-novel', 'based-on-novel', 'independent-film",
+        "Short', 'Short', 'Short', 'Short', 'Short",
+        "m"
+      ],
+      [
+        "(executive producer)', '(as Len\u00c3\u00a9)', '(as Peter Paulsen)', '(Mai''s son)', '(as Carlo Munoz)",
+        "%d%",
+        "quotes",
+        "votes distribution",
+        "gay', 'drilling', 'restraining-order', 'fire-and-forget', 'iwisa",
+        "Withnail: This place is uninhabitable.::Marwood: Give it a chance. It''s got to warm up.::Withnail: Warm up? We may as well sit round this cigarette. This is ridiculous. We''ll be found dead in here next spring.', '322', 'Japan:7 July 1959', 'Mexico:27 May 2012', 'USA:26 June 2000",
+        "m"
+      ],
+      [
+        "(uncredited)', '(as Paul Jacobsen)', '(as Lily Li Li-Li)', '(as H.G. Nelson)', '(object sprites)",
+        "%r%",
+        "quotes",
+        "votes",
+        "shotgun', 'fisher-pub', 'bicarbonate-of-soda', 'mexican-consulate', 'dutch-parliament",
+        "Selina Kyle: Look, you wouldn''t beat up a woman any more than I would beat up a cripple.::[she kicks Bruce''s cane and he falls]::Selina Kyle: Of course, sometimes exceptions have to be made.', '24 September 1992', 'Mommy''s not home...', '$5,741 (USA)', 'UK:23 January 1987",
+        "f"
+      ],
+      [
+        "(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)', '(executive producer)",
+        "%Broadcasting%",
+        "countries",
+        "rating",
+        "hardcore', 'hardcore', 'hardcore', 'hardcore', 'hardcore",
+        "USA', 'USA', 'USA', 'USA', 'USA",
+        "m"
+      ],
+      [
+        "(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)', '(uncredited)",
+        "%British%",
+        "genres",
+        "votes",
+        "independent-film', 'independent-film', 'independent-film', 'based-on-novel', 'independent-film",
+        "OFM:35 mm', 'OFM:35 mm', 'OFM:35 mm', 'Drama', 'OFM:35 mm",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "Lionsgate%",
+        "genres",
+        "votes",
+        "murder', 'murder-in-title",
+        "Drama', 'Horror', 'Western', 'Family",
+        "m"
+      ],
+      [
+        "(voice)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "countries",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "m"
+      ],
+      [
+        "(uncredited)', '(producer)', '(uncredited)', '(producer)', '(producer)",
+        "%US%",
+        "countries",
+        "votes",
+        "dog', 'revenge', 'blood', 'police', 'father-daughter-relationship",
+        "Comedy', 'Documentary', 'Silent', 'UK', 'Silent",
+        "f"
+      ],
+      [
+        "(executive producer)', '(as Devin Drewitz)', '(field cashier)', '(as K.D. Reents)', '(epk: producer)",
+        "%i%",
+        "quotes",
+        "rating",
+        "london-england', 'chorus-girl', 'police-massacre', 'weekend-pass', 'bad-influence",
+        "Withnail: [approaching the pub] All right, this is the plan. We get in there and get wrecked, then we''ll eat a pork pie, then we''ll drop a couple of Surmontil-50''s each. That means we''ll miss out Monday but come up smiling Tuesday morning.', 'Spain:4 May 1964', 'USA:10 January 1962', 'Hong Kong:123', 'Denmark:7 May 1982",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Warner%",
+        "genres",
+        "votes",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "m"
+      ],
+      [
+        "(voice)', '(voice)', '(voice)', '(voice)', '(voice)",
+        "%Company%",
+        "countries",
+        "top 250 rank",
+        "father-son-relationship', 'blood', 'surrealism', 'blood', 'father-daughter-relationship",
+        "Color', 'Color', 'Color', 'Color', 'USA",
+        "f"
+      ],
+      [
+        "(producer)', '(producer)', '(producer)', '(producer)', '(producer)",
+        "%American%",
+        "countries",
+        "top 250 rank",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "OFM:35 mm', 'Color', 'Color', 'English', 'USA",
+        "m"
+      ],
+      [
+        "(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)', '(production assistant)",
+        "%Path\u00c3\u00a9%",
+        "genres",
+        "votes",
+        "sex', 'sex', 'sex', 'sex', 'sex",
+        "UK', 'PCS:Spherical', 'PCS:Spherical', 'Silent', 'Comedy",
+        "f"
+      ],
+      [
+        "(uncredited)', '(as Bersuit)', '(as Yang Ming Tsai)', '(as Pete Martell)', '(as Amnon Ben-Tor)",
+        "%r%",
+        "tech info",
+        "votes",
+        "tribute', 'human-flight', 'coconut', 'state-funeral', 'ayn-rand",
+        "PFM:70 mm', '- 1 September 2008', 'UK:11 January 2013', '31 July 1986 - ?', 'UK:14 December 1989",
+        "f"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "Twentieth Century Fox%",
+        "countries",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "m"
+      ],
+      [
+        "(voice)', '(voice: Japanese version)', '(voice) (uncredited)', '(voice: English version)",
+        "%Film%",
+        "genres",
+        "rating",
+        "murder', 'violence', 'blood', 'gore', 'death', 'female-nudity', 'hospital",
+        "Horror', 'Action', 'Sci-Fi', 'Thriller', 'Crime', 'War",
+        "m"
+      ],
+      [
+        "(writer)', '(head writer)', '(written by)', '(story)', '(story editor)",
+        "%Film%",
+        "countries",
+        "votes",
+        "murder', 'murder-in-title', 'blood', 'violence",
+        "Sweden', 'Norway', 'Germany', 'Denmark', 'Swedish', 'Denish', 'Norwegian', 'German', 'USA', 'American",
+        "m"
+      ]
+    ]
+  }
+}
